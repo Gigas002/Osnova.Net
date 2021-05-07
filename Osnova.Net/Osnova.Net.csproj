@@ -5,8 +5,8 @@
     <TargetFramework>net5.0</TargetFramework>
     <VersionPrefix>1.9.0</VersionPrefix>
     <VersionSuffix>ci071</VersionSuffix>
-    <AssemblyVersion>1.9.0.76</AssemblyVersion>
-    <FileVersion>1.9.0.76</FileVersion>
+    <AssemblyVersion>1.9.0.77</AssemblyVersion>
+    <FileVersion>1.9.0.77</FileVersion>
     <Platforms>AnyCPU;x64</Platforms>
     <Configurations>Debug;Release</Configurations>
     <PackageIcon>$(PackageIcon)</PackageIcon>
@@ -51,6 +51,10 @@
   <ItemGroup>
     <None Include="..\LICENSE" Pack="true" PackagePath="$(PackageLicenseFile)" />
     <None Include="..\Assets\icon.png" Pack="true" Visible="true" PackagePath="$(PackageIcon)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
