@@ -5,8 +5,8 @@
     <TargetFramework>net5.0</TargetFramework>
     <VersionPrefix>1.9.0</VersionPrefix>
     <VersionSuffix>ci071</VersionSuffix>
-    <AssemblyVersion>1.9.0.77</AssemblyVersion>
-    <FileVersion>1.9.0.77</FileVersion>
+    <AssemblyVersion>1.9.0.80</AssemblyVersion>
+    <FileVersion>1.9.0.80</FileVersion>
     <Platforms>AnyCPU;x64</Platforms>
     <Configurations>Debug;Release</Configurations>
     <PackageIcon>$(PackageIcon)</PackageIcon>

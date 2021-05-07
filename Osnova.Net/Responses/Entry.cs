@@ -226,7 +226,12 @@ namespace Osnova.Net.Responses
         {
             await using Stream stream = await GetEntryStreamById(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
 
-            var response = await JsonSerializer.DeserializeAsync<OsnovaResponse<Entry>>(stream).ConfigureAwait(false);
+            var options = new JsonSerializerOptions
+            {
+                Converters = { new BlockConverter() },
+            };
+
+            var response = await JsonSerializer.DeserializeAsync<OsnovaResponse<Entry>>(stream, options).ConfigureAwait(false);
 
             return response?.Result;
         }

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "OsnovaImageDownloader": {
+      "commandName": "Project",
+      "commandLineArgs": "-e 725899 -o \"D:/Downloads/725899\" -w dtf"
+    }
+  }
+}
