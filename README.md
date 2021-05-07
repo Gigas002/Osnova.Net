@@ -1,5 +1,7 @@
 # Osnova.Net
 
+[![Actions Status](https://github.com/Gigas002/Osnova.Net/workflows/.NET%20Core%20CI/badge.svg)](https://github.com/Gigas002/Osnova.Net/actions)
+
 Библиотека для работы с [API основы](https://cmtt-ru.github.io/osnova-api/redoc.html) версии 1.9.
 
 Реализовано:
