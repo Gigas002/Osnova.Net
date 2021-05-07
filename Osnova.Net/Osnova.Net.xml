@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Osnova.Net</name>
+    </assembly>
+    <members>
+        <member name="P:Osnova.Net.Responses.AdditionalData.Type">
+            <summary>
+             Enum: "gif" "jpg" "png" // TODO: test enum?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Comment.Text">
+            <summary>
+            Текст комментария с html
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Comment.TextWoMd">
+            <summary>
+            Текст комментария с markdown
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Comment.SourceOs">
+            <summary>
+            С какой OS был написан комментарий:
+            0 - Other
+            1 - iOS
+            2 - Android
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Contacts.OtherContacts">
+            <summary>
+            TODO: original name: contacts
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.Title">
+            <summary>
+            Заголовок статьи
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.WebviewUrl">
+            <summary>
+            Ссылка, которую нужно открыть вместо открытия статьи
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.Date">
+            <summary>
+            Дата создания статьи
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.DateRfc">
+            <summary>
+            Дата создания статьи
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.LastModificationDate">
+            <summary>
+            Дата последнего изменения статьи
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.Type">
+            <summary>
+            Тип контента:
+            TYPE_ENTRY - 1
+            TYPE_VACANCY - 2
+            TYPE_STATICPAGE - 3
+            TYPE_EVENT - 4
+            TYPE_REPOST - 5
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.Intro">
+            <summary>
+            Подзаголовок статьи
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.HitsCount">
+            <summary>
+            Число просмотров
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.CommentsPreview">
+            <summary>
+            Список аватарок комментирующих для заглушки
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.IsEditorial">
+            <summary>
+            Показывает, что это пост редакции
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.IsPinned">
+            <summary>
+            Показывает, закреплен ли пост
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.AudioUrl">
+            <summary>
+            Ссылка на mp3 файл с озвучкой статьи
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.Hotness">
+            <summary>
+            Значение хотнесса
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.SubscribedToTreads">
+            <summary>
+            Показывает, подписан ли пользователь на новые комментарии
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.Blocks">
+            <summary>
+            Список блоков для нативной статьи. Для каждого типа блока формат объекта data разный
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Entry.CanEdit">
+            <summary>
+            Показывает, может ли пользователь редактировать материал
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.LoadMore.Ids">
+            <summary>
+            Список id комментариев для подгрузки
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.LoadMore.Count">
+            <summary>
+            Количество подгружаемых комментариев
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.LoadMore.Avatars">
+            <summary>
+            Список аватарок пользователей в подгружаемых комментариях
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.Media.Type">
+            <summary>
+            Enum: 1 2
+            Тип медиафайла:
+            1 - TYPE_IMAGE
+            2 - TYPE_VIDEO
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.User.AvatarUrl">
+            <summary>
+            Аватарка профиля
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.User.Cover">
+            <summary>
+            Обложка профиля
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.User.SocialAccounts">
+            <summary>
+            Список прикрепленных аккаунтов
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.User.AdvancedAccess">
+            <summary>
+            Список разрешений
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.User.UserHash">
+            <summary>
+            Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Responses.User.PushTopic">
+            <summary>
+            Личный топик пользователя в Firebase Messaging
+            </summary>
+        </member>
+    </members>
+</doc>

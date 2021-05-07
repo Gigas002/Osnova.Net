@@ -1,0 +1,122 @@
+# Osnova.Net
+
+Библиотека для работы с [API основы](https://cmtt-ru.github.io/osnova-api/redoc.html) версии 1.9.
+
+Реализовано:
+
+- [ ] WebSocket
+- [ ] Authentication
+- [ ] Auth
+    - [ ] postAuthQr
+    - [ ] postAuthSocial
+    - [ ] postAuthLogin
+- [ ] Timeline
+    - [ ] getTimeline
+    - [ ] getTimelineByHashtag
+    - [ ] getTimelineNews
+    - [ ] getFlashHolder
+- [ ] Entry
+    - [x] getEntryById
+    - [ ] getPopularEntries
+    - [ ] postLikeEntry
+    - [ ] postEntryCreate
+    - [ ] getEntryLocate
+    - [ ] postEntryAttachEmbed
+- [ ] Comment
+    - [ ] getEntryComments
+    - [ ] getEntryCommentsLevelsGet
+    - [ ] getEntryCommentsThread
+    - [ ] getCommentLikes
+    - [ ] postCommentEdit
+    - [ ] postCommentSend
+    - [ ] postCommentSaveCommentsSeenCount
+    - [ ] getEntryWidgets
+- [ ] Upload
+    - [ ] postUploaderUpload
+    - [ ] postUploaderExtract
+- [ ] Other
+    - [ ] getLocate
+    - [ ] postEntryComplaint
+    - [ ] postEntryCommentComplaint
+- [ ] Search
+    - [ ] getSearch
+    - [ ] getSearchSubsite
+    - [ ] getSearchHashtag
+    - [ ] getTag
+- [ ] User
+    - [x] getUser
+    - [ ] getUserMe
+    - [ ] getUserMeUpdates
+    - [ ] getUserMeUpdatesCount
+    - [ ] postUserMeUpdatesReadId
+    - [ ] postUserMeUpdatesRead
+    - [ ] getUserComments
+    - [ ] getUserMeComments
+    - [ ] getUserEntries
+    - [ ] getUserMeEntries
+    - [ ] getUserFavoritesEntries
+    - [ ] getUserFavoritesComments
+    - [ ] getUserFavoritesVacancies
+    - [ ] getUserMeFavoritesEntries
+    - [ ] getUserMeFavoritesComments
+    - [ ] getUserMeFavoritesVacancies
+    - [ ] getUserMeSubscriptionsRecommended
+    - [ ] getUserMeSubscriptionsSubscribed
+    - [ ] postFavoriteAdd
+    - [ ] postFavoriteRemove
+    - [ ] getUserMeTuneCatalog
+    - [ ] postUserMeTuneCatalog
+    - [ ] postUserMeSaveAvatar
+    - [ ] postUserMeSaveCover
+    - [ ] postUserMeSubscription
+    - [ ] getGetIgnoredKeywords
+    - [ ] postSubsiteIgnoreKeywords
+- [ ] Layout
+    - [ ] getLayout
+    - [ ] getLayoutHashtag
+- [ ] Push
+    - [ ] getUserPushTopic
+    - [ ] getUserPushSettings
+    - [ ] postUpdateUserPushSettings
+- [ ] Payments
+    - [ ] getPaymentsCheck
+- [ ] Tweets
+    - [ ] getTweets
+- [ ] Widgets
+    - [ ] getRates
+- [ ] Subsite
+    - [ ] getSubsite
+    - [ ] getSubsiteTimeline
+    - [ ] getSubsitesList
+    - [ ] getSubsiteVacancies
+    - [ ] getSubsiteVacanciesMore
+    - [ ] getSubsiteSubscribe
+    - [ ] getSubsiteUnsubscribe
+    - [ ] postUserMeSubscription
+- [ ] Vacancies
+    - [ ] getJob
+    - [ ] getJobMore
+    - [ ] getJobFilters
+    - [ ] getVacancies
+- [ ] Webhooks Subscriptions
+    - [ ] getApiWebhooksGet
+    - [ ] postApiWebhookAdd
+    - [ ] postApiWebhookDel
+- [ ] Blacklist
+    - [ ] postContentMute
+    - [ ] postHashtagMute
+    - [ ] postSubsitegMute
+    - [ ] getIgnoresHashtags
+    - [ ] getIgnoresSubsites
+- [ ] Quiz
+    - [ ] getQuizResults
+    - [ ] postQuizVote
+    - [ ] postQuizVoteReset
+- [ ] Mentions
+    - [ ] getSearchForMentions
+    - [ ] getEnableMentionNotifications
+    - [ ] getDisableMentionNotifications
+- [ ] Events
+    - [ ] getEventsFilters
+    - [ ] getEvents
+    - [ ] getEventsMore

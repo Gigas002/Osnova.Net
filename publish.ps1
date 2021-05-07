@@ -1,0 +1,3 @@
+dotnet publish "Osnova.Net/Osnova.Net.csproj" -c Release /p:Platform=x64
+dotnet publish "OsnovaImageDownloader/OsnovaImageDownloader.csproj" -c Release -r win-x64 /p:PublishDir=../Publish/OsnovaImageDownloader/win-x64 /p:PublishSingleFile=true /p:IncludeAllContentForSelfExtract=true /p:PublishTrimmed=true
+dotnet publish "OsnovaImageDownloader/OsnovaImageDownloader.csproj" -c Release -r linux-x64 /p:PublishDir=../Publish/OsnovaImageDownloader/linux-x64 /p:PublishSingleFile=true /p:IncludeAllContentForSelfExtract=true /p:PublishTrimmed=true

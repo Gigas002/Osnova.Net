@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <VersionPrefix>1.9.0</VersionPrefix>
+    <VersionSuffix>ci071</VersionSuffix>
+    <AssemblyVersion>1.9.0.76</AssemblyVersion>
+    <FileVersion>1.9.0.76</FileVersion>
+    <Platforms>AnyCPU;x64</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <PackageIcon>$(PackageIcon)</PackageIcon>
+    <Authors>Gigas002</Authors>
+    <Company>Gigas002</Company>
+    <Description>Library to communicate with cmtt-ru osnova</Description>
+    <Copyright>Copyright © Gigas002 2021</Copyright>
+    <PackageProjectUrl>https://github.com/Gigas002/Osnova.Net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Gigas002/Osnova.Net</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/Gigas002/Osnova.Net/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <PackageLicenseFile>$(PackageLicenseFile)</PackageLicenseFile>
+    <RepositoryType>git</RepositoryType>
+    <LangVersion>latest</LangVersion>
+    <PackageTags>osnova ochoba dtf vc tj json http</PackageTags>
+    <PackageId>Osnova.Net</PackageId>
+    <Product>Osnova.Net</Product>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile>Osnova.Net.xml</DocumentationFile>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="('$(GITHUB_ACTIONS)' == 'true') Or ('$(APPVEYOR)' == 'true') Or ('$(APPVEYOR)' == 'True')">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE" Pack="true" PackagePath="$(PackageLicenseFile)" />
+    <None Include="..\Assets\icon.png" Pack="true" Visible="true" PackagePath="$(PackageIcon)" />
+  </ItemGroup>
+
+</Project>

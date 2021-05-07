@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix>ci085</VersionSuffix>
+    <AssemblyVersion>1.0.0.91</AssemblyVersion>
+    <FileVersion>1.0.0.91</FileVersion>
+    <Platforms>x64;AnyCPU</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <PackageIcon>$(PackageIcon)</PackageIcon>
+    <ApplicationIcon>..\Assets\icon.ico</ApplicationIcon>
+    <Authors>Gigas002</Authors>
+    <Company>Gigas002</Company>
+    <Description>Консольное приложение для загрузки изображений с сайтов основы</Description>
+    <Copyright>Copyright © Gigas002 2021</Copyright>
+    <PackageProjectUrl>https://github.com/Gigas002/Osnova.Net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Gigas002/Osnova.Net</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/Gigas002/Osnova.Net/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryType>git</RepositoryType>
+    <LangVersion>latest</LangVersion>
+    <PackageTags>osnova ochoba dtf vc tj downloader images pictures</PackageTags>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE" Pack="true" PackagePath="$(PackageLicenseFile)" />
+    <None Include="..\Assets\icon.png" Pack="true" Visible="true" PackagePath="$(PackageIcon)" />
+    <None Remove="..\Assets\icon.ico" />
+    <Content Include="..\Assets\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Osnova.Net\Osnova.Net.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,1 @@
+./OsnovaImageDownloader -e number -o "D:/Downloads" -w dtf
