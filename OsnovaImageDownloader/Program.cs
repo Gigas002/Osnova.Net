@@ -25,7 +25,7 @@ namespace OsnovaImageDownloader
             Stopwatch stopwatch = Stopwatch.StartNew();
 
             var progress = new Progress<double>(Console.WriteLine);
-            using HttpClient client = new HttpClient();
+            using HttpClient client = Core.CreateDefaultClient();
             await Core.DownloadAllEntryImages(client, Kind, Args.EntryId, Args.OutPath, progress: progress).ConfigureAwait(false);
 
             Console.WriteLine($"Done in: {stopwatch.ElapsedMilliseconds} ms");

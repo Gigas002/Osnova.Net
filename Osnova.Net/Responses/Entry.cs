@@ -209,7 +209,7 @@ namespace Osnova.Net.Responses
 
         #region Methods
 
-        public static Uri GetEntryUri(WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
+        public static Uri GetEntryByIdUri(WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
@@ -218,19 +218,28 @@ namespace Osnova.Net.Responses
 
         public static Uri GetPopularEntriesUri(WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
         {
-            return new Uri($"{GetEntryUri(websiteKind, entryId, apiVersion)}/popular");
+            return new Uri($"{GetEntryByIdUri(websiteKind, entryId, apiVersion)}/popular");
         }
 
         public static Uri GetEntryLocateUri(WebsiteKind websiteKind, Uri entryUri, double apiVersion = Core.ApiVersion)
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
+            // Alternative way to set up query parameters
+            //UriBuilder builder = new UriBuilder($"{baseUri}/entry/locate");
+            //string queryToAppend = $"url={entryUri}";
+
+            //if (builder.Query is { Length: > 1 })
+            //    builder.Query = builder.Query[1..] + "&" + queryToAppend;
+            //else
+            //    builder.Query = queryToAppend;
+
             return new Uri($"{baseUri}/entry/locate?url={entryUri}");
         }
 
         public static Task<string> GetEntryJsonById(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
         {
-            return client.GetStringAsync(GetEntryUri(websiteKind, entryId, apiVersion));
+            return client.GetStringAsync(GetEntryByIdUri(websiteKind, entryId, apiVersion));
         }
 
         public static Task<string> GetPopularEntriesJson(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
@@ -245,7 +254,7 @@ namespace Osnova.Net.Responses
 
         public static Task<Stream> GetEntryStreamById(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
         {
-            return client.GetStreamAsync(GetEntryUri(websiteKind, entryId, apiVersion));
+            return client.GetStreamAsync(GetEntryByIdUri(websiteKind, entryId, apiVersion));
         }
 
         public static Task<Stream> GetPopularEntriesStream(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)

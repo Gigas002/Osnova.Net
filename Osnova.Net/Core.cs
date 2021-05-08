@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -37,6 +38,19 @@ namespace Osnova.Net
         };
 
         #region Methods
+
+        public static HttpClient CreateDefaultClient(string authenticationToken = null)
+        {
+            HttpClient client = new();
+
+            if (!string.IsNullOrWhiteSpace(authenticationToken)) client.DefaultRequestHeaders.Add("X-Device-Token", authenticationToken);
+
+            client.DefaultRequestHeaders.UserAgent.Add(new("osnova-net-app", "1.0.0"));
+            client.DefaultRequestHeaders.UserAgent.Add(new("(PC; Windows 10; ru; 1920x1080)"));
+            client.DefaultRequestVersion = HttpVersion.Version20;
+
+            return client;
+        }
 
         public static Uri GetBaseUri(WebsiteKind websiteKind, double apiVersion)
         {

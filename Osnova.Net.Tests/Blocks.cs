@@ -8,7 +8,7 @@ namespace Osnova.Net.Tests
 {
     public class Blocks
     {
-        public HttpClient Client { get; } = new HttpClient();
+        public HttpClient Client { get; } = Core.CreateDefaultClient();
 
         [SetUp]
         public void Setup() { }
@@ -36,7 +36,7 @@ namespace Osnova.Net.Tests
         }
 
         [Test]
-        public async Task GetPopularEntries()
+        public void GetPopularEntries()
         {
             Assert.DoesNotThrowAsync(async () =>
             {
@@ -47,12 +47,15 @@ namespace Osnova.Net.Tests
         }
 
         [Test]
-        public async Task GetEntryLocate()
+        public void GetEntryLocate()
         {
-            WebsiteKind kind = WebsiteKind.Dtf;
-            Uri entryUri = new Uri("https://dtf.ru/725050");
+            Assert.DoesNotThrowAsync(async () =>
+            {
+                WebsiteKind kind = WebsiteKind.Dtf;
+                Uri entryUri = new Uri("https://dtf.ru/725050");
 
-            var entry = await Entry.GetEntryLocate(Client, kind, entryUri);
+                var entry = await Entry.GetEntryLocate(Client, kind, entryUri);
+            });
         }
 
         //[Test]
