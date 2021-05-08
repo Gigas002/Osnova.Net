@@ -34,6 +34,17 @@ namespace Osnova.Net.Tests
             });
         }
 
+        [Test]
+        public async Task GetPopularEntries()
+        {
+            Assert.DoesNotThrowAsync(async () =>
+            {
+                WebsiteKind kind = WebsiteKind.Dtf;
+
+                var entries = await Entry.GetPopularEntries(Client, kind, 725050);
+            });
+        }
+
         //[Test]
         public async Task Temp()
         {

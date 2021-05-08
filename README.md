@@ -32,7 +32,7 @@ GitHub Packages Feed: <https://github.com/Gigas002/Osnova.Net/packages>.
     - [ ] getFlashHolder
 - [ ] Entry
     - [x] getEntryById
-    - [ ] getPopularEntries
+    - [x] getPopularEntries
     - [ ] postLikeEntry
     - [ ] postEntryCreate
     - [ ] getEntryLocate

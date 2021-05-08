@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 using Osnova.Net.Responses.Blocks;
 
 namespace Osnova.Net.Responses.BlockDatas
@@ -17,7 +18,7 @@ namespace Osnova.Net.Responses.BlockDatas
         #region In telegram data
 
         [JsonPropertyName("tg_data")]
-        public TelegramData TelegramData { get; set; }
+        public JsonElement TelegramData { get; set; } // TODO: telegram data
 
         [JsonPropertyName("tg_data_encoded")]
         public string TelegramDataEncoded { get; set; }
