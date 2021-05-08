@@ -4,9 +4,9 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix>ci100</VersionSuffix>
-    <AssemblyVersion>1.0.0.100</AssemblyVersion>
-    <FileVersion>1.0.0.100</FileVersion>
+    <VersionSuffix>ci101</VersionSuffix>
+    <AssemblyVersion>1.0.0.101</AssemblyVersion>
+    <FileVersion>1.0.0.101</FileVersion>
     <Platforms>x64;AnyCPU</Platforms>
     <Configurations>Debug;Release</Configurations>
     <PackageIcon>$(PackageIcon)</PackageIcon>

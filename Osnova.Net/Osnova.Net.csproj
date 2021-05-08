@@ -4,12 +4,12 @@
     <OutputType>Library</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix>ci100</VersionSuffix>
-    <AssemblyVersion>1.0.0.100</AssemblyVersion>
-    <FileVersion>1.0.0.100</FileVersion>
+    <VersionSuffix>ci101</VersionSuffix>
+    <AssemblyVersion>1.0.0.101</AssemblyVersion>
+    <FileVersion>1.0.0.101</FileVersion>
     <Platforms>AnyCPU;x64</Platforms>
     <Configurations>Debug;Release</Configurations>
-    <PackageIcon>$(PackageIcon)</PackageIcon>
+    <PackageIcon>icon.png</PackageIcon>
     <Authors>Gigas002</Authors>
     <Company>Gigas002</Company>
     <Description>Library to communicate with cmtt-ru osnova</Description>
@@ -17,7 +17,7 @@
     <PackageProjectUrl>https://github.com/Gigas002/Osnova.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Gigas002/Osnova.Net</RepositoryUrl>
     <PackageReleaseNotes>https://github.com/Gigas002/Osnova.Net/blob/master/CHANGELOG.md</PackageReleaseNotes>
-    <PackageLicenseFile>$(PackageLicenseFile)</PackageLicenseFile>
+    <PackageLicenseExpression>WTFPL</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <LangVersion>latest</LangVersion>
     <PackageTags>osnova ochoba dtf vc tj json http</PackageTags>
