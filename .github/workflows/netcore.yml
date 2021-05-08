@@ -79,3 +79,39 @@ jobs:
         echo Unit tests linux-x64 start
         dotnet test -c Release /p:Platform=x64
         echo Unit tests linux-x64 complete
+
+# Build on MacOS
+
+  build-macos:
+
+    runs-on: macos-latest
+      
+    steps:
+    - uses: actions/checkout@v2.3.4
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1.8.0
+      with:
+        dotnet-version: 5.0.x
+    - name: Build with dotnet
+      run: |
+        echo Build macos-x64 core start
+        dotnet build -c Release /p:Platform=x64        
+        echo Build macos-x64 complete
+              
+# Unit tests on MacOS
+
+  unit-tests-macos:
+    
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v2.3.4
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1.8.0
+      with:
+        dotnet-version: 5.0.x
+    - name: Run unit tests
+      run: |
+        echo Unit tests macos-x64 start
+        dotnet test -c Release /p:Platform=x64
+        echo Unit tests macos-x64 complete
