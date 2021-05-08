@@ -7,9 +7,11 @@
 
 ## Current version
 
-GitHub Releases: [![Release](https://img.shields.io/github/release/Gigas002/Osnova.Net.svg)](https://github.com/Gigas002/Osnova.Net/releases/latest)
-NuGet: [![NuGet](https://img.shields.io/nuget/v/Osnova.Net.svg)](https://www.nuget.org/packages/Osnova.Net/)
-GitHub Packages Feed: https://github.com/Gigas002/Osnova.Net/packages.
+GitHub Releases: [![Release](https://img.shields.io/github/release/Gigas002/Osnova.Net.svg)](https://github.com/Gigas002/Osnova.Net/releases/latest);
+
+NuGet: [![NuGet](https://img.shields.io/nuget/v/Osnova.Net.svg)](https://www.nuget.org/packages/Osnova.Net/);
+
+GitHub Packages Feed: <https://github.com/Gigas002/Osnova.Net/packages>.
 
 Информация об изменениях в [CHANGELOG.md](CHANGELOG.md).
 
