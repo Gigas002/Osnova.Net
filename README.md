@@ -35,7 +35,7 @@ GitHub Packages Feed: <https://github.com/Gigas002/Osnova.Net/packages>.
     - [x] getPopularEntries
     - [ ] postLikeEntry
     - [ ] postEntryCreate
-    - [ ] getEntryLocate
+    - [x] getEntryLocate
     - [ ] postEntryAttachEmbed
 - [ ] Comment
     - [ ] getEntryComments
