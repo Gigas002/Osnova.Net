@@ -1,3 +1,4 @@
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -43,6 +44,15 @@ namespace Osnova.Net.Tests
 
                 var entries = await Entry.GetPopularEntries(Client, kind, 725050);
             });
+        }
+
+        [Test]
+        public async Task GetEntryLocate()
+        {
+            WebsiteKind kind = WebsiteKind.Dtf;
+            Uri entryUri = new Uri("https://dtf.ru/725050");
+
+            var entry = await Entry.GetEntryLocate(Client, kind, entryUri);
         }
 
         //[Test]

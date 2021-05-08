@@ -221,6 +221,13 @@ namespace Osnova.Net.Responses
             return new Uri($"{GetEntryUri(websiteKind, entryId, apiVersion)}/popular");
         }
 
+        public static Uri GetEntryLocateUri(WebsiteKind websiteKind, Uri entryUri, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/entry/locate?url={entryUri}");
+        }
+
         public static Task<string> GetEntryJsonById(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
         {
             return client.GetStringAsync(GetEntryUri(websiteKind, entryId, apiVersion));
@@ -231,6 +238,11 @@ namespace Osnova.Net.Responses
             return client.GetStringAsync(GetPopularEntriesUri(websiteKind, entryId, apiVersion));
         }
 
+        public static Task<string> GetEntryLocateJson(HttpClient client, WebsiteKind websiteKind, Uri entryUri, double apiVersion = Core.ApiVersion)
+        {
+            return client.GetStringAsync(GetEntryLocateUri(websiteKind, entryUri, apiVersion));
+        }
+
         public static Task<Stream> GetEntryStreamById(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
         {
             return client.GetStreamAsync(GetEntryUri(websiteKind, entryId, apiVersion));
@@ -239,6 +251,11 @@ namespace Osnova.Net.Responses
         public static Task<Stream> GetPopularEntriesStream(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
         {
             return client.GetStreamAsync(GetPopularEntriesUri(websiteKind, entryId, apiVersion));
+        }
+
+        public static Task<Stream> GetEntryLocateStream(HttpClient client, WebsiteKind websiteKind, Uri entryUri, double apiVersion = Core.ApiVersion)
+        {
+            return client.GetStreamAsync(GetEntryLocateUri(websiteKind, entryUri, apiVersion));
         }
 
         public static async ValueTask<Entry> GetEntryById(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
@@ -255,6 +272,15 @@ namespace Osnova.Net.Responses
             await using Stream stream = await GetPopularEntriesStream(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
 
             var response = await JsonSerializer.DeserializeAsync<OsnovaResponse<IEnumerable<Entry>>>(stream, Core.Options).ConfigureAwait(false);
+
+            return response?.Result;
+        }
+
+        public static async ValueTask<Entry> GetEntryLocate(HttpClient client, WebsiteKind websiteKind, Uri entryUri, double apiVersion = Core.ApiVersion)
+        {
+            await using Stream stream = await GetEntryLocateStream(client, websiteKind, entryUri, apiVersion).ConfigureAwait(false);
+
+            var response = await JsonSerializer.DeserializeAsync<OsnovaResponse<Entry>>(stream, Core.Options).ConfigureAwait(false);
 
             return response?.Result;
         }
