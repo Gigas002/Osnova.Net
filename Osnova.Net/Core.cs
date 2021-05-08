@@ -39,6 +39,13 @@ namespace Osnova.Net
 
         #region Methods
 
+        public static bool CheckResponse(HttpResponseMessage response, HttpStatusCode desiredCode)
+        {
+            if (response == null) throw new ArgumentNullException(nameof(response));
+
+            return response.StatusCode == desiredCode; // TODO: throw InvalidResponseCodeException
+        }
+
         public static HttpClient CreateDefaultClient(string authenticationToken = null)
         {
             HttpClient client = new();
@@ -74,7 +81,7 @@ namespace Osnova.Net
         {
             Directory.CreateDirectory(outputPath);
 
-            var entry = await Entry.GetEntryById(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
+            var entry = await Entry.GetEntryByIdAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
 
             var mediaItems = new List<MediaItemBlock>();
 

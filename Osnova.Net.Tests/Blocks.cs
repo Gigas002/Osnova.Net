@@ -31,7 +31,7 @@ namespace Osnova.Net.Tests
             {
                 WebsiteKind kind = WebsiteKind.Dtf;
 
-                var entry = await Entry.GetEntryById(Client, kind, 725050);
+                var entry = await Entry.GetEntryByIdAsync(Client, kind, 725050);
             });
         }
 
@@ -42,7 +42,7 @@ namespace Osnova.Net.Tests
             {
                 WebsiteKind kind = WebsiteKind.Dtf;
 
-                var entries = await Entry.GetPopularEntries(Client, kind, 725050);
+                var entries = await Entry.GetPopularEntriesAsync(Client, kind, 725050);
             });
         }
 
@@ -54,7 +54,7 @@ namespace Osnova.Net.Tests
                 WebsiteKind kind = WebsiteKind.Dtf;
                 Uri entryUri = new Uri("https://dtf.ru/725050");
 
-                var entry = await Entry.GetEntryLocate(Client, kind, entryUri);
+                var entry = await Entry.GetEntryLocateAsync(Client, kind, entryUri);
             });
         }
 
@@ -63,7 +63,7 @@ namespace Osnova.Net.Tests
         {
             WebsiteKind kind = WebsiteKind.Dtf;
 
-            var entry = await Entry.GetEntryById(Client, kind, 725050);
+            var entry = await Entry.GetEntryByIdAsync(Client, kind, 725050);
         }
     }
 }
