@@ -4,7 +4,7 @@ namespace Osnova.Net.Responses
 {
     public class Similar
     {
-        // TODO: are these REALLY long? https://cmtt-ru.github.io/osnova-api/redoc.html#operation/getEntryById
+        // TODO: are these all REALLY long? https://cmtt-ru.github.io/osnova-api/redoc.html#operation/getEntryById
 
         [JsonPropertyName("id")]
         public long Id { get; set; }

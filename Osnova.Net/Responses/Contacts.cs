@@ -14,10 +14,7 @@ namespace Osnova.Net.Responses
         [JsonPropertyName("email")]
         public string Email { get; set; }
 
-        /// <summary>
-        /// TODO: original name: contacts
-        /// </summary>
         [JsonPropertyName("contacts")]
-        public string OtherContacts { get; set; }
+        public string UserContacts { get; set; }
     }
 }

@@ -11,6 +11,8 @@ namespace Osnova.Net.Responses
 {
     public class Entry
     {
+        #region Properties
+
         #region From getEntryById docs
 
         [JsonPropertyName("id")]
@@ -54,14 +56,14 @@ namespace Osnova.Net.Responses
 
         /// <summary>
         /// Тип контента:
-        /// TYPE_ENTRY - 1
-        /// TYPE_VACANCY - 2
-        /// TYPE_STATICPAGE - 3
-        /// TYPE_EVENT - 4
-        /// TYPE_REPOST - 5
+        /// Entry = 1
+        /// Vacancy = 2
+        /// StaticPage = 3
+        /// Event = 4
+        /// Repost = 5
         /// </summary>
         [JsonPropertyName("type")]
-        public int Type { get; set; }
+        public ContentTypes Type { get; set; }
 
         /// <summary>
         /// Подзаголовок статьи
@@ -91,7 +93,7 @@ namespace Osnova.Net.Responses
         /// Список аватарок комментирующих для заглушки
         /// </summary>
         [JsonPropertyName("commentsPreview")]
-        public List<Comment> CommentsPreview { get; set; }
+        public IEnumerable<Comment> CommentsPreview { get; set; }
 
         [JsonPropertyName("commentsCount")]
         public int CommentsCount { get; set; }
@@ -203,6 +205,8 @@ namespace Osnova.Net.Responses
         [JsonPropertyName("summarize")]
         public string Summarize { get; set; }
 
+        #endregion
+
         #region Methods
 
         public static Uri GetEntryUri(WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
@@ -226,12 +230,7 @@ namespace Osnova.Net.Responses
         {
             await using Stream stream = await GetEntryStreamById(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
 
-            var options = new JsonSerializerOptions
-            {
-                Converters = { new BlockConverter() },
-            };
-
-            var response = await JsonSerializer.DeserializeAsync<OsnovaResponse<Entry>>(stream, options).ConfigureAwait(false);
+            var response = await JsonSerializer.DeserializeAsync<OsnovaResponse<Entry>>(stream, Core.Options).ConfigureAwait(false);
 
             return response?.Result;
         }

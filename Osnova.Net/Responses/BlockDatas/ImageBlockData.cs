@@ -28,8 +28,6 @@ namespace Osnova.Net.Responses.BlockDatas
         public string Hash { get; set; }
 
         [JsonPropertyName("external_service")]
-        //public IEnumerable<ExternalService> ExternalService { get; set; }
-        //public ExternalService ExternalService { get; set; }
         public JsonElement ExternalService { get; set; } // TODO: в рот ёб того урода, который сюда пустой массив запихнул
     }
 }

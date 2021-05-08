@@ -58,12 +58,12 @@ namespace Osnova.Net.Responses
 
         /// <summary>
         /// С какой OS был написан комментарий:
-        /// 0 - Other
-        /// 1 - iOS
-        /// 2 - Android
+        /// Other = 0
+        /// iOS = 1
+        /// Android = 2
         /// </summary>
         [JsonPropertyName("source_id")]
-        public int SourceOs { get; set; }
+        public SourceOs SourceOs { get; set; }
 
         [JsonPropertyName("load_more")]
         public LoadMore LoadMore { get; set; }

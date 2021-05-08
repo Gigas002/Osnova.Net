@@ -11,6 +11,8 @@ namespace Osnova.Net.Responses
 {
     public class User
     {
+        #region Properties
+
         #region From getUser docs
 
         [JsonPropertyName("id")]
@@ -20,7 +22,7 @@ namespace Osnova.Net.Responses
         public Uri Url { get; set; }
 
         [JsonPropertyName("type")]
-        public long Type { get; set; }
+        public long Type { get; set; } // TODO: some kind of enum?
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -38,7 +40,7 @@ namespace Osnova.Net.Responses
         /// Обложка профиля
         /// </summary>
         [JsonPropertyName("cover")]
-        public Cover Cover { get; set; }
+        public Block Cover { get; set; } // TODO: wrong info in spec? see getUserById
 
         [JsonPropertyName("is_subscribed")]
         public bool IsSubscribed { get; set; }
@@ -77,6 +79,12 @@ namespace Osnova.Net.Responses
         public IEnumerable<SocialAccount> SocialAccounts { get; set; }
 
         /// <summary>
+        /// Личный топик пользователя в Firebase Messaging
+        /// </summary>
+        [JsonPropertyName("push_topic")]
+        public string PushTopic { get; set; }
+
+        /// <summary>
         /// Список разрешений
         /// </summary>
         [JsonPropertyName("advanced_access")]
@@ -100,6 +108,9 @@ namespace Osnova.Net.Responses
 
         [JsonPropertyName("avatar")]
         public Block Avatar { get; set; }
+
+        [JsonPropertyName("is_online")]
+        public bool IsOnline { get; set; }
 
         [JsonPropertyName("isAvailableForMessenger")]
         public bool IsAvailableForMessenger { get; set; }
@@ -131,14 +142,7 @@ namespace Osnova.Net.Responses
 
         #endregion
 
-        [JsonPropertyName("is_online")]
-        public bool IsOnline { get; set; }
-
-        /// <summary>
-        /// Личный топик пользователя в Firebase Messaging
-        /// </summary>
-        [JsonPropertyName("push_topic")]
-        public string PushTopic { get; set; }
+        #endregion
 
         #region Methods
 

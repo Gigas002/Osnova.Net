@@ -22,10 +22,13 @@ namespace Osnova.Net.Responses.BlockDatas
 
         #region In tweet block data
 
+        [JsonPropertyName("tweet_data")]
         public TweetData TweetData { get; set; }
 
+        [JsonPropertyName("tweet_data_encoded")]
         public string TweetDataEncoded { get; set; }
 
+        [JsonPropertyName("version")]
         public string Version { get; set; }
 
         #endregion

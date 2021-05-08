@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Osnova.Net.Responses;
 using Osnova.Net.Responses.BlockDatas;
@@ -25,6 +26,15 @@ namespace Osnova.Net
         public const double ApiVersion = 1.9;
 
         #endregion
+
+        public static JsonSerializerOptions Options { get; } = new()
+        {
+            Converters =
+            {
+                new BlockConverter(),
+                //new ImageBlockDataConverter()
+            }
+        };
 
         #region Methods
 

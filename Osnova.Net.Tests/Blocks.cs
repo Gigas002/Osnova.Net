@@ -13,7 +13,7 @@ namespace Osnova.Net.Tests
         public void Setup() { }
 
         [Test]
-        public async Task GetUser()
+        public void GetUser()
         {
             Assert.DoesNotThrowAsync(async () =>
             {
@@ -32,6 +32,14 @@ namespace Osnova.Net.Tests
 
                 var entry = await Entry.GetEntryById(Client, kind, 725050);
             });
+        }
+
+        //[Test]
+        public async Task Temp()
+        {
+            WebsiteKind kind = WebsiteKind.Dtf;
+
+            var entry = await Entry.GetEntryById(Client, kind, 725050);
         }
     }
 }

@@ -6,7 +6,7 @@
     <members>
         <member name="P:Osnova.Net.Responses.AdditionalData.Type">
             <summary>
-             Enum: "gif" "jpg" "png" // TODO: test enum?
+             "gif" "jpg" "png"
             </summary>
         </member>
         <member name="P:Osnova.Net.Responses.Comment.Text">
@@ -22,14 +22,9 @@
         <member name="P:Osnova.Net.Responses.Comment.SourceOs">
             <summary>
             С какой OS был написан комментарий:
-            0 - Other
-            1 - iOS
-            2 - Android
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.Responses.Contacts.OtherContacts">
-            <summary>
-            TODO: original name: contacts
+            Other = 0
+            iOS = 1
+            Android = 2
             </summary>
         </member>
         <member name="P:Osnova.Net.Responses.Entry.Title">
@@ -60,11 +55,11 @@
         <member name="P:Osnova.Net.Responses.Entry.Type">
             <summary>
             Тип контента:
-            TYPE_ENTRY - 1
-            TYPE_VACANCY - 2
-            TYPE_STATICPAGE - 3
-            TYPE_EVENT - 4
-            TYPE_REPOST - 5
+            Entry = 1
+            Vacancy = 2
+            StaticPage = 3
+            Event = 4
+            Repost = 5
             </summary>
         </member>
         <member name="P:Osnova.Net.Responses.Entry.Intro">
@@ -155,6 +150,11 @@
             Список прикрепленных аккаунтов
             </summary>
         </member>
+        <member name="P:Osnova.Net.Responses.User.PushTopic">
+            <summary>
+            Личный топик пользователя в Firebase Messaging
+            </summary>
+        </member>
         <member name="P:Osnova.Net.Responses.User.AdvancedAccess">
             <summary>
             Список разрешений
@@ -163,11 +163,6 @@
         <member name="P:Osnova.Net.Responses.User.UserHash">
             <summary>
             Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.Responses.User.PushTopic">
-            <summary>
-            Личный топик пользователя в Firebase Messaging
             </summary>
         </member>
     </members>
