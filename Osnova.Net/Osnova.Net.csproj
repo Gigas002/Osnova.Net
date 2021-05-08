@@ -3,10 +3,10 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <VersionPrefix>1.9.0</VersionPrefix>
-    <VersionSuffix>ci071</VersionSuffix>
-    <AssemblyVersion>1.9.0.80</AssemblyVersion>
-    <FileVersion>1.9.0.80</FileVersion>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix>ci100</VersionSuffix>
+    <AssemblyVersion>1.0.0.100</AssemblyVersion>
+    <FileVersion>1.0.0.100</FileVersion>
     <Platforms>AnyCPU;x64</Platforms>
     <Configurations>Debug;Release</Configurations>
     <PackageIcon>$(PackageIcon)</PackageIcon>
