@@ -1,0 +1,46 @@
+version: 1.0.0.{build}
+image:
+- Visual Studio 2019
+- Ubuntu
+- macOS
+configuration: Release
+platform: x64
+environment:
+  GH_TOKEN:
+    secure: nzUU8F4CLe1EDxmKabW5Ym6NnL0SEK+VLft2D8oh72KEcfejyt1xWsQq9dMg6Wpt
+  NUGET_API_KEY:
+    secure: ssythWMtw/uWpXR4Altl5sk8mzi4MlsTmD1Ot7hEsABqUHnXko9nUYi926gKi/Mj
+  CODECOV_TOKEN:
+    secure: FvFHn5Uomfs/ouz0f058C55/8yOOdYLvZrHuvVZQxZZ3NweMSeJdfnkAufGtNHqz
+  USERNAME:
+    secure: rZ2WjoUDzL3ZjbEuu/WA5g==
+before_build:
+- pwsh: dotnet restore
+build:
+  parallel: true
+  verbosity: minimal
+after_test:
+- pwsh: ./publish.ps1
+artifacts:
+- path: Osnova.Net\bin\x64\Release\*.nupkg
+- path: Osnova.Net\bin\x64\Release\*.snupkg
+- path: Publish\*.zip
+deploy:
+- provider: GitHub
+  release: Continious build
+  auth_token:
+    secure: +8ScGCxHJseXLY5vBEmdLA==
+  artifact: /.*\.zip/
+  prerelease: true
+  force_update: true
+- provider: NuGet
+  api_key:
+    secure: NlJYgWwGQxb5nAWedhq05SBzyJ565p2vvD8CjhVMmhg=
+  artifact: /.*(\.|\.s)nupkg/
+- provider: NuGet
+  server: https://nuget.pkg.github.com/gigas002/index.json
+  api_key:
+    secure: +8ScGCxHJseXLY5vBEmdLA==
+  username:
+    secure: qNdfX7rqW1v2DFv84kgV5g==
+  artifact: /.*(\.)nupkg/
