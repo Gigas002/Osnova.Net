@@ -73,19 +73,12 @@ namespace Osnova.Net.Tests
         }
 
         [Test]
-        public async Task GetUserComments()
+        public void GetUserComments()
         {
-            #if LOCALTESTS
             Assert.DoesNotThrowAsync(async () =>
             {
                 var comments = await User.GetUserCommentsAsync(Constants.Client, Kind, 339033);
             });
-            #else
-            Assert.ThrowsAsync<InvalidResponseCodeException>(async () =>
-            {
-                var comments = await User.GetUserCommentsAsync(Constants.Client, Kind, 339033);
-            });
-            #endif
         }
     }
 }
