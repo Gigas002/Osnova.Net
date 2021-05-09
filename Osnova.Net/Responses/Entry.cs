@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net;
 using System.Net.Http;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Responses.Blocks;
@@ -219,25 +216,17 @@ namespace Osnova.Net.Responses
             return new Uri($"{baseUri}/entry/{entryId}");
         }
 
-        public static async ValueTask<HttpResponseMessage> GetEntryByIdResponseAsync(HttpClient client, WebsiteKind websiteKind, 
+        public static ValueTask<HttpResponseMessage> GetEntryByIdResponseAsync(HttpClient client, WebsiteKind websiteKind, 
             int entryId, double apiVersion = Core.ApiVersion)
         {
-            var response = await client.GetAsync(GetEntryByIdUri(websiteKind, entryId, apiVersion)).ConfigureAwait(false);
-
-            Core.CheckResponse(response, HttpStatusCode.OK);
-
-            return response;
+            return Core.GetResponseFromApiAsync(client, GetEntryByIdUri(websiteKind, entryId, apiVersion));
         }
 
         public static async ValueTask<Entry> GetEntryByIdAsync(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
         {
             using HttpResponseMessage response = await GetEntryByIdResponseAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
 
-            await using Stream stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-
-            var osnovaResponse = await JsonSerializer.DeserializeAsync<OsnovaResponse<Entry>>(stream, Core.Options).ConfigureAwait(false);
-
-            return osnovaResponse?.Result;
+            return await Core.DeserializeOsnovaResponseAsync<Entry>(response).ConfigureAwait(false);
         }
 
         #endregion
@@ -249,25 +238,17 @@ namespace Osnova.Net.Responses
             return new Uri($"{GetEntryByIdUri(websiteKind, entryId, apiVersion)}/popular");
         }
 
-        public static async ValueTask<HttpResponseMessage> GetPopularEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        public static ValueTask<HttpResponseMessage> GetPopularEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int entryId, double apiVersion = Core.ApiVersion)
         {
-            var response = await client.GetAsync(GetPopularEntriesUri(websiteKind, entryId, apiVersion)).ConfigureAwait(false);
-
-            Core.CheckResponse(response, HttpStatusCode.OK);
-
-            return response;
+            return Core.GetResponseFromApiAsync(client, GetPopularEntriesUri(websiteKind, entryId, apiVersion));
         }
 
         public static async ValueTask<IEnumerable<Entry>> GetPopularEntriesAsync(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
         {
             using HttpResponseMessage response = await GetPopularEntriesResponseAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
 
-            await using Stream stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-
-            var osnovaResponse = await JsonSerializer.DeserializeAsync<OsnovaResponse<IEnumerable<Entry>>>(stream, Core.Options).ConfigureAwait(false);
-
-            return osnovaResponse?.Result;
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
         }
 
         #endregion
@@ -290,25 +271,17 @@ namespace Osnova.Net.Responses
             return new Uri($"{baseUri}/entry/locate?url={entryUri}");
         }
 
-        public static async ValueTask<HttpResponseMessage> GetEntryLocateResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        public static ValueTask<HttpResponseMessage> GetEntryLocateResponseAsync(HttpClient client, WebsiteKind websiteKind,
             Uri entryUri, double apiVersion = Core.ApiVersion)
         {
-            var response = await client.GetAsync(GetEntryLocateUri(websiteKind, entryUri, apiVersion)).ConfigureAwait(false);
-
-            Core.CheckResponse(response, HttpStatusCode.OK);
-
-            return response;
+            return Core.GetResponseFromApiAsync(client, GetEntryLocateUri(websiteKind, entryUri, apiVersion));
         }
 
         public static async ValueTask<Entry> GetEntryLocateAsync(HttpClient client, WebsiteKind websiteKind, Uri entryUri, double apiVersion = Core.ApiVersion)
         {
             using HttpResponseMessage response = await GetEntryLocateResponseAsync(client, websiteKind, entryUri, apiVersion).ConfigureAwait(false);
 
-            await using Stream stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-
-            var osnovaResponse = await JsonSerializer.DeserializeAsync<OsnovaResponse<Entry>>(stream, Core.Options).ConfigureAwait(false);
-
-            return osnovaResponse?.Result;
+            return await Core.DeserializeOsnovaResponseAsync<Entry>(response).ConfigureAwait(false);
         }
 
         #endregion

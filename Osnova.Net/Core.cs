@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Osnova.Net.Responses;
-using Osnova.Net.Responses.BlockDatas;
 using Osnova.Net.Responses.Blocks;
 
 #pragma warning disable 1591
@@ -59,6 +56,27 @@ namespace Osnova.Net
             client.DefaultRequestVersion = HttpVersion.Version20;
 
             return client;
+        }
+
+        public static async ValueTask<HttpResponseMessage> GetResponseFromApiAsync(HttpClient client, Uri requestUri,
+                                                                              HttpStatusCode desiredCode = HttpStatusCode.OK)
+        {
+            var response = await client.GetAsync(requestUri).ConfigureAwait(false);
+
+            CheckResponse(response, desiredCode);
+
+            return response;
+        }
+
+        public static async ValueTask<T> DeserializeOsnovaResponseAsync<T>(HttpResponseMessage response, JsonSerializerOptions options = null)
+        {
+            if (options == null) options = Options;
+
+            await using Stream stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+
+            var osnovaResponse = await JsonSerializer.DeserializeAsync<OsnovaResponse<T>>(stream, options).ConfigureAwait(false);
+
+            return osnovaResponse.Result;
         }
 
         public static Uri GetBaseUri(WebsiteKind websiteKind, double apiVersion)

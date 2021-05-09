@@ -50,6 +50,7 @@ namespace Osnova.Net.Tests
         //[Test]
         public async Task Temp()
         {
+            // TODO: localtests configuration
             WebsiteKind kind = WebsiteKind.Dtf;
 
             var entry = await Entry.GetEntryByIdAsync(Constants.Client, kind, 725050);

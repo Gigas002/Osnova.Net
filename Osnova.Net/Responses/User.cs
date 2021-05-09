@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net;
 using System.Net.Http;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Responses.Blocks;
@@ -156,26 +153,17 @@ namespace Osnova.Net.Responses
             return new Uri($"{baseUri}/user/{userId}");
         }
 
-        public static async ValueTask<HttpResponseMessage> GetUserResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        public static ValueTask<HttpResponseMessage> GetUserResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int userId, double apiVersion = Core.ApiVersion)
         {
-            var response = await client.GetAsync(GetUserUri(websiteKind, userId, apiVersion)).ConfigureAwait(false);
-
-            Core.CheckResponse(response, HttpStatusCode.OK);
-
-            return response;
+            return Core.GetResponseFromApiAsync(client, GetUserUri(websiteKind, userId, apiVersion));
         }
 
         public static async ValueTask<User> GetUserAsync(HttpClient client, WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
         {
             using var response = await GetUserResponseAsync(client, websiteKind, userId, apiVersion).ConfigureAwait(false);
 
-            await using Stream stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-
-            // TODO: options?
-            var osnovaResponse = await JsonSerializer.DeserializeAsync<OsnovaResponse<User>>(stream).ConfigureAwait(false);
-
-            return osnovaResponse?.Result;
+            return await Core.DeserializeOsnovaResponseAsync<User>(response).ConfigureAwait(false);
         }
 
         #endregion
@@ -189,14 +177,10 @@ namespace Osnova.Net.Responses
             return new Uri($"{baseUri}/user/me");
         }
 
-        public static async ValueTask<HttpResponseMessage> GetUserMeResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        public static ValueTask<HttpResponseMessage> GetUserMeResponseAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
-            var response = await client.GetAsync(GetUserMeUri(websiteKind, apiVersion)).ConfigureAwait(false);
-
-            Core.CheckResponse(response, HttpStatusCode.OK);
-
-            return response;
+            return Core.GetResponseFromApiAsync(client, GetUserMeUri(websiteKind, apiVersion));
         }
 
         /// <summary>
@@ -210,12 +194,7 @@ namespace Osnova.Net.Responses
         {
             using var response = await GetUserMeResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
-            await using var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-
-            // TODO: options?
-            var osnovaResponse = await JsonSerializer.DeserializeAsync<OsnovaResponse<User>>(stream).ConfigureAwait(false);
-
-            return osnovaResponse?.Result;
+            return await Core.DeserializeOsnovaResponseAsync<User>(response).ConfigureAwait(false);
         }
 
         #endregion
