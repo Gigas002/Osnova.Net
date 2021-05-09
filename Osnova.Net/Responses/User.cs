@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -146,6 +147,8 @@ namespace Osnova.Net.Responses
 
         #region Methods
 
+        #region GetUser
+
         public static Uri GetUserUri(WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
@@ -153,25 +156,25 @@ namespace Osnova.Net.Responses
             return new Uri($"{baseUri}/user/{userId}");
         }
 
-        #region GetUser
-
-        public static Task<string> GetUserJson(HttpClient client, WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
+        public static async ValueTask<HttpResponseMessage> GetUserResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int userId, double apiVersion = Core.ApiVersion)
         {
-            return client.GetStringAsync(GetUserUri(websiteKind, userId, apiVersion));
-        }
+            var response = await client.GetAsync(GetUserUri(websiteKind, userId, apiVersion)).ConfigureAwait(false);
 
-        public static Task<Stream> GetUserStream(HttpClient client, WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
-        {
-            return client.GetStreamAsync(GetUserUri(websiteKind, userId, apiVersion));
+            var isOk = Core.CheckResponse(response, HttpStatusCode.OK);
+
+            return isOk ? response : null;
         }
 
         public static async ValueTask<User> GetUser(HttpClient client, WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
         {
-            await using Stream stream = await GetUserStream(client, websiteKind, userId, apiVersion).ConfigureAwait(false);
+            using var response = await GetUserResponseAsync(client, websiteKind, userId, apiVersion).ConfigureAwait(false);
 
-            var response = await JsonSerializer.DeserializeAsync<OsnovaResponse<User>>(stream).ConfigureAwait(false);
+            await using Stream stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
 
-            return response?.Result;
+            var osnovaResponse = await JsonSerializer.DeserializeAsync<OsnovaResponse<User>>(stream).ConfigureAwait(false);
+
+            return osnovaResponse?.Result;
         }
 
         #endregion
