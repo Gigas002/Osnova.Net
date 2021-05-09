@@ -39,11 +39,13 @@ namespace Osnova.Net
 
         #region Methods
 
-        public static bool CheckResponse(HttpResponseMessage response, HttpStatusCode desiredCode)
+        public static void CheckResponse(HttpResponseMessage response, HttpStatusCode desiredCode)
         {
             if (response == null) throw new ArgumentNullException(nameof(response));
 
-            return response.StatusCode == desiredCode; // TODO: throw InvalidResponseCodeException
+            if (response.StatusCode != desiredCode)
+                throw new InvalidResponseCodeException($"Response code was: {response.StatusCode}," +
+                                                       $" expected: {desiredCode}");
         }
 
         public static HttpClient CreateDefaultClient(string authenticationToken = null)
@@ -68,7 +70,7 @@ namespace Osnova.Net
                 WebsiteKind.Dtf => BaseDtfUriString,
                 WebsiteKind.Tjournal => BaseTjournalUriString,
                 WebsiteKind.Vc => BaseVcUriString,
-                _ => throw new NotImplementedException()
+                _ => throw new NotSupportedException()
             };
 
             return new Uri($"{baseString}/v{invariantVersion}");

@@ -161,17 +161,58 @@ namespace Osnova.Net.Responses
         {
             var response = await client.GetAsync(GetUserUri(websiteKind, userId, apiVersion)).ConfigureAwait(false);
 
-            var isOk = Core.CheckResponse(response, HttpStatusCode.OK);
+            Core.CheckResponse(response, HttpStatusCode.OK);
 
-            return isOk ? response : null;
+            return response;
         }
 
-        public static async ValueTask<User> GetUser(HttpClient client, WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
+        public static async ValueTask<User> GetUserAsync(HttpClient client, WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
         {
             using var response = await GetUserResponseAsync(client, websiteKind, userId, apiVersion).ConfigureAwait(false);
 
             await using Stream stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
 
+            // TODO: options?
+            var osnovaResponse = await JsonSerializer.DeserializeAsync<OsnovaResponse<User>>(stream).ConfigureAwait(false);
+
+            return osnovaResponse?.Result;
+        }
+
+        #endregion
+
+        #region GetUserMe
+
+        public static Uri GetUserMeUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/user/me");
+        }
+
+        public static async ValueTask<HttpResponseMessage> GetUserMeResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            var response = await client.GetAsync(GetUserMeUri(websiteKind, apiVersion)).ConfigureAwait(false);
+
+            Core.CheckResponse(response, HttpStatusCode.OK);
+
+            return response;
+        }
+
+        /// <summary>
+        /// Warning: requires client to be authenticated
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="websiteKind"></param>
+        /// <param name="apiVersion"></param>
+        /// <returns></returns>
+        public static async ValueTask<User> GetUserMeAsync(HttpClient client, WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetUserMeResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            await using var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+
+            // TODO: options?
             var osnovaResponse = await JsonSerializer.DeserializeAsync<OsnovaResponse<User>>(stream).ConfigureAwait(false);
 
             return osnovaResponse?.Result;

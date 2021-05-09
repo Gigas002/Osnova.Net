@@ -165,5 +165,14 @@
             Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
             </summary>
         </member>
+        <member name="M:Osnova.Net.Responses.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Double)">
+            <summary>
+            Warning: requires client to be authenticated
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

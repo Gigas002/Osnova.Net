@@ -1,27 +1,16 @@
 using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Osnova.Net.Responses;
 
 namespace Osnova.Net.Tests
 {
-    public class Blocks
+    public class EntryTests
     {
-        public HttpClient Client { get; } = Core.CreateDefaultClient();
-
         [SetUp]
-        public void Setup() { }
-
-        [Test]
-        public void GetUser()
+        public void Setup()
         {
-            Assert.DoesNotThrowAsync(async () =>
-            {
-                WebsiteKind kind = WebsiteKind.Dtf;
-
-                var user = await User.GetUser(Client, kind, 260955);
-            });
+            Constants.CreateClient();
         }
 
         [Test]
@@ -31,7 +20,7 @@ namespace Osnova.Net.Tests
             {
                 WebsiteKind kind = WebsiteKind.Dtf;
 
-                var entry = await Entry.GetEntryByIdAsync(Client, kind, 725050);
+                var entry = await Entry.GetEntryByIdAsync(Constants.Client, kind, 725050);
             });
         }
 
@@ -42,7 +31,7 @@ namespace Osnova.Net.Tests
             {
                 WebsiteKind kind = WebsiteKind.Dtf;
 
-                var entries = await Entry.GetPopularEntriesAsync(Client, kind, 725050);
+                var entries = await Entry.GetPopularEntriesAsync(Constants.Client, kind, 725050);
             });
         }
 
@@ -54,7 +43,7 @@ namespace Osnova.Net.Tests
                 WebsiteKind kind = WebsiteKind.Dtf;
                 Uri entryUri = new Uri("https://dtf.ru/725050");
 
-                var entry = await Entry.GetEntryLocateAsync(Client, kind, entryUri);
+                var entry = await Entry.GetEntryLocateAsync(Constants.Client, kind, entryUri);
             });
         }
 
@@ -63,7 +52,7 @@ namespace Osnova.Net.Tests
         {
             WebsiteKind kind = WebsiteKind.Dtf;
 
-            var entry = await Entry.GetEntryByIdAsync(Client, kind, 725050);
+            var entry = await Entry.GetEntryByIdAsync(Constants.Client, kind, 725050);
         }
     }
 }

@@ -224,9 +224,9 @@ namespace Osnova.Net.Responses
         {
             var response = await client.GetAsync(GetEntryByIdUri(websiteKind, entryId, apiVersion)).ConfigureAwait(false);
 
-            var isOk = Core.CheckResponse(response, HttpStatusCode.OK);
+            Core.CheckResponse(response, HttpStatusCode.OK);
 
-            return isOk ? response : null;
+            return response;
         }
 
         public static async ValueTask<Entry> GetEntryByIdAsync(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
@@ -254,9 +254,9 @@ namespace Osnova.Net.Responses
         {
             var response = await client.GetAsync(GetPopularEntriesUri(websiteKind, entryId, apiVersion)).ConfigureAwait(false);
 
-            var isOk = Core.CheckResponse(response, HttpStatusCode.OK);
+            Core.CheckResponse(response, HttpStatusCode.OK);
 
-            return isOk ? response : null;
+            return response;
         }
 
         public static async ValueTask<IEnumerable<Entry>> GetPopularEntriesAsync(HttpClient client, WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
@@ -295,9 +295,9 @@ namespace Osnova.Net.Responses
         {
             var response = await client.GetAsync(GetEntryLocateUri(websiteKind, entryUri, apiVersion)).ConfigureAwait(false);
 
-            var isOk = Core.CheckResponse(response, HttpStatusCode.OK);
+            Core.CheckResponse(response, HttpStatusCode.OK);
 
-            return isOk ? response : null;
+            return response;
         }
 
         public static async ValueTask<Entry> GetEntryLocateAsync(HttpClient client, WebsiteKind websiteKind, Uri entryUri, double apiVersion = Core.ApiVersion)

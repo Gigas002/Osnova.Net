@@ -3,6 +3,7 @@
 Библиотека для работы с [API основы](https://cmtt-ru.github.io/osnova-api/redoc.html) версии 1.9.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/feuu4sm52kko3krd?svg=true)](https://ci.appveyor.com/project/Gigas002/osnova-net)
+
 [![Actions Status](https://github.com/Gigas002/Osnova.Net/workflows/.NET%20Core%20CI/badge.svg)](https://github.com/Gigas002/Osnova.Net/actions)
 
 ## Current version
@@ -60,7 +61,7 @@ GitHub Packages Feed: <https://github.com/Gigas002/Osnova.Net/packages>.
     - [ ] getTag
 - [ ] User
     - [x] getUser
-    - [ ] getUserMe
+    - [x] getUserMe
     - [ ] getUserMeUpdates
     - [ ] getUserMeUpdatesCount
     - [ ] postUserMeUpdatesReadId
