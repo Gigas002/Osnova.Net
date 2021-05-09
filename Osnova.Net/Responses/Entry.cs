@@ -259,15 +259,6 @@ namespace Osnova.Net.Responses
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
-            // Alternative way to set up query parameters
-            //UriBuilder builder = new UriBuilder($"{baseUri}/entry/locate");
-            //string queryToAppend = $"url={entryUri}";
-
-            //if (builder.Query is { Length: > 1 })
-            //    builder.Query = builder.Query[1..] + "&" + queryToAppend;
-            //else
-            //    builder.Query = queryToAppend;
-
             return new Uri($"{baseUri}/entry/locate?url={entryUri}");
         }
 

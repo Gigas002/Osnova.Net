@@ -36,6 +36,31 @@ namespace Osnova.Net
 
         #region Methods
 
+        public static Uri GetBaseUri(WebsiteKind websiteKind, double apiVersion)
+        {
+            string invariantVersion = apiVersion.ToString(CultureInfo.InvariantCulture);
+
+            var baseString = websiteKind switch
+            {
+                WebsiteKind.Dtf => BaseDtfUriString,
+                WebsiteKind.Tjournal => BaseTjournalUriString,
+                WebsiteKind.Vc => BaseVcUriString,
+                _ => throw new NotSupportedException()
+            };
+
+            return new Uri($"{baseString}/v{invariantVersion}");
+        }
+
+        public static void BuildUri(ref UriBuilder builder, params string[] queriesToAppend)
+        {
+            foreach (string queryToAppend in queriesToAppend)
+            {
+                builder.Query = builder.Query is { Length: > 1 }
+                    ? $"{builder.Query[1..]}&{queryToAppend}"
+                    : queryToAppend;
+            }
+        }
+
         public static void CheckResponse(HttpResponseMessage response, HttpStatusCode desiredCode)
         {
             if (response == null) throw new ArgumentNullException(nameof(response));
@@ -77,21 +102,6 @@ namespace Osnova.Net
             var osnovaResponse = await JsonSerializer.DeserializeAsync<OsnovaResponse<T>>(stream, options).ConfigureAwait(false);
 
             return osnovaResponse.Result;
-        }
-
-        public static Uri GetBaseUri(WebsiteKind websiteKind, double apiVersion)
-        {
-            string invariantVersion = apiVersion.ToString(CultureInfo.InvariantCulture);
-
-            var baseString = websiteKind switch
-            {
-                WebsiteKind.Dtf => BaseDtfUriString,
-                WebsiteKind.Tjournal => BaseTjournalUriString,
-                WebsiteKind.Vc => BaseVcUriString,
-                _ => throw new NotSupportedException()
-            };
-
-            return new Uri($"{baseString}/v{invariantVersion}");
         }
 
         #endregion

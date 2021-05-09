@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Threading.Tasks;
+using NUnit.Framework;
 using Osnova.Net.Responses;
 
 namespace Osnova.Net.Tests
@@ -26,21 +27,33 @@ namespace Osnova.Net.Tests
         [Test]
         public void GetUserMe()
         {
-#if LOCALTESTS
-
+            #if LOCALTESTS
             Assert.DoesNotThrowAsync(async () =>
             {
                 var user = await User.GetUserMeAsync(Constants.Client, Kind);
             });
-
-#else
-
+            #else
             Assert.ThrowsAsync<InvalidResponseCodeException>(async () =>
             {
                 var user = await User.GetUserMeAsync(Constants.Client, Kind);
             });
+            #endif
+        }
 
-#endif
+        [Test]
+        public async Task GetUserMeUpdates()
+        {
+            #if LOCALTESTS
+            Assert.DoesNotThrowAsync(async () =>
+            {
+                var notifications = await User.GetUserMeUpdatesAsync(Constants.Client, Kind);
+            });
+            #else
+            Assert.ThrowsAsync<InvalidResponseCodeException>(async () =>
+            {
+                var notifications = await User.GetUserMeUpdatesAsync(Constants.Client, Kind);
+            });
+            #endif
         }
     }
 }

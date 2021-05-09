@@ -135,6 +135,13 @@
             2 - TYPE_VIDEO
             </summary>
         </member>
+        <member name="P:Osnova.Net.Responses.Notification.Icon">
+            <summary>
+             TODO: enum
+             Enum: "comments_added" "comments_reply_to" "like_up" "like_down" "ui_chronograph" "icon-unpublish-entry" "pencil" "ui_archive"
+            Название иконки, которая подставляется вместо аватарки.
+            </summary>
+        </member>
         <member name="P:Osnova.Net.Responses.User.AvatarUrl">
             <summary>
             Аватарка профиля
@@ -172,6 +179,12 @@
             <param name="client"></param>
             <param name="websiteKind"></param>
             <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Osnova.Net.Responses.User.GetUserMeUpdatesAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Boolean,System.Int64,System.Double)">
+            <summary>
+            Warning: requires authentication!
+            </summary>
             <returns></returns>
         </member>
     </members>

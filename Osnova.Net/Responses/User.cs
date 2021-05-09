@@ -199,6 +199,44 @@ namespace Osnova.Net.Responses
 
         #endregion
 
+        #region GetUserMeUpdates
+
+        public static Uri GetUserMeUpdatesUri(WebsiteKind websiteKind, bool isRead = true, long lastId = 0,
+                                              double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/user/me/updates");
+
+            string isReadQuery = $"is_read={Convert.ToInt32(isRead)}";
+            string lastIdQuery = $"last_id={lastId}";
+
+            Core.BuildUri(ref builder, isReadQuery, lastIdQuery);
+
+            return builder.Uri;
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserMeUpdatesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            bool isRead = true, long lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserMeUpdatesUri(websiteKind, isRead,
+                                                                            lastId, apiVersion));
+        }
+
+        /// <summary>
+        /// Warning: requires authentication!
+        /// </summary>
+        /// <returns></returns>
+        public static async ValueTask<IEnumerable<Notification>> GetUserMeUpdatesAsync(HttpClient client, WebsiteKind websiteKind,
+            bool isRead = true, long lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserMeUpdatesResponseAsync(client, websiteKind, isRead, lastId, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Notification>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
     }
 }
