@@ -7,7 +7,7 @@ namespace Osnova.Net.Responses.BlockDatas
     public class ImageBlockData : BlockData
     {
         [JsonPropertyName("uuid")]
-        public Guid Uuid { get; set; }
+        public string Uuid { get; set; } // Not a Guid, sometimes it's a shitty string...
 
         [JsonPropertyName("width")]
         public int Width { get; set; }

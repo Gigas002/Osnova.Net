@@ -8,7 +8,7 @@ namespace Osnova.Net.Responses
         #region From getEntryById docs
 
         /// <summary>
-        ///  "gif" "jpg" "png"
+        ///  "gif" "jpg" "png" "webp"
         /// </summary>
         [JsonPropertyName("type")]
         public string Type { get; set; }

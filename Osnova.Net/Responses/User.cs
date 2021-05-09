@@ -125,6 +125,9 @@ namespace Osnova.Net.Responses
         [JsonPropertyName("is_plus")]
         public bool IsPlus { get; set; }
 
+        [JsonPropertyName("online_status_text")]
+        public string OnlineStatusText { get; set; }
+
         #endregion
 
         #region Specific from getEntryById
@@ -201,7 +204,7 @@ namespace Osnova.Net.Responses
 
         #region GetUserMeUpdates
 
-        public static Uri GetUserMeUpdatesUri(WebsiteKind websiteKind, bool isRead = true, long lastId = 0,
+        public static Uri GetUserMeUpdatesUri(WebsiteKind websiteKind, bool isRead = true, long lastId = -1,
                                               double apiVersion = Core.ApiVersion)
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
@@ -209,7 +212,7 @@ namespace Osnova.Net.Responses
             UriBuilder builder = new($"{baseUri}/user/me/updates");
 
             string isReadQuery = $"is_read={Convert.ToInt32(isRead)}";
-            string lastIdQuery = $"last_id={lastId}";
+            string lastIdQuery = lastId > -1 ? $"last_id={lastId}" : null;
 
             Core.BuildUri(ref builder, isReadQuery, lastIdQuery);
 
@@ -217,7 +220,7 @@ namespace Osnova.Net.Responses
         }
 
         public static ValueTask<HttpResponseMessage> GetUserMeUpdatesResponseAsync(HttpClient client, WebsiteKind websiteKind,
-            bool isRead = true, long lastId = 0, double apiVersion = Core.ApiVersion)
+            bool isRead = true, long lastId = -1, double apiVersion = Core.ApiVersion)
         {
             return Core.GetResponseFromApiAsync(client, GetUserMeUpdatesUri(websiteKind, isRead,
                                                                             lastId, apiVersion));
@@ -228,7 +231,7 @@ namespace Osnova.Net.Responses
         /// </summary>
         /// <returns></returns>
         public static async ValueTask<IEnumerable<Notification>> GetUserMeUpdatesAsync(HttpClient client, WebsiteKind websiteKind,
-            bool isRead = true, long lastId = 0, double apiVersion = Core.ApiVersion)
+            bool isRead = true, long lastId = -1, double apiVersion = Core.ApiVersion)
         {
             var response = await GetUserMeUpdatesResponseAsync(client, websiteKind, isRead, lastId, apiVersion).ConfigureAwait(false);
 
@@ -237,7 +240,7 @@ namespace Osnova.Net.Responses
 
         #endregion
 
-        #region GetUserMeUpdates
+        #region GetUserMeUpdatesCount
 
         public static Uri GetUserMeUpdatesCountUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
@@ -262,6 +265,39 @@ namespace Osnova.Net.Responses
             var response = await GetUserMeUpdatesCountResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<Counter>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region GetUserComments
+
+        public static Uri GetUserCommentsUri(WebsiteKind websiteKind, int userId, int count = -1,
+                                             int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/user/{userId}/comments");
+
+            string countQuery = count > -1 ? $"count={count}" : null;
+            string offsetQuery = offset > -1 ? $"offset={offset}" : null;
+
+            Core.BuildUri(ref builder, countQuery, offsetQuery);
+
+            return builder.Uri;
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+            int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserCommentsUri(websiteKind, userId, count, offset, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Comment>> GetUserCommentsAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+            int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserCommentsResponseAsync(client, websiteKind, userId, count, offset, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Comment>>(response).ConfigureAwait(false);
         }
 
         #endregion

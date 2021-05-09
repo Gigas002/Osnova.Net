@@ -57,7 +57,7 @@ namespace Osnova.Net.Tests
         }
 
         [Test]
-        public async Task GetUserMeUpdatesCount()
+        public void GetUserMeUpdatesCount()
         {
             #if LOCALTESTS
             Assert.DoesNotThrowAsync(async () =>
@@ -68,6 +68,22 @@ namespace Osnova.Net.Tests
             Assert.ThrowsAsync<InvalidResponseCodeException>(async () =>
             {
                 var notifications = await User.GetUserMeUpdatesCountAsync(Constants.Client, Kind);
+            });
+            #endif
+        }
+
+        [Test]
+        public async Task GetUserComments()
+        {
+            #if LOCALTESTS
+            Assert.DoesNotThrowAsync(async () =>
+            {
+                var comments = await User.GetUserCommentsAsync(Constants.Client, Kind, 339033);
+            });
+            #else
+            Assert.ThrowsAsync<InvalidResponseCodeException>(async () =>
+            {
+                var comments = await User.GetUserCommentsAsync(Constants.Client, Kind, 339033);
             });
             #endif
         }

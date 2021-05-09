@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Osnova.Net.Responses.Blocks;
 
 namespace Osnova.Net.Responses
 {
@@ -29,7 +30,7 @@ namespace Osnova.Net.Responses
         /// Текст комментария с markdown
         /// </summary>
         [JsonPropertyName("text_wo_md")]
-        public string TextWoMd { get; set; }
+        public string MarkdownText { get; set; }
 
         [JsonPropertyName("media")]
         public IEnumerable<Media> Media { get; set; }
@@ -42,7 +43,7 @@ namespace Osnova.Net.Responses
         public Entry Entry { get; set; }
 
         [JsonPropertyName("replyTo")]
-        public int ReplyTo { get; set; }
+        public long ReplyTo { get; set; }
 
         [JsonPropertyName("isFavorited")]
         public bool IsFavorited { get; set; }
@@ -69,10 +70,28 @@ namespace Osnova.Net.Responses
         public LoadMore LoadMore { get; set; }
 
         [JsonPropertyName("attaches")]
-        public IEnumerable<Attach> Attaches { get; set; }
+        public IEnumerable<Block> Attaches { get; set; }
 
         [JsonPropertyName("etcControls")]
         public EtcControls EtcControls { get; set; }
+
+        [JsonPropertyName("date_favorite")]
+        public long? DateFavorited { get; set; }
+
+        [JsonPropertyName("is_ignored")]
+        public bool IsIgnored { get; set; }
+
+        [JsonPropertyName("is_removed")]
+        public bool IsRemoved { get; set; }
+
+        [JsonPropertyName("html")]
+        public string Html { get; set; }
+
+        [JsonPropertyName("highlight")]
+        public string Highlight { get; set; }
+
+        [JsonPropertyName("donate")]
+        public Counter Donate { get; set; }
 
         #endregion
     }

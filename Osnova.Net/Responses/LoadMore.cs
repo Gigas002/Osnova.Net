@@ -19,6 +19,7 @@ namespace Osnova.Net.Responses
 
         /// <summary>
         /// Список аватарок пользователей в подгружаемых комментариях
+        /// TODO: probably Uri, not string
         /// </summary>
         [JsonPropertyName("avatars")]
         public IEnumerable<string> Avatars { get; set; }

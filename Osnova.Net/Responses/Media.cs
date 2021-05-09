@@ -3,16 +3,21 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net.Responses
 {
+    public enum MediaType
+    {
+        Image = 1,
+        Video = 2
+    }
+
     public class Media
     {
         /// <summary>
-        /// Enum: 1 2
         /// Тип медиафайла:
-        /// 1 - TYPE_IMAGE
-        /// 2 - TYPE_VIDEO
+        /// Image = 1
+        /// Video = 2
         /// </summary>
         [JsonPropertyName("type")]
-        public int Type { get; set; }
+        public MediaType Type { get; set; }
 
         [JsonPropertyName("imageUrl")]
         public Uri ImageUrl { get; set; }

@@ -11,6 +11,6 @@ namespace Osnova.Net.Responses
         public long Height { get; set; }
 
         [JsonPropertyName("ratio")]
-        public long Ratio { get; set; }
+        public double Ratio { get; set; }
     }
 }

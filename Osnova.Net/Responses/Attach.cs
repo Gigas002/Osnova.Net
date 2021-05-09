@@ -45,6 +45,6 @@ namespace Osnova.Net.Responses
         public Uri Url { get; set; }
 
         [JsonPropertyName("image")]
-        public OsnovaImage Image { get; set; }
+        public OsnovaImage Image { get; set; } // TODO: block?
     }
 }

@@ -5,10 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
     <VersionPrefix>1.0.0</VersionPrefix>
     <VersionSuffix>ci101</VersionSuffix>
-    <AssemblyVersion>1.0.0.143</AssemblyVersion>
-    <FileVersion>1.0.0.143</FileVersion>
+    <AssemblyVersion>1.0.0.144</AssemblyVersion>
+    <FileVersion>1.0.0.144</FileVersion>
     <Platforms>x64;AnyCPU</Platforms>
-    <Configurations>Debug;Release</Configurations>
+    <Configurations>Debug;Release;LocalTests</Configurations>
     <PackageIcon>$(PackageIcon)</PackageIcon>
     <ApplicationIcon>..\Assets\icon.ico</ApplicationIcon>
     <Authors>Gigas002</Authors>
