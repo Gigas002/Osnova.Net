@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CommandLine;
 using Osnova.Net;
+using Osnova.Net.Responses;
+using Osnova.Net.Responses.BlockDatas;
+using Osnova.Net.Responses.Blocks;
 
 namespace OsnovaImageDownloader
 {
@@ -26,7 +32,7 @@ namespace OsnovaImageDownloader
 
             var progress = new Progress<double>(Console.WriteLine);
             using HttpClient client = Core.CreateDefaultClient();
-            await Core.DownloadAllEntryImages(client, Kind, Args.EntryId, Args.OutPath, progress: progress).ConfigureAwait(false);
+            await DownloadAllEntryImages(client, Kind, Args.EntryId, Args.OutPath, progress: progress).ConfigureAwait(false);
 
             Console.WriteLine($"Done in: {stopwatch.ElapsedMilliseconds} ms");
         }
@@ -40,6 +46,42 @@ namespace OsnovaImageDownloader
             //{
             //    Args.OutPath = Path.Combine(AppContext.BaseDirectory, "downloads");
             //}
+        }
+
+        public static async ValueTask DownloadAllEntryImages(HttpClient client, WebsiteKind websiteKind,
+                                                             int entryId, string outputPath,
+                                                             double apiVersion = Core.ApiVersion,
+                                                             IProgress<double> progress = null)
+        {
+            Directory.CreateDirectory(outputPath);
+
+            var entry = await Entry.GetEntryByIdAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
+
+            var mediaItems = new List<MediaItemBlock>();
+
+            foreach (var block in entry.Blocks.Where(block => block.Type == "media"))
+            {
+                mediaItems.AddRange(((MediaBlockData)block.Data).Items);
+            }
+
+            double counter = 0.0;
+
+            foreach (var image in mediaItems)
+            {
+                var imageData = (ImageBlockData)image.Image.Data;
+
+                var guid = imageData.Uuid.ToString();
+                var extension = imageData.Type;
+                var itemUri = new Uri($"{Core.BaseLeonardoUriString}/{guid}");
+
+                var bytes = await client.GetByteArrayAsync(itemUri).ConfigureAwait(false);
+                await File.WriteAllBytesAsync(Path.Combine(outputPath, $"{guid}.{extension}"), bytes).ConfigureAwait(false);
+
+                // Report progress
+                counter++;
+                double percentage = counter / mediaItems.Count * 100.0;
+                progress?.Report(percentage);
+            }
         }
     }
 }

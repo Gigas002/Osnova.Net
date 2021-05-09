@@ -4,6 +4,8 @@ namespace Osnova.Net.Responses
 {
     public class OsnovaImage
     {
+        // TODO: probably a block?
+
         [JsonPropertyName("type")]
         public string Type { get; set; }
 

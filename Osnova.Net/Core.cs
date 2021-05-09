@@ -76,42 +76,6 @@ namespace Osnova.Net
             return new Uri($"{baseString}/v{invariantVersion}");
         }
 
-        public static async ValueTask DownloadAllEntryImages(HttpClient client, WebsiteKind websiteKind,
-                                                             int entryId, string outputPath,
-                                                             double apiVersion = ApiVersion,
-                                                             IProgress<double> progress = null)
-        {
-            Directory.CreateDirectory(outputPath);
-
-            var entry = await Entry.GetEntryByIdAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
-
-            var mediaItems = new List<MediaItemBlock>();
-
-            foreach (var block in entry.Blocks.Where(block => block.Type == "media"))
-            {
-                mediaItems.AddRange(((MediaBlockData)block.Data).Items);
-            }
-
-            double counter = 0.0;
-
-            foreach (var image in mediaItems)
-            {
-                var imageData = (ImageBlockData)image.Image.Data;
-
-                var guid = imageData.Uuid.ToString();
-                var extension = imageData.Type;
-                var itemUri = new Uri($"{BaseLeonardoUriString}/{guid}");
-
-                var bytes = await client.GetByteArrayAsync(itemUri).ConfigureAwait(false);
-                await File.WriteAllBytesAsync(Path.Combine(outputPath, $"{guid}.{extension}"), bytes).ConfigureAwait(false);
-
-                // Report progress
-                counter++;
-                double percentage = counter / mediaItems.Count * 100.0;
-                progress?.Report(percentage);
-            }
-        }
-
         #endregion
     }
 }
