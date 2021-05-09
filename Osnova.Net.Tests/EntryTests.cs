@@ -7,6 +7,8 @@ namespace Osnova.Net.Tests
 {
     public class EntryTests
     {
+        private WebsiteKind Kind { get; } = WebsiteKind.Dtf;
+
         [SetUp]
         public void Setup()
         {
@@ -18,9 +20,7 @@ namespace Osnova.Net.Tests
         {
             Assert.DoesNotThrowAsync(async () =>
             {
-                WebsiteKind kind = WebsiteKind.Dtf;
-
-                var entry = await Entry.GetEntryByIdAsync(Constants.Client, kind, 725050);
+                var entry = await Entry.GetEntryByIdAsync(Constants.Client, Kind, 725050);
             });
         }
 
@@ -29,9 +29,7 @@ namespace Osnova.Net.Tests
         {
             Assert.DoesNotThrowAsync(async () =>
             {
-                WebsiteKind kind = WebsiteKind.Dtf;
-
-                var entries = await Entry.GetPopularEntriesAsync(Constants.Client, kind, 725050);
+                var entries = await Entry.GetPopularEntriesAsync(Constants.Client, Kind, 725050);
             });
         }
 
@@ -40,20 +38,20 @@ namespace Osnova.Net.Tests
         {
             Assert.DoesNotThrowAsync(async () =>
             {
-                WebsiteKind kind = WebsiteKind.Dtf;
                 Uri entryUri = new Uri("https://dtf.ru/725050");
 
-                var entry = await Entry.GetEntryLocateAsync(Constants.Client, kind, entryUri);
+                var entry = await Entry.GetEntryLocateAsync(Constants.Client, Kind, entryUri);
             });
         }
 
-        //[Test]
-        public async Task Temp()
-        {
-            // TODO: localtests configuration
-            WebsiteKind kind = WebsiteKind.Dtf;
+#if LOCALTESTS
 
-            var entry = await Entry.GetEntryByIdAsync(Constants.Client, kind, 725050);
+        [Test]
+        public async Task LocalTest()
+        {
+            var entry = await Entry.GetEntryByIdAsync(Constants.Client, Kind, 725050);
         }
+
+#endif
     }
 }

@@ -7,12 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Osnova.Net", "Osnova.Net\Os
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OsnovaImageDownloader", "OsnovaImageDownloader\OsnovaImageDownloader.csproj", "{7D785111-0775-4A3C-80F5-BAC31F82F2BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osnova.Net.Tests", "Osnova.Net.Tests\Osnova.Net.Tests.csproj", "{6C690D32-D527-429A-B656-6EED52651585}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Osnova.Net.Tests", "Osnova.Net.Tests\Osnova.Net.Tests.csproj", "{6C690D32-D527-429A-B656-6EED52651585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
+		LocalTests|Any CPU = LocalTests|Any CPU
+		LocalTests|x64 = LocalTests|x64
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
@@ -21,6 +23,10 @@ Global
 		{7DC10120-190F-44D2-A46D-C885B27BA298}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DC10120-190F-44D2-A46D-C885B27BA298}.Debug|x64.ActiveCfg = Debug|x64
 		{7DC10120-190F-44D2-A46D-C885B27BA298}.Debug|x64.Build.0 = Debug|x64
+		{7DC10120-190F-44D2-A46D-C885B27BA298}.LocalTests|Any CPU.ActiveCfg = LocalTests|Any CPU
+		{7DC10120-190F-44D2-A46D-C885B27BA298}.LocalTests|Any CPU.Build.0 = LocalTests|Any CPU
+		{7DC10120-190F-44D2-A46D-C885B27BA298}.LocalTests|x64.ActiveCfg = LocalTests|x64
+		{7DC10120-190F-44D2-A46D-C885B27BA298}.LocalTests|x64.Build.0 = LocalTests|x64
 		{7DC10120-190F-44D2-A46D-C885B27BA298}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DC10120-190F-44D2-A46D-C885B27BA298}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7DC10120-190F-44D2-A46D-C885B27BA298}.Release|x64.ActiveCfg = Release|x64
@@ -29,6 +35,9 @@ Global
 		{7D785111-0775-4A3C-80F5-BAC31F82F2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D785111-0775-4A3C-80F5-BAC31F82F2BD}.Debug|x64.ActiveCfg = Debug|x64
 		{7D785111-0775-4A3C-80F5-BAC31F82F2BD}.Debug|x64.Build.0 = Debug|x64
+		{7D785111-0775-4A3C-80F5-BAC31F82F2BD}.LocalTests|Any CPU.ActiveCfg = LocalTests|Any CPU
+		{7D785111-0775-4A3C-80F5-BAC31F82F2BD}.LocalTests|Any CPU.Build.0 = LocalTests|Any CPU
+		{7D785111-0775-4A3C-80F5-BAC31F82F2BD}.LocalTests|x64.ActiveCfg = LocalTests|x64
 		{7D785111-0775-4A3C-80F5-BAC31F82F2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D785111-0775-4A3C-80F5-BAC31F82F2BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D785111-0775-4A3C-80F5-BAC31F82F2BD}.Release|x64.ActiveCfg = Release|x64
@@ -37,6 +46,10 @@ Global
 		{6C690D32-D527-429A-B656-6EED52651585}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C690D32-D527-429A-B656-6EED52651585}.Debug|x64.ActiveCfg = Debug|x64
 		{6C690D32-D527-429A-B656-6EED52651585}.Debug|x64.Build.0 = Debug|x64
+		{6C690D32-D527-429A-B656-6EED52651585}.LocalTests|Any CPU.ActiveCfg = LocalTests|Any CPU
+		{6C690D32-D527-429A-B656-6EED52651585}.LocalTests|Any CPU.Build.0 = LocalTests|Any CPU
+		{6C690D32-D527-429A-B656-6EED52651585}.LocalTests|x64.ActiveCfg = LocalTests|x64
+		{6C690D32-D527-429A-B656-6EED52651585}.LocalTests|x64.Build.0 = LocalTests|x64
 		{6C690D32-D527-429A-B656-6EED52651585}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C690D32-D527-429A-B656-6EED52651585}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C690D32-D527-429A-B656-6EED52651585}.Release|x64.ActiveCfg = Release|x64

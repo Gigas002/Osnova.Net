@@ -5,6 +5,8 @@ namespace Osnova.Net.Tests
 {
     public class UserTests
     {
+        private WebsiteKind Kind { get; } = WebsiteKind.Dtf;
+
         [SetUp]
         public void Setup()
         {
@@ -16,22 +18,29 @@ namespace Osnova.Net.Tests
         {
             Assert.DoesNotThrowAsync(async () =>
             {
-                WebsiteKind kind = WebsiteKind.Dtf;
-
-                var user = await User.GetUserAsync(Constants.Client, kind, 260955);
+                var user = await User.GetUserAsync(Constants.Client, Kind, 260955);
             });
         }
+
 
         [Test]
         public void GetUserMe()
         {
-            // TODO: throws only on CI, because there are no api key
+#if LOCALTESTS
+
+            Assert.DoesNotThrowAsync(async () =>
+            {
+                var user = await User.GetUserMeAsync(Constants.Client, Kind);
+            });
+
+#else
+
             Assert.ThrowsAsync<InvalidResponseCodeException>(async () =>
             {
-                WebsiteKind kind = WebsiteKind.Dtf;
-
-                var user = await User.GetUserMeAsync(Constants.Client, kind);
+                var user = await User.GetUserMeAsync(Constants.Client, Kind);
             });
+
+#endif
         }
     }
 }
