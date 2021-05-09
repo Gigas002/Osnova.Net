@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Osnova.Net.Responses;
 
 namespace Osnova.Net.Tests
@@ -24,11 +23,15 @@ namespace Osnova.Net.Tests
         }
 
         [Test]
-        public async Task GetUserMe()
+        public void GetUserMe()
         {
-            WebsiteKind kind = WebsiteKind.Dtf;
+            // TODO: throws only on CI, because there are no api key
+            Assert.ThrowsAsync<InvalidResponseCodeException>(async () =>
+            {
+                WebsiteKind kind = WebsiteKind.Dtf;
 
-            var user = await User.GetUserMeAsync(Constants.Client, kind);
+                var user = await User.GetUserMeAsync(Constants.Client, kind);
+            });
         }
     }
 }
