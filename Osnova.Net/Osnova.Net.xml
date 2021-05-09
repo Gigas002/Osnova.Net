@@ -187,5 +187,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Osnova.Net.Responses.User.GetUserMeUpdatesCountAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Double)">
+            <summary>
+            Warning: requires authentication!
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

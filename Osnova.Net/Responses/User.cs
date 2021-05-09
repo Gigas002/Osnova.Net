@@ -237,6 +237,35 @@ namespace Osnova.Net.Responses
 
         #endregion
 
+        #region GetUserMeUpdates
+
+        public static Uri GetUserMeUpdatesCountUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/user/me/updates/count");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserMeUpdatesCountResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserMeUpdatesCountUri(websiteKind, apiVersion));
+        }
+
+        /// <summary>
+        /// Warning: requires authentication!
+        /// </summary>
+        /// <returns></returns>
+        public static async ValueTask<Counter> GetUserMeUpdatesCountAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserMeUpdatesCountResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<Counter>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
     }
 }
