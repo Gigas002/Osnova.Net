@@ -172,7 +172,7 @@
             Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
             </summary>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
             Warning: requires client to be authenticated
             </summary>
@@ -181,13 +181,13 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeUpdatesAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Boolean,System.Int64,System.Double)">
+        <member name="M:Osnova.Net.User.GetUserMeUpdatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Boolean,System.Int64,System.Double)">
             <summary>
             Warning: requires authentication!
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeUpdatesCountAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.User.GetUserMeUpdatesCountAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
             Warning: requires authentication!
             </summary>

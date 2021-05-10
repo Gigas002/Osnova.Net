@@ -9,6 +9,7 @@ using CommandLine;
 using Osnova.Net;
 using Osnova.Net.BlockDatas;
 using Osnova.Net.Blocks;
+using Osnova.Net.Enums;
 
 namespace OsnovaImageDownloader
 {

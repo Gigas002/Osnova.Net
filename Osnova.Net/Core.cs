@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Osnova.Net.Blocks;
+using Osnova.Net.Enums;
+using Osnova.Net.Exceptions;
 
 #pragma warning disable 1591
 

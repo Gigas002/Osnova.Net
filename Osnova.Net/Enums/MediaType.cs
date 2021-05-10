@@ -1,4 +1,4 @@
-﻿namespace Osnova.Net
+﻿namespace Osnova.Net.Enums
 {
     public enum MediaType
     {

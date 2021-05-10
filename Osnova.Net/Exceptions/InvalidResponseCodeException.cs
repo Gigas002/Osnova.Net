@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Osnova.Net
+namespace Osnova.Net.Exceptions
 {
     public class InvalidResponseCodeException : Exception
     {

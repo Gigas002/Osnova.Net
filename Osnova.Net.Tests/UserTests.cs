@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
+using Osnova.Net.Enums;
+using Osnova.Net.Exceptions;
 
 namespace Osnova.Net.Tests
 {
