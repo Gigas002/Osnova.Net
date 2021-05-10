@@ -82,34 +82,38 @@ namespace Osnova.Net.Tests
             });
         }
 
-        //[Test]
+#if LOCALTESTS
+
+        [Test]
         public async Task GetUserMeComments()
         {
             var comments = await User.GetUserMeCommentsAsync(Constants.Client, Kind);
         }
 
-        //[Test]
+        [Test]
         public async Task GetUserEntries()
         {
             var entries = await User.GetUserEntriesAsync(Constants.Client, Kind, 339033);
         }
 
-        //[Test]
+        [Test]
         public async Task GetUserMeEntries()
         {
             var entries = await User.GetUserMeEntriesAsync(Constants.Client, Kind);
         }
 
-        //[Test]
+        [Test]
         public async Task GetUserFavoritesEntries()
         {
             var entries = await User.GetUserFavoritesEntriesAsync(Constants.Client, Kind, 260955);
         }
 
-        //[Test]
+        [Test]
         public async Task GetUserFavoritesComments()
         {
             var comments = await User.GetUserFavoritesCommentsAsync(Constants.Client, Kind, 260955);
         }
+
+#endif
     }
 }
