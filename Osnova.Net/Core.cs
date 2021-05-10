@@ -85,9 +85,19 @@ namespace Osnova.Net
         }
 
         public static async ValueTask<HttpResponseMessage> GetResponseFromApiAsync(HttpClient client, Uri requestUri,
-                                                                              HttpStatusCode desiredCode = HttpStatusCode.OK)
+                                                                                   HttpStatusCode desiredCode = HttpStatusCode.OK)
         {
             var response = await client.GetAsync(requestUri).ConfigureAwait(false);
+
+            CheckResponse(response, desiredCode);
+
+            return response;
+        }
+
+        public static async ValueTask<HttpResponseMessage> PostToApiAsync(HttpClient client, Uri requestUri, HttpContent requestContent,
+                                                                          HttpStatusCode desiredCode = HttpStatusCode.OK)
+        {
+            var response = await client.PostAsync(requestUri, requestContent).ConfigureAwait(false);
 
             CheckResponse(response, desiredCode);
 

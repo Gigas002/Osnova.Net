@@ -25,7 +25,7 @@ GitHub Packages Feed: <https://github.com/Gigas002/Osnova.Net/packages>.
 - [ ] Auth
     - [ ] postAuthQr
     - [ ] postAuthSocial
-    - [ ] postAuthLogin
+    - [x] postAuthLogin
 - [ ] Timeline
     - [ ] getTimeline
     - [ ] getTimelineByHashtag

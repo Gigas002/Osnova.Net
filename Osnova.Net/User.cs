@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Blocks;
@@ -143,6 +144,15 @@ namespace Osnova.Net
         public int Gender { get; set; }
 
         #endregion
+
+        [JsonPropertyName("m_hash")]
+        public string MHash { get; set; }
+
+        [JsonPropertyName("m_hash_expiration_time")]
+        public long MHashExpirationTime { get; set; }
+
+        [JsonPropertyName("user_hashes")]
+        public JsonElement UserHashes { get; set; } // TODO: wtf is this? got from postAuthLogin
 
         #endregion
 
