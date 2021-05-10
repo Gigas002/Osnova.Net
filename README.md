@@ -67,7 +67,7 @@ GitHub Packages Feed: <https://github.com/Gigas002/Osnova.Net/packages>.
     - [ ] postUserMeUpdatesReadId
     - [ ] postUserMeUpdatesRead
     - [x] getUserComments
-    - [ ] getUserMeComments
+    - [x] getUserMeComments
     - [ ] getUserEntries
     - [ ] getUserMeEntries
     - [ ] getUserFavoritesEntries

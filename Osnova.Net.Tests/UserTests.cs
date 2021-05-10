@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Threading.Tasks;
+using NUnit.Framework;
 using Osnova.Net.Enums;
 using Osnova.Net.Exceptions;
 
@@ -79,6 +80,12 @@ namespace Osnova.Net.Tests
             {
                 var comments = await User.GetUserCommentsAsync(Constants.Client, Kind, 339033);
             });
+        }
+
+        //[Test]
+        public async Task GetUserMeComments()
+        {
+            var comments = await User.GetUserMeCommentsAsync(Constants.Client, Kind);
         }
     }
 }
