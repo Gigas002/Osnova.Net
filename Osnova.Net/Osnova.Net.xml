@@ -4,22 +4,22 @@
         <name>Osnova.Net</name>
     </assembly>
     <members>
-        <member name="P:Osnova.Net.Responses.AdditionalData.Type">
+        <member name="P:Osnova.Net.AdditionalData.Type">
             <summary>
              "gif" "jpg" "png" "webp"
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Comment.Text">
+        <member name="P:Osnova.Net.Comment.Text">
             <summary>
             Текст комментария с html
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Comment.MarkdownText">
+        <member name="P:Osnova.Net.Comment.MarkdownText">
             <summary>
             Текст комментария с markdown
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Comment.SourceOs">
+        <member name="P:Osnova.Net.Comment.SourceOs">
             <summary>
             С какой OS был написан комментарий:
             Other = 0
@@ -27,32 +27,32 @@
             Android = 2
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.Title">
+        <member name="P:Osnova.Net.Entry.Title">
             <summary>
             Заголовок статьи
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.WebviewUrl">
+        <member name="P:Osnova.Net.Entry.WebviewUrl">
             <summary>
             Ссылка, которую нужно открыть вместо открытия статьи
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.Date">
+        <member name="P:Osnova.Net.Entry.Date">
             <summary>
             Дата создания статьи
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.DateRfc">
+        <member name="P:Osnova.Net.Entry.DateRfc">
             <summary>
             Дата создания статьи
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.LastModificationDate">
+        <member name="P:Osnova.Net.Entry.LastModificationDate">
             <summary>
             Дата последнего изменения статьи
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.Type">
+        <member name="P:Osnova.Net.Entry.Type">
             <summary>
             Тип контента:
             Entry = 1
@@ -62,117 +62,117 @@
             Repost = 5
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.Intro">
+        <member name="P:Osnova.Net.Entry.Intro">
             <summary>
             Подзаголовок статьи
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.HitsCount">
+        <member name="P:Osnova.Net.Entry.HitsCount">
             <summary>
             Число просмотров
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.CommentsPreview">
+        <member name="P:Osnova.Net.Entry.CommentsPreview">
             <summary>
             Список аватарок комментирующих для заглушки
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.IsEditorial">
+        <member name="P:Osnova.Net.Entry.IsEditorial">
             <summary>
             Показывает, что это пост редакции
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.IsPinned">
+        <member name="P:Osnova.Net.Entry.IsPinned">
             <summary>
             Показывает, закреплен ли пост
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.AudioUrl">
+        <member name="P:Osnova.Net.Entry.AudioUrl">
             <summary>
             Ссылка на mp3 файл с озвучкой статьи
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.Hotness">
+        <member name="P:Osnova.Net.Entry.Hotness">
             <summary>
             Значение хотнесса
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.SubscribedToTreads">
+        <member name="P:Osnova.Net.Entry.SubscribedToTreads">
             <summary>
             Показывает, подписан ли пользователь на новые комментарии
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.Blocks">
+        <member name="P:Osnova.Net.Entry.Blocks">
             <summary>
             Список блоков для нативной статьи. Для каждого типа блока формат объекта data разный
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Entry.CanEdit">
+        <member name="P:Osnova.Net.Entry.CanEdit">
             <summary>
             Показывает, может ли пользователь редактировать материал
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.LoadMore.Ids">
+        <member name="P:Osnova.Net.LoadMore.Ids">
             <summary>
             Список id комментариев для подгрузки
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.LoadMore.Count">
+        <member name="P:Osnova.Net.LoadMore.Count">
             <summary>
             Количество подгружаемых комментариев
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.LoadMore.Avatars">
+        <member name="P:Osnova.Net.LoadMore.Avatars">
             <summary>
             Список аватарок пользователей в подгружаемых комментариях
             TODO: probably Uri, not string
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Media.Type">
+        <member name="P:Osnova.Net.Media.Type">
             <summary>
             Тип медиафайла:
             Image = 1
             Video = 2
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.Notification.Icon">
+        <member name="P:Osnova.Net.Notification.Icon">
             <summary>
              TODO: enum
              Enum: "comments_added" "comments_reply_to" "like_up" "like_down" "ui_chronograph" "icon-unpublish-entry" "pencil" "ui_archive"
             Название иконки, которая подставляется вместо аватарки.
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.User.AvatarUrl">
+        <member name="P:Osnova.Net.User.AvatarUrl">
             <summary>
             Аватарка профиля
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.User.Cover">
+        <member name="P:Osnova.Net.User.Cover">
             <summary>
             Обложка профиля
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.User.SocialAccounts">
+        <member name="P:Osnova.Net.User.SocialAccounts">
             <summary>
             Список прикрепленных аккаунтов
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.User.PushTopic">
+        <member name="P:Osnova.Net.User.PushTopic">
             <summary>
             Личный топик пользователя в Firebase Messaging
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.User.AdvancedAccess">
+        <member name="P:Osnova.Net.User.AdvancedAccess">
             <summary>
             Список разрешений
             </summary>
         </member>
-        <member name="P:Osnova.Net.Responses.User.UserHash">
+        <member name="P:Osnova.Net.User.UserHash">
             <summary>
             Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
             </summary>
         </member>
-        <member name="M:Osnova.Net.Responses.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Double)">
             <summary>
             Warning: requires client to be authenticated
             </summary>
@@ -181,13 +181,13 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.Responses.User.GetUserMeUpdatesAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Boolean,System.Int64,System.Double)">
+        <member name="M:Osnova.Net.User.GetUserMeUpdatesAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Boolean,System.Int64,System.Double)">
             <summary>
             Warning: requires authentication!
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.Responses.User.GetUserMeUpdatesCountAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.User.GetUserMeUpdatesCountAsync(System.Net.Http.HttpClient,Osnova.Net.WebsiteKind,System.Double)">
             <summary>
             Warning: requires authentication!
             </summary>

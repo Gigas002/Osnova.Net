@@ -7,9 +7,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CommandLine;
 using Osnova.Net;
-using Osnova.Net.Responses;
-using Osnova.Net.Responses.BlockDatas;
-using Osnova.Net.Responses.Blocks;
+using Osnova.Net.BlockDatas;
+using Osnova.Net.Blocks;
 
 namespace OsnovaImageDownloader
 {
