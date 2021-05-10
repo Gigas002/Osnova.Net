@@ -87,5 +87,11 @@ namespace Osnova.Net.Tests
         {
             var comments = await User.GetUserMeCommentsAsync(Constants.Client, Kind);
         }
+
+        [Test]
+        public async Task GetUserEntries()
+        {
+            var entries = await User.GetUserEntriesAsync(Constants.Client, Kind, 339033);
+        }
     }
 }

@@ -346,6 +346,39 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetUserEntries
+
+        public static Uri GetUserEntriesUri(WebsiteKind websiteKind, int userId, int count = -1,
+                                             int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/user/{userId}/entries");
+
+            string countQuery = count > -1 ? $"count={count}" : null;
+            string offsetQuery = offset > -1 ? $"offset={offset}" : null;
+
+            Core.BuildUri(ref builder, countQuery, offsetQuery);
+
+            return builder.Uri;
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+            int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserEntriesUri(websiteKind, userId, count, offset, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Entry>> GetUserEntriesAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+            int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserEntriesResponseAsync(client, websiteKind, userId, count, offset, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
     }
 }
