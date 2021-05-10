@@ -99,5 +99,11 @@ namespace Osnova.Net.Tests
         {
             var entries = await User.GetUserMeEntriesAsync(Constants.Client, Kind);
         }
+
+        [Test]
+        public async Task GetUserFavoritesEntries()
+        {
+            var entries = await User.GetUserFavoritesEntriesAsync(Constants.Client, Kind, 260955);
+        }
     }
 }

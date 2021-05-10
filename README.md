@@ -70,7 +70,7 @@ GitHub Packages Feed: <https://github.com/Gigas002/Osnova.Net/packages>.
     - [x] getUserMeComments
     - [x] getUserEntries
     - [x] getUserMeEntries
-    - [ ] getUserFavoritesEntries
+    - [x] getUserFavoritesEntries
     - [ ] getUserFavoritesComments
     - [ ] getUserFavoritesVacancies
     - [ ] getUserMeFavoritesEntries
