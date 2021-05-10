@@ -193,5 +193,21 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Osnova.Net.WebSocketClient">
+            <summary>
+            Modified code from here: https://stackoverflow.com/questions/30523478/connecting-to-websocket-using-c-sharp-i-can-connect-using-javascript-but-c-sha/58285551
+            Test websockets here: https://www.piesocket.com/websocket-tester
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.WebSocketClient.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.WebSocketClient.Dispose(System.Boolean)">
+            <inheritdoc cref="M:Osnova.Net.WebSocketClient.Dispose"/>
+            <param name="disposing">Dispose static fields?</param>
+        </member>
+        <member name="M:Osnova.Net.WebSocketClient.DisposeAsync">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

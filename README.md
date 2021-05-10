@@ -20,7 +20,7 @@ GitHub Packages Feed: <https://github.com/Gigas002/Osnova.Net/packages>.
 
 ## Реализовано
 
-- [ ] WebSocket
+- [ ] WebSocket (Частично реализовано, смотреть классы `WebSocketClient` и `WebSockets`)
 - [x] Authentication (Через `Core.CreateDefaultClient(string authenticationToken)`)
 - [ ] Auth
     - [ ] postAuthQr
