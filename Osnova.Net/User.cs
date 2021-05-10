@@ -158,6 +158,8 @@ namespace Osnova.Net
 
         #region Methods
 
+        #region Get
+
         #region GetUser
 
         public static Uri GetUserUri(WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
@@ -412,7 +414,7 @@ namespace Osnova.Net
 
         #endregion
 
-        #region GetUserEntries
+        #region GetUserFavoritesEntries
 
         public static Uri GetUserFavoritesEntriesUri(WebsiteKind websiteKind, int userId, int count = -1,
                                             int offset = -1, double apiVersion = Core.ApiVersion)
@@ -452,6 +454,51 @@ namespace Osnova.Net
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
         }
+
+        #endregion
+
+        #region GetUserFavoritesComments
+
+        public static Uri GetUserFavoritesCommentsUri(WebsiteKind websiteKind, int userId, int count = -1,
+                                                      int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/user/{userId}/favorites/comments");
+
+            string countQuery = count > -1 ? $"count={count}" : null;
+            string offsetQuery = offset > -1 ? $"offset={offset}" : null;
+
+            Core.BuildUri(ref builder, countQuery, offsetQuery);
+
+            return builder.Uri;
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserFavoritesCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+            int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserFavoritesCommentsUri(websiteKind, userId, count, offset, apiVersion));
+        }
+
+        /// <summary>
+        /// Requires authentication
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="websiteKind"></param>
+        /// <param name="userId"></param>
+        /// <param name="count"></param>
+        /// <param name="offset"></param>
+        /// <param name="apiVersion"></param>
+        /// <returns></returns>
+        public static async ValueTask<IEnumerable<Comment>> GetUserFavoritesCommentsAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+                                                                              int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserFavoritesCommentsResponseAsync(client, websiteKind, userId, count, offset, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Comment>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
 
         #endregion
 
