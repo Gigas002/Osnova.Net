@@ -4,9 +4,9 @@
     <OutputType>Library</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix>ci220</VersionSuffix>
-    <AssemblyVersion>1.0.0.259</AssemblyVersion>
-    <FileVersion>1.0.0.259</FileVersion>
+    <VersionSuffix>ci260</VersionSuffix>
+    <AssemblyVersion>1.0.0.260</AssemblyVersion>
+    <FileVersion>1.0.0.260</FileVersion>
     <Platforms>AnyCPU;x64</Platforms>
     <Configurations>Debug;Release;LocalTests</Configurations>
     <PackageIcon>icon.png</PackageIcon>
