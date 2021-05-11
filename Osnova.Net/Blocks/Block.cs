@@ -43,6 +43,7 @@ namespace Osnova.Net.Blocks
             "tweet" => typeof(TweetBlockData),
             "universalbox" => typeof(UniversalBoxBlockData),
             "video" => typeof(VideoBlockData),
+            "warning" => typeof(WarningBlockData),
             "wtrfall" => typeof(WaterfallBlockData),
             "yamusic" => typeof(YaMusicBlockData),
             _ => typeof(object)

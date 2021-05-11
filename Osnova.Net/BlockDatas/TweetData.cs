@@ -45,7 +45,7 @@ namespace Osnova.Net.BlockDatas
         public string InReplyToUserIdString { get; set; }
 
         [JsonPropertyName("in_reply_to_screen_name")]
-        public long? InReplyToScreenName { get; set; }
+        public string InReplyToScreenName { get; set; }
 
         [JsonPropertyName("user")]
         public JsonElement User { get; set; }
