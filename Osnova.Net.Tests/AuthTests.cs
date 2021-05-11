@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using Osnova.Net.Enums;
 
@@ -14,13 +15,19 @@ namespace Osnova.Net.Tests
             Constants.CreateClient();
         }
 
-        //[Test]
+#if LOCALTESTS
+
+        [Test]
         public async Task PostAuthLogin()
         {
             string login = null;
             string password = null;
 
-            var user = await Authentication.PostAuthLoginGetUserAsync(Constants.Client, Kind, login, password);
+            using var client = new HttpClient(); // don't use client with token specified already!
+
+            var token = await Authentication.PostAuthLoginGetTokenAsync(client, Kind, login, password);
         }
+
+#endif
     }
 }

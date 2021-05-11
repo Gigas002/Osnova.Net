@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
@@ -16,27 +17,35 @@ namespace Osnova.Net
             return new Uri($"{baseUri}/auth/login");
         }
 
-        public static ValueTask<HttpResponseMessage> PostAuthLoginGetResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        public static async ValueTask<HttpResponseMessage> PostAuthLoginGetResponseAsync(HttpClient client, WebsiteKind websiteKind,
                                                                          string login, string password, double apiVersion = Core.ApiVersion)
         {
-            using var loginContent = new StringContent(login);
-            using var passwordContent = new StringContent(password);
+            var loginContent = new StringContent(login);
+            var passwordContent = new StringContent(password);
 
-            using var requestContent = new MultipartFormDataContent
+            var requestContent = new MultipartFormDataContent
             {
                 { loginContent, "\"login\"" },
                 { passwordContent, "\"password\"" }
             };
 
-            return Core.PostToApiAsync(client, GetAuthLoginUri(websiteKind, apiVersion), requestContent);
+            var response = await Core.PostToApiAsync(client, GetAuthLoginUri(websiteKind, apiVersion), requestContent).ConfigureAwait(false);
+
+            loginContent.Dispose();
+            passwordContent.Dispose();
+            requestContent.Dispose();
+
+            return response;
         }
 
-        public static async ValueTask<User> PostAuthLoginGetUserAsync(HttpClient client, WebsiteKind websiteKind, string login,
+        public static async ValueTask<string> PostAuthLoginGetTokenAsync(HttpClient client, WebsiteKind websiteKind, string login,
                                                                       string password, double apiVersion = Core.ApiVersion)
         {
             using var response = await PostAuthLoginGetResponseAsync(client, websiteKind, login, password, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<User>(response).ConfigureAwait(false);
+           return response.Headers.FirstOrDefault(h => h.Key == "x-device-token").Value.FirstOrDefault();
+
+            //return await Core.DeserializeOsnovaResponseAsync<User>(response).ConfigureAwait(false);
         }
 
         #endregion
