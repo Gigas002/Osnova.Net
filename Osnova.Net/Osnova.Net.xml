@@ -289,6 +289,15 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
+        <member name="M:Osnova.Net.User.GetIgnoredKeywordsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Requires authentication
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
         <member name="T:Osnova.Net.WebSocketClient">
             <summary>
             Modified code from here: https://stackoverflow.com/questions/30523478/connecting-to-websocket-using-c-sharp-i-can-connect-using-javascript-but-c-sha/58285551

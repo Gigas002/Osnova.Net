@@ -684,7 +684,6 @@ namespace Osnova.Net
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
-
             return new Uri($"{baseUri}/user/me/subscriptions/recommended");
         }
 
@@ -716,7 +715,6 @@ namespace Osnova.Net
         public static Uri GetUserMeSubscriptionsSubscribedUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
-
 
             return new Uri($"{baseUri}/user/me/subscriptions/subscribed");
         }
@@ -750,7 +748,6 @@ namespace Osnova.Net
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
-
             return new Uri($"{baseUri}/user/me/tunecatalog");
         }
 
@@ -773,6 +770,38 @@ namespace Osnova.Net
             var response = await GetUserMeTuneCatalogResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region GetIgnoredKeywords
+
+        public static Uri GetIgnoredKeywordsUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/subsite/get-ignored-keywords");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetIgnoredKeywordsResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetIgnoredKeywordsUri(websiteKind, apiVersion));
+        }
+
+        /// <summary>
+        /// Requires authentication
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="websiteKind"></param>
+        /// <param name="apiVersion"></param>
+        /// <returns></returns>
+        public static async ValueTask<IEnumerable<string>> GetIgnoredKeywordsAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetIgnoredKeywordsResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<string>>(response).ConfigureAwait(false);
         }
 
         #endregion

@@ -156,6 +156,12 @@ namespace Osnova.Net.Tests
             var users = await User.GetUserMeTuneCatalogAsync(Constants.Client, Kind);
         }
 
+        [Test]
+        public async Task GetIgnoredKeywords()
+        {
+            var keywords = await User.GetIgnoredKeywordsAsync(Constants.Client, Kind);
+        }
+
 #endif
     }
 }
