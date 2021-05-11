@@ -144,6 +144,12 @@ namespace Osnova.Net.Tests
             var users = await User.GetUserMeSubscriptionsRecommendedAsync(Constants.Client, Kind);
         }
 
+        [Test]
+        public async Task GetUserMeSubscriptionsSubscribedUsers()
+        {
+            var users = await User.GetUserMeSubscriptionsSubscribedUsersAsync(Constants.Client, Kind);
+        }
+
 #endif
     }
 }

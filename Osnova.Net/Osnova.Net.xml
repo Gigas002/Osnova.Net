@@ -268,8 +268,15 @@
             </summary>
             <param name="client"></param>
             <param name="websiteKind"></param>
-            <param name="count"></param>
-            <param name="offset"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Osnova.Net.User.GetUserMeSubscriptionsSubscribedUsersAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Requires authentication
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
             <param name="apiVersion"></param>
             <returns></returns>
         </member>

@@ -77,7 +77,7 @@ GitHub Releases: [![Release](https://img.shields.io/github/release/Gigas002/Osno
     - [x] getUserMeFavoritesComments
     - [x] getUserMeFavoritesVacancies
     - [x] getUserMeSubscriptionsRecommended
-    - [ ] getUserMeSubscriptionsSubscribed
+    - [x] getUserMeSubscriptionsSubscribed
     - [ ] postFavoriteAdd
     - [ ] postFavoriteRemove
     - [ ] getUserMeTuneCatalog

@@ -699,14 +699,45 @@ namespace Osnova.Net
         /// </summary>
         /// <param name="client"></param>
         /// <param name="websiteKind"></param>
-        /// <param name="count"></param>
-        /// <param name="offset"></param>
         /// <param name="apiVersion"></param>
         /// <returns></returns>
         public static async ValueTask<IEnumerable<User>> GetUserMeSubscriptionsRecommendedAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
             var response = await GetUserMeSubscriptionsRecommendedResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region GetUserMeSubscriptionsSubscribed
+
+        public static Uri GetUserMeSubscriptionsSubscribedUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+
+            return new Uri($"{baseUri}/user/me/subscriptions/subscribed");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserMeSubscriptionsSubscribedResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserMeSubscriptionsSubscribedUri(websiteKind, apiVersion));
+        }
+
+        /// <summary>
+        /// Requires authentication
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="websiteKind"></param>
+        /// <param name="apiVersion"></param>
+        /// <returns></returns>
+        public static async ValueTask<IEnumerable<User>> GetUserMeSubscriptionsSubscribedUsersAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserMeSubscriptionsSubscribedResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
         }
