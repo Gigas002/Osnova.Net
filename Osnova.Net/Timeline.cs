@@ -42,5 +42,40 @@ namespace Osnova.Net
         }
 
         #endregion
+
+        #region GetTimelineByHashtag
+
+        public static Uri GetTimelineByHashtagUri(WebsiteKind websiteKind, string hashtag,
+               TimelineCategory category = TimelineCategory.MainPage, TimelineSorting sorting = TimelineSorting.Recent,
+               int limit = -1, int lastId = -1, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/timeline/{category}/{sorting}");
+
+            string limitQuery = limit > -1 ? $"limit={limit}" : null;
+            string lastIdQuery = lastId > -1 ? $"last_id={lastId}" : null;
+
+            Core.BuildUri(ref builder, hashtag, limitQuery, lastIdQuery);
+
+            return builder.Uri;
+        }
+
+        public static ValueTask<HttpResponseMessage> GetTimelineByHashtagResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            string hashtag, TimelineCategory category, TimelineSorting sorting, int limit = -1, int lastId = -1, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetTimelineByHashtagUri(websiteKind, hashtag, category, sorting, limit, lastId, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Entry>> GetTimelineByHashtagAsync(HttpClient client, WebsiteKind websiteKind, string hashtag,
+            TimelineCategory category,
+                                                                           TimelineSorting sorting, int limit = -1, int lastId = -1, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetTimelineByHashtagResponseAsync(client, websiteKind, hashtag, category, sorting, limit, lastId, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
     }
 }

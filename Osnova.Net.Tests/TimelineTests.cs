@@ -29,6 +29,15 @@ namespace Osnova.Net.Tests
             var entries = await Timeline.GetTimelineAsync(Constants.Client, Kind, category, sorting);
         }
 
+        [Test]
+        public async Task GetTimelineByHashtag()
+        {
+            var category = TimelineCategory.MainPage;
+            var sorting = TimelineSorting.Recent;
+
+            var entries = await Timeline.GetTimelineByHashtagAsync(Constants.Client, Kind, "yurucamp", category, sorting);
+        }
+
         #endif
     }
 }
