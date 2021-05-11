@@ -7,7 +7,7 @@ namespace Osnova.Net.Tests
 {
     public class UserTests
     {
-        private WebsiteKind Kind { get; } = WebsiteKind.Dtf;
+        private static WebsiteKind Kind => WebsiteKind.Dtf;
 
         [SetUp]
         public void Setup()
@@ -23,7 +23,6 @@ namespace Osnova.Net.Tests
                 var user = await User.GetUserAsync(Constants.Client, Kind, 260955);
             });
         }
-
 
         [Test]
         public void GetUserMe()

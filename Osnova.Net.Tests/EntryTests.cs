@@ -7,7 +7,7 @@ namespace Osnova.Net.Tests
 {
     public class EntryTests
     {
-        private WebsiteKind Kind { get; } = WebsiteKind.Dtf;
+        private static WebsiteKind Kind => WebsiteKind.Dtf;
 
         [SetUp]
         public void Setup()
