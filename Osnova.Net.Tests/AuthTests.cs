@@ -12,10 +12,22 @@ namespace Osnova.Net.Tests
         [SetUp]
         public void Setup()
         {
-            Constants.CreateClient();
+            // TODO: init client without token
+            //Constants.CreateClient();
         }
 
 #if LOCALTESTS
+
+        [Test]
+        public async Task PostAuthQr()
+        {
+            // TODO: test this!
+            string qrToken = null;
+
+            using var client = new HttpClient(); // don't use client with token specified already!
+
+            var token = await Authentication.PostAuthQrGetTokenAsync(client, Kind, qrToken);
+        }
 
         [Test]
         public async Task PostAuthLogin()

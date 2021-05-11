@@ -6,13 +6,13 @@
 
 [![Actions Status](https://github.com/Gigas002/Osnova.Net/workflows/.NET%20Core%20CI/badge.svg)](https://github.com/Gigas002/Osnova.Net/actions)
 
-## Current version
-
-GitHub Releases: [![Release](https://img.shields.io/github/release/Gigas002/Osnova.Net.svg)](https://github.com/Gigas002/Osnova.Net/releases/latest);
+## Текущая версия
 
 NuGet: [![NuGet](https://img.shields.io/nuget/v/Osnova.Net.svg)](https://www.nuget.org/packages/Osnova.Net/);
 
 GitHub Packages Feed: <https://github.com/Gigas002/Osnova.Net/packages>.
+
+GitHub Releases: [![Release](https://img.shields.io/github/release/Gigas002/Osnova.Net.svg)](https://github.com/Gigas002/Osnova.Net/releases/latest);
 
 Информация об изменениях в [CHANGELOG.md](CHANGELOG.md).
 
@@ -23,7 +23,7 @@ GitHub Packages Feed: <https://github.com/Gigas002/Osnova.Net/packages>.
 - [ ] WebSocket (Частично реализовано, смотреть классы `WebSocketClient` и `WebSockets`)
 - [x] Authentication (Через `Core.CreateDefaultClient(string authenticationToken)`)
 - [ ] Auth
-    - [ ] postAuthQr
+    - [x] postAuthQr (Спасибо Prostagma? за помощь с получением qr-кода)
     - [ ] postAuthSocial
     - [x] postAuthLogin
 - [ ] Timeline
