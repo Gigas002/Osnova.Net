@@ -22,9 +22,9 @@ GitHub Releases: [![Release](https://img.shields.io/github/release/Gigas002/Osno
 
 - [ ] WebSocket (Частично реализовано, смотреть классы `WebSocketClient` и `WebSockets`)
 - [x] Authentication (Через `Core.CreateDefaultClient(string authenticationToken)`)
-- [ ] Auth
+- [x] Auth (нужны дополнительные тесты)
     - [x] postAuthQr (Спасибо Prostagma? за помощь с получением qr-кода)
-    - [ ] postAuthSocial
+    - [x] postAuthSocial
     - [x] postAuthLogin
 - [ ] Timeline
     - [ ] getTimeline

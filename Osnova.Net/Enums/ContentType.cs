@@ -1,6 +1,6 @@
 ﻿namespace Osnova.Net.Enums
 {
-    public enum ContentTypes
+    public enum ContentType
     {
         Entry = 1,
         Vacancy = 2,

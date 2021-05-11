@@ -62,7 +62,7 @@ namespace Osnova.Net
         /// Repost = 5
         /// </summary>
         [JsonPropertyName("type")]
-        public ContentTypes Type { get; set; }
+        public ContentType Type { get; set; }
 
         /// <summary>
         /// Подзаголовок статьи

@@ -21,12 +21,26 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task PostAuthQr()
         {
-            // TODO: test this!
+            // TODO: requires testing
             string qrToken = null;
 
             using var client = new HttpClient(); // don't use client with token specified already!
 
             var token = await Authentication.PostAuthQrGetTokenAsync(client, Kind, qrToken);
+        }
+
+        [Test]
+        public async Task PostAuthSocial()
+        {
+            // TODO: requires testing
+
+            var socialType = SocialType.GooglePlus;
+            string loginToken = null;
+            string email = null;
+
+            using var client = new HttpClient(); // don't use client with token specified already!
+
+            var token = await Authentication.PostAuthSocialGetTokenAsync(client, Kind, socialType, loginToken, email);
         }
 
         [Test]

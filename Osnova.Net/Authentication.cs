@@ -8,7 +8,7 @@ namespace Osnova.Net
 {
     public class Authentication
     {
-        #region PostAuthLogin
+        #region PostAuthQr
 
         public static Uri GetAuthQrUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
@@ -27,7 +27,7 @@ namespace Osnova.Net
                 { tokenContent, "\"token\"" }
             };
 
-            var response = await Core.PostToApiAsync(client, GetAuthLoginUri(websiteKind, apiVersion), requestContent).ConfigureAwait(false);
+            var response = await Core.PostToApiAsync(client, GetAuthQrUri(websiteKind, apiVersion), requestContent).ConfigureAwait(false);
 
             tokenContent.Dispose();
             requestContent.Dispose();
@@ -39,6 +39,50 @@ namespace Osnova.Net
                                                                       double apiVersion = Core.ApiVersion)
         {
             using var response = await PostAuthQrGetResponseAsync(client, websiteKind, token, apiVersion).ConfigureAwait(false);
+
+            return response.Headers.FirstOrDefault(h => h.Key == "x-device-token").Value.FirstOrDefault();
+        }
+
+        #endregion
+
+        #region PostAuthSocial
+
+        public static Uri GetAuthSocialUri(WebsiteKind websiteKind, SocialType socialType, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/auth/social/{socialType}");
+        }
+
+        public static async ValueTask<HttpResponseMessage> PostAuthSocialGetResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            SocialType socialType, string token, string email, bool linking = false, double apiVersion = Core.ApiVersion)
+        {
+            var tokenContent = new StringContent(token);
+            var emailContent = new StringContent(email);
+            var linkingContent = new StringContent($"{Convert.ToInt32(linking)}");
+
+            var requestContent = new MultipartFormDataContent
+            {
+                { tokenContent, "\"token\"" },
+                { emailContent, "\"email\"" },
+                { linkingContent, "\"linking\"" }
+            };
+
+            var response = await Core.PostToApiAsync(client, GetAuthSocialUri(websiteKind, socialType, apiVersion), requestContent).ConfigureAwait(false);
+
+            tokenContent.Dispose();
+            emailContent.Dispose();
+            linkingContent.Dispose();
+            requestContent.Dispose();
+
+            return response;
+        }
+
+        public static async ValueTask<string> PostAuthSocialGetTokenAsync(HttpClient client, WebsiteKind websiteKind,
+               SocialType socialType, string token, string email, bool linking = false, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await PostAuthSocialGetResponseAsync(client, websiteKind, socialType, token, email, linking,
+                                                                      apiVersion).ConfigureAwait(false);
 
             return response.Headers.FirstOrDefault(h => h.Key == "x-device-token").Value.FirstOrDefault();
         }
@@ -81,8 +125,6 @@ namespace Osnova.Net
             using var response = await PostAuthLoginGetResponseAsync(client, websiteKind, login, password, apiVersion).ConfigureAwait(false);
 
             return response.Headers.FirstOrDefault(h => h.Key == "x-device-token").Value.FirstOrDefault();
-
-            //return await Core.DeserializeOsnovaResponseAsync<User>(response).ConfigureAwait(false);
         }
 
         #endregion
