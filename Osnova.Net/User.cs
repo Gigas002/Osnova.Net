@@ -585,6 +585,47 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetUserMeFavoritesComments
+
+        public static Uri GetUserMeFavoritesCommentsUri(WebsiteKind websiteKind, int count = -1,
+                                                      int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/user/me/favorites/comments");
+
+            string countQuery = count > -1 ? $"count={count}" : null;
+            string offsetQuery = offset > -1 ? $"offset={offset}" : null;
+
+            Core.BuildUri(ref builder, countQuery, offsetQuery);
+
+            return builder.Uri;
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserMeFavoritesCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserMeFavoritesCommentsUri(websiteKind, count, offset, apiVersion));
+        }
+
+        /// <summary>
+        /// Requires authentication
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="websiteKind"></param>
+        /// <param name="count"></param>
+        /// <param name="offset"></param>
+        /// <param name="apiVersion"></param>
+        /// <returns></returns>
+        public static async ValueTask<IEnumerable<Comment>> GetUserMeFavoritesCommentsAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                              int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserMeFavoritesCommentsResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Comment>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
 
         #endregion
 
