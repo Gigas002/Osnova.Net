@@ -145,9 +145,15 @@ namespace Osnova.Net.Tests
         }
 
         [Test]
-        public async Task GetUserMeSubscriptionsSubscribedUsers()
+        public async Task GetUserMeSubscriptionsSubscribed()
         {
-            var users = await User.GetUserMeSubscriptionsSubscribedUsersAsync(Constants.Client, Kind);
+            var users = await User.GetUserMeSubscriptionsSubscribedAsync(Constants.Client, Kind);
+        }
+
+        [Test]
+        public async Task GetUserMeTuneCatalog()
+        {
+            var users = await User.GetUserMeTuneCatalogAsync(Constants.Client, Kind);
         }
 
 #endif

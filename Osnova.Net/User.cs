@@ -734,10 +734,43 @@ namespace Osnova.Net
         /// <param name="websiteKind"></param>
         /// <param name="apiVersion"></param>
         /// <returns></returns>
-        public static async ValueTask<IEnumerable<User>> GetUserMeSubscriptionsSubscribedUsersAsync(HttpClient client, WebsiteKind websiteKind,
+        public static async ValueTask<IEnumerable<User>> GetUserMeSubscriptionsSubscribedAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
             var response = await GetUserMeSubscriptionsSubscribedResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region GetUserMeTuneCatalog
+
+        public static Uri GetUserMeTuneCatalogUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+
+            return new Uri($"{baseUri}/user/me/tunecatalog");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserMeTuneCatalogResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserMeTuneCatalogUri(websiteKind, apiVersion));
+        }
+
+        /// <summary>
+        /// Requires authentication
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="websiteKind"></param>
+        /// <param name="apiVersion"></param>
+        /// <returns></returns>
+        public static async ValueTask<IEnumerable<User>> GetUserMeTuneCatalogAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserMeTuneCatalogResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
         }
