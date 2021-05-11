@@ -500,6 +500,49 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetUserFavoritesVacancies
+
+        public static Uri GetUserFavoritesVacanciesUri(WebsiteKind websiteKind, int userId, int count = -1,
+                                                       int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/user/{userId}/favorites/vacancies");
+
+            string countQuery = count > -1 ? $"count={count}" : null;
+            string offsetQuery = offset > -1 ? $"offset={offset}" : null;
+
+            Core.BuildUri(ref builder, countQuery, offsetQuery);
+
+            return builder.Uri;
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserFavoritesVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+            int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserFavoritesVacanciesUri(websiteKind, userId, count, offset, apiVersion));
+        }
+
+        /// <summary>
+        /// Requires authentication
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="websiteKind"></param>
+        /// <param name="userId"></param>
+        /// <param name="count"></param>
+        /// <param name="offset"></param>
+        /// <param name="apiVersion"></param>
+        /// <returns></returns>
+        public static async ValueTask<IEnumerable<Vacancy>> GetUserFavoritesVacanciesAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+                                                                              int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserFavoritesVacanciesResponseAsync(client, websiteKind, userId, count, offset, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Vacancy>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
 
         #endregion

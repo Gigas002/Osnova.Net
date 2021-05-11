@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
 using Osnova.Net.Enums;
-using Osnova.Net.Exceptions;
 
 namespace Osnova.Net.Tests
 {
@@ -112,6 +111,12 @@ namespace Osnova.Net.Tests
         public async Task GetUserFavoritesComments()
         {
             var comments = await User.GetUserFavoritesCommentsAsync(Constants.Client, Kind, 260955);
+        }
+
+        [Test]
+        public async Task GetUserFavoritesVacancies()
+        {
+            var vacancies = await User.GetUserFavoritesVacanciesAsync(Constants.Client, Kind, 260955);
         }
 
 #endif
