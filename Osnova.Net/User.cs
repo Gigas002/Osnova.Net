@@ -22,7 +22,7 @@ namespace Osnova.Net
         public Uri Url { get; set; }
 
         [JsonPropertyName("type")]
-        public long Type { get; set; } // TODO: some kind of enum?
+        public int Type { get; set; } // TODO: some kind of enum?
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -153,6 +153,15 @@ namespace Osnova.Net
 
         [JsonPropertyName("user_hashes")]
         public JsonElement UserHashes { get; set; } // TODO: wtf is this? got from postAuthLogin
+
+        [JsonPropertyName("highlight")]
+        public string Highlight { get; set; }
+
+        [JsonPropertyName("is_enable_writing")]
+        public bool IsEnableWriting { get; set; }
+
+        [JsonPropertyName("commentEditor")]
+        public CommentEditor CommentEditor { get; set; }
 
         #endregion
 
@@ -627,7 +636,7 @@ namespace Osnova.Net
 
         #endregion
 
-        #region GetUserFavoritesVacancies
+        #region GetUserMeFavoritesVacancies
 
         public static Uri GetUserMeFavoritesVacanciesUri(WebsiteKind websiteKind, int count = -1,
                                                        int offset = -1, double apiVersion = Core.ApiVersion)
@@ -665,6 +674,41 @@ namespace Osnova.Net
             var response = await GetUserMeFavoritesVacanciesResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Vacancy>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region GetUserMeSubscriptionsRecommended
+
+        public static Uri GetUserMeSubscriptionsRecommendedUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+
+            return new Uri($"{baseUri}/user/me/subscriptions/recommended");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserMeSubscriptionsRecommendedResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserMeSubscriptionsRecommendedUri(websiteKind, apiVersion));
+        }
+
+        /// <summary>
+        /// Requires authentication
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="websiteKind"></param>
+        /// <param name="count"></param>
+        /// <param name="offset"></param>
+        /// <param name="apiVersion"></param>
+        /// <returns></returns>
+        public static async ValueTask<IEnumerable<User>> GetUserMeSubscriptionsRecommendedAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserMeSubscriptionsRecommendedResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
         }
 
         #endregion
