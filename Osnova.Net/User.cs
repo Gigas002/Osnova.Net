@@ -543,6 +543,49 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetUserMeFavoritesEntries
+
+        public static Uri GetUserMeFavoritesEntriesUri(WebsiteKind websiteKind, int count = -1,
+                                                       int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/user/me/favorites/entries");
+
+            string countQuery = count > -1 ? $"count={count}" : null;
+            string offsetQuery = offset > -1 ? $"offset={offset}" : null;
+
+            Core.BuildUri(ref builder, countQuery, offsetQuery);
+
+            return builder.Uri;
+        }
+
+        public static ValueTask<HttpResponseMessage> GetUserMeFavoritesEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetUserMeFavoritesEntriesUri(websiteKind, count, offset, apiVersion));
+        }
+
+        /// <summary>
+        /// Requires authentication
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="websiteKind"></param>
+        /// <param name="count"></param>
+        /// <param name="offset"></param>
+        /// <param name="apiVersion"></param>
+        /// <returns></returns>
+        public static async ValueTask<IEnumerable<Entry>> GetUserMeFavoritesEntriesAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                              int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetUserMeFavoritesEntriesResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+
         #endregion
 
         #endregion
