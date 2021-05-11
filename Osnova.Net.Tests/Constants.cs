@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Net.Http;
+using Osnova.Net.Enums;
 
 namespace Osnova.Net.Tests
 {
@@ -13,17 +14,25 @@ namespace Osnova.Net.Tests
 
         public static HttpClient Client { get; private set; }
 
+        public const WebsiteKind Kind = WebsiteKind.Dtf;
+
+        public const int UserId = 260955;
+
+        public const int EntryId = 725050;
+
         public static void CreateClient()
         {
             if (IsClientCreated) return;
 
             string token = null;
 
+            #if LOCALTESTS
             // Requires you to add your api token in secrets.txt on repo's root
             if (File.Exists(SecretsPath))
             {
                 token = File.ReadAllText(SecretsPath);
             }
+            #endif
 
             Client = Core.CreateDefaultClient(token);
 

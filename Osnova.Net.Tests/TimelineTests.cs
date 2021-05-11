@@ -6,50 +6,23 @@ namespace Osnova.Net.Tests
 {
     public class TimelineTests
     {
-        private static WebsiteKind Kind => WebsiteKind.Dtf;
+        private const TimelineCategory Category = TimelineCategory.MainPage;
+
+        private const TimelineSorting Sorting = TimelineSorting.Recent;
 
         [SetUp]
-        public void Setup()
-        {
-            Constants.CreateClient();
-        }
-
-        #if LOCALTESTS
+        public void Setup() => Constants.CreateClient();
 
         [Test]
-        public async Task GetTimeline()
-        {
-            var category = TimelineCategory.MainPage;
-            var sorting = TimelineSorting.Recent;
-
-            var entries = await Timeline.GetTimelineAsync(Constants.Client, Kind, category, sorting);
-        }
+        public async Task GetTimeline() => _ = await Timeline.GetTimelineAsync(Constants.Client, Constants.Kind, Category, Sorting).ConfigureAwait(false);
 
         [Test]
-        public async Task GetTimelineByHashtag()
-        {
-            var category = TimelineCategory.MainPage;
-            var sorting = TimelineSorting.Recent;
-
-            var entries = await Timeline.GetTimelineByHashtagAsync(Constants.Client, Kind, "yurucamp", category, sorting);
-        }
+        public async Task GetTimelineByHashtag() => _ = await Timeline.GetTimelineByHashtagAsync(Constants.Client, Constants.Kind, "yurucamp", Category, Sorting).ConfigureAwait(false);
 
         [Test]
-        public async Task GetTimelineNews()
-        {
-            var sorting = TimelineSorting.Recent;
-
-            var entries = await Timeline.GetTimelineNewsAsync(Constants.Client, Kind, sorting);
-        }
+        public async Task GetTimelineNews() => _ = await Timeline.GetTimelineNewsAsync(Constants.Client, Constants.Kind, Sorting).ConfigureAwait(false);
 
         [Test]
-        public async Task GetFlashHolder()
-        {
-            var sorting = TimelineSorting.Recent;
-
-            var entries = await Timeline.GetFlashHolderAsync(Constants.Client, Kind);
-        }
-
-        #endif
+        public async Task GetFlashHolder() => _ = await Timeline.GetFlashHolderAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
     }
 }

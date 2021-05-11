@@ -796,12 +796,12 @@ namespace Osnova.Net
         /// <param name="websiteKind"></param>
         /// <param name="apiVersion"></param>
         /// <returns></returns>
-        public static async ValueTask<IEnumerable<string>> GetIgnoredKeywordsAsync(HttpClient client, WebsiteKind websiteKind,
+        public static async ValueTask<KeywordsContainer> GetIgnoredKeywordsAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
             var response = await GetIgnoredKeywordsResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<string>>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<KeywordsContainer>(response).ConfigureAwait(false);
         }
 
         #endregion

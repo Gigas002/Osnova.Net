@@ -7,7 +7,9 @@ namespace Osnova.Net.Tests
 {
     public class AuthTests
     {
-        private static WebsiteKind Kind => WebsiteKind.Dtf;
+        #if LOCALTESTS
+
+        private static HttpClient Client => new();
 
         [SetUp]
         public void Setup()
@@ -16,17 +18,13 @@ namespace Osnova.Net.Tests
             //Constants.CreateClient();
         }
 
-#if LOCALTESTS
-
         [Test]
         public async Task PostAuthQr()
         {
             // TODO: requires testing
             string qrToken = null;
 
-            using var client = new HttpClient(); // don't use client with token specified already!
-
-            var token = await Authentication.PostAuthQrGetTokenAsync(client, Kind, qrToken);
+            _ = await Authentication.PostAuthQrGetTokenAsync(Client, Constants.Kind, qrToken).ConfigureAwait(false);
         }
 
         [Test]
@@ -38,9 +36,7 @@ namespace Osnova.Net.Tests
             string loginToken = null;
             string email = null;
 
-            using var client = new HttpClient(); // don't use client with token specified already!
-
-            var token = await Authentication.PostAuthSocialGetTokenAsync(client, Kind, socialType, loginToken, email);
+            _ = await Authentication.PostAuthSocialGetTokenAsync(Client, Constants.Kind, socialType, loginToken, email).ConfigureAwait(false);
         }
 
         [Test]
@@ -49,11 +45,9 @@ namespace Osnova.Net.Tests
             string login = null;
             string password = null;
 
-            using var client = new HttpClient(); // don't use client with token specified already!
-
-            var token = await Authentication.PostAuthLoginGetTokenAsync(client, Kind, login, password);
+            _ = await Authentication.PostAuthLoginGetTokenAsync(Client, Constants.Kind, login, password).ConfigureAwait(false);
         }
 
-#endif
+        #endif
     }
 }

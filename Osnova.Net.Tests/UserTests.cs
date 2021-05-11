@@ -1,166 +1,175 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using Osnova.Net.Enums;
+
+#if !LOCALTESTS
 using Osnova.Net.Exceptions;
+#endif
 
 namespace Osnova.Net.Tests
 {
     public class UserTests
     {
-        private static WebsiteKind Kind => WebsiteKind.Dtf;
-
         [SetUp]
-        public void Setup()
-        {
-            Constants.CreateClient();
-        }
+        public void Setup() => Constants.CreateClient();
 
         [Test]
-        public void GetUser()
-        {
-            Assert.DoesNotThrowAsync(async () =>
-            {
-                var user = await User.GetUserAsync(Constants.Client, Kind, 260955);
-            });
-        }
+        public void GetUser() =>
+            Assert.DoesNotThrowAsync(async () => _ = await User.GetUserAsync(Constants.Client, Constants.Kind, Constants.UserId)
+                                                               .ConfigureAwait(false));
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserMe() =>
+            _ = await User.GetUserMeAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserMe() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserMeAsync(Constants.Client, Constants.Kind).ConfigureAwait(false));
+        #endif
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserMeUpdates() =>
+            _ = await User.GetUserMeUpdatesAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserMeUpdates() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserMeUpdatesAsync(Constants.Client, Constants.Kind)
+           .ConfigureAwait(false));
+        #endif
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserMeUpdatesCount() =>
+            _ = await User.GetUserMeUpdatesCountAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserMeUpdatesCount() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserMeUpdatesCountAsync(Constants.Client, Constants.Kind).ConfigureAwait(false));
+        #endif
 
         [Test]
-        public void GetUserMe()
-        {
-            #if LOCALTESTS
-            Assert.DoesNotThrowAsync(async () =>
-            {
-                var user = await User.GetUserMeAsync(Constants.Client, Kind);
-            });
-            #else
-            Assert.ThrowsAsync<InvalidResponseCodeException>(async () =>
-            {
-                var user = await User.GetUserMeAsync(Constants.Client, Kind);
-            });
-            #endif
-        }
+        public async Task GetUserComments() =>
+            _ = await User.GetUserCommentsAsync(Constants.Client, Constants.Kind, Constants.UserId)
+                          .ConfigureAwait(false);
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserMeComments() =>
+            _ = await User.GetUserMeCommentsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserMeComments() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserMeCommentsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false));
+        #endif
 
         [Test]
-        public void GetUserMeUpdates()
-        {
-            #if LOCALTESTS
-            Assert.DoesNotThrowAsync(async () =>
-            {
-                var notifications = await User.GetUserMeUpdatesAsync(Constants.Client, Kind);
-            });
-            #else
-            Assert.ThrowsAsync<InvalidResponseCodeException>(async () =>
-            {
-                var notifications = await User.GetUserMeUpdatesAsync(Constants.Client, Kind);
-            });
-            #endif
-        }
+        public async Task GetUserEntries() =>
+            _ = await User.GetUserEntriesAsync(Constants.Client, Constants.Kind, Constants.UserId)
+                          .ConfigureAwait(false);
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserMeEntries() =>
+            _ = await User.GetUserMeEntriesAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserMeEntries() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserMeEntriesAsync(Constants.Client, Constants.Kind).ConfigureAwait(false));
+        #endif
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserFavoritesEntries() =>
+            _ = await User.GetUserFavoritesEntriesAsync(Constants.Client, Constants.Kind, Constants.UserId)
+                          .ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserFavoritesEntries() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserFavoritesEntriesAsync(Constants.Client, Constants.Kind, Constants.UserId)
+           .ConfigureAwait(false));
+        #endif
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserFavoritesComments() =>
+            _ = await User.GetUserFavoritesCommentsAsync(Constants.Client, Constants.Kind, Constants.UserId)
+                          .ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserFavoritesComments() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserFavoritesCommentsAsync(Constants.Client, Constants.Kind, Constants.UserId)
+           .ConfigureAwait(false));
+        #endif
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserFavoritesVacancies() =>
+            _ = await User.GetUserFavoritesVacanciesAsync(Constants.Client, Constants.Kind, Constants.UserId)
+                          .ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserFavoritesVacancies() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserFavoritesVacanciesAsync(Constants.Client, Constants.Kind, Constants.UserId)
+           .ConfigureAwait(false));
+
+        #endif
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserMeFavoritesEntries() =>
+            _ = await User.GetUserMeFavoritesEntriesAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserMeFavoritesEntries() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserMeFavoritesEntriesAsync(Constants.Client, Constants.Kind)
+           .ConfigureAwait(false));
+        #endif
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserMeFavoritesComments() =>
+            _ = await User.GetUserMeFavoritesCommentsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserMeFavoritesComments() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserMeFavoritesCommentsAsync(Constants.Client, Constants.Kind)
+           .ConfigureAwait(false));
+        #endif
+
+        #if LOCALTESTS
+        [Test]
+        public async Task GetUserMeFavoritesVacancies() =>
+            _ = await User.GetUserMeFavoritesVacanciesAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        #else
+        [Test]
+        public void GetUserMeFavoritesVacancies() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetUserMeFavoritesVacanciesAsync(Constants.Client, Constants.Kind)
+           .ConfigureAwait(false));
+        #endif
 
         [Test]
-        public void GetUserMeUpdatesCount()
-        {
-            #if LOCALTESTS
-            Assert.DoesNotThrowAsync(async () =>
-            {
-                var count = await User.GetUserMeUpdatesCountAsync(Constants.Client, Kind);
-            });
-            #else
-            Assert.ThrowsAsync<InvalidResponseCodeException>(async () =>
-            {
-                var notifications = await User.GetUserMeUpdatesCountAsync(Constants.Client, Kind);
-            });
-            #endif
-        }
+        public async Task GetUserMeSubscriptionsRecommended() =>
+            _ = await User.GetUserMeSubscriptionsRecommendedAsync(Constants.Client, Constants.Kind)
+                          .ConfigureAwait(false);
 
         [Test]
-        public void GetUserComments()
-        {
-            Assert.DoesNotThrowAsync(async () =>
-            {
-                var comments = await User.GetUserCommentsAsync(Constants.Client, Kind, 339033);
-            });
-        }
-
-#if LOCALTESTS
+        public async Task GetUserMeSubscriptionsSubscribed() =>
+            _ = await User.GetUserMeSubscriptionsSubscribedAsync(Constants.Client, Constants.Kind)
+                          .ConfigureAwait(false);
 
         [Test]
-        public async Task GetUserMeComments()
-        {
-            var comments = await User.GetUserMeCommentsAsync(Constants.Client, Kind);
-        }
+        public async Task GetUserMeTuneCatalog() =>
+            _ = await User.GetUserMeTuneCatalogAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
 
+        #if LOCALTESTS
         [Test]
-        public async Task GetUserEntries()
-        {
-            var entries = await User.GetUserEntriesAsync(Constants.Client, Kind, 339033);
-        }
-
+        public async Task GetIgnoredKeywords() =>
+            _ = await User.GetIgnoredKeywordsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        #else
         [Test]
-        public async Task GetUserMeEntries()
-        {
-            var entries = await User.GetUserMeEntriesAsync(Constants.Client, Kind);
-        }
-
-        [Test]
-        public async Task GetUserFavoritesEntries()
-        {
-            var entries = await User.GetUserFavoritesEntriesAsync(Constants.Client, Kind, 260955);
-        }
-
-        [Test]
-        public async Task GetUserFavoritesComments()
-        {
-            var comments = await User.GetUserFavoritesCommentsAsync(Constants.Client, Kind, 260955);
-        }
-
-        [Test]
-        public async Task GetUserFavoritesVacancies()
-        {
-            var vacancies = await User.GetUserFavoritesVacanciesAsync(Constants.Client, Kind, 260955);
-        }
-
-        [Test]
-        public async Task GetUserMeFavoritesEntries()
-        {
-            var entries = await User.GetUserMeFavoritesEntriesAsync(Constants.Client, Kind);
-        }
-
-        [Test]
-        public async Task GetUserMeFavoritesComments()
-        {
-            var comments = await User.GetUserMeFavoritesCommentsAsync(Constants.Client, Kind);
-        }
-
-        [Test]
-        public async Task GetUserMeFavoritesVacancies()
-        {
-            var vacancies = await User.GetUserMeFavoritesVacanciesAsync(Constants.Client, Kind);
-        }
-
-        [Test]
-        public async Task GetUserMeSubscriptionsRecommended()
-        {
-            var users = await User.GetUserMeSubscriptionsRecommendedAsync(Constants.Client, Kind);
-        }
-
-        [Test]
-        public async Task GetUserMeSubscriptionsSubscribed()
-        {
-            var users = await User.GetUserMeSubscriptionsSubscribedAsync(Constants.Client, Kind);
-        }
-
-        [Test]
-        public async Task GetUserMeTuneCatalog()
-        {
-            var users = await User.GetUserMeTuneCatalogAsync(Constants.Client, Kind);
-        }
-
-        [Test]
-        public async Task GetIgnoredKeywords()
-        {
-            var keywords = await User.GetIgnoredKeywordsAsync(Constants.Client, Kind);
-        }
-
-#endif
+        public void GetIgnoredKeywords() => Assert.ThrowsAsync<InvalidResponseCodeException>(async () => _ =
+ await User.GetIgnoredKeywordsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false));
+        #endif
     }
 }

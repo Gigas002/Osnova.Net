@@ -1,57 +1,25 @@
 using System;
-using System.Threading.Tasks;
 using NUnit.Framework;
-using Osnova.Net.Enums;
 
 namespace Osnova.Net.Tests
 {
     public class EntryTests
     {
-        private static WebsiteKind Kind => WebsiteKind.Dtf;
-
         [SetUp]
-        public void Setup()
-        {
-            Constants.CreateClient();
-        }
+        public void Setup() => Constants.CreateClient();
 
         [Test]
-        public void GetEntry()
-        {
-            Assert.DoesNotThrowAsync(async () =>
-            {
-                var entry = await Entry.GetEntryByIdAsync(Constants.Client, Kind, 725050);
-            });
-        }
+        public void GetEntry() => Assert.DoesNotThrowAsync(async () => _ = await Entry.GetEntryByIdAsync(Constants.Client, Constants.Kind, Constants.EntryId).ConfigureAwait(false));
 
         [Test]
-        public void GetPopularEntries()
-        {
-            Assert.DoesNotThrowAsync(async () =>
-            {
-                var entries = await Entry.GetPopularEntriesAsync(Constants.Client, Kind, 725050);
-            });
-        }
+        public void GetPopularEntries() => Assert.DoesNotThrowAsync(async () => _ = await Entry.GetPopularEntriesAsync(Constants.Client, Constants.Kind, Constants.EntryId).ConfigureAwait(false));
 
         [Test]
-        public void GetEntryLocate()
+        public void GetEntryLocate() => Assert.DoesNotThrowAsync(async () =>
         {
-            Assert.DoesNotThrowAsync(async () =>
-            {
-                Uri entryUri = new Uri("https://dtf.ru/725050");
+            Uri entryUri = new($"https://dtf.ru/{Constants.EntryId}");
 
-                var entry = await Entry.GetEntryLocateAsync(Constants.Client, Kind, entryUri);
-            });
-        }
-
-#if LOCALTESTS
-
-        [Test]
-        public async Task LocalTest()
-        {
-            var entry = await Entry.GetEntryByIdAsync(Constants.Client, Kind, 725050);
-        }
-
-#endif
+            _ = await Entry.GetEntryLocateAsync(Constants.Client, Constants.Kind, entryUri).ConfigureAwait(false);
+        });
     }
 }
