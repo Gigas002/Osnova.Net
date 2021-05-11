@@ -108,5 +108,30 @@ namespace Osnova.Net
         }
 
         #endregion
+
+        #region GetFlashHolder
+
+        public static Uri GetFlashHolderUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/getflashholdedentry");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetFlashHolderResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetFlashHolderUri(websiteKind, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Entry>> GetFlashHolderAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                               double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetFlashHolderResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
     }
 }
