@@ -27,6 +27,12 @@
             Android = 2
             </summary>
         </member>
+        <member name="M:Osnova.Net.Comment.GetEntryCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Warning: requires authentication!
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:Osnova.Net.Entry.Title">
             <summary>
             Заголовок статьи

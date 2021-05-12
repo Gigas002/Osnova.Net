@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 using Osnova.Net.Blocks;
 using Osnova.Net.Enums;
 
@@ -39,7 +42,6 @@ namespace Osnova.Net
         [JsonPropertyName("likes")]
         public Likes Likes { get; set; }
 
-        // TODO: recursive?
         [JsonPropertyName("entry")]
         public Entry Entry { get; set; }
 
@@ -93,6 +95,36 @@ namespace Osnova.Net
 
         [JsonPropertyName("donate")]
         public Counter Donate { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        #region GetEntryComments
+
+        public static Uri GetEntryCommentsUri(WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
+        {
+            // TODO: broken API, only "popular" sorting works https://api.dtf.ru/v1.9/entry/730410/comments/recent
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/entry/{entryId}/comments/popular");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetEntryCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int entryId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetEntryCommentsUri(websiteKind, entryId, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Comment>> GetEntryCommentsAsync(HttpClient client, WebsiteKind websiteKind,
+            int entryId, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetEntryCommentsResponseAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Comment>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
 
         #endregion
     }
