@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Osnova.Net.BlockDatas;
 
 namespace Osnova.Net.Blocks
 {
