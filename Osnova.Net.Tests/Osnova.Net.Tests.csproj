@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix>ci260</VersionSuffix>
-    <AssemblyVersion>1.0.0.299</AssemblyVersion>
-    <FileVersion>1.0.0.299</FileVersion>
+    <VersionSuffix>ci300</VersionSuffix>
+    <AssemblyVersion>1.0.0.300</AssemblyVersion>
+    <FileVersion>1.0.0.300</FileVersion>
     <Platforms>AnyCPU;x64</Platforms>
     <Configurations>Debug;Release;LocalTests</Configurations>
     <PackageIcon>icon.png</PackageIcon>
