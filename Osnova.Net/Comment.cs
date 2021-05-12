@@ -10,7 +10,7 @@ namespace Osnova.Net
 {
     public class Comment
     {
-        #region From getEntryById -> commentsPreview docs
+        #region Properties
 
         [JsonPropertyName("id")]
         public long Id { get; set; }
@@ -121,6 +121,31 @@ namespace Osnova.Net
             var response = await GetEntryCommentsResponseAsync(client, websiteKind, entryId, sorting, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Comment>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region GetEntryCommentsLevels
+
+        public static Uri GetEntryCommentsLevelsUri(WebsiteKind websiteKind, int entryId, CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/entry/{entryId}/comments/levels/{sorting.ToString().ToLowerInvariant()}");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetEntryCommentsLevelsResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int entryId, CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetEntryCommentsLevelsUri(websiteKind, entryId, sorting, apiVersion));
+        }
+
+        public static async ValueTask<CommentsLevels> GetEntryCommentsLevelsAsync(HttpClient client, WebsiteKind websiteKind, int entryId,
+            CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetEntryCommentsLevelsResponseAsync(client, websiteKind, entryId, sorting, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<CommentsLevels>(response).ConfigureAwait(false);
         }
 
         #endregion
