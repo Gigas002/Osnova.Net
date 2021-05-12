@@ -18,7 +18,19 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetSearchSubsite()
         {
-            var entries = await Search.GetSearchSubsiteAsync(Constants.Client, Constants.Kind, "yurucamp");
+            var users = await Search.GetSearchSubsiteAsync(Constants.Client, Constants.Kind, "yurucamp");
+        }
+
+        [Test]
+        public async Task GetSearchHashtag()
+        {
+            var hashtags = await Search.GetSearchHashtagAsync(Constants.Client, Constants.Kind, "yurucamp");
+        }
+
+        [Test]
+        public async Task GetTag()
+        {
+            var entries = await Search.GetTagAsync(Constants.Client, Constants.Kind, "yurucamp", 69308);
         }
     }
 }

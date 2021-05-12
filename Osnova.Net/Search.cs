@@ -51,7 +51,7 @@ namespace Osnova.Net
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/search");
+            UriBuilder builder = new($"{baseUri}/search-subsite");
 
             string queryString = $"q={query}";
             //string orderByString = $"order_by={orderBy.ToString().ToLowerInvariant()}";
@@ -69,10 +69,76 @@ namespace Osnova.Net
         }
 
         // TODO: always returns empty array
-        public static async ValueTask<IEnumerable<Entry>> GetSearchSubsiteAsync(HttpClient client, WebsiteKind websiteKind, string query,
+        public static async ValueTask<IEnumerable<User>> GetSearchSubsiteAsync(HttpClient client, WebsiteKind websiteKind, string query,
             double apiVersion = Core.ApiVersion)
         {
             var response = await GetSearchSubsiteResponseAsync(client, websiteKind, query, apiVersion).ConfigureAwait(false);
+
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<User>>(response).ConfigureAwait(false);
+
+            return searchResult.Items;
+        }
+
+        #endregion
+
+        #region GetSearchHashtag
+
+        public static Uri GetSearchHashtagUri(WebsiteKind websiteKind, string query, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/search-hashtag");
+
+            string queryString = $"q={query}";
+
+            Core.BuildUri(ref builder, queryString);
+
+            return builder.Uri;
+        }
+
+        public static ValueTask<HttpResponseMessage> GetSearchHashtagResponseAsync(HttpClient client, WebsiteKind websiteKind, string query,
+            double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetSearchHashtagUri(websiteKind, query, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Hashtag>> GetSearchHashtagAsync(HttpClient client, WebsiteKind websiteKind, string query,
+            double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetSearchHashtagResponseAsync(client, websiteKind, query, apiVersion).ConfigureAwait(false);
+
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Hashtag>>(response).ConfigureAwait(false);
+
+            return searchResult.Items;
+        }
+
+        #endregion
+
+        #region GetTag
+
+        public static Uri GetTagUri(WebsiteKind websiteKind, string tag, long lastId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/tag/{tag}");
+
+            string queryString = $"last_id={lastId}";
+
+            Core.BuildUri(ref builder, queryString);
+
+            return builder.Uri;
+        }
+
+        public static ValueTask<HttpResponseMessage> GetTagResponseAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                         string tag, long lastId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetTagUri(websiteKind, tag, lastId, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Entry>> GetTagAsync(HttpClient client, WebsiteKind websiteKind, string tag, long lastId,
+                                                        double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetTagResponseAsync(client, websiteKind, tag, lastId, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
         }
