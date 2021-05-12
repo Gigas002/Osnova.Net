@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Osnova.Net.Tests
@@ -12,6 +13,12 @@ namespace Osnova.Net.Tests
         public async Task GetSearch()
         {
             var entries = await Search.GetSearchAsync(Constants.Client, Constants.Kind, "yurucamp");
+        }
+
+        [Test]
+        public async Task GetSearchSubsite()
+        {
+            var entries = await Search.GetSearchSubsiteAsync(Constants.Client, Constants.Kind, "yurucamp");
         }
     }
 }
