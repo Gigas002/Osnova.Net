@@ -23,7 +23,13 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetEntryCommentsThread()
         {
-            var levels = await Comment.GetEntryCommentsThreadAsync(Constants.Client, Constants.Kind, Constants.EntryId, 10518559);
+            var threads = await Comment.GetEntryCommentsThreadAsync(Constants.Client, Constants.Kind, Constants.EntryId, 10518559);
+        }
+
+        [Test]
+        public async Task GetCommentLikers()
+        {
+            var likers = await Comment.GetCommentLikersAsync(Constants.Client, Constants.Kind, 10518559);
         }
     }
 }

@@ -175,6 +175,31 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetCommentLikers
+
+        public static Uri GetCommentLikersThreadUri(WebsiteKind websiteKind, long commentId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/comment/likers/{commentId}");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetCommentLikersResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            long commentId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetCommentLikersThreadUri(websiteKind, commentId, apiVersion));
+        }
+
+        public static async ValueTask<Dictionary<long, Liker>> GetCommentLikersAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                            long commentId, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetCommentLikersResponseAsync(client, websiteKind, commentId, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<Dictionary<long, Liker>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
     }
 }
