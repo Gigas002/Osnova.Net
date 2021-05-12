@@ -102,24 +102,23 @@ namespace Osnova.Net
 
         #region GetEntryComments
 
-        public static Uri GetEntryCommentsUri(WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
+        public static Uri GetEntryCommentsUri(WebsiteKind websiteKind, int entryId, CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
         {
-            // TODO: broken API, only "popular" sorting works https://api.dtf.ru/v1.9/entry/730410/comments/recent
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
-            return new Uri($"{baseUri}/entry/{entryId}/comments/popular");
+            return new Uri($"{baseUri}/entry/{entryId}/comments/{sorting}");
         }
 
         public static ValueTask<HttpResponseMessage> GetEntryCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind,
-            int entryId, double apiVersion = Core.ApiVersion)
+            int entryId, CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetEntryCommentsUri(websiteKind, entryId, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetEntryCommentsUri(websiteKind, entryId, sorting, apiVersion));
         }
 
-        public static async ValueTask<IEnumerable<Comment>> GetEntryCommentsAsync(HttpClient client, WebsiteKind websiteKind,
-            int entryId, double apiVersion = Core.ApiVersion)
+        public static async ValueTask<IEnumerable<Comment>> GetEntryCommentsAsync(HttpClient client, WebsiteKind websiteKind, int entryId,
+            CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetEntryCommentsResponseAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
+            var response = await GetEntryCommentsResponseAsync(client, websiteKind, entryId, sorting, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Comment>>(response).ConfigureAwait(false);
         }
