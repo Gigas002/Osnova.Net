@@ -106,7 +106,7 @@ namespace Osnova.Net
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
-            return new Uri($"{baseUri}/entry/{entryId}/comments/{sorting}");
+            return new Uri($"{baseUri}/entry/{entryId}/comments/{sorting.ToString().ToLowerInvariant()}");
         }
 
         public static ValueTask<HttpResponseMessage> GetEntryCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind,

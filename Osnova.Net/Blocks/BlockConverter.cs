@@ -25,11 +25,17 @@ namespace Osnova.Net.Blocks
             return block;
         }
 
+        // TODO: kind of works? needs testing
         public override void Write(Utf8JsonWriter writer, Block value, JsonSerializerOptions options)
         {
-            //JsonSerializer.Serialize(writer, value.Data, options);
-            //JsonSerializer.Serialize(writer, value);
-            throw new NotImplementedException();
+            writer.WriteStartObject();
+
+            writer.WritePropertyName("data");
+
+            var type = Block.GetBlockDataType(value.Type);
+            JsonSerializer.Serialize(writer, value.Data, type, options);
+
+            writer.WriteEndObject();
         }
     }
 }

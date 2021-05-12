@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Osnova.Net.Blocks;
@@ -33,7 +34,9 @@ namespace Osnova.Net
                 new BlockConverter(),
                 new WidgetConverter()
                 //new ImageBlockDataConverter()
-            }
+            },
+            IgnoreNullValues = true,
+            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
         };
 
         #region Methods

@@ -1,4 +1,6 @@
-﻿using System.Net.Http;
+﻿#if LOCALTESTS
+
+using System.Net.Http;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Osnova.Net.Enums;
@@ -7,8 +9,6 @@ namespace Osnova.Net.Tests
 {
     public class AuthTests
     {
-        #if LOCALTESTS
-
         private static HttpClient Client => new();
 
         [SetUp]
@@ -47,7 +47,6 @@ namespace Osnova.Net.Tests
 
             _ = await Authentication.PostAuthLoginGetTokenAsync(Client, Constants.Kind, login, password).ConfigureAwait(false);
         }
-
-        #endif
     }
 }
+#endif

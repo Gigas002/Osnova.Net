@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Osnova.Net.BlockDatas;
-using Osnova.Net.Blocks;
 
 namespace Osnova.Net
 {
@@ -47,16 +45,14 @@ namespace Osnova.Net
 
         public override void Write(Utf8JsonWriter writer, Widget value, JsonSerializerOptions options)
         {
-            //if (value.ItemType != "content")
-            //{
-            //    var itemsType = Widget.GetItemsType(value.ItemType);
+            writer.WriteStartObject();
 
-            //    JsonSerializerOptions ops = new JsonSerializerOptions() { IgnoreNullValues = true };
+            writer.WritePropertyName("items");
 
-            //    var str = JsonSerializer.Serialize(value.Items, itemsType, ops);
-            //}
+            var type = Widget.GetItemsType(value.ItemType);
+            JsonSerializer.Serialize(writer, value.Items, type, options);
 
-            throw new NotImplementedException();
+            writer.WriteEndObject();
         }
     }
 }

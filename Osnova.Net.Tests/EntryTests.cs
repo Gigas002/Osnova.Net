@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Osnova.Net.Tests
@@ -12,7 +13,8 @@ namespace Osnova.Net.Tests
         public void GetEntry() => Assert.DoesNotThrowAsync(async () => _ = await Entry.GetEntryByIdAsync(Constants.Client, Constants.Kind, Constants.EntryId).ConfigureAwait(false));
 
         [Test]
-        public void GetPopularEntries() => Assert.DoesNotThrowAsync(async () => _ = await Entry.GetPopularEntriesAsync(Constants.Client, Constants.Kind, Constants.EntryId).ConfigureAwait(false));
+        public async Task GetPopularEntries() => _ = await Entry.GetPopularEntriesAsync(Constants.Client, Constants.Kind, Constants.EntryId)
+                                                                .ConfigureAwait(false);
 
         [Test]
         public void GetEntryLocate() => Assert.DoesNotThrowAsync(async () =>
