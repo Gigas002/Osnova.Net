@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class SpecialButtonBlockData : BlockData
+    public class SpecialButtonBlockData
     {
         [JsonPropertyName("text")]
         public string Text { get; set; }

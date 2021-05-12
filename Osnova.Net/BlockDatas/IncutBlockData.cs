@@ -2,7 +2,7 @@
 
 namespace Osnova.Net.BlockDatas
 {
-    public class IncutBlockData : BlockData
+    public class IncutBlockData
     {
         [JsonPropertyName("text")]
         public string Text { get; set; }

@@ -2,7 +2,7 @@
 
 namespace Osnova.Net.BlockDatas
 {
-    public class WaterfallBlockData : BlockData
+    public class WaterfallBlockData
     {
         [JsonPropertyName("wtrfallid")]
         public string WaterfallId { get; set; }

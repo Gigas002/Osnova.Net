@@ -3,7 +3,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class SpotifyBlockData : BlockData
+    public class SpotifyBlockData
     {
         [JsonPropertyName("spotify")]
         public Block Spotify { get; set; }

@@ -3,7 +3,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class VideoBlockData : BlockData
+    public class VideoBlockData
     {
         [JsonPropertyName("video")]
         public Block Video { get; set; }

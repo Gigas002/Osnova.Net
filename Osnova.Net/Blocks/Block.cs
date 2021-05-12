@@ -10,7 +10,7 @@ namespace Osnova.Net.Blocks
         public string Type { get; set; }
 
         [JsonPropertyName("data")]
-        public BlockData Data { get; set; }
+        public object Data { get; set; }
 
         [JsonPropertyName("cover")]
         public bool Cover { get; set; }
@@ -46,6 +46,10 @@ namespace Osnova.Net.Blocks
             "warning" => typeof(WarningBlockData),
             "wtrfall" => typeof(WaterfallBlockData),
             "yamusic" => typeof(YaMusicBlockData),
+
+            // Not a typical BlockData
+            "entry" => typeof(Entry),
+            "user" => typeof(User),
             _ => typeof(object)
         };
     }

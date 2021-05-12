@@ -3,7 +3,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class TelegramBlockData : BlockData
+    public class TelegramBlockData
     {
         [JsonPropertyName("telegram")]
         public Block Telegram { get; set; }

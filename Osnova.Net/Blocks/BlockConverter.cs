@@ -20,7 +20,7 @@ namespace Osnova.Net.Blocks
             var dataJson = doc.RootElement.GetProperty("data").GetRawText();
 
             // Warning: recursive for types with blocks inside
-            block.Data = (BlockData)JsonSerializer.Deserialize(dataJson, Block.GetBlockDataType(type), options);
+            block.Data = JsonSerializer.Deserialize(dataJson, Block.GetBlockDataType(type), options);
 
             return block;
         }

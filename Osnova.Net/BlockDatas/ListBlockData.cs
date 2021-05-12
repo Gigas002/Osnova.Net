@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class ListBlockData : BlockData
+    public class ListBlockData
     {
         [JsonPropertyName("items")]
         public IEnumerable<string> Items { get; set; }

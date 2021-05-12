@@ -2,7 +2,7 @@
 
 namespace Osnova.Net.BlockDatas
 {
-    public class DelimiterBlockData : BlockData
+    public class DelimiterBlockData
     {
         [JsonPropertyName("type")]
         public string Type { get; set; }

@@ -12,8 +12,6 @@ namespace Osnova.Net
     {
         #region Properties
 
-        #region From getUser docs
-
         [JsonPropertyName("id")]
         public long Id { get; set; }
 
@@ -101,10 +99,6 @@ namespace Osnova.Net
         [JsonPropertyName("contacts")]
         public Contacts Contacts { get; set; }
 
-        #endregion
-
-        #region Additional from actual query
-
         [JsonPropertyName("avatar")]
         public Block Avatar { get; set; }
 
@@ -129,10 +123,6 @@ namespace Osnova.Net
         [JsonPropertyName("online_status_text")]
         public string OnlineStatusText { get; set; }
 
-        #endregion
-
-        #region Specific from getEntryById
-
         [JsonPropertyName("first_name")]
         public string FirstName { get; set; }
 
@@ -141,8 +131,6 @@ namespace Osnova.Net
 
         [JsonPropertyName("gender")]
         public int Gender { get; set; }
-
-        #endregion
 
         [JsonPropertyName("m_hash")]
         public string MHash { get; set; }

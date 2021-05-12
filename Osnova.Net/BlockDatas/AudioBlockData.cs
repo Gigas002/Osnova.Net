@@ -4,7 +4,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class AudioBlockData : BlockData
+    public class AudioBlockData
     {
         [JsonPropertyName("title")]
         public string Title { get; set; }

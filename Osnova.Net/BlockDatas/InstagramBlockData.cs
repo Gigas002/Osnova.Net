@@ -3,7 +3,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class InstagramBlockData : BlockData
+    public class InstagramBlockData
     {
         [JsonPropertyName("instagram")]
         public Block Instagram { get; set; }

@@ -4,7 +4,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class LinkBlockData : BlockData
+    public class LinkBlockData
     {
         [JsonPropertyName("link")]
         public Block Link { get; set; }

@@ -2,7 +2,7 @@
 
 namespace Osnova.Net.BlockDatas
 {
-    public class RawHtmlBlockData : BlockData
+    public class RawHtmlBlockData
     {
         [JsonPropertyName("raw")]
         public string Raw { get; set; }

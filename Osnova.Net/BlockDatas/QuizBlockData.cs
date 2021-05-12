@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class QuizBlockData : BlockData
+    public class QuizBlockData
     {
         [JsonPropertyName("uid")]
         public string Uid { get; set; }

@@ -3,7 +3,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class QuoteBlockData : BlockData
+    public class QuoteBlockData
     {
         [JsonPropertyName("text")]
         public string Text { get; set; }

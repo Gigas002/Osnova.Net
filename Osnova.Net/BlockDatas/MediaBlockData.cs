@@ -4,7 +4,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class MediaBlockData : BlockData
+    public class MediaBlockData
     {
         [JsonPropertyName("items")]
         public IEnumerable<MediaItemBlock> Items { get; set; }

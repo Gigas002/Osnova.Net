@@ -2,7 +2,7 @@
 
 namespace Osnova.Net.BlockDatas
 {
-    public class UniversalBoxBlockData : BlockData
+    public class UniversalBoxBlockData
     {
         [JsonPropertyName("service")]
         public string Service { get; set; }

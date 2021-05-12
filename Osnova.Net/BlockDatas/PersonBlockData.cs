@@ -3,7 +3,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class PersonBlockData : BlockData
+    public class PersonBlockData
     {
         [JsonPropertyName("image")]
         public Block Image { get; set; }

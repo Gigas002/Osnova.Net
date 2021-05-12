@@ -2,7 +2,7 @@
 
 namespace Osnova.Net.BlockDatas
 {
-    public class WarningBlockData : BlockData
+    public class WarningBlockData
     {
         [JsonPropertyName("title")]
         public string Title { get; set; }

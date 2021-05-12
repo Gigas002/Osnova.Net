@@ -12,8 +12,6 @@ namespace Osnova.Net
     {
         #region Properties
 
-        #region From getEntryById docs
-
         [JsonPropertyName("id")]
         public long Id { get; set; }
 
@@ -189,8 +187,6 @@ namespace Osnova.Net
 
         [JsonPropertyName("co_author")]
         public User CoAuthor { get; set; }
-
-        #endregion
 
         [JsonPropertyName("url")]
         public Uri Url { get; set; }

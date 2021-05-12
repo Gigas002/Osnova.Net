@@ -3,7 +3,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class TweetBlockData : BlockData
+    public class TweetBlockData
     {
         [JsonPropertyName("tweet")]
         public Block Tweet { get; set; }

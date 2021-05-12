@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class ImageBlockData : BlockData
+    public class ImageBlockData
     {
         [JsonPropertyName("uuid")]
         public string Uuid { get; set; } // Not a Guid, sometimes it's a shitty string...
