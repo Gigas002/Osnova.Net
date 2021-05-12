@@ -19,5 +19,11 @@ namespace Osnova.Net.Tests
         {
             var levels = await Comment.GetEntryCommentsLevelsAsync(Constants.Client, Constants.Kind, Constants.EntryId);
         }
+
+        [Test]
+        public async Task GetEntryCommentsThread()
+        {
+            var levels = await Comment.GetEntryCommentsThreadAsync(Constants.Client, Constants.Kind, Constants.EntryId, 10518559);
+        }
     }
 }

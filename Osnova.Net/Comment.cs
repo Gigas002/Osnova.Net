@@ -150,6 +150,31 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetEntryCommentsThread
+
+        public static Uri GetEntryCommentsThreadUri(WebsiteKind websiteKind, int entryId, long commentId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/entry/{entryId}/comments/thread/{commentId}");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetEntryCommentsThreadResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int entryId, long commentId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetEntryCommentsThreadUri(websiteKind, entryId, commentId, apiVersion));
+        }
+
+        public static async ValueTask<CommentsLevels> GetEntryCommentsThreadAsync(HttpClient client, WebsiteKind websiteKind, int entryId,
+            long commentId, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetEntryCommentsThreadResponseAsync(client, websiteKind, entryId, commentId, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<CommentsLevels>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
     }
 }
