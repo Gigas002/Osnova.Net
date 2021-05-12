@@ -31,6 +31,7 @@ namespace Osnova.Net
             Converters =
             {
                 new BlockConverter(),
+                new WidgetConverter()
                 //new ImageBlockDataConverter()
             }
         };

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Text.Json;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Osnova.Net.Tests
@@ -30,6 +31,12 @@ namespace Osnova.Net.Tests
         public async Task GetCommentLikers()
         {
             var likers = await Comment.GetCommentLikersAsync(Constants.Client, Constants.Kind, 10518559);
+        }
+
+        [Test]
+        public async Task GetEntryWidgets()
+        {
+            var widgets = await Comment.GetEntryWidgetsAsync(Constants.Client, Constants.Kind, Constants.EntryId);
         }
     }
 }
