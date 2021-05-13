@@ -111,6 +111,33 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetSubsiteVacancies
+
+        public static Uri GetSubsiteVacanciesUri(WebsiteKind websiteKind, long companyId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/subsite/{companyId}/vacancies");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetSubsiteVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            long companyId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetSubsiteVacanciesUri(websiteKind, companyId, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Vacancy>> GetSubsiteVacanciesAsync(HttpClient client, WebsiteKind websiteKind,
+            long companyId, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetSubsiteVacanciesResponseAsync(client, websiteKind, companyId, apiVersion).ConfigureAwait(false);
+
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Vacancy>>(response).ConfigureAwait(false);
+
+            return searchResult.Items;
+        }
+
+        #endregion
+
         #endregion
 
         #endregion
