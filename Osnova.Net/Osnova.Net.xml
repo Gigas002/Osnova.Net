@@ -142,6 +142,24 @@
             Название иконки, которая подставляется вместо аватарки.
             </summary>
         </member>
+        <member name="M:Osnova.Net.Push.GetUserPushTopicAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Requires authentication!
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Osnova.Net.Push.GetUserPushSettingsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Requires authentication!
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
         <member name="P:Osnova.Net.User.AvatarUrl">
             <summary>
             Аватарка профиля

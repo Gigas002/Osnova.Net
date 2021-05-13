@@ -15,6 +15,12 @@ namespace Osnova.Net.Tests
         {
             var topic = await Push.GetUserPushTopicAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
         }
+
+        [Test]
+        public async Task GetUserPushSettings()
+        {
+            var settings = await Push.GetUserPushSettingsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        }
     }
 }
 
