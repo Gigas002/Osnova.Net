@@ -28,7 +28,7 @@ namespace Osnova.Net
         public Uri WebviewUrl { get; set; }
 
         [JsonPropertyName("entryContent")]
-        public EntryContent EntryContent { get; set; }
+        public EntryLayout EntryContent { get; set; }
 
         /// <summary>
         /// Дата создания статьи
