@@ -38,5 +38,30 @@ namespace Osnova.Net
         }
 
         #endregion
+
+        #region GetLayoutHashtag
+
+        public static Uri GetLayoutHashtagUri(WebsiteKind websiteKind, string hashtag, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            // TODO: original uri: /layout/hashtag/{hashtag} doesn't work at all
+            return new Uri($"{baseUri}/layout/{hashtag}");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetLayoutHashtagResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            string hashtag, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetLayoutHashtagUri(websiteKind, hashtag, apiVersion));
+        }
+
+        public static async ValueTask<EntryLayout> GetLayoutHashtagAsync(HttpClient client, WebsiteKind websiteKind, string hashtag, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetLayoutHashtagResponseAsync(client, websiteKind, hashtag, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<EntryLayout>(response).ConfigureAwait(false);
+        }
+
+        #endregion
     }
 }

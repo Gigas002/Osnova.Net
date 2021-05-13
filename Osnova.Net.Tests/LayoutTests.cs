@@ -11,8 +11,15 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetLayout()
         {
-           var layet = await EntryLayout.GetLayoutAsync(Constants.Client, Constants.Kind, Core.ApiVersion)
+           var layout = await EntryLayout.GetLayoutAsync(Constants.Client, Constants.Kind, Core.ApiVersion)
                                  .ConfigureAwait(false);
+        }
+
+        [Test]
+        public async Task GetLayoutHashtag()
+        {
+            var layout = await EntryLayout.GetLayoutHashtagAsync(Constants.Client, Constants.Kind, "yurucamp")
+                                         .ConfigureAwait(false);
         }
     }
 }
