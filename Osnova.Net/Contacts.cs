@@ -9,7 +9,7 @@ namespace Osnova.Net
         public IEnumerable<SocialAccount> Socials { get; set; }
 
         [JsonPropertyName("site")]
-        public Site Site { get; set; }
+        public object Site { get; set; } // TODO: ПРИВЕТ УЕБАН КОТОРЫЙ И СЮДА ПУСТОЙ МАССИВ ЗАПИХНУЛ!
 
         [JsonPropertyName("email")]
         public string Email { get; set; }
