@@ -41,14 +41,14 @@ namespace Osnova.Net
 
         #region PostApiWebhookAdd
 
-        public static Uri GetApiWebhooksAddUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        public static Uri GetApiWebhookAddUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
             return new Uri($"{baseUri}/webhooks/add");
         }
 
-        public static async ValueTask<HttpResponseMessage> PostApiWebhooksAddResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        public static async ValueTask<HttpResponseMessage> PostApiWebhookAddResponseAsync(HttpClient client, WebsiteKind websiteKind,
             Uri url, string eventName, double apiVersion = Core.ApiVersion)
         {
             var urlContent = new StringContent(url.ToString());
@@ -59,19 +59,58 @@ namespace Osnova.Net
                 { eventContent, "\"event\"" }
             };
 
-            var response = await Core.PostToApiAsync(client, GetApiWebhooksAddUri(websiteKind, apiVersion), requestContent).ConfigureAwait(false);
+            var response = await Core.PostToApiAsync(client, GetApiWebhookAddUri(websiteKind, apiVersion), requestContent).ConfigureAwait(false);
 
             Core.DisposeHttpContents(urlContent, eventContent, requestContent);
 
             return response;
         }
 
-        public static async ValueTask<Watcher> PostApiWebhooksAddAsync(HttpClient client, WebsiteKind websiteKind,
+        public static async ValueTask<Watcher> PostApiWebhookAddAsync(HttpClient client, WebsiteKind websiteKind,
             Uri url, string eventName, double apiVersion = Core.ApiVersion)
         {
-            using var response = await PostApiWebhooksAddResponseAsync(client, websiteKind, url, eventName, apiVersion).ConfigureAwait(false);
+            using var response = await PostApiWebhookAddResponseAsync(client, websiteKind, url, eventName, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<Watcher>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region PostApiWebhookDel
+
+        public static Uri GetApiWebhookDelUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/webhooks/del");
+        }
+
+        public static async ValueTask<HttpResponseMessage> PostApiWebhookDelResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            string eventName, double apiVersion = Core.ApiVersion)
+        {
+            var eventContent = new StringContent(eventName);
+            var requestContent = new MultipartFormDataContent
+            {
+                { eventContent, "\"event\"" }
+            };
+
+            var response = await Core.PostToApiAsync(client, GetApiWebhookDelUri(websiteKind, apiVersion), requestContent).ConfigureAwait(false);
+
+            Core.DisposeHttpContents(eventContent, requestContent);
+
+            return response;
+        }
+
+        public static async ValueTask<bool> PostApiWebhookDelAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                      string eventName, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await PostApiWebhookDelResponseAsync(client, websiteKind, eventName, apiVersion).ConfigureAwait(false);
+
+            var json = await response.Content.ReadAsStringAsync();
+
+            var deserialized = await Core.DeserializeOsnovaResponseAsync<Dictionary<string, bool>>(response).ConfigureAwait(false);
+
+            return deserialized["success"];
         }
 
         #endregion

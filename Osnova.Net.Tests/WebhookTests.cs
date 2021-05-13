@@ -18,13 +18,22 @@ namespace Osnova.Net.Tests
         }
 
         [Test]
-        public async Task PostApiWebhooksAdd()
+        public async Task PostApiWebhookAdd()
         {
             Uri url = new Uri("https://dtf.ru/");
             string eventName = "new_comment";
 
-            var watcher = await Webhooks.PostApiWebhooksAddAsync(Constants.Client, Constants.Kind, url, eventName)
+            var watcher = await Webhooks.PostApiWebhookAddAsync(Constants.Client, Constants.Kind, url, eventName)
                                          .ConfigureAwait(false);
+        }
+
+        [Test]
+        public async Task PostApiWebhookDel()
+        {
+            string eventName = "new_comment";
+
+            var success = await Webhooks.PostApiWebhookDelAsync(Constants.Client, Constants.Kind, eventName)
+                                        .ConfigureAwait(false);
         }
     }
 }
