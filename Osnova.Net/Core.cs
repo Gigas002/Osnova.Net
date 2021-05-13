@@ -119,6 +119,14 @@ namespace Osnova.Net
             return osnovaResponse.Result;
         }
 
+        public static void DisposeHttpContents(params HttpContent[] contents)
+        {
+            foreach (HttpContent content in contents)
+            {
+                content.Dispose();
+            }
+        }
+
         /// <summary>
         /// Warning: adds `/` at the beginning of string, is not empty, e.g.: /new
         /// </summary>
