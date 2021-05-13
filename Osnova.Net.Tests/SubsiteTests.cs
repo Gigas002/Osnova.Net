@@ -13,5 +13,11 @@ namespace Osnova.Net.Tests
         {
             var subsite = await Subsite.GetSubsiteAsync(Constants.Client, Constants.Kind, 261696).ConfigureAwait(false);
         }
+
+        [Test]
+        public async Task GetSubsiteTimeline()
+        {
+            var entries = await Subsite.GetSubsiteTimelineAsync(Constants.Client, Constants.Kind, 261696).ConfigureAwait(false);
+        }
     }
 }

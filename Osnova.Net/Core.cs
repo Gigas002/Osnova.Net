@@ -119,6 +119,21 @@ namespace Osnova.Net
             return osnovaResponse.Result;
         }
 
+        /// <summary>
+        /// Warning: adds `/` at the beginning of string, is not empty, e.g.: /new
+        /// </summary>
+        /// <param name="subsiteTimelineSorting"></param>
+        /// <returns></returns>
+        public static string ConvertSubsiteTimelineSorting(SubsiteTimelineSorting subsiteTimelineSorting) => subsiteTimelineSorting switch
+        {
+            SubsiteTimelineSorting.New => "/new",
+            SubsiteTimelineSorting.TopAll => "/top/all",
+            SubsiteTimelineSorting.TopMonth => "/top/month",
+            SubsiteTimelineSorting.TopWeek => "/top/week",
+            SubsiteTimelineSorting.TopYear => "/top/year",
+            _ => string.Empty
+        };
+
         #endregion
     }
 }

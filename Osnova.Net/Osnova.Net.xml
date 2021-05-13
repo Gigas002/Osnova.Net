@@ -27,6 +27,13 @@
             Android = 2
             </summary>
         </member>
+        <member name="M:Osnova.Net.Core.ConvertSubsiteTimelineSorting(Osnova.Net.Enums.SubsiteTimelineSorting)">
+            <summary>
+            Warning: adds `/` at the beginning of string, is not empty, e.g.: /new
+            </summary>
+            <param name="subsiteTimelineSorting"></param>
+            <returns></returns>
+        </member>
         <member name="P:Osnova.Net.Entry.Title">
             <summary>
             Заголовок статьи
