@@ -66,7 +66,7 @@ namespace Osnova.Net
 
         #region Methods
 
-        #region GetJob
+        #region GetJobs
 
         public static Uri GetJobsUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
@@ -85,6 +85,33 @@ namespace Osnova.Net
                                                         double apiVersion = Core.ApiVersion)
         {
             using var response = await GetJobsResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Vacancy>>(response).ConfigureAwait(false);
+
+            return searchResult.Items;
+        }
+
+        #endregion
+
+        #region GetJobsMore
+
+        public static Uri GetJobsMoreUri(WebsiteKind websiteKind, long lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/job/more/{lastId}");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetJobsMoreResponseAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                              long lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetJobsMoreUri(websiteKind, lastId, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Vacancy>> GetJobsMoreAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                             long lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetJobsMoreResponseAsync(client, websiteKind, lastId, apiVersion).ConfigureAwait(false);
 
             var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Vacancy>>(response).ConfigureAwait(false);
 
