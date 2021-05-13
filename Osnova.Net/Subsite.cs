@@ -166,6 +166,8 @@ namespace Osnova.Net
 
         #endregion
 
+        // TODO: always 403
+
         #region GetSubsiteSubscribe
 
         public static Uri GetSubsiteSubscribeUri(WebsiteKind websiteKind, long subsiteId, double apiVersion = Core.ApiVersion)
@@ -185,6 +187,33 @@ namespace Osnova.Net
                                                                      long subsiteId, double apiVersion = Core.ApiVersion)
         {
             using var response = await GetSubsiteSubscribeResponseAsync(client, websiteKind, subsiteId, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<bool>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        // TODO: always 403
+
+        #region GetSubsiteUnsubscribe
+
+        public static Uri GetSubsiteUnsubscribeUri(WebsiteKind websiteKind, long subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/subsite/{subsiteId}/unsubscribe");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetSubsiteUnsubscribeResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            long subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetSubsiteUnsubscribeUri(websiteKind, subsiteId, apiVersion));
+        }
+
+        public static async ValueTask<bool> GetSubsiteUnsubscribeAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                     long subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetSubsiteUnsubscribeResponseAsync(client, websiteKind, subsiteId, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<bool>(response).ConfigureAwait(false);
         }

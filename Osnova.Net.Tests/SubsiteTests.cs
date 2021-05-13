@@ -46,6 +46,12 @@ namespace Osnova.Net.Tests
             var isSubscribed = await Subsite.GetSubsiteSubscribeAsync(Constants.Client, Constants.Kind, 261696).ConfigureAwait(false);
         }
 
+        [Test]
+        public async Task GetSubsiteUnsubscribe()
+        {
+            var isUnsubscribed = await Subsite.GetSubsiteUnsubscribeAsync(Constants.Client, Constants.Kind, 261696).ConfigureAwait(false);
+        }
+
         #endif
     }
 }
