@@ -26,14 +26,19 @@ namespace Osnova.Net.Tests
             var subsites = await Subsite.GetSubsitesListAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
         }
 
-        #if LOCALTESTS
-
         [Test]
         public async Task GetSubsiteVacancies()
         {
             var vacancies = await Subsite.GetSubsiteVacanciesAsync(Constants.Client, Constants.Kind, 75184).ConfigureAwait(false);
         }
 
-        #endif
+        [Test]
+        public async Task GetSubsiteVacanciesMore()
+        {
+            var vacancies = await Subsite.GetSubsiteVacanciesMoreAsync(Constants.Client, Constants.Kind, 75184).ConfigureAwait(false);
+        }
+
+        #if LOCALTESTS
+#endif
     }
 }

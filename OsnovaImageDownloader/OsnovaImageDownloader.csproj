@@ -5,8 +5,8 @@
     <TargetFramework>net5.0</TargetFramework>
     <VersionPrefix>1.0.0</VersionPrefix>
     <VersionSuffix>ci300</VersionSuffix>
-    <AssemblyVersion>1.0.0.320</AssemblyVersion>
-    <FileVersion>1.0.0.320</FileVersion>
+    <AssemblyVersion>1.0.0.321</AssemblyVersion>
+    <FileVersion>1.0.0.321</FileVersion>
     <Platforms>x64;AnyCPU</Platforms>
     <Configurations>Debug;Release;LocalTests</Configurations>
     <PackageIcon>$(PackageIcon)</PackageIcon>
