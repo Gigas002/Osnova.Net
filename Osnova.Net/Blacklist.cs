@@ -37,6 +37,31 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetIgnoresSubsites
+
+        public static Uri GetIgnoresSubsitesUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/ignores/subsites");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetIgnoresSubsitesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetIgnoresSubsitesUri(websiteKind, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<User>> GetIgnoresSubsitesAsync(HttpClient client, WebsiteKind websiteKind,
+            double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetIgnoresSubsitesResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
 
         #endregion

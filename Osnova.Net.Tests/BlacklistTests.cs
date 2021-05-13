@@ -15,6 +15,12 @@ namespace Osnova.Net.Tests
         {
             var tags = await Blacklist.GetIgnoresHashtagsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
         }
+
+        [Test]
+        public async Task GetIgnoresSubsites()
+        {
+            var users = await Blacklist.GetIgnoresSubsitesAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        }
     }
 }
 
