@@ -166,6 +166,31 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetSubsiteSubscribe
+
+        public static Uri GetSubsiteSubscribeUri(WebsiteKind websiteKind, long subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/subsite/{subsiteId}/subscribe");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetSubsiteSubscribeResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            long subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetSubsiteSubscribeUri(websiteKind, subsiteId, apiVersion));
+        }
+
+        public static async ValueTask<bool> GetSubsiteSubscribeAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                     long subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetSubsiteSubscribeResponseAsync(client, websiteKind, subsiteId, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<bool>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
 
         #endregion
