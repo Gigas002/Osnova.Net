@@ -13,7 +13,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetIgnoresHashtags()
         {
-            var tags = await Hashtag.GetIgnoresHashtagsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+            var tags = await Blacklist.GetIgnoresHashtagsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
         }
     }
 }
