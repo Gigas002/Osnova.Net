@@ -120,6 +120,31 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetJobFilters
+
+        public static Uri GetJobFiltersUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/job/filters");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetJobFiltersResponseAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                                double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetJobFiltersUri(websiteKind, apiVersion));
+        }
+
+        public static async ValueTask<JobFilters> GetJobFiltersAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                     double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetJobFiltersResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<JobFilters>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
     }
 }
