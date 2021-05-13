@@ -1,9 +1,16 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using Osnova.Net.Enums;
 
 namespace Osnova.Net
 {
     public class Vacancy
     {
+        #region Properties
+
         [JsonPropertyName("id")]
         public long Id { get; set; }
 
@@ -54,5 +61,38 @@ namespace Osnova.Net
 
         [JsonPropertyName("specialization")]
         public string Specialization { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        #region GetJob
+
+        public static Uri GetJobsUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/job");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetJobsResponseAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                         double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetJobsUri(websiteKind, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Vacancy>> GetJobsAsync(HttpClient client, WebsiteKind websiteKind,
+                                                        double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetJobsResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Vacancy>>(response).ConfigureAwait(false);
+
+            return searchResult.Items;
+        }
+
+        #endregion
+
+        #endregion
     }
 }
