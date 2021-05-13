@@ -85,6 +85,32 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetSubsitesList
+
+        public static Uri GetSubsitesListUri(WebsiteKind websiteKind, SubsiteTypes subsiteTypes = SubsiteTypes.Sections,
+                                             double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/subsites_list/{subsiteTypes.ToString().ToLowerInvariant()}");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetSubsitesListResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            SubsiteTypes subsiteTypes = SubsiteTypes.Sections, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetSubsitesListUri(websiteKind, subsiteTypes, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Subsite>> GetSubsitesListAsync(HttpClient client, WebsiteKind websiteKind,
+               SubsiteTypes subsiteTypes = SubsiteTypes.Sections, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetSubsitesListResponseAsync(client, websiteKind, subsiteTypes, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Subsite>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
 
         #endregion
