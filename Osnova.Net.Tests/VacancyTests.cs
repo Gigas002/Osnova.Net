@@ -25,5 +25,11 @@ namespace Osnova.Net.Tests
         {
             var filters = await Vacancy.GetJobFiltersAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
         }
+
+        [Test]
+        public async Task GetVacancies()
+        {
+            var vacancies = await Vacancy.GetVacanciesAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+        }
     }
 }

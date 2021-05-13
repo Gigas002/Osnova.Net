@@ -145,6 +145,31 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetVacancies
+
+        public static Uri GetVacanciesUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/vacancies/widget");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                               double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetVacanciesUri(websiteKind, apiVersion));
+        }
+
+        public static async ValueTask<IEnumerable<Vacancy>> GetVacanciesAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                    double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetVacanciesResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Vacancy>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
         #endregion
     }
 }
