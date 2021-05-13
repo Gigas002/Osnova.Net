@@ -142,6 +142,15 @@
             Название иконки, которая подставляется вместо аватарки.
             </summary>
         </member>
+        <member name="M:Osnova.Net.Payments.GetPaymentsCheckAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Requires authentication!
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
         <member name="M:Osnova.Net.Push.GetUserPushTopicAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
             Requires authentication!
@@ -331,6 +340,15 @@
         </member>
         <member name="M:Osnova.Net.WebSocketClient.DisposeAsync">
             <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.Widget.GetRatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Requires authentication!
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>
