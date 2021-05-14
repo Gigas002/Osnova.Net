@@ -78,6 +78,32 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetDisableMentionNotifications
+
+        public static Uri GetDisableMentionNotificationsUri(WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/disable-mention-notifications/{userId}");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetDisableMentionNotificationsResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int userId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetDisableMentionNotificationsUri(websiteKind, userId, apiVersion));
+        }
+
+        public static async ValueTask<bool> GetDisableMentionNotificationsAsync(HttpClient client, WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetDisableMentionNotificationsResponseAsync(client, websiteKind, userId, apiVersion).ConfigureAwait(false);
+
+            var operationResult = await Core.DeserializeOsnovaResponseAsync<Tuple<string, bool>>(response).ConfigureAwait(false);
+
+            return operationResult.Item2;
+        }
+
+        #endregion
+
         #endregion
 
         #endregion

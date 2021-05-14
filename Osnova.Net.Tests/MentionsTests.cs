@@ -19,7 +19,13 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetEnableMentionNotifications()
         {
-            var isEnabled = await Mentions.GetEnableMentionNotificationsAsync(Constants.Client, Constants.Kind, 732383).ConfigureAwait(false);
+            var isEnabled = await Mentions.GetEnableMentionNotificationsAsync(Constants.Client, Constants.Kind, 339033).ConfigureAwait(false);
+        }
+
+        [Test]
+        public async Task GetDisableMentionNotifications()
+        {
+            var isDisabled = await Mentions.GetDisableMentionNotificationsAsync(Constants.Client, Constants.Kind, 339033).ConfigureAwait(false);
         }
     }
 }
