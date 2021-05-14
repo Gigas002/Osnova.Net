@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 
 namespace Osnova.Net
 {
-    // TODO: Rename this?
     public static class WebSockets
     {
         public static async Task QuickExampleAsync()

@@ -42,7 +42,7 @@ namespace Osnova.Net
 
         #endregion
 
-        #region GetSearchSubsite // TODO: rename to User
+        #region GetSearchSubsite
 
         // TODO: test with orderby and page
         public static Uri GetSearchSubsiteUri(WebsiteKind websiteKind, string query, double apiVersion = Core.ApiVersion)
