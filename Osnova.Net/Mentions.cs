@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
 
@@ -53,26 +52,34 @@ namespace Osnova.Net
 
         #endregion
 
+        #region GetEnableMentionNotifications
+
+        public static Uri GetEnableMentionNotificationsUri(WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/enable-mention-notifications/{userId}");
+        }
+
+        public static ValueTask<HttpResponseMessage> GetEnableMentionNotificationsResponseAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                          int userId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetEnableMentionNotificationsUri(websiteKind, userId, apiVersion));
+        }
+
+        public static async ValueTask<bool> GetEnableMentionNotificationsAsync(HttpClient client, WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetEnableMentionNotificationsResponseAsync(client, websiteKind, userId, apiVersion).ConfigureAwait(false);
+
+            var operationResult = await Core.DeserializeOsnovaResponseAsync<Tuple<string, bool>>(response).ConfigureAwait(false);
+
+            return operationResult.Item2;
+        }
+
+        #endregion
+
         #endregion
 
         #endregion
-    }
-
-    public class MentionedUser
-    {
-        [JsonPropertyName("id")]
-        public long Id { get; set; }
-
-        [JsonPropertyName("text")]
-        public string Text { get; set; }
-
-        [JsonPropertyName("img")]
-        public Uri Image { get; set; }
-
-        [JsonPropertyName("is_me")]
-        public bool IsMe { get; set; }
-
-        [JsonPropertyName("is_verified")]
-        public bool IsVerified { get; set; }
     }
 }

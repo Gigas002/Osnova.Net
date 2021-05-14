@@ -15,6 +15,12 @@ namespace Osnova.Net.Tests
         {
             var mentionedUsers = await Mentions.GetSearchForMentionsAsync(Constants.Client, Constants.Kind, "yurucamp").ConfigureAwait(false);
         }
+
+        [Test]
+        public async Task GetEnableMentionNotifications()
+        {
+            var isEnabled = await Mentions.GetEnableMentionNotificationsAsync(Constants.Client, Constants.Kind, 732383).ConfigureAwait(false);
+        }
     }
 }
 
