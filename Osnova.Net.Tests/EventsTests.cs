@@ -22,10 +22,15 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetEvents()
         {
-            var cityId = 0;
-            int[] specializationIds = new[] { 0 };
+            var events = await Event.GetEventsAsync(Constants.Client, WebsiteKind.Vc).ConfigureAwait(false);
+        }
 
-            var events = await Event.GetEventsAsync(Constants.Client, WebsiteKind.Vc, cityId, specializationIds).ConfigureAwait(false);
+        [Test]
+        public async Task GetEventsMore()
+        {
+            int lastId = 0;
+
+            var events = await Event.GetEventsMoreAsync(Constants.Client, WebsiteKind.Vc, lastId).ConfigureAwait(false);
         }
     }
 }
