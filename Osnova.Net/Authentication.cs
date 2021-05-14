@@ -29,8 +29,7 @@ namespace Osnova.Net
 
             var response = await Core.PostToApiAsync(client, GetAuthQrUri(websiteKind, apiVersion), requestContent).ConfigureAwait(false);
 
-            tokenContent.Dispose();
-            requestContent.Dispose();
+            Core.DisposeHttpContents(tokenContent, requestContent);
 
             return response;
         }
@@ -70,10 +69,7 @@ namespace Osnova.Net
 
             var response = await Core.PostToApiAsync(client, GetAuthSocialUri(websiteKind, socialType, apiVersion), requestContent).ConfigureAwait(false);
 
-            tokenContent.Dispose();
-            emailContent.Dispose();
-            linkingContent.Dispose();
-            requestContent.Dispose();
+            Core.DisposeHttpContents(tokenContent, emailContent, linkingContent, requestContent);
 
             return response;
         }
@@ -112,9 +108,7 @@ namespace Osnova.Net
 
             var response = await Core.PostToApiAsync(client, GetAuthLoginUri(websiteKind, apiVersion), requestContent).ConfigureAwait(false);
 
-            loginContent.Dispose();
-            passwordContent.Dispose();
-            requestContent.Dispose();
+            Core.DisposeHttpContents(loginContent, passwordContent, requestContent);
 
             return response;
         }

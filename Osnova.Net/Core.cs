@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Osnova.Net.Blocks;
 using Osnova.Net.Enums;
 using Osnova.Net.Exceptions;
 using Osnova.Net.JsonConverters;
@@ -126,6 +125,16 @@ namespace Osnova.Net
             {
                 content.Dispose();
             }
+        }
+
+        public static void DisposeHttpContents(MultipartFormDataContent contents)
+        {
+            foreach (HttpContent content in contents)
+            {
+                content.Dispose();
+            }
+
+            contents.Dispose();
         }
 
         /// <summary>
