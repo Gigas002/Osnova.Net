@@ -71,9 +71,9 @@ namespace Osnova.Net
         {
             using var response = await GetEnableMentionNotificationsResponseAsync(client, websiteKind, userId, apiVersion).ConfigureAwait(false);
 
-            var operationResult = await Core.DeserializeOsnovaResponseAsync<Tuple<string, bool>>(response).ConfigureAwait(false);
+            var operationResult = await Core.DeserializeOsnovaResponseAsync<Dictionary<string, bool>>(response).ConfigureAwait(false);
 
-            return operationResult.Item2;
+            return operationResult["success"];
         }
 
         #endregion
@@ -97,9 +97,9 @@ namespace Osnova.Net
         {
             using var response = await GetDisableMentionNotificationsResponseAsync(client, websiteKind, userId, apiVersion).ConfigureAwait(false);
 
-            var operationResult = await Core.DeserializeOsnovaResponseAsync<Tuple<string, bool>>(response).ConfigureAwait(false);
+            var operationResult = await Core.DeserializeOsnovaResponseAsync<Dictionary<string, bool>>(response).ConfigureAwait(false);
 
-            return operationResult.Item2;
+            return operationResult["success"];
         }
 
         #endregion
