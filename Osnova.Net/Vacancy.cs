@@ -135,12 +135,12 @@ namespace Osnova.Net
             return Core.GetResponseFromApiAsync(client, GetJobFiltersUri(websiteKind, apiVersion));
         }
 
-        public static async ValueTask<JobFilters> GetJobFiltersAsync(HttpClient client, WebsiteKind websiteKind,
+        public static async ValueTask<JobOrEventFilters> GetJobFiltersAsync(HttpClient client, WebsiteKind websiteKind,
                                                                      double apiVersion = Core.ApiVersion)
         {
             using var response = await GetJobFiltersResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<JobFilters>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<JobOrEventFilters>(response).ConfigureAwait(false);
         }
 
         #endregion

@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net
 {
-    public class JobFilters
+    public class JobOrEventFilters
     {
         [JsonPropertyName("area")]
         public IEnumerable<JobOrEventFilter> Areas { get; set; }
