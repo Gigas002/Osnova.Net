@@ -142,6 +142,15 @@
             Video = 2
             </summary>
         </member>
+        <member name="M:Osnova.Net.Mentions.GetSearchForMentionsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
+            <summary>
+            Requires authentication
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
         <member name="P:Osnova.Net.Notification.Icon">
             <summary>
              TODO: enum
