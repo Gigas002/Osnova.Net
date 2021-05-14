@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Osnova.Net.Blocks;
 
-namespace Osnova.Net.Blocks
+namespace Osnova.Net.JsonConverters
 {
     public class BlockConverter : JsonConverter<Block>
     {

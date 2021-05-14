@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Osnova.Net.Blocks;
 using Osnova.Net.Enums;
 using Osnova.Net.Exceptions;
+using Osnova.Net.JsonConverters;
 
 #pragma warning disable 1591
 

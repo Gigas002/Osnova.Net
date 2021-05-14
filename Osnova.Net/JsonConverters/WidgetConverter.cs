@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Osnova.Net
+namespace Osnova.Net.JsonConverters
 {
     public class WidgetConverter : JsonConverter<Widget>
     {
