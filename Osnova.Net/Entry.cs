@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Blocks;
@@ -204,6 +205,8 @@ namespace Osnova.Net
 
         #region Methods
 
+        #region GET
+
         #region GetEntryById
 
         public static Uri GetEntryByIdUri(WebsiteKind websiteKind, int entryId, double apiVersion = Core.ApiVersion)
@@ -271,6 +274,56 @@ namespace Osnova.Net
 
             return await Core.DeserializeOsnovaResponseAsync<Entry>(response).ConfigureAwait(false);
         }
+
+        #endregion
+
+        #endregion
+
+        #region POST
+
+        #region PostEntryCreate
+
+        public static Uri GetEntryCreateUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/entry/create");
+        }
+
+        // TODO: string entryJson overload
+        public static async ValueTask<HttpResponseMessage> PostEntryCreateResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            long subsiteId,
+            Entry entry,
+            double apiVersion = Core.ApiVersion)
+        {
+            var entryJson = JsonSerializer.Serialize(entry, Core.Options); // TODO: core method
+
+            var titleContent = new StringContent(entry.Title);
+            var idContent = new StringContent($"{subsiteId}");
+            var entryContent = new StringContent(entryJson);
+            var requestContent = new MultipartFormDataContent();
+
+            requestContent.Add(titleContent, "title");
+            requestContent.Add(idContent, "subsite_id");
+            requestContent.Add(entryContent, "entry");
+
+            var response = await Core.PostToApiAsync(client, GetEntryCreateUri(websiteKind, apiVersion), requestContent).ConfigureAwait(false);
+
+            Core.DisposeHttpContents(requestContent);
+
+            return response;
+        }
+
+        public static async ValueTask<IEnumerable<Block>> PostEntryCreateAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                               long subsiteId, Entry entry,
+                                                                               double apiVersion = Core.ApiVersion)
+        {
+            using var response = await PostEntryCreateResponseAsync(client, websiteKind, subsiteId, entry, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Block>>(response);
+        }
+
+        #endregion
 
         #endregion
 
