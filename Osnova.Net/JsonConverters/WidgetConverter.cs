@@ -23,6 +23,7 @@ namespace Osnova.Net.JsonConverters
             return widget;
         }
 
+        // TODO: serialize all properties, see BlockConverter
         public override void Write(Utf8JsonWriter writer, Widget value, JsonSerializerOptions options)
         {
             writer.WriteStartObject();

@@ -44,6 +44,7 @@ namespace Osnova.Net
             return response;
         }
 
+        // TODO: IEnumerable<FileInfo> overload
         public static async ValueTask<IEnumerable<Block>> PostUploaderUploadAsync(HttpClient client, WebsiteKind websiteKind, IEnumerable<byte[]> filesBytes,
                                                               double apiVersion = Core.ApiVersion)
         {

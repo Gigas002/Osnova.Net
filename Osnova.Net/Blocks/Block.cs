@@ -16,8 +16,9 @@ namespace Osnova.Net.Blocks
         public bool Cover { get; set; }
 
         [JsonPropertyName("anchor")]
-        public string Anchor { get; set; }
+        public string Anchor { get; set; } = string.Empty;
 
+        // TODO: Probably implement SetType from block data type -- for serializing?
         public static Type GetBlockDataType(string type) => type switch
         {
             "audio" => typeof(AudioBlockData),

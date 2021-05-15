@@ -30,10 +30,16 @@ namespace Osnova.Net.JsonConverters
         {
             writer.WriteStartObject();
 
+            writer.WriteString("type", value.Type);
+
             writer.WritePropertyName("data");
 
             var type = Block.GetBlockDataType(value.Type);
             JsonSerializer.Serialize(writer, value.Data, type, options);
+
+            writer.WriteBoolean("cover", value.Cover);
+
+            writer.WriteString("anchor", value.Anchor);
 
             writer.WriteEndObject();
         }

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
 using Osnova.Net.Exceptions;
@@ -35,8 +36,9 @@ namespace Osnova.Net
                 new WidgetConverter()
                 //new ImageBlockDataConverter()
             },
-            IgnoreNullValues = true,
-            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            //IgnoreNullValues = true,
+            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
         };
 
         #region Methods
