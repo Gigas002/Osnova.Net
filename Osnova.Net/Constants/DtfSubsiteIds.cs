@@ -341,7 +341,7 @@
         /// <summary>
         /// https://dtf.ru/s/stonks
         /// </summary>
-        public const int StonksDTF = 284903;
+        public const int Stonks = 284903;
         /// <summary>
         /// https://dtf.ru/s/superjam
         /// </summary>
