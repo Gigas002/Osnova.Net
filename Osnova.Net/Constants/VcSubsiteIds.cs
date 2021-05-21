@@ -151,10 +151,6 @@
         /// </summary>
         public const int Workdays = 324896;
         /// <summary>
-        /// https://vc.ru/health
-        /// </summary>
-        public const int ;
-        /// <summary>
         /// https://vc.ru/s/sandbox-vk
         /// </summary>
         public const int SandboxVk = 369094;
@@ -171,12 +167,8 @@
         /// </summary>
         public const int Deryabushki = 369115;
         /// <summary>
-        /// https://vc.ru/s/labstest
-        /// </summary>
-        public const int ;
-        /// <summary>
         /// https://vc.ru/apitests
         /// </summary>
-        public const int ApiTests = 368965;
+        public const int Polygon = 368965;
     }
 }

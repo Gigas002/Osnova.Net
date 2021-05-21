@@ -111,10 +111,6 @@
         /// </summary>
         public const int Furry = 259439;
         /// <summary>
-        /// https://tjournal.ru/alaska
-        /// </summary>
-        public const int ;
-        /// <summary>
         /// https://tjournal.ru/s/chessclub
         /// </summary>
         public const int Chess = 359747;
@@ -129,11 +125,11 @@
         /// <summary>
         /// https://tjournal.ru/s/male
         /// </summary>
-        public const int 299513;
+        public const int Masculism = 299513;
         /// <summary>
         /// https://tjournal.ru/art
         /// </summary>
-        public const int 214363;
+        public const int Design = 214363;
         /// <summary>
         /// https://tjournal.ru/s/wolfs
         /// </summary>
@@ -165,15 +161,15 @@
         /// <summary>
         /// https://tjournal.ru/links
         /// </summary>
-        public const int 243936;
+        public const int Links = 243936;
         /// <summary>
         /// https://tjournal.ru/topkek
         /// </summary>
-        public const int 299382;
+        public const int Topkek = 299382;
         /// <summary>
         /// https://tjournal.ru/s/vhs
         /// </summary>
-        public const int 302969;
+        public const int Vhs = 302969;
         /// <summary>
         /// https://tjournal.ru/kz
         /// </summary>
@@ -181,210 +177,178 @@
         /// <summary>
         /// https://tjournal.ru/podcasts
         /// </summary>
-        public const int 217979;
+        public const int Podcasts = 217979;
         /// <summary>
         /// https://tjournal.ru/s/culture
         /// </summary>
-        public const int 368587;
+        public const int Culture = 368587;
         /// <summary>
         /// https://tjournal.ru/s/emigration
         /// </summary>
-        public const int 272406;
+        public const int Emigration = 272406;
         /// <summary>
         /// https://tjournal.ru/kitchen
         /// </summary>
-        public const int 255774;
+        public const int Kitchen = 255774;
         /// <summary>
         /// https://tjournal.ru/gifv
         /// </summary>
-        public const int 237832;
+        public const int Video = 237832;
         /// <summary>
         /// https://tjournal.ru/retro
         /// </summary>
-        public const int 257309;
+        public const int Retro = 257309;
         /// <summary>
         /// https://tjournal.ru/dev
         /// </summary>
-        public const int 232424;
+        public const int Dev = 232424;
         /// <summary>
         /// https://tjournal.ru/games
         /// </summary>
-        public const int 257530;
+        public const int Games = 257530;
         /// <summary>
         /// https://tjournal.ru/alko
         /// </summary>
-        public const int 254742;
+        public const int Alko = 254742;
         /// <summary>
         /// https://tjournal.ru/s/health
         /// </summary>
-        public const int 267712;
+        public const int Health = 267712;
         /// <summary>
         /// https://tjournal.ru/s/krasnodar
         /// </summary>
-        public const int 331467;
+        public const int Krasnodar = 331467;
         /// <summary>
         /// https://tjournal.ru/rap
         /// </summary>
-        public const int 257073;
+        public const int Rap = 257073;
         /// <summary>
         /// https://tjournal.ru/stories
         /// </summary>
-        public const int 214351;
+        public const int Stories = 214351;
         /// <summary>
         /// https://tjournal.ru/flood
         /// </summary>
-        public const int 214360;
+        public const int Offtop = 214360;
         /// <summary>
         /// https://tjournal.ru/analysis
         /// </summary>
-        public const int 245417;
+        public const int Analysis = 245417;
         /// <summary>
         /// https://tjournal.ru/voronezh
         /// </summary>
-        public const int 241508;
+        public const int Voronezh = 241508;
         /// <summary>
         /// https://tjournal.ru/wtf
         /// </summary>
-        public const int 214366;
+        public const int Wtf = 214366;
         /// <summary>
         /// https://tjournal.ru/galyaska
         /// </summary>
-        public const int 243959;
+        public const int Galyaska = 243959;
         /// <summary>
         /// https://tjournal.ru/s/nocontext
         /// </summary>
-        public const int 330623;
+        public const int NoContext = 330623;
         /// <summary>
         /// https://tjournal.ru/tiktok
         /// </summary>
-        public const int 319604;
+        public const int Tiktok = 319604;
         /// <summary>
         /// https://tjournal.ru/s/tver
         /// </summary>
-        public const int 270029;
+        public const int Tver = 270029;
         /// <summary>
         /// https://tjournal.ru/s/poetry
         /// </summary>
-        public const int 342880;
+        public const int Poetry = 342880;
         /// <summary>
         /// https://tjournal.ru/s/phc
         /// </summary>
-        public const int 259527;
+        public const int PostHardcore = 259527;
         /// <summary>
         /// https://tjournal.ru/testtime
         /// </summary>
-        public const int 257180;
+        public const int Tests = 257180;
         /// <summary>
         /// https://tjournal.ru/ekb
         /// </summary>
-        public const int 247349;
+        public const int Ekaterinburg = 247349;
         /// <summary>
         /// https://tjournal.ru/s/caticide
         /// </summary>
-        public const int 287048;
+        public const int Caticide = 287048;
         /// <summary>
         /// https://tjournal.ru/s/electronic
         /// </summary>
-        public const int 293330;
+        public const int Electronic = 293330;
         /// <summary>
         /// https://tjournal.ru/s/future
         /// </summary>
-        public const int 294780;
+        public const int Future = 294780;
         /// <summary>
         /// https://tjournal.ru/coub
         /// </summary>
-        public const int 238191;
+        public const int Coub = 238191;
         /// <summary>
         /// https://tjournal.ru/s/dating
         /// </summary>
-        public const int 268379;
+        public const int Dating = 268379;
         /// <summary>
         /// https://tjournal.ru/s/magic-people
         /// </summary>
-        public const int 333353;
+        public const int MagicPeople = 333353;
         /// <summary>
         /// https://tjournal.ru/s/minecraft
         /// </summary>
-        public const int 312910;
+        public const int Minecraft = 312910;
         /// <summary>
         /// https://tjournal.ru/tv
         /// </summary>
-        public const int 214349;
+        public const int Cinema = 214349;
         /// <summary>
         /// https://tjournal.ru/s/allstars
         /// </summary>
-        public const int 263399;
+        public const int AllStars = 263399;
         /// <summary>
         /// https://tjournal.ru/s/canada
         /// </summary>
-        public const int 296489;
+        public const int Canada = 296489;
         /// <summary>
         /// https://tjournal.ru/s/graf
         /// </summary>
-        public const int 343741;
+        public const int Graf = 343741;
         /// <summary>
         /// https://tjournal.ru/ideas
         /// </summary>
-        public const int 248379;
+        public const int Ideas = 248379;
         /// <summary>
         /// https://tjournal.ru/s/novosibirsk
         /// </summary>
-        public const int 259404;
+        public const int Novosibirsk = 259404;
         /// <summary>
         /// https://tjournal.ru/kenigsberg
         /// </summary>
-        public const int 259239;
+        public const int Kaliningrad = 259239;
         /// <summary>
         /// https://tjournal.ru/git
         /// </summary>
-        public const int 215111;
+        public const int Git = 215111;
         /// <summary>
         /// https://tjournal.ru/bipbipimabot
         /// </summary>
-        public const int 237791;
-        /// <summary>
-        /// https://tjournal.ru/koddavinchi
-        /// </summary>
-        public const int ;
-        /// <summary>
-        /// https://tjournal.ru/kruglov
-        /// </summary>
-        public const int 242641;
-        /// <summary>
-        /// https://tjournal.ru/oldfagtv
-        /// </summary>
-        public const int ;
-        /// <summary>
-        /// https://tjournal.ru/cosmos
-        /// </summary>
-        public const int 258304;
-        /// <summary>
-        /// https://tjournal.ru/s/maloney
-        /// </summary>
-        public const int 270243;
+        public const int Polygon = 237791;
         /// <summary>
         /// https://tjournal.ru/s/fanfiction
         /// </summary>
-        public const int 264542;
+        public const int FanFiction = 264542;
         /// <summary>
         /// https://tjournal.ru/s/asmr
         /// </summary>
-        public const int 268871;
-        /// <summary>
-        /// https://tjournal.ru/gosgolos
-        /// </summary>
-        public const int 242071;
-        /// <summary>
-        /// https://tjournal.ru/tolstovka
-        /// </summary>
-        public const int 242243;
-        /// <summary>
-        /// https://tjournal.ru/kingslanding
-        /// </summary>
-        public const int ;
+        public const int Asmr = 268871;
         /// <summary>
         /// https://tjournal.ru/ddoi
         /// </summary>
-        public const int ddoi = 257454;
+        public const int Ddoi = 257454;
     }
 }

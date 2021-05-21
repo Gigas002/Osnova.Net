@@ -465,7 +465,7 @@
         /// <summary>
         /// https://dtf.ru/apitest
         /// </summary>
-        public const int ApiTest = 130721;
+        public const int Polygon = 130721;
         /// <summary>
         /// https://dtf.ru/konami
         /// </summary>
