@@ -1,57 +1,72 @@
 ﻿using System;
 using System.Text.Json.Serialization;
-using Osnova.Net.BlockDatas;
+using Osnova.Net.Enums;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Blocks
 {
-    public class Block
+    [JsonConverter(typeof(BlockJsonConverter))]
+    public abstract class Block
     {
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
+        #region Properties
 
-        [JsonPropertyName("data")]
-        public object Data { get; set; }
+        [JsonPropertyName("type")]
+        public BlockType Type { get; set; }
 
         [JsonPropertyName("cover")]
-        public bool Cover { get; set; }
+        public bool HasCover { get; set; }
 
+        /// <summary>
+        /// Hyperlink to something in block
+        /// </summary>
         [JsonPropertyName("anchor")]
-        public string Anchor { get; set; } = string.Empty;
+        public string Anchor { get; set; }
 
-        // TODO: Probably implement SetType from block data type -- for serializing?
-        public static Type GetBlockDataType(string type) => type switch
+        #endregion
+
+        #region Constructors
+
+        protected Block(BlockType type) => Type = type;
+
+        #endregion
+
+        #region Methods
+
+        public Type GetBlockType() => GetBlockType(Type);
+
+        public static Type GetBlockType(BlockType type) => type switch
         {
-            "audio" => typeof(AudioBlockData),
-            "code" => typeof(CodeBlockData),
-            "delimiter" => typeof(DelimiterBlockData),
-            "header" => typeof(HeaderBlockData),
-            "image" => typeof(ImageBlockData),
-            "incut" => typeof(IncutBlockData),
-            "instagram" => typeof(InstagramBlockData),
-            "link" => typeof(LinkBlockData),
-            "list" => typeof(ListBlockData),
-            "media" => typeof(MediaBlockData),
-            "number" => typeof(NumberBlockData),
-            "person" => typeof(PersonBlockData),
-            "quiz" => typeof(QuizBlockData),
-            "quote" => typeof(QuoteBlockData),
-            "rawhtml" => typeof(RawHtmlBlockData),
-            "special_button" => typeof(SpecialButtonBlockData),
-            "spotify" => typeof(SpotifyBlockData),
-            "telegram" => typeof(TelegramBlockData),
-            "text" => typeof(TextBlockData),
-            "tiktok" => typeof(TikTokBlockData),
-            "tweet" => typeof(TweetBlockData),
-            "universalbox" => typeof(UniversalBoxBlockData),
-            "video" => typeof(VideoBlockData),
-            "warning" => typeof(WarningBlockData),
-            "wtrfall" => typeof(WaterfallBlockData),
-            "yamusic" => typeof(YaMusicBlockData),
-
-            // Not a typical BlockData
-            "entry" => typeof(Entry),
-            "user" => typeof(User),
-            _ => typeof(object)
+            BlockType.Audio => typeof(AudioBlock),
+            BlockType.Code => typeof(CodeBlock),
+            BlockType.Delimiter => typeof(DelimiterBlock),
+            BlockType.Entry => typeof(EntryBlock),
+            BlockType.Header => typeof(HeaderBlock),
+            BlockType.Image => typeof(ImageBlock),
+            BlockType.Incut => typeof(IncutBlock),
+            BlockType.Instagram => typeof(InstagramBlock),
+            BlockType.Link => typeof(LinkBlock),
+            BlockType.List => typeof(ListBlock),
+            BlockType.Media => typeof(MediaBlock),
+            BlockType.Number => typeof(NumberBlock),
+            BlockType.Person => typeof(PersonBlock),
+            BlockType.Quiz => typeof(QuizBlock),
+            BlockType.Quote => typeof(QuoteBlock),
+            BlockType.RawHtml => typeof(RawHtmlBlock),
+            BlockType.SpecialButton => typeof(SpecialButtonBlock),
+            BlockType.Spotify => typeof(SpotifyBlock),
+            BlockType.Telegram => typeof(TelegramBlock),
+            BlockType.Text => typeof(TextBlock),
+            BlockType.TikTok => typeof(TikTokBlock),
+            BlockType.Tweet => typeof(TweetBlock),
+            BlockType.UniversalBox => typeof(UniversalBoxBlock),
+            BlockType.User => typeof(UserBlock),
+            BlockType.Video => typeof(VideoBlock),
+            BlockType.Warning => typeof(WarningBlock),
+            BlockType.Waterfall => typeof(WaterfallBlock),
+            BlockType.YaMusic => typeof(YaMusicBlock),
+            _ => typeof(Block)
         };
+
+        #endregion
     }
 }
