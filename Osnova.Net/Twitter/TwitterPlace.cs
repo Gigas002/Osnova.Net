@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json.Serialization;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Twitter
 {
@@ -36,6 +37,7 @@ namespace Osnova.Net.Twitter
         [JsonPropertyName("bounding_box")]
         public TwitterBoundingBox BoundingBox { get; set; }
 
+        [JsonConverter(typeof(WrongEmptyArrayJsonConverter<TwitterPlaceAttributes>))]
         [JsonPropertyName("attributes")]
         public TwitterPlaceAttributes Attributes { get; set; }
 

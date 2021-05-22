@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Blocks;
 using Osnova.Net.Enums;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net
 {
@@ -14,7 +15,7 @@ namespace Osnova.Net
         #region Properties
 
         [JsonPropertyName("id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Заголовок статьи
@@ -34,20 +35,23 @@ namespace Osnova.Net
         /// <summary>
         /// Дата создания статьи
         /// </summary>
+        [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("date")]
-        public long Date { get; set; }
+        public DateTimeOffset Date { get; set; }
 
         /// <summary>
         /// Дата создания статьи
         /// </summary>
+        [JsonConverter(typeof(RfcDateTimeOffsetJsonConverter))]
         [JsonPropertyName("dateRFC")]
-        public string DateRfc { get; set; }
+        public DateTimeOffset DateRfc { get; set; }
 
         /// <summary>
         /// Дата последнего изменения статьи
         /// </summary>
+        [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("last_modification_date")]
-        public long LastModificationDate { get; set; }
+        public DateTimeOffset LastModificationDate { get; set; }
 
         [JsonPropertyName("author")]
         public User Author { get; set; }
@@ -82,7 +86,7 @@ namespace Osnova.Net
         /// Число просмотров
         /// </summary>
         [JsonPropertyName("hitsCount")]
-        public long HitsCount { get; set; }
+        public int HitsCount { get; set; }
 
         [JsonPropertyName("likes")]
         public Likes Likes { get; set; }
@@ -159,8 +163,9 @@ namespace Osnova.Net
         [JsonPropertyName("canEdit")]
         public bool CanEdit { get; set; }
 
+        [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("date_favorite")]
-        public long? DateFavorite { get; set; }
+        public DateTimeOffset DateFavorite { get; set; }
 
         [JsonPropertyName("isRepost")]
         public bool IsRepost { get; set; }
@@ -216,7 +221,7 @@ namespace Osnova.Net
             return new Uri($"{baseUri}/entry/{entryId}");
         }
 
-        public static ValueTask<HttpResponseMessage> GetEntryByIdResponseAsync(HttpClient client, WebsiteKind websiteKind, 
+        public static ValueTask<HttpResponseMessage> GetEntryByIdResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int entryId, double apiVersion = Core.ApiVersion)
         {
             return Core.GetResponseFromApiAsync(client, GetEntryByIdUri(websiteKind, entryId, apiVersion));

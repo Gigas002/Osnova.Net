@@ -9,6 +9,35 @@
              "gif" "jpg" "png" "webp"
             </summary>
         </member>
+        <member name="P:Osnova.Net.BlockDatas.AudioBlockData.Length">
+            <summary>
+            Size of current file in bytes
+            <para/>
+            <remarks>Refers to "size" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.ImageBlockData.Length">
+            <summary>
+            Size of current file in bytes
+            <para/>
+            <remarks>Refers to "size" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.IncutBlockData.TextAlignment">
+            <summary>
+            Refers to type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.Block.Anchor">
+            <summary>
+            Hyperlink to something in block
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Blocks.UniversalBoxBlock">
+            <summary>
+            Inside InstagramBlockData, SpotifyBlockData, TikTokBlockData, YaMusicBlockData
+            </summary>
+        </member>
         <member name="P:Osnova.Net.Comment.Text">
             <summary>
             Текст комментария с html
@@ -119,6 +148,16 @@
             Показывает, может ли пользователь редактировать материал
             </summary>
         </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Waterfall">
+            <summary>
+            Refers to wtrfall
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.HtmlColorJsonConverter">
+            <summary>
+            Color string includes "#"
+            </summary>
+        </member>
         <member name="P:Osnova.Net.LoadMore.Ids">
             <summary>
             Список id комментариев для подгрузки
@@ -183,6 +222,156 @@
             <param name="websiteKind"></param>
             <param name="apiVersion"></param>
             <returns></returns>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.Views">
+            <summary>
+            Don't use number types: there can be 880 or 10.7K stuff
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterPoll">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterPollOption">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterUserDerived">
+            <summary>
+            1.1/2.0
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterUserLocation">
+            <summary>
+            1.1/2.0
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.OsnovaTweet">
+            <summary>
+            OsnovaShit
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.OsnovaTweetMedia">
+            <summary>
+            OsnovaShit
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.OsnovaTwitterUser">
+            <summary>
+            OsnovaShit
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.Tweet">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Geo">
+            <summary>
+            Obsolete. See twitter api reference for details:
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.FullText">
+            <summary>
+            extended tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.DisplayTextRange">
+            <summary>
+            extended tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Contributors">
+            <summary>
+            extended tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.PossiblySensitiveAppealable">
+            <summary>
+            extended tweet
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TweetMedia">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TweetMediaSize">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TweetMediaSizes">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterBoundingBox">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterCoordinates">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterEntities">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterEntityExpandedUrl">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterEntityUrl">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterExtendedEntities">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterGeo">
+            <summary>
+            2.0
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterHashtag">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterPlace">
+            <summary>
+            1.1/2.0
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterPlaceAttributes">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterUser">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterUserEntities">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterUserMentions">
+            <summary>
+            1.1
+            </summary>
         </member>
         <member name="P:Osnova.Net.User.AvatarUrl">
             <summary>

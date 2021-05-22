@@ -57,21 +57,21 @@ namespace OsnovaImageDownloader
 
             var entry = await Entry.GetEntryByIdAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
 
-            var mediaItems = new List<MediaItemBlock>();
+            var mediaItems = new List<MediaItem>();
 
-            foreach (var block in entry.Blocks.Where(block => block.Type == "media"))
+            foreach (var block in entry.Blocks.Where(block => block is MediaBlock))
             {
-                mediaItems.AddRange(((MediaBlockData)block.Data).Items);
+                mediaItems.AddRange(((MediaBlock)block).Data.Items);
             }
 
             double counter = 0.0;
 
             foreach (var image in mediaItems)
             {
-                var imageData = (ImageBlockData)image.Image.Data;
+                var imageData = image.Image.Data;
 
-                var guid = imageData.Uuid.ToString();
-                var extension = imageData.Type;
+                var guid = imageData.Uuid;
+                string extension = imageData.Extension.ToString().ToLowerInvariant();
                 var itemUri = new Uri($"{Core.BaseLeonardoUriString}/{guid}");
 
                 var bytes = await client.GetByteArrayAsync(itemUri).ConfigureAwait(false);

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
+using Osnova.Net.Twitter;
 
 namespace Osnova.Net.Tests
 {
@@ -11,7 +12,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetTweets()
         {
-            var tweets = await Tweet.GetTweetsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+            var tweets = await OsnovaTweet.GetTweetsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
         }
     }
 }

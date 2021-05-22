@@ -7,6 +7,7 @@ namespace Osnova.Net.Enums
     public enum AudioChannel
     {
         Stereo = 0,
+        JointStereo,
         Mono
     }
 }

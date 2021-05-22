@@ -35,11 +35,8 @@ namespace Osnova.Net
         {
             Converters =
             {
-                //new BlockConverter(),
                 new WidgetConverter()
-                //new ImageBlockDataConverter()
             },
-            //IgnoreNullValues = true,
             Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
         };

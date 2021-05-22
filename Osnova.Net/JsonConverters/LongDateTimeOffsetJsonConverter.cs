@@ -8,9 +8,7 @@ namespace Osnova.Net.JsonConverters
     {
         public override DateTimeOffset Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            // TODO: handle null values
-
-            return DateTimeOffset.FromUnixTimeSeconds(reader.GetInt64());
+            return reader.TokenType == JsonTokenType.Null ? default : DateTimeOffset.FromUnixTimeSeconds(reader.GetInt64());
         }
 
         public override void Write(Utf8JsonWriter writer, DateTimeOffset value, JsonSerializerOptions options)

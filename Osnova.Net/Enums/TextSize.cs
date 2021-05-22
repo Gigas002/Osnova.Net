@@ -7,6 +7,7 @@ namespace Osnova.Net.Enums
     public enum TextSize
     {
         Small,
+        Medium,
         Big
     }
 }

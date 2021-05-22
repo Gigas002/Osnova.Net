@@ -16,7 +16,8 @@ namespace Osnova.Net.JsonConverters
 
         public override void Write(Utf8JsonWriter writer, Guid value, JsonSerializerOptions options)
         {
-            JsonSerializer.Serialize(writer, value, options);
+            writer.WriteStringValue(value);
+            //JsonSerializer.Serialize(writer, value, options);
         }
     }
 }
