@@ -1,16 +1,24 @@
 ﻿using System.Text.Json.Serialization;
+using Osnova.Net.Enums;
 
 namespace Osnova.Net.BlockDatas
 {
     public class IncutBlockData
     {
+        #region Properties
+
         [JsonPropertyName("text")]
         public string Text { get; set; }
 
+        /// <summary>
+        /// Refers to type
+        /// </summary>
         [JsonPropertyName("type")]
-        public string Type { get; set; }
+        public TextAlignment TextAlignment { get; set; }
 
         [JsonPropertyName("text_size")]
-        public string TextSize { get; set; }
+        public TextSize TextSize { get; set; }
+
+        #endregion
     }
 }

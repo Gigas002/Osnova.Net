@@ -1,12 +1,15 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 using Osnova.Net.Blocks;
+using Osnova.Net.JsonConverters;
+using Osnova.Net.Twitter;
 
 namespace Osnova.Net.BlockDatas
 {
     public class TweetBlockData
     {
         [JsonPropertyName("tweet")]
-        public Block Tweet { get; set; }
+        public TweetBlock Tweet { get; set; }
 
         [JsonPropertyName("title")]
         public string Title { get; set; }
@@ -23,13 +26,14 @@ namespace Osnova.Net.BlockDatas
         #region In tweet block data
 
         [JsonPropertyName("tweet_data")]
-        public TweetData TweetData { get; set; }
+        public Tweet TweetData { get; set; }
 
         [JsonPropertyName("tweet_data_encoded")]
         public string TweetDataEncoded { get; set; }
 
+        [JsonConverter(typeof(VersionJsonConverter))]
         [JsonPropertyName("version")]
-        public string Version { get; set; }
+        public Version Version { get; set; }
 
         #endregion
     }

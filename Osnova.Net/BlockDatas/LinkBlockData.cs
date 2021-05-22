@@ -6,8 +6,10 @@ namespace Osnova.Net.BlockDatas
 {
     public class LinkBlockData
     {
+        #region Properties
+
         [JsonPropertyName("link")]
-        public Block Link { get; set; }
+        public LinkBlock Link { get; set; }
 
         #region Inside link block data
 
@@ -21,10 +23,12 @@ namespace Osnova.Net.BlockDatas
         public string Description { get; set; }
 
         [JsonPropertyName("image")]
-        public Block Image { get; set; }
+        public ImageBlock Image { get; set; }
 
         [JsonPropertyName("v")]
-        public int V { get; set; }
+        public int V { get; set; } // TODO: wtf is "v"? version?
+
+        #endregion
 
         #endregion
     }

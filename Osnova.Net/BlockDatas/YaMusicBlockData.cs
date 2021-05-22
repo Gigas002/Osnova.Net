@@ -5,7 +5,11 @@ namespace Osnova.Net.BlockDatas
 {
     public class YaMusicBlockData
     {
+        #region Properties
+
         [JsonPropertyName("yamusic")]
-        public Block YaMusic { get; set; }
+        public UniversalBoxBlock YaMusic { get; set; }
+
+        #endregion
     }
 }

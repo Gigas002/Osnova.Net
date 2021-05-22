@@ -1,12 +1,16 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Drawing;
 using System.Text.Json.Serialization;
+using Osnova.Net.Enums;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.BlockDatas
 {
     public class ImageBlockData
     {
+        [JsonConverter(typeof(GuidJsonConverter))]
         [JsonPropertyName("uuid")]
-        public string Uuid { get; set; } // Not a Guid, sometimes it's a shitty string...
+        public Guid Uuid { get; set; }
 
         [JsonPropertyName("width")]
         public int Width { get; set; }
@@ -14,19 +18,26 @@ namespace Osnova.Net.BlockDatas
         [JsonPropertyName("height")]
         public int Height { get; set; }
 
+        /// <summary>
+        /// Size of current file in bytes
+        /// <para/>
+        /// <remarks>Refers to "size" property in json</remarks>
+        /// </summary>
         [JsonPropertyName("size")]
-        public long Size { get; set; }
+        public int Length { get; set; }
 
         [JsonPropertyName("type")]
-        public string Type { get; set; }
+        public ImageExtension Extension { get; set; }
 
+        [JsonConverter(typeof(ColorJsonConverter))]
         [JsonPropertyName("color")]
-        public string Color { get; set; }
+        public Color Color { get; set; }
 
         [JsonPropertyName("hash")]
         public string Hash { get; set; }
 
+        [JsonConverter(typeof(WrongEmptyArrayJsonConverter<ExternalService>))]
         [JsonPropertyName("external_service")]
-        public JsonElement ExternalService { get; set; } // TODO: в рот ёб того урода, который сюда пустой массив запихнул
+        public ExternalService ExternalService { get; set; }
     }
 }

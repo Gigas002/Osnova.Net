@@ -1,10 +1,13 @@
 ﻿using System.Text.Json.Serialization;
 using Osnova.Net.Blocks;
+using Osnova.Net.Enums;
 
 namespace Osnova.Net.BlockDatas
 {
     public class QuoteBlockData
     {
+        #region Properties
+
         [JsonPropertyName("text")]
         public string Text { get; set; }
 
@@ -15,12 +18,14 @@ namespace Osnova.Net.BlockDatas
         public string Subline2 { get; set; }
 
         [JsonPropertyName("type")]
-        public string Type { get; set; }
+        public QuoteType Type { get; set; }
 
         [JsonPropertyName("text_size")]
-        public string TextSize { get; set; }
+        public TextSize TextSize { get; set; }
 
         [JsonPropertyName("image")]
-        public Block Image { get; set; }
+        public ImageBlock Image { get; set; }
+
+        #endregion
     }
 }

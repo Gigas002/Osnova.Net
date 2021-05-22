@@ -5,8 +5,10 @@ namespace Osnova.Net.BlockDatas
 {
     public class InstagramBlockData
     {
+        #region Properties
+
         [JsonPropertyName("instagram")]
-        public Block Instagram { get; set; }
+        public UniversalBoxBlock Instagram { get; set; }
 
         [JsonPropertyName("title")]
         public string Title { get; set; }
@@ -16,5 +18,7 @@ namespace Osnova.Net.BlockDatas
 
         [JsonPropertyName("markdown")]
         public string Markdown { get; set; }
+
+        #endregion
     }
 }

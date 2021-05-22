@@ -5,8 +5,10 @@ namespace Osnova.Net.BlockDatas
 {
     public class VideoBlockData
     {
+        #region Properties
+
         [JsonPropertyName("video")]
-        public Block Video { get; set; }
+        public VideoBlock Video { get; set; }
 
         [JsonPropertyName("title")]
         public string Title { get; set; }
@@ -14,7 +16,7 @@ namespace Osnova.Net.BlockDatas
         #region Inside video block data
 
         [JsonPropertyName("thumbnail")]
-        public Block Thumbnail { get; set; }
+        public ImageBlock Thumbnail { get; set; }
 
         [JsonPropertyName("width")]
         public int Width { get; set; }
@@ -27,6 +29,8 @@ namespace Osnova.Net.BlockDatas
 
         [JsonPropertyName("external_service")]
         public ExternalService ExternalService { get; set; }
+
+        #endregion
 
         #endregion
     }

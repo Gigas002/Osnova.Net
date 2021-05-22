@@ -5,7 +5,11 @@ namespace Osnova.Net.BlockDatas
 {
     public class TikTokBlockData
     {
+        #region Properties
+
         [JsonPropertyName("tiktok")]
-        public Block TikTok { get; set; }
+        public UniversalBoxBlock TikTok { get; set; }
+
+        #endregion
     }
 }

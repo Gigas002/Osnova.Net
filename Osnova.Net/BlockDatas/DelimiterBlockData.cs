@@ -1,10 +1,15 @@
 ﻿using System.Text.Json.Serialization;
+using Osnova.Net.Enums;
 
 namespace Osnova.Net.BlockDatas
 {
     public class DelimiterBlockData
     {
+        #region Properties
+
         [JsonPropertyName("type")]
-        public string Type { get; set; }
+        public DelimiterType Type { get; set; }
+
+        #endregion
     }
 }

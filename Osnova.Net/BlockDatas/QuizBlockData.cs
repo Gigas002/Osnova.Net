@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.BlockDatas
 {
     public class QuizBlockData
     {
+        #region Properties
+
         [JsonPropertyName("uid")]
         public string Uid { get; set; }
 
@@ -23,7 +27,10 @@ namespace Osnova.Net.BlockDatas
         [JsonPropertyName("is_public")]
         public bool IsPublic { get; set; }
 
+        [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("date_created")]
-        public long DateCreated { get; set; }
+        public DateTimeOffset DateCreated { get; set; }
+
+        #endregion
     }
 }

@@ -5,7 +5,11 @@ namespace Osnova.Net.BlockDatas
 {
     public class SpotifyBlockData
     {
+        #region Properties
+
         [JsonPropertyName("spotify")]
-        public Block Spotify { get; set; }
+        public UniversalBoxBlock Spotify { get; set; }
+
+        #endregion
     }
 }
