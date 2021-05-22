@@ -158,6 +158,718 @@
             Color string includes "#"
             </summary>
         </member>
+        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterPoll">
+            <summary>
+            1.1
+            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterPoll.Options">
+            <summary>
+            An array of options, each having a poll position, and the text for that position
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterPoll.EndDatetime">
+            <summary>
+            Time stamp (UTC) of when poll ends
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterPoll.DurationMinutes">
+            <summary>
+            Duration of poll in minutes
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterPollOption">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterUserDerived">
+            <summary>
+            1.1/2.0
+            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/geo
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterUserDerived.Locations">
+            <summary>
+            Derived location from the profile geo enrichement
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterUserLocation">
+            <summary>
+            1.1/2.0
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.OsnovaTweet">
+            <summary>
+            OsnovaShit
+            Used for GetTweets method only
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.OsnovaTweetMedia">
+            <summary>
+            OsnovaShit
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.OsnovaTwitterUser">
+            <summary>
+            OsnovaShit
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.Tweet">
+            <summary>
+            1.1
+            Used inside blocks
+            <para/>
+            Doc source: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.CreatedAt">
+            <summary>
+            UTC time when this Tweet was created. Example:
+            Wed Oct 10 20:19:24 +0000 2018
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Id">
+            <summary>
+            The integer representation of the unique identifier for this Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.IdString">
+            <summary>
+            The string representation of the unique identifier for this Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Text">
+            <summary>
+            The actual UTF-8 text of the status update
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Source">
+            <summary>
+            Utility used to post the Tweet, as an HTML-formatted string
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Truncated">
+            <summary>
+            Indicates whether the value of the text parameter was truncated, for example, as a
+            result of a retweet exceeding the original Tweet text length limit of 140 characters
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.InReplyToStatusId">
+            <summary>
+            If the represented Tweet is a reply, this field will contain the integer representation of the original Tweet’s ID
+            <para/>
+            <remarks>Nullable</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.InReplyToStatusIdString">
+            <summary>
+            Nullable. If the represented Tweet is a reply, this field will contain the string representation of the original Tweet’s ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.InReplyToUserId">
+            <summary>
+            Nullable. If the represented Tweet is a reply, this field will contain the integer representation of the original Tweet’s author ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.InReplyToUserIdString">
+            <summary>
+            Nullable. If the represented Tweet is a reply, this field will contain the string representation of the original Tweet’s author ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.InReplyToScreenName">
+            <summary>
+            Nullable. If the represented Tweet is a reply, this field will contain the screen name of the original Tweet’s author
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.User">
+            <summary>
+            The user who posted this Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Coordinates">
+            <summary>
+            Nullable. Represents the geographic location of this Tweet as reported by the user or client application
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Place">
+            <summary>
+            Nullable When present, indicates that the tweet is associated (but not necessarily originating from) a Place
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.QuotedStatusId">
+            <summary>
+            This field only surfaces when the Tweet is a quote Tweet. This field contains the integer value Tweet ID of the quoted Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.QuotedStatusIdString">
+            <summary>
+            This field only surfaces when the Tweet is a quote Tweet. This is the string representation Tweet ID of the quoted Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.IsQuoteStatus">
+            <summary>
+            Indicates whether this is a Quoted Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.QuotedStatus">
+            <summary>
+            This field only surfaces when the Tweet is a quote Tweet.
+            This attribute contains the Tweet object of the original Tweet that was quoted
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.RetweetedStatus">
+            <summary>
+            This attribute contains a representation of the original Tweet that was retweeted
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.QuoteCount">
+            <summary>
+            Nullable. Indicates approximately how many times this Tweet has been quoted by Twitter users
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.ReplyCount">
+            <summary>
+            Number of times this Tweet has been replied to
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.RetweetCount">
+            <summary>
+            Number of times this Tweet has been retweeted
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.FavoriteCount">
+            <summary>
+            Nullable. Indicates approximately how many times this Tweet has been liked by Twitter users
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Entities">
+            <summary>
+            Entities which have been parsed out of the text of the Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.ExtendedEntities">
+            <summary>
+            When between one and four native photos or one video or one animated GIF are in Tweet, contains an array 'media' metadata.
+            This is also available in Quote Tweets
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Favorited">
+            <summary>
+            Nullable. Indicates whether this Tweet has been liked by the authenticating user
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Retweeted">
+            <summary>
+            Indicates whether this Tweet has been Retweeted by the authenticating user
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.PossiblySensitive">
+            <summary>
+            Nullable. This field only surfaces when a Tweet contains a link.
+            The meaning of the field doesn’t pertain to the Tweet content itself, but instead it is an
+            indicator that the URL contained in the Tweet may contain content or media identified as sensitive content
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.FilterLevel">
+            <summary>
+            Indicates the maximum value of the filter_level parameter which may be used and still stream this Tweet.
+            So a value of medium will be streamed on none, low, and medium streams
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Culture">
+            <summary>
+            Nullable. When present, indicates a BCP 47 language identifier corresponding to the machine-detected
+            language of the Tweet text, or und if no language could be detected
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.MatchingRules">
+            <summary>
+            Present in filtered products such as Twitter Search and PowerTrack.
+            Provides the id and tag associated with the rule that matched the Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.CurrentUserRetweet">
+            <summary>
+            Perspectival Only surfaces on methods supporting the include_my_retweet parameter, when set to true
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Scopes">
+            <summary>
+            A set of key-value pairs indicating the intended contextual delivery of the containing Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.WithheldCopyright">
+            <summary>
+            When present and set to “true”, it indicates that this piece of content has been withheld due to a DMCA complaint
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.WithheldInCountries">
+            <summary>
+            When present, indicates a list of uppercase two-letter country codes this content is withheld from.
+            Twitter supports the following non-country values for this field:
+            “XX” - Content is withheld in all countries “XY” - Content is withheld due to a DMCA request
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.WithheldScope">
+            <summary>
+            When present, indicates whether the content being withheld is the “status” or a “user”
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Geo">
+            <summary>
+            Deprecated. Nullable. Use the coordinates field instead.
+            This deprecated attribute has its coordinates formatted as [lat, long], while all other Tweet geo is formatted as [long, lat].
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TweetMedia">
+            <summary>
+            1.1
+            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.DisplayUrl">
+            <summary>
+            URL of the media to display to clients
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.ExpandedUrl">
+            <summary>
+            An expanded version of display_url. Links to the media display page
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.Id">
+            <summary>
+            ID of the media expressed as a 64-bit integer
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.IdString">
+            <summary>
+            ID of the media expressed as a string
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.Indices">
+            <summary>
+            An array of integers indicating the offsets within the Tweet text where the URL begins and ends
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.MediaUrl">
+            <summary>
+            An http:// URL pointing directly to the uploaded media file
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.MediaUrlHttps">
+            <summary>
+            An https:// URL pointing directly to the uploaded media file, for embedding on https pages
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.Sizes">
+            <summary>
+            An object showing available sizes for the media file
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.SourceStatusId">
+            <summary>
+            Nullable. For Tweets containing media that was originally associated with a different tweet, this ID points to the original Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.SourceStatusIdString">
+            <summary>
+            Nullable. For Tweets containing media that was originally associated with a different tweet,
+            this string-based ID points to the original Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.Type">
+            <summary>
+            Type of uploaded media. Possible types include photo, video, and animated_gif
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.Url">
+            <summary>
+            Wrapped URL for the media link. This corresponds with the URL embedded directly
+            into the raw Tweet text, and the values for the indices parameter
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TweetMediaSize">
+            <summary>
+            1.1
+            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMediaSize.Width">
+            <summary>
+            Width in pixels of this size
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMediaSize.Height">
+            <summary>
+            Height in pixels of this size
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMediaSize.Resize">
+            <summary>
+            Resizing method used to obtain this size. A value of fit means that the media was
+            resized to fit one dimension, keeping its native aspect ratio. A value of crop means
+            that the media was cropped in order to fit a specific resolution
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TweetMediaSizes">
+            <summary>
+            1.1
+            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMediaSizes.Thumbnail">
+            <summary>
+            Information for a thumbnail-sized version of the media
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMediaSizes.Large">
+            <summary>
+            Information for a large-sized version of the media
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMediaSizes.Medium">
+            <summary>
+            Information for a medium-sized version of the media
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMediaSizes.Small">
+            <summary>
+            Information for a small-sized version of the media
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterCoordinates`1">
+            <summary>
+            1.1
+            Doc source: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/geo
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterCoordinates`1.Type">
+            <summary>
+            The type of data encoded in the coordinates property
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterEntities">
+            <summary>
+            1.1
+            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntities.Hashtags">
+            <summary>
+            Represents hashtags which have been parsed out of the Tweet text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntities.Media">
+            <summary>
+            Represents media elements uploaded with the Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntities.Urls">
+            <summary>
+            Represents URLs included in the text of a Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntities.UserMentions">
+            <summary>
+            Represents other Twitter users mentioned in the text of the Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntities.Symbols">
+            <summary>
+            Represents symbols, i.e. $cashtags, included in the text of the Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntities.Polls">
+            <summary>
+            Represents Twitter Polls included in the Tweet
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterEntityExpandedUrl">
+            <summary>
+            1.1
+            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntityExpandedUrl.Url">
+            <summary>
+            The fully unwound version of the link included in the Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntityExpandedUrl.Status">
+            <summary>
+            Final HTTP status of the unwinding process, a '200' indicating success
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntityExpandedUrl.Title">
+            <summary>
+            HTML title for the link
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntityExpandedUrl.Description">
+            <summary>
+            HTML description for the link
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterEntityUrl">
+            <summary>
+            1.1
+            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntityUrl.DisplayUrl">
+            <summary>
+            URL pasted/typed into Tweet
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntityUrl.ExpandedUrl">
+            <summary>
+            Expanded version of display_url
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntityUrl.Indices">
+            <summary>
+            An array of integers representing offsets within the Tweet text where the URL begins and ends
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntityUrl.Url">
+            <summary>
+            Wrapped URL, corresponding to the value embedded directly into the raw Tweet text, and the values for the indices parameter
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterEntityUrl.Unwound">
+            <summary>
+            Used with Expanded and/or Enhanced URL enrichments
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterGeo">
+            <summary>
+            2.0
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterHashtag">
+            <summary>
+            1.1
+            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterHashtag.Indices">
+            <summary>
+            An array of integers indicating the offsets within the Tweet text where the hashtag begins and ends
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterHashtag.Text">
+            <summary>
+            Name of the hashtag, minus the leading ‘#’ character
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterPlace">
+            <summary>
+            1.1/2.0
+            1.1: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/geo
+            2.0: https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/place
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.Id">
+            <summary>
+            ID representing this place
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.Url">
+            <summary>
+            URL representing the location of additional place metadata for this place
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.PlaceType">
+            <summary>
+            The type of location represented by this place
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.Name">
+            <summary>
+            Short human-readable representation of the place’s name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.FullName">
+            <summary>
+            Full human-readable representation of the place’s name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.CountryCode">
+            <summary>
+            Shortened country code representing the country containing this place
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.Country">
+            <summary>
+            Name of the country containing this place
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.BoundingBox">
+            <summary>
+            A bounding box of coordinates which encloses this place
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.Attributes">
+            <summary>
+            When using PowerTrack, 30-Day and Full-Archive Search APIs, and Volume Streams this hash is null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.ContainedWithin">
+            <summary>
+            Returns the identifiers of known places that contain the referenced place
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterPlace.Geo">
+            <summary>
+            Contains place details in GeoJSON format
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterUser">
+            <summary>
+            1.1
+            Doc source: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/user
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Id">
+            <summary>
+            The integer representation of the unique identifier for this User
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.IdString">
+            <summary>
+            The string representation of the unique identifier for this User
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Name">
+            <summary>
+            The name of the user, as they’ve defined it. Not necessarily a person’s name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ScreenName">
+            <summary>
+            The screen name, handle, or alias that this user identifies themselves with
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Location">
+            <summary>
+            Nullable . The user-defined location for this account’s profile. Not necessarily a location, nor machine-parseable
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Derived">
+            <summary>
+            Enterprise APIs only Collection of Enrichment metadata derived for user.
+            Provides the Profile Geo Enrichment metadata
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Url">
+            <summary>
+            Nullable. A URL provided by the user in association with their profile
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Description">
+            <summary>
+            Nullable. The user-defined UTF-8 string describing their account
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Protected">
+            <summary>
+            When true, indicates that this user has chosen to protect their Tweets
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Verified">
+            <summary>
+            When true, indicates that the user has a verified account
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.FollowersCount">
+            <summary>
+            The number of followers this account currently has
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.FriendsCount">
+            <summary>
+            The number of users this account is following (AKA their “followings”)
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ListedCount">
+            <summary>
+            The number of public lists that this user is a member of
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.FavoritesCount">
+            <summary>
+            The number of Tweets this user has liked in the account’s lifetime
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.StatusesCount">
+            <summary>
+            The number of Tweets (including retweets) issued by the user
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.CreatedAt">
+            <summary>
+            The UTC datetime that the user account was created on Twitter
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileBannerUrl">
+            <summary>
+            The HTTPS-based URL pointing to the standard web representation of the user’s uploaded profile banner
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileImageUrlHttps">
+            <summary>
+            A HTTPS-based URL pointing to the user’s profile image
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.DefaultProfile">
+            <summary>
+            When true, indicates that the user has not altered the theme or background of their user profile
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.DefaultProfileImage">
+            <summary>
+            When true, indicates that the user has not uploaded their own profile image and a default image is used instead
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterUserEntities">
+            <summary>
+            1.1
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterUserMentions">
+            <summary>
+            1.1
+            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUserMentions.Id">
+            <summary>
+            ID of the mentioned user, as an integer
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUserMentions.IdString">
+            <summary>
+            ID of the mentioned user, as a string
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUserMentions.Indices">
+            <summary>
+            An array of integers representing the offsets within the Tweet text where the user reference begins and ends
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUserMentions.Name">
+            <summary>
+            Display name of the referenced user
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUserMentions.ScreenName">
+            <summary>
+            Screen name of the referenced user
+            </summary>
+        </member>
         <member name="P:Osnova.Net.LoadMore.Ids">
             <summary>
             Список id комментариев для подгрузки
@@ -226,151 +938,6 @@
         <member name="P:Osnova.Net.Telegram.TelegramData.Views">
             <summary>
             Don't use number types: there can be 880 or 10.7K stuff
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterPoll">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterPollOption">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterUserDerived">
-            <summary>
-            1.1/2.0
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.Enterprise.TwitterUserLocation">
-            <summary>
-            1.1/2.0
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.OsnovaTweet">
-            <summary>
-            OsnovaShit
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.OsnovaTweetMedia">
-            <summary>
-            OsnovaShit
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.OsnovaTwitterUser">
-            <summary>
-            OsnovaShit
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.Tweet">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.Twitter.Tweet.Geo">
-            <summary>
-            Obsolete. See twitter api reference for details:
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.Twitter.Tweet.FullText">
-            <summary>
-            extended tweet
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.Twitter.Tweet.DisplayTextRange">
-            <summary>
-            extended tweet
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.Twitter.Tweet.Contributors">
-            <summary>
-            extended tweet
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.Twitter.Tweet.PossiblySensitiveAppealable">
-            <summary>
-            extended tweet
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TweetMedia">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TweetMediaSize">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TweetMediaSizes">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterBoundingBox">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterCoordinates">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterEntities">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterEntityExpandedUrl">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterEntityUrl">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterExtendedEntities">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterGeo">
-            <summary>
-            2.0
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterHashtag">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterPlace">
-            <summary>
-            1.1/2.0
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterPlaceAttributes">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterUser">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterUserEntities">
-            <summary>
-            1.1
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.Twitter.TwitterUserMentions">
-            <summary>
-            1.1
             </summary>
         </member>
         <member name="P:Osnova.Net.User.AvatarUrl">

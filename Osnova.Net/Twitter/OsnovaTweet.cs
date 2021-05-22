@@ -9,6 +9,7 @@ namespace Osnova.Net.Twitter
 {
     /// <summary>
     /// OsnovaShit
+    /// Used for GetTweets method only
     /// </summary>
     public class OsnovaTweet
     {

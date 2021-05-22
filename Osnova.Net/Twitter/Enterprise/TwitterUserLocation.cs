@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Osnova.Net.Twitter.Enterprise
 {
@@ -26,6 +27,6 @@ namespace Osnova.Net.Twitter.Enterprise
         public string FullName { get; set; }
 
         [JsonPropertyName("geo")]
-        public TwitterCoordinates Geo { get; set; }
+        public TwitterCoordinates<IEnumerable<float>> Geo { get; set; }
     }
 }

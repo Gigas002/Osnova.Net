@@ -41,7 +41,7 @@ namespace Osnova.Net.Twitter
 
         #endregion
 
-        #region Wtf is this
+        #region OsnovaShit
 
         [JsonPropertyName("profile_image_url_bigger")]
         public Uri ProfileImageUrlBigger { get; set; }

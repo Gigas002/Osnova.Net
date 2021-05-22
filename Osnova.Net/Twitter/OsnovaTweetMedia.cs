@@ -26,7 +26,7 @@ namespace Osnova.Net.Twitter
 
         #endregion
 
-        #region Wtf is this
+        #region OsnovaShit
 
         // nope
         [JsonPropertyName("thumbnail_url")]
