@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace Osnova.Net
 {
@@ -9,5 +10,11 @@ namespace Osnova.Net
 
         [JsonPropertyName("id")]
         public string Id { get; set; }
+
+        [JsonPropertyName("mp4_url")]
+        public Uri Mp4Url { get; set; }
+
+        [JsonPropertyName("additional_data")]
+        public AdditionalExternalServiceData AdditionalData { get; set; }
     }
 }

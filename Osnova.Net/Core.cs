@@ -26,13 +26,16 @@ namespace Osnova.Net
 
         public const double ApiVersion = 1.9;
 
+        public const string Rfc2822DatePattern = "ddd, dd MMM yyyy HH':'mm':'ss K";
+        public const string TwitterV1DatePattern = "ddd MMM dd HH':'mm':'ss K yyyy";
+
         #endregion
 
         public static JsonSerializerOptions Options { get; } = new()
         {
             Converters =
             {
-                new BlockConverter(),
+                //new BlockConverter(),
                 new WidgetConverter()
                 //new ImageBlockDataConverter()
             },

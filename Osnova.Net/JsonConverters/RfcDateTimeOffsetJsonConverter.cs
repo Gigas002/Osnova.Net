@@ -14,7 +14,7 @@ namespace Osnova.Net.JsonConverters
 
         public override void Write(Utf8JsonWriter writer, DateTimeOffset value, JsonSerializerOptions options)
         {
-            var str = value.ToString(Core.Rfc2822Pattern, CultureInfo.InvariantCulture);
+            var str = value.ToString(Core.Rfc2822DatePattern, CultureInfo.InvariantCulture);
             str = str.Remove(str.Length - 3, 1);
 
             writer.WriteStringValue(str);
