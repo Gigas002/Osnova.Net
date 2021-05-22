@@ -8,7 +8,7 @@ configuration: Release
 platform: x64
 environment:
   GH_TOKEN:
-    secure: nzUU8F4CLe1EDxmKabW5Ym6NnL0SEK+VLft2D8oh72KEcfejyt1xWsQq9dMg6Wpt
+    secure: qkT86kHqfl9QHYwuWLHNlhOAOc+ddPOfj/5mpQ6U8PGnYD2pEcaYt7A0S3hk4hQE
   NUGET_API_KEY:
     secure: ssythWMtw/uWpXR4Altl5sk8mzi4MlsTmD1Ot7hEsABqUHnXko9nUYi926gKi/Mj
   CODECOV_TOKEN:
