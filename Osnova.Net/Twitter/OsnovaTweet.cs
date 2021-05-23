@@ -59,6 +59,9 @@ namespace Osnova.Net.Twitter
 
         #endregion
 
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
+
         #endregion
 
         #region Methods

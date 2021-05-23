@@ -1,42 +1,50 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Osnova.Net.BlockDatas;
-using Osnova.Net.Blocks;
 
 namespace Osnova.Net.Tests
 {
     public class EntryTests
     {
         [SetUp]
-        public void Setup() => Constants.CreateClient();
+        public void Setup() => Helper.InitializeHelper();
 
         [Test]
         public async Task GetEntry()
         {
-            var entry = await Entry.GetEntryByIdAsync(Constants.Client, Constants.Kind, Constants.EntryId)
+            var entry = await Entry.GetEntryByIdAsync(Helper.Client, Helper.Kind, Helper.EntryId)
                                    .ConfigureAwait(false);
+
+            if (entry.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
 
             var json = JsonSerializer.Serialize(entry, Core.Options);
         }
 
         [Test]
-        public async Task GetPopularEntries() => _ = await Entry.GetPopularEntriesAsync(Constants.Client, Constants.Kind, Constants.EntryId)
-                                                                .ConfigureAwait(false);
+        public async Task GetPopularEntries()
+        {
+            var entries = await Entry.GetPopularEntriesAsync(Helper.Client, Helper.Kind, Helper.EntryId).ConfigureAwait(false);
+
+            foreach (var entry in entries)
+            {
+                if (entry.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
+            }
+
+            var json = JsonSerializer.Serialize(entries, Core.Options);
+        }
 
         [Test]
-        public void GetEntryLocate() => Assert.DoesNotThrowAsync(async () =>
+        public async Task GetEntryLocate()
         {
-            Uri entryUri = new($"https://dtf.ru/{Constants.EntryId}");
+            Uri entryUri = new($"https://dtf.ru/{Helper.EntryId}");
 
-            _ = await Entry.GetEntryLocateAsync(Constants.Client, Constants.Kind, entryUri).ConfigureAwait(false);
-        });
+            var entry = await Entry.GetEntryLocateAsync(Helper.Client, Helper.Kind, entryUri).ConfigureAwait(false);
 
-        #if LOCALTESTS
+            if (entry.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
+
+            var json = JsonSerializer.Serialize(entry, Core.Options);
+        }
 
         //[Test]
         public async Task PostEntryCreate()
@@ -80,7 +88,5 @@ namespace Osnova.Net.Tests
             //// Можем постить!
             //var readyEntry = await Entry.PostEntryCreateAsync(Constants.Client, Constants.Kind, id, postEntry);
         }
-
-        #endif
     }
 }

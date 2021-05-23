@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Osnova.Net
 {
-    public class MentionedUser
+    public class MentionedUser // TODO: replacebale by user?
     {
         [JsonPropertyName("id")]
         public long Id { get; set; }
@@ -19,5 +20,8 @@ namespace Osnova.Net
 
         [JsonPropertyName("is_verified")]
         public bool IsVerified { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
     }
 }

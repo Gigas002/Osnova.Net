@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Osnova.Net
 {
@@ -12,5 +13,8 @@ namespace Osnova.Net
 
         [JsonPropertyName("sym")]
         public string Sym { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
     }
 }

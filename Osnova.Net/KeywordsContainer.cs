@@ -7,5 +7,8 @@ namespace Osnova.Net
     {
         [JsonPropertyName("keywords")]
         public IEnumerable<string> Keywords { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
     }
 }

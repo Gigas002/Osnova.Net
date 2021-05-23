@@ -17,6 +17,9 @@ namespace Osnova.Net
         [JsonPropertyName("date")]
         public long Date { get; set; }
 
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
+
         #endregion
 
         #region Methods

@@ -12,6 +12,6 @@ namespace Osnova.Net.Twitter
         public int DurationMillis { get; set; }
 
         [JsonPropertyName("variants")]
-        public TwitterVideoInfoVariants Variants { get; set; }
+        public IEnumerable<TwitterVideoInfoVariant> Variants { get; set; }
     }
 }

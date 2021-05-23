@@ -46,5 +46,8 @@ namespace Osnova.Net
 
         [JsonPropertyName("markdown")]
         public string Markdown { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
     }
 }

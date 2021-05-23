@@ -14,6 +14,8 @@ namespace Osnova.Net
     /// </summary>
     public class User : ISubsite
     {
+        #region Properties
+
         #region IUser implementation
 
         /// <inheritdoc/>
@@ -72,6 +74,10 @@ namespace Osnova.Net
         /// <inheritdoc/>
         [JsonPropertyName("is_verified")]
         public bool IsVerified { get; set; }
+
+        [Obsolete("Use IsVerified property")]
+        [JsonPropertyName("isVerified")]
+        public bool IsVerified2 { get; set; }
 
         /// <inheritdoc/>
         [JsonPropertyName("is_subscribed")]
@@ -143,8 +149,13 @@ namespace Osnova.Net
         public bool IsAvailableForMessenger { get; set; }
 
         /// <inheritdoc/>
-        [JsonPropertyName("isMuted")]
+        [JsonPropertyName("is_muted")]
         public bool IsMuted { get; set; }
+
+        /// <inheritdoc/>
+        [Obsolete("Use IsMuted")]
+        [JsonPropertyName("isMuted")]
+        public bool IsMuted2 { get; set; }
 
         /// <inheritdoc/>
         [JsonPropertyName("is_subscribed_to_new_posts")]
@@ -180,24 +191,48 @@ namespace Osnova.Net
 
         #endregion
 
-        #region Subsite implementation
+        #region Not yet added to interfaces
 
-        //[JsonPropertyName("m_hash")]
-        //public string MHash { get; set; }
+        [JsonPropertyName("m_hash")]
+        public string MHash { get; set; }
 
-        //[JsonPropertyName("m_hash_expiration_time")]
-        //public long MHashExpirationTime { get; set; }
+        [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
+        [JsonPropertyName("m_hash_expiration_time")]
+        public DateTimeOffset MHashExpirationTime { get; set; }
 
-        //[JsonPropertyName("user_hashes")]
-        //public object UserHashes { get; set; } // TODO: wtf is this? got from postAuthLogin
+        /// <summary>
+        /// Thanks ochoba: string and int in one list...
+        /// </summary>
+        [JsonPropertyName("user_hashes")]
+        public IEnumerable<object> UserHashes { get; set; }
 
-        //[JsonPropertyName("highlight")]
-        //public string Highlight { get; set; }
+        [JsonPropertyName("highlight")]
+        public string Highlight { get; set; }
+
+        [JsonPropertyName("can_change_avatar")]
+        public bool CanChangeAvatar { get; set; }
+
+        [JsonPropertyName("can_change_cover")]
+        public bool CanChangeCover { get; set; }
+
+        [JsonPropertyName("is_banned")]
+        public bool IsBanned { get; set; }
+
+        [JsonPropertyName("banned_info")]
+        public IEnumerable<object> BannedInfo { get; set; } // TODO: find this
+
+        [JsonPropertyName("is_subsites_tuned")]
+        public bool IsSubsitesTuned { get; set; }
+
+        [JsonPropertyName("active_until")]
+        public long ActiveUntil { get; set; }
 
         #endregion
 
         [JsonExtensionData]
-        public Dictionary<object, object> Unparsed { get; set; }
+        public Dictionary<string, object> Undeserialized { get; set; }
+
+        #endregion
 
         #region Methods
 

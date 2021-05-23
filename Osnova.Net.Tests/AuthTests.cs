@@ -1,6 +1,4 @@
-﻿#if LOCALTESTS
-
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Osnova.Net.Enums;
@@ -9,44 +7,38 @@ namespace Osnova.Net.Tests
 {
     public class AuthTests
     {
-        private static HttpClient Client => new();
+        private static HttpClient Client => Core.CreateDefaultClient();
 
         [SetUp]
-        public void Setup()
-        {
-            // TODO: init client without token
-            //Constants.CreateClient();
-        }
+        public void Setup() => Helper.InitializeHelper();
 
         [Test]
         public async Task PostAuthQr()
         {
-            // TODO: requires testing
-            string qrToken = null;
+            if (Helper.Secrets == null) return;
 
-            _ = await Authentication.PostAuthQrGetTokenAsync(Client, Constants.Kind, qrToken).ConfigureAwait(false);
+            string token = await Authentication.PostAuthQrGetTokenAsync(Client, Helper.Kind, Helper.Secrets.DtfQrToken).ConfigureAwait(false);
         }
 
         [Test]
         public async Task PostAuthSocial()
         {
-            // TODO: requires testing
+            if (Helper.Secrets == null) return;
 
             var socialType = SocialType.GooglePlus;
             string loginToken = null;
             string email = null;
 
-            _ = await Authentication.PostAuthSocialGetTokenAsync(Client, Constants.Kind, socialType, loginToken, email).ConfigureAwait(false);
+            string token = await Authentication.PostAuthSocialGetTokenAsync(Client, Helper.Kind, socialType, loginToken, email).ConfigureAwait(false);
         }
 
         [Test]
         public async Task PostAuthLogin()
         {
-            string login = null;
-            string password = null;
+            if (Helper.Secrets == null) return;
 
-            _ = await Authentication.PostAuthLoginGetTokenAsync(Client, Constants.Kind, login, password).ConfigureAwait(false);
+            string token = await Authentication.PostAuthLoginGetTokenAsync(Client, Helper.Kind,
+                           Helper.Secrets.DtfLogin, Helper.Secrets.DtfPassword).ConfigureAwait(false);
         }
     }
 }
-#endif

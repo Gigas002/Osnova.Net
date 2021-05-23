@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Text.Json;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Osnova.Net.Tests
@@ -6,52 +7,84 @@ namespace Osnova.Net.Tests
     public class SubsiteTests
     {
         [SetUp]
-        public void Setup() => Constants.CreateClient();
+        public void Setup() => Helper.InitializeHelper();
 
         [Test]
         public async Task GetSubsite()
         {
-            var subsite = await Subsite.GetSubsiteAsync(Constants.Client, Constants.Kind, 261696).ConfigureAwait(false);
+            var subsite = await Subsite.GetSubsiteAsync(Helper.Client, Helper.Kind, 261696).ConfigureAwait(false);
+
+            if (subsite.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
+
+            var json = JsonSerializer.Serialize(subsite, Core.Options);
         }
 
         [Test]
         public async Task GetSubsiteTimeline()
         {
-            var entries = await Subsite.GetSubsiteTimelineAsync(Constants.Client, Constants.Kind, 261696).ConfigureAwait(false);
+            var entries = await Subsite.GetSubsiteTimelineAsync(Helper.Client, Helper.Kind, 261696).ConfigureAwait(false);
+
+            foreach (var value in entries)
+            {
+                if (value.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
+            }
+
+            var json = JsonSerializer.Serialize(entries, Core.Options);
         }
 
         [Test]
         public async Task GetSubsitesList()
         {
-            var subsites = await Subsite.GetSubsitesListAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+            var subsites = await Subsite.GetSubsitesListAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+
+            foreach (var value in subsites)
+            {
+                if (value.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
+            }
+
+            var json = JsonSerializer.Serialize(subsites, Core.Options);
         }
 
         [Test]
         public async Task GetSubsiteVacancies()
         {
-            var vacancies = await Subsite.GetSubsiteVacanciesAsync(Constants.Client, Constants.Kind, 75184).ConfigureAwait(false);
+            var vacancies = await Subsite.GetSubsiteVacanciesAsync(Helper.Client, Helper.Kind, 75184).ConfigureAwait(false);
+
+            foreach (var value in vacancies)
+            {
+                if (value.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
+            }
+
+            var json = JsonSerializer.Serialize(vacancies, Core.Options);
         }
 
         [Test]
         public async Task GetSubsiteVacanciesMore()
         {
-            var vacancies = await Subsite.GetSubsiteVacanciesMoreAsync(Constants.Client, Constants.Kind, 75184).ConfigureAwait(false);
-        }
+            var vacancies = await Subsite.GetSubsiteVacanciesMoreAsync(Helper.Client, Helper.Kind, 75184).ConfigureAwait(false);
 
-        #if LOCALTESTS
+            foreach (var value in vacancies)
+            {
+                if (value.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
+            }
+
+            var json = JsonSerializer.Serialize(vacancies, Core.Options);
+        }
 
         [Test]
         public async Task GetSubsiteSubscribe()
         {
-            var isSubscribed = await Subsite.GetSubsiteSubscribeAsync(Constants.Client, Constants.Kind, 261696).ConfigureAwait(false);
+            if (Helper.Secrets == null) return;
+
+            var isSubscribed = await Subsite.GetSubsiteSubscribeAsync(Helper.Client, Helper.Kind, 261696).ConfigureAwait(false);
         }
 
         [Test]
         public async Task GetSubsiteUnsubscribe()
         {
-            var isUnsubscribed = await Subsite.GetSubsiteUnsubscribeAsync(Constants.Client, Constants.Kind, 261696).ConfigureAwait(false);
-        }
+            if (Helper.Secrets == null) return;
 
-        #endif
+            var isUnsubscribed = await Subsite.GetSubsiteUnsubscribeAsync(Helper.Client, Helper.Kind, 261696).ConfigureAwait(false);
+        }
     }
 }

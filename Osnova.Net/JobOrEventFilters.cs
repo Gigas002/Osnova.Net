@@ -16,5 +16,8 @@ namespace Osnova.Net
 
         [JsonPropertyName("specializations")]
         public IEnumerable<JobOrEventFilter> Specializations { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
     }
 }

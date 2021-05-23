@@ -62,6 +62,9 @@ namespace Osnova.Net
         [JsonPropertyName("specialization")]
         public string Specialization { get; set; }
 
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
+
         #endregion
 
         #region Methods

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Osnova.Net.Enums;
 using Osnova.Net.JsonConverters;
@@ -21,6 +22,9 @@ namespace Osnova.Net.Blocks
         /// </summary>
         [JsonPropertyName("anchor")]
         public string Anchor { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
 
         #endregion
 

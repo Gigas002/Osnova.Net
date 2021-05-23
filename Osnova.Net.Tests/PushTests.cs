@@ -1,6 +1,4 @@
-﻿#if LOCALTESTS
-
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Osnova.Net.Tests
@@ -8,20 +6,22 @@ namespace Osnova.Net.Tests
     public class PushTests
     {
         [SetUp]
-        public void Setup() => Constants.CreateClient();
+        public void Setup() => Helper.InitializeHelper();
 
         [Test]
         public async Task GetUserPushTopic()
         {
-            var topic = await Push.GetUserPushTopicAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+            if (Helper.Secrets == null) return;
+
+            var topic = await Push.GetUserPushTopicAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
         }
 
         [Test]
         public async Task GetUserPushSettings()
         {
-            var settings = await Push.GetUserPushSettingsAsync(Constants.Client, Constants.Kind).ConfigureAwait(false);
+            if (Helper.Secrets == null) return;
+
+            var settings = await Push.GetUserPushSettingsAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
         }
     }
 }
-
-#endif

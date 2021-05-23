@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
-using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net
 {
@@ -12,9 +12,12 @@ namespace Osnova.Net
         [JsonPropertyName("html")]
         public string Html { get; set; }
 
-        [JsonConverter(typeof(VersionJsonConverter))]
+        //[JsonConverter(typeof(VersionJsonConverter))]
         [JsonPropertyName("version")]
-        public Version Version { get; set; }
+        public string Version { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
 
         #region GetLayout
 

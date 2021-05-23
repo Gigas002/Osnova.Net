@@ -201,10 +201,13 @@ namespace Osnova.Net
         [JsonPropertyName("summarize")]
         public string Summarize { get; set; }
 
-        #endregion
+        [JsonPropertyName("stackedRepostsAuthors")]
+        public IEnumerable<object> StackedRepostsAuthors { get; set; } // TODO: Some kind of array
 
         [JsonExtensionData]
-        public Dictionary<object, object> Unparsed { get; set; }
+        public Dictionary<string, object> Undeserialized { get; set; }
+
+        #endregion
 
         #region Methods
 

@@ -10,5 +10,8 @@ namespace Osnova.Net
 
         [JsonPropertyName("root_load_more")]
         public LoadMore RootLoadMore { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
     }
 }

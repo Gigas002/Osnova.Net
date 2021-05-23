@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Osnova.Net
@@ -13,5 +14,8 @@ namespace Osnova.Net
 
         [JsonPropertyName("url")]
         public Uri Url { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
     }
 }

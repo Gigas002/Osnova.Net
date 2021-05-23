@@ -96,6 +96,9 @@ namespace Osnova.Net
         [JsonPropertyName("donate")]
         public Counter Donate { get; set; }
 
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
+
         #endregion
 
         #region Methods

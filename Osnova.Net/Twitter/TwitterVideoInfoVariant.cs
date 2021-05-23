@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net.Twitter
 {
-    public class TwitterVideoInfoVariants
+    public class TwitterVideoInfoVariant
     {
         [JsonPropertyName("bitrate")]
         public int Bitrate { get; set; }

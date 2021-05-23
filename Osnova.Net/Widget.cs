@@ -18,6 +18,9 @@ namespace Osnova.Net
         [JsonPropertyName("items")]
         public object Items { get; set; }
 
+        [JsonExtensionData]
+        public Dictionary<string, object> Undeserialized { get; set; }
+
         public static Type GetItemsType(string itemType) => itemType switch
         {
             "content" => typeof(IEnumerable<Entry>),

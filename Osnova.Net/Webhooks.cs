@@ -106,8 +106,6 @@ namespace Osnova.Net
         {
             using var response = await PostApiWebhookDelResponseAsync(client, websiteKind, eventName, apiVersion).ConfigureAwait(false);
 
-            var json = await response.Content.ReadAsStringAsync();
-
             var deserialized = await Core.DeserializeOsnovaResponseAsync<Dictionary<string, bool>>(response).ConfigureAwait(false);
 
             return deserialized["success"];

@@ -1499,6 +1499,44 @@
             Refers to wtrfall
             </summary>
         </member>
+        <member name="P:Osnova.Net.ISubsite.Cover">
+            <summary>
+            Profile cover
+            <para/>
+            <remarks>Docs says it's <see cref="T:Osnova.Net.Cover"/>,
+            but actual query returns <see cref="T:Osnova.Net.Blocks.ImageBlock"/></remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.ISubsite.PushTopic">
+            <summary>
+            Личный топик пользователя в Firebase Messaging
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.ISubsite.AdvancedAccess">
+            <summary>
+            Список разрешений
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.ISubsite.UserHash">
+            <summary>
+            Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.IUser">
+            <summary>
+            Also known as "Author" and "User"
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.IUser.AvatarUrl">
+            <summary>
+            Profile avatar
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.IUser.SocialAccounts">
+            <summary>
+            List of social accounts
+            </summary>
+        </member>
         <member name="T:Osnova.Net.JsonConverters.HtmlColorJsonConverter">
             <summary>
             Color string includes "#"
@@ -2286,44 +2324,6 @@
             Don't use number types: there can be 880 or 10.7K stuff
             </summary>
         </member>
-        <member name="T:Osnova.Net.IUser">
-            <summary>
-            Also known as "Author" and "User"
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.IUser.AvatarUrl">
-            <summary>
-            Profile avatar
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.IUser.SocialAccounts">
-            <summary>
-            List of social accounts
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.ISubsite.Cover">
-            <summary>
-            Profile cover
-            <para/>
-            <remarks>Docs says it's <see cref="T:Osnova.Net.Cover"/>,
-            but actual query returns <see cref="T:Osnova.Net.Blocks.ImageBlock"/></remarks>
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.ISubsite.PushTopic">
-            <summary>
-            Личный топик пользователя в Firebase Messaging
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.ISubsite.AdvancedAccess">
-            <summary>
-            Список разрешений
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.ISubsite.UserHash">
-            <summary>
-            Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
-            </summary>
-        </member>
         <member name="T:Osnova.Net.User">
             <summary>
             Also known as Subsite
@@ -2420,6 +2420,9 @@
         <member name="P:Osnova.Net.User.IsMuted">
             <inheritdoc/>
         </member>
+        <member name="P:Osnova.Net.User.IsMuted2">
+            <inheritdoc/>
+        </member>
         <member name="P:Osnova.Net.User.IsSubscribedToNewPosts">
             <inheritdoc/>
         </member>
@@ -2443,6 +2446,11 @@
         </member>
         <member name="P:Osnova.Net.User.CommentEditor">
             <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.UserHashes">
+            <summary>
+            Thanks ochoba: string and int in one list...
+            </summary>
         </member>
         <member name="M:Osnova.Net.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
