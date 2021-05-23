@@ -7,18 +7,8 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net
 {
-    public class Subsite : User // TODO: replace older referencies to user and check all properties
+    public static class Subsite
     {
-        #region Properties
-
-        [JsonPropertyName("rules")]
-        public string Rules { get; set; }
-
-        [JsonPropertyName("events_count")]
-        public int EventsCount { get; set; }
-
-        #endregion
-
         #region Methods
 
         #region GET
@@ -38,11 +28,11 @@ namespace Osnova.Net
             return Core.GetResponseFromApiAsync(client, GetSubsiteUri(websiteKind, subsiteId, apiVersion));
         }
 
-        public static async ValueTask<Subsite> GetSubsiteAsync(HttpClient client, WebsiteKind websiteKind, long subsiteId, double apiVersion = Core.ApiVersion)
+        public static async ValueTask<User> GetSubsiteAsync(HttpClient client, WebsiteKind websiteKind, long subsiteId, double apiVersion = Core.ApiVersion)
         {
             using var response = await GetSubsiteResponseAsync(client, websiteKind, subsiteId, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<Subsite>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<User>(response).ConfigureAwait(false);
         }
 
         #endregion
@@ -101,12 +91,12 @@ namespace Osnova.Net
             return Core.GetResponseFromApiAsync(client, GetSubsitesListUri(websiteKind, subsiteTypes, apiVersion));
         }
 
-        public static async ValueTask<IEnumerable<Subsite>> GetSubsitesListAsync(HttpClient client, WebsiteKind websiteKind,
-               SubsiteTypes subsiteTypes = SubsiteTypes.Sections, double apiVersion = Core.ApiVersion)
+        public static async ValueTask<IEnumerable<User>> GetSubsitesListAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                              SubsiteTypes subsiteTypes = SubsiteTypes.Sections, double apiVersion = Core.ApiVersion)
         {
             using var response = await GetSubsitesListResponseAsync(client, websiteKind, subsiteTypes, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Subsite>>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
         }
 
         #endregion

@@ -5,152 +5,199 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Blocks;
 using Osnova.Net.Enums;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net
 {
-    public class User
+    /// <summary>
+    /// Also known as Subsite
+    /// </summary>
+    public class User : ISubsite
     {
-        #region Properties
+        #region IUser implementation
 
+        /// <inheritdoc/>
         [JsonPropertyName("id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
-        [JsonPropertyName("url")]
-        public Uri Url { get; set; }
-
-        [JsonPropertyName("type")]
-        public int Type { get; set; } // TODO: some kind of enum?
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
-        [JsonPropertyName("description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Аватарка профиля
-        /// </summary>
-        [JsonPropertyName("avatar_url")]
-        public Uri AvatarUrl { get; set; }
-
-        /// <summary>
-        /// Обложка профиля
-        /// </summary>
-        [JsonPropertyName("cover")]
-        public Block Cover { get; set; } // TODO: wrong info in spec? see getUserById
-
-        [JsonPropertyName("is_subscribed")]
-        public bool IsSubscribed { get; set; }
-
-        [JsonPropertyName("is_verified")]
-        public bool IsVerified { get; set; }
-
-        [JsonPropertyName("is_unsubscribable")]
-        public bool IsUnsubscribable { get; set; }
-
-        [JsonPropertyName("subscribers_count")]
-        public int SubscribersCount { get; set; }
-
-        [JsonPropertyName("comments_count")]
-        public int CommentsCount { get; set; }
-
-        [JsonPropertyName("entries_count")]
-        public int EntriesCount { get; set; }
-
-        [JsonPropertyName("vacancies_count")]
-        public int VacanciesCount { get; set; }
-
+        /// <inheritdoc/>
+        [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("created")]
-        public long Created { get; set; }
+        public DateTimeOffset Created { get; set; }
 
-        [JsonPropertyName("createdRFC")]
-        public string CreatedRFC { get; set; }
-
-        [JsonPropertyName("karma")]
-        public long Karma { get; set; }
-
-        /// <summary>
-        /// Список прикрепленных аккаунтов
-        /// </summary>
-        [JsonPropertyName("social_accounts")]
-        public IEnumerable<SocialAccount> SocialAccounts { get; set; }
-
-        /// <summary>
-        /// Личный топик пользователя в Firebase Messaging
-        /// </summary>
-        [JsonPropertyName("push_topic")]
-        public string PushTopic { get; set; }
-
-        /// <summary>
-        /// Список разрешений
-        /// </summary>
-        [JsonPropertyName("advanced_access")]
-        public AdvancedAccess AdvancedAccess { get; set; }
-
-        [JsonPropertyName("counters")]
-        public Counters Counters { get; set; }
-
-        /// <summary>
-        /// Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
-        /// </summary>
-        [JsonPropertyName("user_hash")]
-        public string UserHash { get; set; }
-
-        [JsonPropertyName("contacts")]
-        public Contacts Contacts { get; set; }
-
-        [JsonPropertyName("avatar")]
-        public Block Avatar { get; set; }
-
-        [JsonPropertyName("is_online")]
-        public bool IsOnline { get; set; }
-
-        [JsonPropertyName("isAvailableForMessenger")]
-        public bool IsAvailableForMessenger { get; set; }
-
-        [JsonPropertyName("isMuted")]
-        public bool IsMuted { get; set; }
-
-        [JsonPropertyName("is_subscribed_to_new_posts")]
-        public bool IsSubscribedToNewPosts { get; set; }
-
-        [JsonPropertyName("subscribers_avatars")]
-        public IEnumerable<SubscriberAvatar> SubscribersAvatars { get; set; }
-
-        [JsonPropertyName("is_plus")]
-        public bool IsPlus { get; set; }
-
-        [JsonPropertyName("online_status_text")]
-        public string OnlineStatusText { get; set; }
-
+        /// <inheritdoc/>
         [JsonPropertyName("first_name")]
         public string FirstName { get; set; }
 
+        /// <inheritdoc/>
         [JsonPropertyName("last_name")]
         public string LastName { get; set; }
 
+        /// <inheritdoc/>
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        /// <inheritdoc/>
         [JsonPropertyName("gender")]
         public int Gender { get; set; }
 
-        [JsonPropertyName("m_hash")]
-        public string MHash { get; set; }
+        /// <inheritdoc/>
+        [JsonPropertyName("url")]
+        public Uri Url { get; set; }
 
-        [JsonPropertyName("m_hash_expiration_time")]
-        public long MHashExpirationTime { get; set; }
+        /// <inheritdoc/>
+        [JsonPropertyName("avatar_url")]
+        public Uri AvatarUrl { get; set; }
 
-        [JsonPropertyName("user_hashes")]
-        public object UserHashes { get; set; } // TODO: wtf is this? got from postAuthLogin
+        /// <inheritdoc/>
+        [JsonPropertyName("karma")]
+        public int Karma { get; set; }
 
-        [JsonPropertyName("highlight")]
-        public string Highlight { get; set; }
+        /// <inheritdoc/>
+        [JsonPropertyName("social_accounts")]
+        public IEnumerable<SocialAccount> SocialAccounts { get; set; }
 
+        /// <inheritdoc/>
+        [JsonPropertyName("type")]
+        public int Type { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("avatar")]
+        public ImageBlock Avatar { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("is_online")]
+        public bool IsOnline { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("is_verified")]
+        public bool IsVerified { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("is_subscribed")]
+        public bool IsSubscribed { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("online_status_text")]
+        public string OnlineStatusText { get; set; }
+
+        #endregion
+
+        #region ISubsite implementation
+
+        /// <inheritdoc/>
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("cover")]
+        public ImageBlock Cover { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("is_unsubscribable")]
+        public bool IsUnsubscribable { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("subscribers_count")]
+        public int SubscribersCount { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("comments_count")]
+        public int CommentsCount { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("entries_count")]
+        public int EntriesCount { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("vacancies_count")]
+        public int VacanciesCount { get; set; }
+
+        /// <inheritdoc
+        [JsonConverter(typeof(RfcDateTimeOffsetJsonConverter))]
+        [JsonPropertyName("createdRFC")]
+        public DateTimeOffset CreatedRFC { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("push_topic")]
+        public string PushTopic { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("advanced_access")]
+        public AdvancedAccess AdvancedAccess { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("counters")]
+        public Counters Counters { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("user_hash")]
+        public string UserHash { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("contacts")]
+        public Contacts Contacts { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("isAvailableForMessenger")]
+        public bool IsAvailableForMessenger { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("isMuted")]
+        public bool IsMuted { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("is_subscribed_to_new_posts")]
+        public bool IsSubscribedToNewPosts { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("subscribers_avatars")]
+        public IEnumerable<SubscriberAvatar> SubscribersAvatars { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("is_plus")]
+        public bool IsPlus { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("head_cover")]
+        public Uri HeadCover { get; set; }
+
+        /// <inheritdoc/>
         [JsonPropertyName("is_enable_writing")]
         public bool IsEnableWriting { get; set; }
 
+        /// <inheritdoc/>
+        [JsonPropertyName("rules")]
+        public string Rules { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("events_count")]
+        public int EventsCount { get; set; }
+
+        /// <inheritdoc/>
         [JsonPropertyName("commentEditor")]
         public CommentEditor CommentEditor { get; set; }
 
         #endregion
+
+        #region Subsite implementation
+
+        //[JsonPropertyName("m_hash")]
+        //public string MHash { get; set; }
+
+        //[JsonPropertyName("m_hash_expiration_time")]
+        //public long MHashExpirationTime { get; set; }
+
+        //[JsonPropertyName("user_hashes")]
+        //public object UserHashes { get; set; } // TODO: wtf is this? got from postAuthLogin
+
+        //[JsonPropertyName("highlight")]
+        //public string Highlight { get; set; }
+
+        #endregion
+
+        [JsonExtensionData]
+        public Dictionary<object, object> Unparsed { get; set; }
 
         #region Methods
 

@@ -1416,87 +1416,82 @@
         </member>
         <member name="P:Osnova.Net.Entry.Title">
             <summary>
-            Заголовок статьи
+            Entry's title
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.WebviewUrl">
             <summary>
-            Ссылка, которую нужно открыть вместо открытия статьи
+            Link to open entry
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.Date">
             <summary>
-            Дата создания статьи
+            Entry's creation date
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.DateRfc">
             <summary>
-            Дата создания статьи
+            Entry's creation date
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.LastModificationDate">
             <summary>
-            Дата последнего изменения статьи
+            Entry's last modification
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entry.Author">
+            <summary>
+            Entry's author
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.Type">
             <summary>
-            Тип контента:
-            Entry = 1
-            Vacancy = 2
-            StaticPage = 3
-            Event = 4
-            Repost = 5
+            Content type
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.Intro">
             <summary>
-            Подзаголовок статьи
+            Entry's intro
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.HitsCount">
+        <member name="P:Osnova.Net.Entry.ViewsCount">
             <summary>
-            Число просмотров
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.Entry.CommentsPreview">
-            <summary>
-            Список аватарок комментирующих для заглушки
+            Count of views of entry
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.IsEditorial">
             <summary>
-            Показывает, что это пост редакции
+            Is this editoral office entry?
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.IsPinned">
             <summary>
-            Показывает, закреплен ли пост
+            Is this entry pinned?
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.AudioUrl">
             <summary>
-            Ссылка на mp3 файл с озвучкой статьи
+            Url to voiced variant of entry
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.Hotness">
+        <member name="P:Osnova.Net.Entry.CommentatorsAvatars">
             <summary>
-            Значение хотнесса
+            Collection of commentators's avatars for preview
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.SubscribedToTreads">
+        <member name="P:Osnova.Net.Entry.SubscribedToThreads">
             <summary>
-            Показывает, подписан ли пользователь на новые комментарии
+            Is user subscribed to comments?
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.Blocks">
             <summary>
-            Список блоков для нативной статьи. Для каждого типа блока формат объекта data разный
+            List of blocks in entry
             </summary>
         </member>
         <member name="P:Osnova.Net.Entry.CanEdit">
             <summary>
-            Показывает, может ли пользователь редактировать материал
+            Can user edit this post?
             </summary>
         </member>
         <member name="F:Osnova.Net.Enums.BlockType.Waterfall">
@@ -2291,35 +2286,163 @@
             Don't use number types: there can be 880 or 10.7K stuff
             </summary>
         </member>
-        <member name="P:Osnova.Net.User.AvatarUrl">
+        <member name="T:Osnova.Net.IUser">
             <summary>
-            Аватарка профиля
+            Also known as "Author" and "User"
             </summary>
         </member>
-        <member name="P:Osnova.Net.User.Cover">
+        <member name="P:Osnova.Net.IUser.AvatarUrl">
             <summary>
-            Обложка профиля
+            Profile avatar
             </summary>
         </member>
-        <member name="P:Osnova.Net.User.SocialAccounts">
+        <member name="P:Osnova.Net.IUser.SocialAccounts">
             <summary>
-            Список прикрепленных аккаунтов
+            List of social accounts
             </summary>
         </member>
-        <member name="P:Osnova.Net.User.PushTopic">
+        <member name="P:Osnova.Net.ISubsite.Cover">
+            <summary>
+            Profile cover
+            <para/>
+            <remarks>Docs says it's <see cref="T:Osnova.Net.Cover"/>,
+            but actual query returns <see cref="T:Osnova.Net.Blocks.ImageBlock"/></remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.ISubsite.PushTopic">
             <summary>
             Личный топик пользователя в Firebase Messaging
             </summary>
         </member>
-        <member name="P:Osnova.Net.User.AdvancedAccess">
+        <member name="P:Osnova.Net.ISubsite.AdvancedAccess">
             <summary>
             Список разрешений
             </summary>
         </member>
-        <member name="P:Osnova.Net.User.UserHash">
+        <member name="P:Osnova.Net.ISubsite.UserHash">
             <summary>
             Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
             </summary>
+        </member>
+        <member name="T:Osnova.Net.User">
+            <summary>
+            Also known as Subsite
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.User.Id">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Created">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.FirstName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.LastName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Gender">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Url">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.AvatarUrl">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Karma">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.SocialAccounts">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Avatar">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.IsOnline">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.IsVerified">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.IsSubscribed">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.OnlineStatusText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Cover">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.IsUnsubscribable">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.SubscribersCount">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.CommentsCount">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.EntriesCount">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.VacanciesCount">
+            <inheritdoc/>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Osnova.Net.User.CreatedRFC" -->
+        <member name="P:Osnova.Net.User.PushTopic">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.AdvancedAccess">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Counters">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.UserHash">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Contacts">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.IsAvailableForMessenger">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.IsMuted">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.IsSubscribedToNewPosts">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.SubscribersAvatars">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.IsPlus">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.HeadCover">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.IsEnableWriting">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.Rules">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.EventsCount">
+            <inheritdoc/>
+        </member>
+        <member name="P:Osnova.Net.User.CommentEditor">
+            <inheritdoc/>
         </member>
         <member name="M:Osnova.Net.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>

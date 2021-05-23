@@ -18,57 +18,55 @@ namespace Osnova.Net
         public int Id { get; set; }
 
         /// <summary>
-        /// Заголовок статьи
+        /// Entry's title
         /// </summary>
         [JsonPropertyName("title")]
         public string Title { get; set; }
 
         /// <summary>
-        /// Ссылка, которую нужно открыть вместо открытия статьи
+        /// Link to open entry
         /// </summary>
         [JsonPropertyName("webviewUrl")]
         public Uri WebviewUrl { get; set; }
 
         [JsonPropertyName("entryContent")]
-        public EntryLayout EntryContent { get; set; }
+        public EntryLayout EntryLayout { get; set; }
 
         /// <summary>
-        /// Дата создания статьи
+        /// Entry's creation date
         /// </summary>
         [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("date")]
         public DateTimeOffset Date { get; set; }
 
         /// <summary>
-        /// Дата создания статьи
+        /// Entry's creation date
         /// </summary>
         [JsonConverter(typeof(RfcDateTimeOffsetJsonConverter))]
         [JsonPropertyName("dateRFC")]
         public DateTimeOffset DateRfc { get; set; }
 
         /// <summary>
-        /// Дата последнего изменения статьи
+        /// Entry's last modification
         /// </summary>
         [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("last_modification_date")]
         public DateTimeOffset LastModificationDate { get; set; }
 
+        /// <summary>
+        /// Entry's author
+        /// </summary>
         [JsonPropertyName("author")]
         public User Author { get; set; }
 
         /// <summary>
-        /// Тип контента:
-        /// Entry = 1
-        /// Vacancy = 2
-        /// StaticPage = 3
-        /// Event = 4
-        /// Repost = 5
+        /// Content type
         /// </summary>
         [JsonPropertyName("type")]
         public ContentType Type { get; set; }
 
         /// <summary>
-        /// Подзаголовок статьи
+        /// Entry's intro
         /// </summary>
         [JsonPropertyName("intro")]
         public string Intro { get; set; }
@@ -83,17 +81,14 @@ namespace Osnova.Net
         public IEnumerable<Similar> Similar { get; set; }
 
         /// <summary>
-        /// Число просмотров
+        /// Count of views of entry
         /// </summary>
         [JsonPropertyName("hitsCount")]
-        public int HitsCount { get; set; }
+        public int ViewsCount { get; set; }
 
         [JsonPropertyName("likes")]
         public Likes Likes { get; set; }
 
-        /// <summary>
-        /// Список аватарок комментирующих для заглушки
-        /// </summary>
         [JsonPropertyName("commentsPreview")]
         public IEnumerable<Comment> CommentsPreview { get; set; }
 
@@ -113,19 +108,19 @@ namespace Osnova.Net
         public bool IsEnabledComments { get; set; }
 
         /// <summary>
-        /// Показывает, что это пост редакции
+        /// Is this editoral office entry?
         /// </summary>
         [JsonPropertyName("isEditorial")]
         public bool IsEditorial { get; set; }
 
         /// <summary>
-        /// Показывает, закреплен ли пост
+        /// Is this entry pinned?
         /// </summary>
         [JsonPropertyName("isPinned")]
         public bool IsPinned { get; set; }
 
         /// <summary>
-        /// Ссылка на mp3 файл с озвучкой статьи
+        /// Url to voiced variant of entry
         /// </summary>
         [JsonPropertyName("audioUrl")]
         public Uri AudioUrl { get; set; }
@@ -133,32 +128,32 @@ namespace Osnova.Net
         [JsonPropertyName("badges")]
         public IEnumerable<Badge> Badges { get; set; }
 
+        /// <summary>
+        /// Collection of commentators's avatars for preview
+        /// </summary>
         [JsonPropertyName("commentatorsAvatars")]
         public IEnumerable<Uri> CommentatorsAvatars { get; set; }
 
         [JsonPropertyName("subsite")]
         public User Subsite { get; set; }
 
-        /// <summary>
-        /// Значение хотнесса
-        /// </summary>
         [JsonPropertyName("hotness")]
         public double Hotness { get; set; }
 
         /// <summary>
-        /// Показывает, подписан ли пользователь на новые комментарии
+        /// Is user subscribed to comments?
         /// </summary>
         [JsonPropertyName("subscribedToTreads")]
-        public bool SubscribedToTreads { get; set; }
+        public bool SubscribedToThreads { get; set; }
 
         /// <summary>
-        /// Список блоков для нативной статьи. Для каждого типа блока формат объекта data разный
+        /// List of blocks in entry
         /// </summary>
         [JsonPropertyName("blocks")]
         public IEnumerable<Block> Blocks { get; set; }
 
         /// <summary>
-        /// Показывает, может ли пользователь редактировать материал
+        /// Can user edit this post?
         /// </summary>
         [JsonPropertyName("canEdit")]
         public bool CanEdit { get; set; }
@@ -207,6 +202,9 @@ namespace Osnova.Net
         public string Summarize { get; set; }
 
         #endregion
+
+        [JsonExtensionData]
+        public Dictionary<object, object> Unparsed { get; set; }
 
         #region Methods
 
