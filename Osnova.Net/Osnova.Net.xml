@@ -1600,16 +1600,21 @@
             <summary>
             OsnovaShit
             Used for GetTweets method only
+            Refers to Tweet spec
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.OsnovaTweetMedia">
             <summary>
             OsnovaShit
+            Used for GetTweets method only
+            Refers to Tweetmedium spec
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.OsnovaTwitterUser">
             <summary>
             OsnovaShit
+            Used for GetTweets method only
+            Refers to TweetUser spec
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.Tweet">

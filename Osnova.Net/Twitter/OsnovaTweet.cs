@@ -4,56 +4,39 @@ using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Twitter
 {
     /// <summary>
     /// OsnovaShit
     /// Used for GetTweets method only
+    /// Refers to Tweet spec
     /// </summary>
-    public class OsnovaTweet
+    public class OsnovaTweet : Tweet
     {
         #region Properties
 
-        #region Same as 1.1 spec Tweet
-
-        // ok
-        [JsonPropertyName("text")]
-        public string Text { get; set; }
-
-        // kind of
-        [JsonPropertyName("user")]
-        public OsnovaTwitterUser User { get; set; }
-
-        // ok
-        [JsonPropertyName("retweet_count")]
-        public int RetweetCount { get; set; }
-
-        // ok
-        [JsonPropertyName("favorite_count")]
-        public int FavoriteCount { get; set; }
-
-        #endregion
-
         #region Wrong types
 
-        // long != string
-        [JsonPropertyName("id")]
-        public string Id { get; set; }
+        [JsonPropertyName("user")]
+        public new OsnovaTwitterUser User { get; set; }
 
-        // string != long
+        [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString)]
+        [JsonPropertyName("id")]
+        public new long Id { get; set; }
+
+        [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("created_at")]
-        public long CreatedAt { get; set; }
+        public new DateTimeOffset CreatedAt { get; set; }
 
         #endregion
 
-        #region Wtf is this
+        #region Osnova only stuff
 
-        // nope
         [JsonPropertyName("has_media")]
         public bool HasMedia { get; set; }
 
-        // nope
         [JsonPropertyName("media")]
         public IEnumerable<OsnovaTweetMedia> Media { get; set; }
 

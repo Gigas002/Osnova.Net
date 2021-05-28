@@ -32,9 +32,8 @@ namespace Osnova.Net.Telegram
         /// <summary>
         /// Don't use number types: there can be 880 or 10.7K stuff
         /// </summary>
-        //[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString)]
         [JsonPropertyName("views")]
-        public string Views { get; set; } // TODO: double?
+        public string Views { get; set; }
 
         [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("datetime")]
