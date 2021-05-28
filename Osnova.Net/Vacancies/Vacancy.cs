@@ -7,7 +7,7 @@ using Osnova.Net.Companies;
 using Osnova.Net.Enums;
 using Osnova.Net.Filters;
 
-namespace Osnova.Net
+namespace Osnova.Net.Vacancies
 {
     public class Vacancy
     {

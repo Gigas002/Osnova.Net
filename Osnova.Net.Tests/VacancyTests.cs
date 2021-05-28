@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using Osnova.Net.Vacancies;
 
 namespace Osnova.Net.Tests
 {

@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
 using Osnova.Net.Filters;
+using Osnova.Net.Vacancies;
 
 namespace Osnova.Net.OsnovaEvents
 {

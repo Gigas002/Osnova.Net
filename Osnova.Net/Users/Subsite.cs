@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Osnova.Net.Entries;
 using Osnova.Net.Enums;
+using Osnova.Net.Vacancies;
 
 namespace Osnova.Net.Users
 {
