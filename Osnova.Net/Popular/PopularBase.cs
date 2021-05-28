@@ -7,9 +7,9 @@ using Osnova.Net.Comments;
 using Osnova.Net.Entries;
 using Osnova.Net.Enums;
 
-namespace Osnova.Net
+namespace Osnova.Net.Popular
 {
-    public class Widget
+    public class PopularBase
     {
         [JsonPropertyName("title")]
         public string Title { get; set; }

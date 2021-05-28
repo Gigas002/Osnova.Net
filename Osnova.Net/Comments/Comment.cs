@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Osnova.Net.Blocks;
 using Osnova.Net.Entries;
 using Osnova.Net.Enums;
+using Osnova.Net.Popular;
 
 namespace Osnova.Net.Comments
 {
@@ -219,12 +220,12 @@ namespace Osnova.Net.Comments
             return Core.GetResponseFromApiAsync(client, GetEntryWidgetsUri(websiteKind, entryId, apiVersion));
         }
 
-        public static async ValueTask<IEnumerable<Widget>> GetEntryWidgetsAsync(HttpClient client, WebsiteKind websiteKind,
+        public static async ValueTask<IEnumerable<PopularBase>> GetEntryWidgetsAsync(HttpClient client, WebsiteKind websiteKind,
             long entryId, double apiVersion = Core.ApiVersion)
         {
             var response = await GetEntryWidgetsResponseAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Widget>>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<PopularBase>>(response).ConfigureAwait(false);
         }
 
         #endregion

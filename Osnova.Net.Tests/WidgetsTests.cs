@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using Osnova.Net.Popular;
 
 namespace Osnova.Net.Tests
 {
@@ -12,7 +13,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetUserPushTopic()
         {
-            var rates = await Widget.GetRatesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var rates = await PopularBase.GetRatesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in rates)
             {
