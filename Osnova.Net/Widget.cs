@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Osnova.Net.Comments;
 using Osnova.Net.Enums;
 
 namespace Osnova.Net

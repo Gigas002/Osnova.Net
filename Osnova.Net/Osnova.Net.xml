@@ -38,22 +38,45 @@
             Inside InstagramBlockData, SpotifyBlockData, TikTokBlockData, YaMusicBlockData
             </summary>
         </member>
-        <member name="P:Osnova.Net.Comment.Text">
+        <member name="P:Osnova.Net.Comments.Comment.Text">
             <summary>
             Текст комментария с html
             </summary>
         </member>
-        <member name="P:Osnova.Net.Comment.MarkdownText">
+        <member name="P:Osnova.Net.Comments.Comment.MarkdownText">
             <summary>
             Текст комментария с markdown
             </summary>
         </member>
-        <member name="P:Osnova.Net.Comment.SourceOs">
+        <member name="P:Osnova.Net.Comments.Comment.SourceOs">
             <summary>
             С какой OS был написан комментарий:
             Other = 0
             iOS = 1
             Android = 2
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.LoadMore.Ids">
+            <summary>
+            Список id комментариев для подгрузки
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.LoadMore.Count">
+            <summary>
+            Количество подгружаемых комментариев
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.LoadMore.Avatars">
+            <summary>
+            Список аватарок пользователей в подгружаемых комментариях
+            TODO: probably Uri, not string
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.Media.Type">
+            <summary>
+            Тип медиафайла:
+            Image = 1
+            Video = 2
             </summary>
         </member>
         <member name="T:Osnova.Net.Constants.DtfSubsiteIds">
@@ -2269,29 +2292,6 @@
         <member name="P:Osnova.Net.Twitter.TwitterUserMentions.ScreenName">
             <summary>
             Screen name of the referenced user
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.LoadMore.Ids">
-            <summary>
-            Список id комментариев для подгрузки
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.LoadMore.Count">
-            <summary>
-            Количество подгружаемых комментариев
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.LoadMore.Avatars">
-            <summary>
-            Список аватарок пользователей в подгружаемых комментариях
-            TODO: probably Uri, not string
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.Media.Type">
-            <summary>
-            Тип медиафайла:
-            Image = 1
-            Video = 2
             </summary>
         </member>
         <member name="M:Osnova.Net.Mentions.GetSearchForMentionsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">

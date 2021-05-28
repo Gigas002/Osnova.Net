@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Osnova.Net.Blocks;
+using Osnova.Net.Comments;
 
 namespace Osnova.Net
 {

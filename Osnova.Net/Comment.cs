@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Osnova.Net.Blocks;
 using Osnova.Net.Enums;
 
-namespace Osnova.Net
+namespace Osnova.Net.Comments
 {
     public class Comment
     {

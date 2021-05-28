@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Osnova.Net
+namespace Osnova.Net.Comments
 {
     public class CommentsSeenCount
     {
