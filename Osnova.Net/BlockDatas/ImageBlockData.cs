@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Text.Json.Serialization;
 using Osnova.Net.Enums;
+using Osnova.Net.ExternalServices;
 using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.BlockDatas
