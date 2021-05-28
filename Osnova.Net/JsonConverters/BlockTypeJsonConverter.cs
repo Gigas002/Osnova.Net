@@ -21,6 +21,10 @@ namespace Osnova.Net.JsonConverters
                 {
                     return BlockType.SpecialButton;
                 }
+                case "yamusic":
+                {
+                    return BlockType.YandexMusic;
+                }
                 default:
                 {
                     bool isParsed = Enum.TryParse<BlockType>(blockTypeString, true, out var type);
@@ -43,6 +47,12 @@ namespace Osnova.Net.JsonConverters
                 case BlockType.SpecialButton:
                 {
                     writer.WriteStringValue("special_button");
+
+                    return;
+                }
+                case BlockType.YandexMusic:
+                {
+                    writer.WriteStringValue("yamusic");
 
                     return;
                 }

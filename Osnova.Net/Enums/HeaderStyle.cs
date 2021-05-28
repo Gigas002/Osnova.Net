@@ -3,7 +3,7 @@ using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Enums
 {
-    [JsonConverter(typeof(EnumToStringJsonConverter<HeaderStyle>))]
+    [JsonConverter(typeof(StringToEnumJsonConverter<HeaderStyle>))]
     public enum HeaderStyle
     {
         H2,

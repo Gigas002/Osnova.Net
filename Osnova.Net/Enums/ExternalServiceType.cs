@@ -3,8 +3,8 @@ using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Enums
 {
-    [JsonConverter(typeof(EnumToStringJsonConverter<Service>))]
-    public enum Service
+    [JsonConverter(typeof(StringToEnumJsonConverter<ExternalServiceType>))]
+    public enum ExternalServiceType
     {
         Instagram,
         YaMusic,

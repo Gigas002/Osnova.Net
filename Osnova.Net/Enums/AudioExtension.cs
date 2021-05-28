@@ -3,7 +3,7 @@ using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Enums
 {
-    [JsonConverter(typeof(EnumToStringJsonConverter<AudioExtension>))]
+    [JsonConverter(typeof(StringToEnumJsonConverter<AudioExtension>))]
     public enum AudioExtension
     {
         Mp3

@@ -3,7 +3,7 @@ using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Enums
 {
-    [JsonConverter(typeof(EnumToStringJsonConverter<TextSize>))]
+    [JsonConverter(typeof(StringToEnumJsonConverter<TextSize>))]
     public enum TextSize
     {
         Small,

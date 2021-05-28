@@ -3,13 +3,14 @@ using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Enums
 {
-    [JsonConverter(typeof(EnumToStringJsonConverter<ImageExtension>))]
-    public enum ImageExtension
+    [JsonConverter(typeof(StringToEnumJsonConverter<MediaExtension>))]
+    public enum MediaExtension
     {
         // TODO: process all data types
         Png,
         Jpg,
         Webp,
-        Gif
+        Gif,
+        Mp4
     }
 }

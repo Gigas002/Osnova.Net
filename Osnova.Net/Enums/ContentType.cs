@@ -6,6 +6,7 @@
         Vacancy = 2,
         StaticPage = 3,
         Event = 4,
-        Repost = 5
+        Repost = 5,
+        Comment
     }
 }

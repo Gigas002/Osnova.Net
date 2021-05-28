@@ -3,10 +3,11 @@ using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Enums
 {
-    [JsonConverter(typeof(EnumToStringJsonConverter<TextAlignment>))]
-    public enum TextAlignment
+    [JsonConverter(typeof(StringToEnumJsonConverter<Alignment>))]
+    public enum Alignment
     {
         Left,
-        Centered
+        Centered,
+        Top
     }
 }

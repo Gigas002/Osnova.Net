@@ -28,7 +28,7 @@ namespace Osnova.Net.BlockDatas
         public int Length { get; set; }
 
         [JsonPropertyName("type")]
-        public ImageExtension Extension { get; set; }
+        public MediaExtension Extension { get; set; }
 
         [JsonConverter(typeof(ColorJsonConverter))]
         [JsonPropertyName("color")]

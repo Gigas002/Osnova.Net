@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net.JsonConverters
 {
-    public class EnumToStringJsonConverter<T> : JsonConverter<T> where T : Enum
+    public class StringToEnumJsonConverter<T> : JsonConverter<T> where T : Enum
     {
         public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {

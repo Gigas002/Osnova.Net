@@ -8,7 +8,7 @@ namespace Osnova.Net.BlockDatas
         #region Properties
 
         [JsonPropertyName("service")]
-        public Service Service { get; set; }
+        public ExternalServiceType Service { get; set; }
 
         [JsonPropertyName("box_data")]
         public BoxData BoxData { get; set; }

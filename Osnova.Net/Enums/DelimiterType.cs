@@ -3,7 +3,7 @@ using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Enums
 {
-    [JsonConverter(typeof(EnumToStringJsonConverter<DelimiterType>))]
+    [JsonConverter(typeof(StringToEnumJsonConverter<DelimiterType>))]
     public enum DelimiterType
     {
         Default

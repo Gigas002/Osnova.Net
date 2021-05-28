@@ -18,6 +18,7 @@ namespace Osnova.Net.Enums
         Link,
         List,
         Media,
+        Movie,
         Number,
         Person,
         Quiz,
@@ -38,6 +39,6 @@ namespace Osnova.Net.Enums
         /// Refers to wtrfall
         /// </summary>
         Waterfall,
-        YaMusic
+        YandexMusic
     }
 }

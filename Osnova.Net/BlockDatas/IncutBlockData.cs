@@ -14,7 +14,7 @@ namespace Osnova.Net.BlockDatas
         /// Refers to type
         /// </summary>
         [JsonPropertyName("type")]
-        public TextAlignment TextAlignment { get; set; }
+        public Alignment TextAlignment { get; set; }
 
         [JsonPropertyName("text_size")]
         public TextSize TextSize { get; set; }

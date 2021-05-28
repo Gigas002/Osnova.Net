@@ -3,7 +3,7 @@ using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Enums
 {
-    [JsonConverter(typeof(EnumToStringJsonConverter<AudioChannel>))]
+    [JsonConverter(typeof(StringToEnumJsonConverter<AudioChannel>))]
     public enum AudioChannel
     {
         Stereo = 0,

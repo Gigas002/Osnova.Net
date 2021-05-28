@@ -3,7 +3,7 @@ using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Enums
 {
-    [JsonConverter(typeof(EnumToStringJsonConverter<QuoteType>))]
+    [JsonConverter(typeof(StringToEnumJsonConverter<QuoteType>))]
     public enum QuoteType
     {
         Default,
