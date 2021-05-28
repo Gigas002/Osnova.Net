@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Osnova.Net
+namespace Osnova.Net.Filters
 {
-    public class JobOrEventFilter
+    public class VacancyEventFilter
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }

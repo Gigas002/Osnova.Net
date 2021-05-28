@@ -1,21 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Osnova.Net
+namespace Osnova.Net.Filters
 {
-    public class JobOrEventFilters
+    public class EventFilters
     {
         [JsonPropertyName("area")]
-        public IEnumerable<JobOrEventFilter> Areas { get; set; }
+        public IEnumerable<VacancyEventFilter> Areas { get; set; }
 
         [JsonPropertyName("cities")]
-        public IEnumerable<JobOrEventFilter> Cities { get; set; }
+        public IEnumerable<VacancyEventFilter> Cities { get; set; }
 
         [JsonPropertyName("schedule")]
-        public IEnumerable<JobOrEventFilter> Schedules { get; set; }
+        public IEnumerable<VacancyEventFilter> Schedules { get; set; }
 
         [JsonPropertyName("specializations")]
-        public IEnumerable<JobOrEventFilter> Specializations { get; set; }
+        public IEnumerable<VacancyEventFilter> Specializations { get; set; }
 
         [JsonExtensionData]
         public Dictionary<string, object> Undeserialized { get; set; }

@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
+using Osnova.Net.Filters;
 
 namespace Osnova.Net
 {
@@ -41,11 +42,11 @@ namespace Osnova.Net
             return Core.GetResponseFromApiAsync(client, GetEventsFiltersUri(websiteKind, apiVersion));
         }
 
-        public static async ValueTask<JobOrEventFilters> GetEventsFiltersAsync(HttpClient client, WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        public static async ValueTask<EventFilters> GetEventsFiltersAsync(HttpClient client, WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
             using var response = await GetEventsFiltersResponseAsync(client, websiteKind,apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<JobOrEventFilters>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<EventFilters>(response).ConfigureAwait(false);
         }
 
         #endregion

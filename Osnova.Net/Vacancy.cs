@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Companies;
 using Osnova.Net.Enums;
+using Osnova.Net.Filters;
 
 namespace Osnova.Net
 {
@@ -139,12 +140,12 @@ namespace Osnova.Net
             return Core.GetResponseFromApiAsync(client, GetJobFiltersUri(websiteKind, apiVersion));
         }
 
-        public static async ValueTask<JobOrEventFilters> GetJobFiltersAsync(HttpClient client, WebsiteKind websiteKind,
+        public static async ValueTask<EventFilters> GetJobFiltersAsync(HttpClient client, WebsiteKind websiteKind,
                                                                      double apiVersion = Core.ApiVersion)
         {
             using var response = await GetJobFiltersResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<JobOrEventFilters>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<EventFilters>(response).ConfigureAwait(false);
         }
 
         #endregion
