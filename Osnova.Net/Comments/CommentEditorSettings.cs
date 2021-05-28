@@ -2,7 +2,7 @@
 
 namespace Osnova.Net.Comments
 {
-    public class CommentEditor
+    public class CommentEditorSettings
     {
         [JsonPropertyName("enabled")]
         public bool Enabled { get; set; }

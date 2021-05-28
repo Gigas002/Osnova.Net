@@ -188,7 +188,7 @@ namespace Osnova.Net
 
         /// <inheritdoc/>
         [JsonPropertyName("commentEditor")]
-        public CommentEditor CommentEditor { get; set; }
+        public CommentEditorSettings CommentEditor { get; set; }
 
         #endregion
 

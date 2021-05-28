@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net.Comments
 {
-    public class LoadMore
+    public class CommentsLoadMore
     {
         /// <summary>
         /// Список id комментариев для подгрузки

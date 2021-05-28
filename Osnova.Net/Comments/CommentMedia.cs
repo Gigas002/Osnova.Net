@@ -4,7 +4,7 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net.Comments
 {
-    public class Media
+    public class CommentMedia
     {
         /// <summary>
         /// Тип медиафайла:

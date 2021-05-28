@@ -66,6 +66,6 @@ namespace Osnova.Net
 
         public int EventsCount { get; set; }
 
-        public CommentEditor CommentEditor { get; set; }
+        public CommentEditorSettings CommentEditor { get; set; }
     }
 }

@@ -197,7 +197,7 @@ namespace Osnova.Net
         public string Highlight { get; set; }
 
         [JsonPropertyName("commentEditor")]
-        public CommentEditor CommentEditor { get; set; }
+        public CommentEditorSettings CommentEditor { get; set; }
 
         [JsonPropertyName("summarize")]
         public string Summarize { get; set; }

@@ -37,7 +37,7 @@ namespace Osnova.Net.Comments
         public string MarkdownText { get; set; }
 
         [JsonPropertyName("media")]
-        public IEnumerable<Media> Media { get; set; }
+        public IEnumerable<CommentMedia> Media { get; set; }
 
         [JsonPropertyName("likes")]
         public Likes Likes { get; set; }
@@ -70,7 +70,7 @@ namespace Osnova.Net.Comments
         public SourceOs SourceOs { get; set; }
 
         [JsonPropertyName("load_more")]
-        public LoadMore LoadMore { get; set; }
+        public CommentsLoadMore LoadMore { get; set; }
 
         [JsonPropertyName("attaches")]
         public IEnumerable<Block> Attaches { get; set; }
@@ -143,12 +143,12 @@ namespace Osnova.Net.Comments
             return Core.GetResponseFromApiAsync(client, GetEntryCommentsLevelsUri(websiteKind, entryId, sorting, apiVersion));
         }
 
-        public static async ValueTask<CommentsLevels> GetEntryCommentsLevelsAsync(HttpClient client, WebsiteKind websiteKind, int entryId,
+        public static async ValueTask<CommentThreads> GetEntryCommentsLevelsAsync(HttpClient client, WebsiteKind websiteKind, int entryId,
             CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
         {
             var response = await GetEntryCommentsLevelsResponseAsync(client, websiteKind, entryId, sorting, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<CommentsLevels>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<CommentThreads>(response).ConfigureAwait(false);
         }
 
         #endregion
@@ -168,12 +168,12 @@ namespace Osnova.Net.Comments
             return Core.GetResponseFromApiAsync(client, GetEntryCommentsThreadUri(websiteKind, entryId, commentId, apiVersion));
         }
 
-        public static async ValueTask<CommentsLevels> GetEntryCommentsThreadAsync(HttpClient client, WebsiteKind websiteKind, int entryId,
+        public static async ValueTask<CommentThreads> GetEntryCommentsThreadAsync(HttpClient client, WebsiteKind websiteKind, int entryId,
             long commentId, double apiVersion = Core.ApiVersion)
         {
             var response = await GetEntryCommentsThreadResponseAsync(client, websiteKind, entryId, commentId, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<CommentsLevels>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<CommentThreads>(response).ConfigureAwait(false);
         }
 
         #endregion
