@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Osnova.Net.Enums;
 using Osnova.Net.Filters;
 
-namespace Osnova.Net
+namespace Osnova.Net.OsnovaEvents
 {
-    public class Event : Vacancy
+    public class OsnovaEvent : Vacancy
     {
         #region Properties
 
@@ -86,12 +86,12 @@ namespace Osnova.Net
             return Core.GetResponseFromApiAsync(client, GetEventsUri(websiteKind, cityId, specializationIds, apiVersion));
         }
 
-        public static async ValueTask<IEnumerable<Event>> GetEventsAsync(HttpClient client, WebsiteKind websiteKind, int cityId = -1,
+        public static async ValueTask<IEnumerable<OsnovaEvent>> GetEventsAsync(HttpClient client, WebsiteKind websiteKind, int cityId = -1,
             IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
         {
             var response = await GetEventsResponseAsync(client, websiteKind, cityId, specializationIds, apiVersion).ConfigureAwait(false);
 
-            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Event>>(response).ConfigureAwait(false);
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<OsnovaEvent>>(response).ConfigureAwait(false);
 
             return searchResult.Items;
         }
@@ -134,12 +134,12 @@ namespace Osnova.Net
             return Core.GetResponseFromApiAsync(client, GetEventsMoreUri(websiteKind, lastId, cityId, specializationIds, apiVersion));
         }
 
-        public static async ValueTask<IEnumerable<Event>> GetEventsMoreAsync(HttpClient client, WebsiteKind websiteKind, long lastId, int cityId = -1,
+        public static async ValueTask<IEnumerable<OsnovaEvent>> GetEventsMoreAsync(HttpClient client, WebsiteKind websiteKind, long lastId, int cityId = -1,
                IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
         {
             var response = await GetEventsMoreResponseAsync(client, websiteKind, lastId, cityId, specializationIds, apiVersion).ConfigureAwait(false);
 
-            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Event>>(response).ConfigureAwait(false);
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<OsnovaEvent>>(response).ConfigureAwait(false);
 
             return searchResult.Items;
         }

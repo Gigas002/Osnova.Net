@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Osnova.Net.Enums;
+using Osnova.Net.OsnovaEvents;
 
 namespace Osnova.Net.Tests
 {
@@ -13,7 +14,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetEventsFilters()
         {
-            var filters = await Event.GetEventsFiltersAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var filters = await OsnovaEvent.GetEventsFiltersAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             if (filters.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
 
@@ -23,7 +24,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetEvents()
         {
-            var events = await Event.GetEventsAsync(Helper.Client, WebsiteKind.Vc).ConfigureAwait(false);
+            var events = await OsnovaEvent.GetEventsAsync(Helper.Client, WebsiteKind.Vc).ConfigureAwait(false);
 
             foreach (var value in events)
             {
@@ -38,7 +39,7 @@ namespace Osnova.Net.Tests
         {
             const int lastId = 0;
 
-            var events = await Event.GetEventsMoreAsync(Helper.Client, WebsiteKind.Vc, lastId).ConfigureAwait(false);
+            var events = await OsnovaEvent.GetEventsMoreAsync(Helper.Client, WebsiteKind.Vc, lastId).ConfigureAwait(false);
 
             foreach (var value in events)
             {
