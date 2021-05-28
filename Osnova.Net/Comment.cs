@@ -76,7 +76,7 @@ namespace Osnova.Net
         public IEnumerable<Block> Attaches { get; set; }
 
         [JsonPropertyName("etcControls")]
-        public EtcControls EtcControls { get; set; }
+        public AdditionalControls EtcControls { get; set; }
 
         [JsonPropertyName("date_favorite")]
         public long? DateFavorited { get; set; }

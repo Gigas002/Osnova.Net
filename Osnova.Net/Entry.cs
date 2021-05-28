@@ -175,7 +175,7 @@ namespace Osnova.Net
         public CommentsSeenCount CommentsSeenCount { get; set; }
 
         [JsonPropertyName("etcControls")]
-        public EtcControls EtcControls { get; set; }
+        public AdditionalControls EtcControls { get; set; }
 
         [JsonPropertyName("is_show_thanks")]
         public bool IsShowThanks { get; set; }

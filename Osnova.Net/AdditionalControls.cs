@@ -2,7 +2,7 @@
 
 namespace Osnova.Net
 {
-    public class EtcControls
+    public class AdditionalControls
     {
         [JsonPropertyName("edit_entry")]
         public bool EditEntry { get; set; }
