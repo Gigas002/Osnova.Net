@@ -8,6 +8,7 @@ namespace Osnova.Net.Enums
     {
         Left,
         Centered,
-        Top
+        Top,
+        Bottom
     }
 }

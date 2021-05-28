@@ -43,7 +43,7 @@ namespace Osnova.Net.Entries
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
-            return new Uri(baseUri, "layout");
+            return new Uri($"{baseUri}/layout");
         }
 
         #region GET
@@ -55,7 +55,9 @@ namespace Osnova.Net.Entries
         {
             var relative = $"{version}";
 
-            return new Uri(GetDefaultLayoutUrl(websiteKind, apiVersion), relative);
+            var baseUri = GetDefaultLayoutUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
         public static ValueTask<HttpResponseMessage> GetLayoutResponseAsync(HttpClient client, WebsiteKind websiteKind,
@@ -85,7 +87,9 @@ namespace Osnova.Net.Entries
 
             var relative = hashtag;
 
-            return new Uri(GetDefaultLayoutUrl(websiteKind, apiVersion), relative);
+            var baseUri = GetDefaultLayoutUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
         public static ValueTask<HttpResponseMessage> GetLayoutHashtagResponseAsync(HttpClient client, WebsiteKind websiteKind,

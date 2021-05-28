@@ -165,7 +165,7 @@ namespace Osnova.Net.Comments
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
-            return new Uri(baseUri, "comment");
+            return new Uri($"{baseUri}/comment");
         }
 
         #region GET
@@ -213,7 +213,9 @@ namespace Osnova.Net.Comments
         {
             var relative = $"likers/{commentId}";
 
-            return new Uri(GetDefaultCommentUrl(websiteKind, apiVersion), relative);
+            var baseUri = GetDefaultCommentUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
         /// <summary>
@@ -270,7 +272,9 @@ namespace Osnova.Net.Comments
         {
             var relative = $"{entryId}/widgets";
 
-            return new Uri(Entry.GetDefaultEntryUrl(websiteKind, apiVersion), relative);
+            var baseUri = Entry.GetDefaultEntryUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
         /// <summary>

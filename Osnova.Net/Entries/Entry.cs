@@ -274,7 +274,7 @@ namespace Osnova.Net.Entries
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
-            return new Uri(baseUri, "entry");
+            return new Uri($"{baseUri}/entry");
         }
 
         #region GET
@@ -294,7 +294,9 @@ namespace Osnova.Net.Entries
         {
             var relative = $"{entryId}";
 
-            return new Uri(GetDefaultEntryUrl(websiteKind, apiVersion), relative);
+            var baseUri = GetDefaultEntryUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
         /// <summary>
@@ -349,7 +351,9 @@ namespace Osnova.Net.Entries
         {
             var relative = $"{entryId}/popular";
 
-            return new Uri(GetDefaultEntryUrl(websiteKind, apiVersion), relative);
+            var baseUri = GetDefaultEntryUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
         /// <summary>
@@ -458,7 +462,9 @@ namespace Osnova.Net.Entries
         {
             var relative = $"{entryId}/comments/{sorting.ToString().ToLowerInvariant()}";
 
-            return new Uri(GetDefaultEntryUrl(websiteKind, apiVersion), relative);
+            var baseUri = GetDefaultEntryUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
         /// <summary>
@@ -515,7 +521,9 @@ namespace Osnova.Net.Entries
         {
             var relative = $"{entryId}/comments/levels/{sorting.ToString().ToLowerInvariant()}";
 
-            return new Uri(GetDefaultEntryUrl(websiteKind, apiVersion), relative);
+            var baseUri = GetDefaultEntryUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
         /// <summary>
@@ -572,7 +580,9 @@ namespace Osnova.Net.Entries
         {
             var relative = $"{entryId}/comments/thread/{commentId}";
 
-            return new Uri(GetDefaultEntryUrl(websiteKind, apiVersion), relative);
+            var baseUri = GetDefaultEntryUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
         /// <summary>
@@ -631,7 +641,9 @@ namespace Osnova.Net.Entries
         {
             const string relative = "create";
 
-            return new Uri(GetDefaultEntryUrl(websiteKind, apiVersion), relative);
+            var baseUri = GetDefaultEntryUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
         // TODO: string entryJson overload
