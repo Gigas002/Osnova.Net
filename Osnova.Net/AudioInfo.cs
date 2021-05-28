@@ -6,7 +6,7 @@ namespace Osnova.Net
     public class AudioInfo
     {
         [JsonPropertyName("bitrate")]
-        public int BitRate { get; set; }
+        public int Bitrate { get; set; }
 
         [JsonPropertyName("duration")]
         public double Duration { get; set; }
