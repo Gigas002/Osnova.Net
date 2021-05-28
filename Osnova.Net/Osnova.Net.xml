@@ -1577,6 +1577,53 @@
             Color string includes "#"
             </summary>
         </member>
+        <member name="M:Osnova.Net.Mentions.GetSearchForMentionsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
+            <summary>
+            Requires authentication
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Osnova.Net.Notification.Icon">
+            <summary>
+            "comments_added" "comments_reply_to" "like_up" "like_down" "ui_chronograph" "icon-unpublish-entry" "pencil" "ui_archive"
+            Название иконки, которая подставляется вместо аватарки.
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Payments.GetPaymentsCheckAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Requires authentication!
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Osnova.Net.Push.GetUserPushTopicAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Requires authentication!
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Osnova.Net.Push.GetUserPushSettingsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Requires authentication!
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.Views">
+            <summary>
+            Don't use number types: there can be 880 or 10.7K stuff
+            </summary>
+        </member>
         <member name="T:Osnova.Net.Twitter.Enterprise.TwitterPoll">
             <summary>
             1.1
@@ -2292,53 +2339,6 @@
         <member name="P:Osnova.Net.Twitter.TwitterUserMentions.ScreenName">
             <summary>
             Screen name of the referenced user
-            </summary>
-        </member>
-        <member name="M:Osnova.Net.Mentions.GetSearchForMentionsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
-            <summary>
-            Requires authentication
-            </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
-        </member>
-        <member name="P:Osnova.Net.Notification.Icon">
-            <summary>
-            "comments_added" "comments_reply_to" "like_up" "like_down" "ui_chronograph" "icon-unpublish-entry" "pencil" "ui_archive"
-            Название иконки, которая подставляется вместо аватарки.
-            </summary>
-        </member>
-        <member name="M:Osnova.Net.Payments.GetPaymentsCheckAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
-            <summary>
-            Requires authentication!
-            </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Osnova.Net.Push.GetUserPushTopicAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
-            <summary>
-            Requires authentication!
-            </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Osnova.Net.Push.GetUserPushSettingsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
-            <summary>
-            Requires authentication!
-            </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
-        </member>
-        <member name="P:Osnova.Net.Telegram.TelegramData.Views">
-            <summary>
-            Don't use number types: there can be 880 or 10.7K stuff
             </summary>
         </member>
         <member name="T:Osnova.Net.User">
