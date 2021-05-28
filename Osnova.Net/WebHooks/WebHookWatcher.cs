@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Osnova.Net
+namespace Osnova.Net.WebHooks
 {
-    public class Watcher // TODO: rename? See getApiWebhooksGet
+    public class WebHookWatcher // TODO: rename? See getApiWebhooksGet
     {
         [JsonPropertyName("id")]
         public long Id { get; set; }

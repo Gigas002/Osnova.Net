@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
 
-namespace Osnova.Net
+namespace Osnova.Net.WebHooks
 {
-    public class Webhooks
+    public class WebHooks
     {
         #region GET
 
@@ -25,12 +25,12 @@ namespace Osnova.Net
             return Core.GetResponseFromApiAsync(client, GetApiWebhooksGetUri(websiteKind, apiVersion));
         }
 
-        public static async ValueTask<IEnumerable<Watcher>> GetApiWebhooksGetAsync(HttpClient client, WebsiteKind websiteKind,
+        public static async ValueTask<IEnumerable<WebHookWatcher>> GetApiWebhooksGetAsync(HttpClient client, WebsiteKind websiteKind,
                                                                               double apiVersion = Core.ApiVersion)
         {
             using var response = await GetApiWebhooksGetResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Watcher>>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<WebHookWatcher>>(response).ConfigureAwait(false);
         }
 
         #endregion
@@ -66,12 +66,12 @@ namespace Osnova.Net
             return response;
         }
 
-        public static async ValueTask<Watcher> PostApiWebhookAddAsync(HttpClient client, WebsiteKind websiteKind,
+        public static async ValueTask<WebHookWatcher> PostApiWebhookAddAsync(HttpClient client, WebsiteKind websiteKind,
             Uri url, string eventName, double apiVersion = Core.ApiVersion)
         {
             using var response = await PostApiWebhookAddResponseAsync(client, websiteKind, url, eventName, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<Watcher>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<WebHookWatcher>(response).ConfigureAwait(false);
         }
 
         #endregion
