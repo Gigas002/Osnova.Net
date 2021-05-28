@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Osnova.Net.Comments
@@ -6,22 +7,21 @@ namespace Osnova.Net.Comments
     public class CommentsLoadMore
     {
         /// <summary>
-        /// Список id комментариев для подгрузки
+        /// Collection of comments IDs to load
         /// </summary>
         [JsonPropertyName("ids")]
-        public IEnumerable<long> Ids { get; set; }
+        public IEnumerable<int> Ids { get; set; }
 
         /// <summary>
-        /// Количество подгружаемых комментариев
+        /// Count of comments to load
         /// </summary>
         [JsonPropertyName("count")]
         public int Count { get; set; }
 
         /// <summary>
-        /// Список аватарок пользователей в подгружаемых комментариях
-        /// TODO: probably Uri, not string
+        /// Collection of user's avatars
         /// </summary>
         [JsonPropertyName("avatars")]
-        public IEnumerable<string> Avatars { get; set; }
+        public IEnumerable<Uri> AvatarsUrls { get; set; }
     }
 }

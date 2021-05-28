@@ -14,7 +14,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetEntry()
         {
-            var entry = await Entry.GetEntryByIdAsync(Helper.Client, Helper.Kind, Helper.EntryId)
+            var entry = await Entry.GetEntryAsync(Helper.Client, Helper.Kind, Helper.EntryId)
                                    .ConfigureAwait(false);
 
             if (entry.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
@@ -48,46 +48,39 @@ namespace Osnova.Net.Tests
         }
 
         //[Test]
-        public async Task PostEntryCreate()
-        {
-            //long id = 130721;
+        //public async Task PostEntryCreate()
+        //{
+        //    const int id = 130721;
 
-            //string filePath1 = "D:/Downloads/test.jpg";
-            //string filePath2 = "D:/Downloads/test2.jpg";
+        //    string filePath1 = "D:/Downloads/test.jpg";
+        //    string filePath2 = "D:/Downloads/test2.jpg";
 
-            //List<byte[]> files = new();
-            //files.Add(await File.ReadAllBytesAsync(filePath1));
-            //files.Add(await File.ReadAllBytesAsync(filePath2));
+        //    List<byte[]> files = new()
+        //    {
+        //        await File.ReadAllBytesAsync(filePath1), await File.ReadAllBytesAsync(filePath2)
+        //    };
 
-            //// Загружаем картинки на очобу, получаем рабочие блоки image в ответе:
-            //var imageBlocks = await Upload.PostUploaderUploadAsync(Constants.Client, Constants.Kind, files).ConfigureAwait(false);
+        //    // Upload images to ochoba and get ImageBlocks in response:
+        //    var imageBlocks = await Upload.PostUploaderUploadAsync(Helper.Client,
+        //                                    Helper.Kind, files).ConfigureAwait(false);
 
-            //// Делаем список блоков для entry:
-            //var entryBlocks = new List<Block>();
+        //    // Create collection of Blocks for Entry
+        //    var entryBlocks = new List<Block>();
 
-            //// Картинки в очобу грузить можно только в media-блоки, так что создаем новый:
-            //var mediaBlock = new Block
-            //{
-            //    Type = "media",
-            //    // Добавляем в данные медиа-блока список наших готовых блоков:
-            //    Data = new MediaBlockData
-            //    {
-            //        Items = imageBlocks.Select(block => new MediaItemBlock { Image = block })
-            //    }
-            //};
+        //    // Since we can load images to ochoba only using MediaBlock, let's create one:
+        //    var mediaBlock = new MediaBlock(new MediaBlockData
+        //    {
+        //        Items = imageBlocks.Select(block => new MediaItemBlock {Image = block})
+        //    });
 
-            //// Добавляем готовый медиа-блок к списку блоков поста:
-            //entryBlocks.Add(mediaBlock);
+        //    // Add ready MediaBlock to the collection of Blocks
+        //    entryBlocks.Add(mediaBlock);
 
-            //// Делаем пост и добавляем ему блоки:
-            //Entry postEntry = new Entry
-            //{
-            //    Title = "Охуительный пост!",
-            //    Blocks = entryBlocks
-            //};
+        //    // Create an entry and add some blocks:
+        //    Entry postEntry = new("Awesome entry!", entryBlocks);
 
-            //// Можем постить!
-            //var readyEntry = await Entry.PostEntryCreateAsync(Constants.Client, Constants.Kind, id, postEntry);
-        }
+        //    // We can post now:
+        //    var readyEntry = await Entry.PostEntryCreateAsync(Helper.Client, Helper.Kind, id, postEntry);
+        //}
     }
 }

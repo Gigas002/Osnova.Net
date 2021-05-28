@@ -1,71 +1,91 @@
 ﻿using System;
-using System.Collections.Generic;
 using Osnova.Net.Blocks;
-using Osnova.Net.Comments;
 
 namespace Osnova.Net.Users
 {
+    /// <summary>
+    /// Also known as "Subsite" and, in most cases, "User"
+    /// </summary>
     public interface ISubsite : IUser
     {
+        /// <summary>
+        /// Profile type
+        /// </summary>
+        public int Type { get; set; } // TODO: enum
+
+        /// <summary>
+        /// Profile description
+        /// </summary>
         public string Description { get; set; }
 
         /// <summary>
         /// Profile cover
         /// <para/>
-        /// <remarks>Docs says it's <see cref="Net.Cover"/>,
+        /// <remarks>Docs says it's <see cref="Cover"/>,
         /// but actual query returns <see cref="ImageBlock"/></remarks>
         /// </summary>
-        public ImageBlock Cover { get; set; }
-
-        public bool IsUnsubscribable { get; set; }
-
-        public int SubscribersCount { get; set; }
-
-        public int CommentsCount { get; set; }
-
-        public int EntriesCount { get; set; }
-
-        public int VacanciesCount { get; set; }
-
-        public DateTimeOffset CreatedRFC { get; set; }
+        public ImageBlock ProfileCover { get; set; }
 
         /// <summary>
-        /// Личный топик пользователя в Firebase Messaging
+        /// Is current logged user subscribed to this profile?
         /// </summary>
+        public bool IsSubscribed { get; set; }
+
+        /// <summary>
+        /// Is verified?
+        /// </summary>
+        public bool IsVerified { get; set; }
+
+        /// <summary>
+        /// Is profile insubscribable?
+        /// </summary>
+        public bool IsUnsubscribable { get; set; }
+
+        /// <summary>
+        /// Subscribers count
+        /// </summary>
+        public int SubscribersCount { get; set; }
+
+        /// <summary>
+        /// Comments count
+        /// </summary>
+        public int CommentsCount { get; set; }
+
+        /// <summary>
+        /// Entries count
+        /// </summary>
+        public int EntriesCount { get; set; }
+
+        /// <summary>
+        /// Vacancies count
+        /// </summary>
+        public int VacanciesCount { get; set; }
+
+        /// <summary>
+        /// Date, when this profile was created in RFC2822 format
+        /// </summary>
+        public DateTimeOffset DateCreatedRfc { get; set; }
+
         public string PushTopic { get; set; }
 
         /// <summary>
-        /// Список разрешений
+        /// Advanced controls
         /// </summary>
         public AdvancedAccess AdvancedAccess { get; set; }
 
+        /// <summary>
+        /// Additional profile counters
+        /// </summary>
         public UserCounters Counters { get; set; }
 
         /// <summary>
-        /// Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
+        /// Profile's hash ID
         /// </summary>
         public string UserHash { get; set; }
 
+        /// <summary>
+        /// Profile contacts
+        /// </summary>
         public UserContacts Contacts { get; set; }
-
-        public bool IsAvailableForMessenger { get; set; }
-
-        public bool IsMuted { get; set; }
-
-        public bool IsSubscribedToNewPosts { get; set; }
-
-        public IEnumerable<AvatarInfo> SubscribersAvatars { get; set; }
-
-        public bool IsPlus { get; set; }
-
-        public Uri HeadCover { get; set; }
-
-        public bool IsEnableWriting { get; set; }
-
-        public string Rules { get; set; }
-
-        public int EventsCount { get; set; }
-
-        public CommentEditorSettings CommentEditor { get; set; }
     }
 }

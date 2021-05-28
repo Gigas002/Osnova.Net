@@ -2,6 +2,7 @@
 using System.Text.Json;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using Osnova.Net.WebHooks;
 
 namespace Osnova.Net.Tests
 {
@@ -15,7 +16,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var watchers = await WebHooks.WebHooks.GetApiWebhooksGetAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var watchers = await Webhooks.GetApiWebhooksGetAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in watchers)
             {
@@ -33,7 +34,7 @@ namespace Osnova.Net.Tests
             Uri url = new Uri("https://dtf.ru/");
             string eventName = "new_comment";
 
-            var watcher = await WebHooks.WebHooks.PostApiWebhookAddAsync(Helper.Client, Helper.Kind, url, eventName)
+            var watcher = await Webhooks.PostApiWebhookAddAsync(Helper.Client, Helper.Kind, url, eventName)
                                         .ConfigureAwait(false);
 
             if (watcher.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
@@ -48,7 +49,7 @@ namespace Osnova.Net.Tests
 
             string eventName = "new_comment";
 
-            var success = await WebHooks.WebHooks.PostApiWebhookDelAsync(Helper.Client, Helper.Kind, eventName)
+            var success = await Webhooks.PostApiWebhookDelAsync(Helper.Client, Helper.Kind, eventName)
                                         .ConfigureAwait(false);
         }
     }

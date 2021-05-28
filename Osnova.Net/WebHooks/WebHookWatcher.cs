@@ -4,11 +4,20 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net.WebHooks
 {
-    public class WebHookWatcher // TODO: rename? See getApiWebhooksGet
+    /// <summary>
+    /// Refers to Watcher spec
+    /// </summary>
+    public class WebhookWatcher
     {
+        /// <summary>
+        /// Event ID
+        /// </summary>
         [JsonPropertyName("id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
+        /// <summary>
+        /// Event name
+        /// </summary>
         [JsonPropertyName("event")]
         public string EventName { get; set; }
 

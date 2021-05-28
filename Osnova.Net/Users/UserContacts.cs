@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Users
 {
     public class UserContacts
     {
         [JsonPropertyName("socials")]
-        public IEnumerable<SocialAccount> Socials { get; set; }
+        public IEnumerable<SocialAccount> SocialAccounts { get; set; }
 
+        [JsonConverter(typeof(WrongEmptyArrayJsonConverter<WebsiteInfo>))]
         [JsonPropertyName("site")]
-        public object Site { get; set; } // TODO: ПРИВЕТ УЕБАН КОТОРЫЙ И СЮДА ПУСТОЙ МАССИВ ЗАПИХНУЛ!
+        public WebsiteInfo Site { get; set; }
 
         [JsonPropertyName("email")]
         public string Email { get; set; }

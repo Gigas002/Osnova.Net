@@ -5,7 +5,7 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net
 {
-    public class Payments
+    public static class Payments
     {
         // TODO: returns 404. Just another broken piece of shit
 

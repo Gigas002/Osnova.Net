@@ -5,9 +5,9 @@ namespace Osnova.Net.Users
     public class AdvancedAccessActions
     {
         [JsonPropertyName("read_comments")]
-        public bool ReadComments { get; set; }
+        public bool CanReadComments { get; set; }
 
         [JsonPropertyName("write_comments")]
-        public bool WriteComments { get; set; }
+        public bool CanWriteComments { get; set; }
     }
 }

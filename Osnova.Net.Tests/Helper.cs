@@ -1,5 +1,8 @@
 ﻿using System.IO;
 using System.Net.Http;
+#if LOCALTESTS
+using System.Text.Json;
+#endif
 using Osnova.Net.Enums;
 
 namespace Osnova.Net.Tests

@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Users
 {
@@ -7,7 +9,8 @@ namespace Osnova.Net.Users
         [JsonPropertyName("is_active")]
         public bool IsActive { get; set; }
 
+        [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("active_until")]
-        public long ActiveUntil { get; set; }
+        public DateTimeOffset ActiveUntil { get; set; }
     }
 }

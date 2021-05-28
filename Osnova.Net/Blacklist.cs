@@ -7,7 +7,7 @@ using Osnova.Net.Users;
 
 namespace Osnova.Net
 {
-    public class Blacklist
+    public static class Blacklist
     {
         #region Methods
 

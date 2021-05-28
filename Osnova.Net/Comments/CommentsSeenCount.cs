@@ -2,12 +2,12 @@
 
 namespace Osnova.Net.Comments
 {
-    public class CommentsSeenCount
+    public class CommentsSeenCount // TODO: wtf is this? comments count? seen count? both?
     {
         [JsonPropertyName("count")]
-        public long Count { get; set; }
+        public int Count { get; set; }
 
         [JsonPropertyName("date")]
-        public long Date { get; set; }
+        public long Date { get; set; } // TODO: datetimeoffset?
     }
 }

@@ -7,7 +7,7 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net
 {
-    public class Timeline
+    public static class Timeline
     {
         #region GetTimeline
 

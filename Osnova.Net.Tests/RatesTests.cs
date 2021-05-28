@@ -1,11 +1,11 @@
 ﻿using System.Text.Json;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Osnova.Net.Popular;
+using Osnova.Net.Rates;
 
 namespace Osnova.Net.Tests
 {
-    public class WidgetsTests
+    public class RatesTests
     {
         [SetUp]
         public void Setup() => Helper.InitializeHelper();
@@ -13,12 +13,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetUserPushTopic()
         {
-            var rates = await PopularBase.GetRatesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
-
-            foreach (var value in rates)
-            {
-                if (value.Value.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
-            }
+            var rates = await Rate.GetRatesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             var json = JsonSerializer.Serialize(rates, Core.Options);
         }

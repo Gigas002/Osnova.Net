@@ -14,7 +14,7 @@ using Osnova.Net.Vacancies;
 namespace Osnova.Net.Users
 {
     /// <summary>
-    /// Also known as Subsite
+    /// Also known as Author, Subsite
     /// </summary>
     public class User : ISubsite
     {
@@ -29,7 +29,7 @@ namespace Osnova.Net.Users
         /// <inheritdoc/>
         [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("created")]
-        public DateTimeOffset Created { get; set; }
+        public DateTimeOffset DateCreated { get; set; }
 
         /// <inheritdoc/>
         [JsonPropertyName("first_name")]
@@ -63,37 +63,13 @@ namespace Osnova.Net.Users
         [JsonPropertyName("social_accounts")]
         public IEnumerable<SocialAccount> SocialAccounts { get; set; }
 
-        /// <inheritdoc/>
-        [JsonPropertyName("type")]
-        public int Type { get; set; }
-
-        /// <inheritdoc/>
-        [JsonPropertyName("avatar")]
-        public ImageBlock Avatar { get; set; }
-
-        /// <inheritdoc/>
-        [JsonPropertyName("is_online")]
-        public bool IsOnline { get; set; }
-
-        /// <inheritdoc/>
-        [JsonPropertyName("is_verified")]
-        public bool IsVerified { get; set; }
-
-        [Obsolete("Use IsVerified property")]
-        [JsonPropertyName("isVerified")]
-        public bool IsVerified2 { get; set; }
-
-        /// <inheritdoc/>
-        [JsonPropertyName("is_subscribed")]
-        public bool IsSubscribed { get; set; }
-
-        /// <inheritdoc/>
-        [JsonPropertyName("online_status_text")]
-        public string OnlineStatusText { get; set; }
-
         #endregion
 
         #region ISubsite implementation
+
+        /// <inheritdoc/>
+        [JsonPropertyName("type")]
+        public int Type { get; set; }
 
         /// <inheritdoc/>
         [JsonPropertyName("description")]
@@ -101,7 +77,15 @@ namespace Osnova.Net.Users
 
         /// <inheritdoc/>
         [JsonPropertyName("cover")]
-        public ImageBlock Cover { get; set; }
+        public ImageBlock ProfileCover { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("is_subscribed")]
+        public bool IsSubscribed { get; set; }
+
+        /// <inheritdoc/>
+        [JsonPropertyName("is_verified")]
+        public bool IsVerified { get; set; }
 
         /// <inheritdoc/>
         [JsonPropertyName("is_unsubscribable")]
@@ -123,10 +107,10 @@ namespace Osnova.Net.Users
         [JsonPropertyName("vacancies_count")]
         public int VacanciesCount { get; set; }
 
-        /// <inheritdoc
+        /// <inheritdoc/>
         [JsonConverter(typeof(RfcDateTimeOffsetJsonConverter))]
         [JsonPropertyName("createdRFC")]
-        public DateTimeOffset CreatedRFC { get; set; }
+        public DateTimeOffset DateCreatedRfc { get; set; }
 
         /// <inheritdoc/>
         [JsonPropertyName("push_topic")]
@@ -148,54 +132,102 @@ namespace Osnova.Net.Users
         [JsonPropertyName("contacts")]
         public UserContacts Contacts { get; set; }
 
-        /// <inheritdoc/>
+        #endregion
+
+        #region From actual user queries
+
+        /// <summary>
+        /// Profile's avatar
+        /// </summary>
+        [JsonPropertyName("avatar")]
+        public ImageBlock Avatar { get; set; }
+
+        /// <summary>
+        /// Is online?
+        /// </summary>
+        [JsonPropertyName("is_online")]
+        public bool IsOnline { get; set; }
+
+        /// <summary>
+        /// isVerified analogue of is_verified
+        /// </summary>
+        [Obsolete("Use IsVerified property")]
+        [JsonPropertyName("isVerified")]
+        public bool IsVerified2 { get; set; }
+
+        /// <summary>
+        /// Online status text
+        /// </summary>
+        [JsonPropertyName("online_status_text")]
+        public string OnlineStatusText { get; set; }
+
+        #endregion
+
+        #region From actual subsite queries
+
+        /// <summary>
+        /// Is available for messenger?
+        /// </summary>
         [JsonPropertyName("isAvailableForMessenger")]
         public bool IsAvailableForMessenger { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Is muted?
+        /// </summary>
         [JsonPropertyName("is_muted")]
         public bool IsMuted { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// isMuted analogue of is_muted
+        /// </summary>
         [Obsolete("Use IsMuted")]
         [JsonPropertyName("isMuted")]
         public bool IsMuted2 { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Is subscribed to new posts?
+        /// </summary>
         [JsonPropertyName("is_subscribed_to_new_posts")]
         public bool IsSubscribedToNewPosts { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Collection of subscribers avatars
+        /// </summary>
         [JsonPropertyName("subscribers_avatars")]
         public IEnumerable<AvatarInfo> SubscribersAvatars { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Is plus?
+        /// </summary>
         [JsonPropertyName("is_plus")]
         public bool IsPlus { get; set; }
 
-        /// <inheritdoc/>
         [JsonPropertyName("head_cover")]
         public Uri HeadCover { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Is enable writing?
+        /// </summary>
         [JsonPropertyName("is_enable_writing")]
         public bool IsEnableWriting { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Subsite rules
+        /// </summary>
         [JsonPropertyName("rules")]
         public string Rules { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Count of subsite events
+        /// </summary>
         [JsonPropertyName("events_count")]
         public int EventsCount { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Comment editor's settigs
+        /// </summary>
         [JsonPropertyName("commentEditor")]
         public CommentEditorSettings CommentEditor { get; set; }
-
-        #endregion
-
-        #region Not yet added to interfaces
 
         [JsonPropertyName("m_hash")]
         public string MHash { get; set; }
@@ -213,23 +245,34 @@ namespace Osnova.Net.Users
         [JsonPropertyName("highlight")]
         public string Highlight { get; set; }
 
+        /// <summary>
+        /// Can change avatar?
+        /// </summary>
         [JsonPropertyName("can_change_avatar")]
         public bool CanChangeAvatar { get; set; }
 
+        /// <summary>
+        /// Can change cover?
+        /// </summary>
         [JsonPropertyName("can_change_cover")]
         public bool CanChangeCover { get; set; }
 
+        /// <summary>
+        /// Is banned?
+        /// </summary>
         [JsonPropertyName("is_banned")]
         public bool IsBanned { get; set; }
 
+        [JsonConverter(typeof(WrongEmptyArrayJsonConverter<BanInfo>))]
         [JsonPropertyName("banned_info")]
-        public IEnumerable<object> BannedInfo { get; set; } // TODO: find this
+        public BanInfo BanInfo { get; set; }
 
         [JsonPropertyName("is_subsites_tuned")]
         public bool IsSubsitesTuned { get; set; }
 
+        [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("active_until")]
-        public long ActiveUntil { get; set; }
+        public DateTimeOffset ActiveUntil { get; set; }
 
         #endregion
 

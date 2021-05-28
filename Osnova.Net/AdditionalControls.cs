@@ -2,6 +2,9 @@
 
 namespace Osnova.Net
 {
+    /// <summary>
+    /// Refers to EtcControls spec
+    /// </summary>
     public class AdditionalControls
     {
         [JsonPropertyName("edit_entry")]

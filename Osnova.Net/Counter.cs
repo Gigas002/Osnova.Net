@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net
 {
+    // TODO: obsolete this
     public class Counter
     {
         [JsonPropertyName("count")]

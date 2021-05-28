@@ -8,6 +8,7 @@ using Osnova.Net.Vacancies;
 
 namespace Osnova.Net.Users
 {
+    // TODO: obsolete this?
     public static class Subsite
     {
         #region Methods

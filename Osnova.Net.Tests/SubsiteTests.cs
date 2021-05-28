@@ -13,7 +13,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetSubsite()
         {
-            var subsite = await Subsite.GetSubsiteAsync(Helper.Client, Helper.Kind, 261696).ConfigureAwait(false);
+            var subsite = await Subsite.GetSubsiteAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
 
             if (subsite.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
 
@@ -23,7 +23,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetSubsiteTimeline()
         {
-            var entries = await Subsite.GetSubsiteTimelineAsync(Helper.Client, Helper.Kind, 261696).ConfigureAwait(false);
+            var entries = await Subsite.GetSubsiteTimelineAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
 
             foreach (var value in entries)
             {
@@ -77,7 +77,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var isSubscribed = await Subsite.GetSubsiteSubscribeAsync(Helper.Client, Helper.Kind, 261696).ConfigureAwait(false);
+            var isSubscribed = await Subsite.GetSubsiteSubscribeAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var isUnsubscribed = await Subsite.GetSubsiteUnsubscribeAsync(Helper.Client, Helper.Kind, 261696).ConfigureAwait(false);
+            var isUnsubscribed = await Subsite.GetSubsiteUnsubscribeAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
         }
     }
 }

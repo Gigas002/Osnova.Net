@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CommandLine;
 using Osnova.Net;
+using Osnova.Net.BlockDatas;
 using Osnova.Net.Blocks;
 using Osnova.Net.Entries;
 using Osnova.Net.Enums;
@@ -55,31 +56,29 @@ namespace OsnovaImageDownloader
         {
             Directory.CreateDirectory(outputPath);
 
-            var entry = await Entry.GetEntryByIdAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
+            var entry = await Entry.GetEntryAsync(client, websiteKind, entryId, apiVersion).ConfigureAwait(false);
 
-            var mediaItems = new List<MediaItem>();
+            var imageDatas = new List<ImageBlockData>();
 
-            foreach (var block in entry.Blocks.Where(block => block is MediaBlock))
+            foreach (MediaBlock block in entry.Blocks.Where(block => block is MediaBlock))
             {
-                mediaItems.AddRange(((MediaBlock)block).Data.Items);
+                imageDatas.AddRange(block.GetImageDatas());
             }
 
             double counter = 0.0;
 
-            foreach (var image in mediaItems)
+            foreach (var imageData in imageDatas)
             {
-                var imageData = image.Image.Data;
-
                 var guid = imageData.Uuid;
                 string extension = imageData.Extension.ToString().ToLowerInvariant();
-                var itemUri = new Uri($"{Core.BaseLeonardoUriString}/{guid}");
+                var itemUri = Core.GetMediaUri(guid);
 
                 var bytes = await client.GetByteArrayAsync(itemUri).ConfigureAwait(false);
                 await File.WriteAllBytesAsync(Path.Combine(outputPath, $"{guid}.{extension}"), bytes).ConfigureAwait(false);
 
                 // Report progress
                 counter++;
-                double percentage = counter / mediaItems.Count * 100.0;
+                double percentage = counter / imageDatas.Count * 100.0;
                 progress?.Report(percentage);
             }
         }

@@ -1,50 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
-using Osnova.Net.Blocks;
 
 namespace Osnova.Net.Users
 {
     /// <summary>
     /// Also known as "Author" and "User"
+    /// <para/>
+    /// <remarks>Refers to specification of Author on official API docs</remarks>
     /// </summary>
     public interface IUser
     {
+        /// <summary>
+        /// Profile's ID
+        /// </summary>
         public int Id { get; set; }
 
-        public DateTimeOffset Created { get; set; }
+        /// <summary>
+        /// Date, when this profile was created
+        /// </summary>
+        public DateTimeOffset DateCreated { get; set; }
 
+        /// <summary>
+        /// First name
+        /// </summary>
         public string FirstName { get; set; }
 
+        /// <summary>
+        /// Last name
+        /// </summary>
         public string LastName { get; set; }
 
+        /// <summary>
+        /// Full name
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gender
+        /// </summary>
         public int Gender { get; set; } // TODO: enum
 
+        /// <summary>
+        /// Profile's page URL
+        /// </summary>
         public Uri Url { get; set; }
 
         /// <summary>
-        /// Profile avatar
+        /// Profile avatar URL
         /// </summary>
         public Uri AvatarUrl { get; set; }
 
+        /// <summary>
+        /// Value of karma
+        /// </summary>
         public int Karma { get; set; }
 
         /// <summary>
-        /// List of social accounts
+        /// Collection of social accounts, if there are any
         /// </summary>
         public IEnumerable<SocialAccount> SocialAccounts { get; set; }
-
-        public int Type { get; set; } // TODO: enum
-
-        public ImageBlock Avatar { get; set; }
-
-        public bool IsOnline { get; set; }
-
-        public bool IsVerified { get; set; }
-
-        public bool IsSubscribed { get; set; }
-
-        public string OnlineStatusText { get; set; }
     }
 }

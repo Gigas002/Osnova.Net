@@ -1,65 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using Osnova.Net.Comments;
-using Osnova.Net.Entries;
 using Osnova.Net.Enums;
-using Osnova.Net.Rates;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Popular
 {
-    public class PopularBase
+    /// <summary>
+    /// Popular entries/comments
+    /// </summary>
+    [JsonConverter(typeof(PopularJsonConverter))]
+    public abstract class PopularBase
     {
         [JsonPropertyName("title")]
         public string Title { get; set; }
 
+        [JsonConverter(typeof(PopularContentTypeJsonConverter))]
         [JsonPropertyName("item_type")]
-        public string ItemType { get; set; }
+        public ContentType Type { get; set; }
 
-        [JsonPropertyName("items")]
-        public object Items { get; set; }
+        #region Constructors
 
-        [JsonExtensionData]
-        public Dictionary<string, object> Undeserialized { get; set; }
-
-        public static Type GetItemsType(string itemType) => itemType switch
-        {
-            "content" => typeof(IEnumerable<Entry>),
-            "comment" => typeof(IEnumerable<Comment>),
-            _ => typeof(object)
-        };
-
-        #region GetRates
-
-        public static Uri GetRatesUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
-        {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
-
-            return new Uri($"{baseUri}/rates");
-        }
-
-        public static ValueTask<HttpResponseMessage> GetRatesResponseAsync(HttpClient client, WebsiteKind websiteKind,
-                                                                           double apiVersion = Core.ApiVersion)
-        {
-            return Core.GetResponseFromApiAsync(client, GetRatesUri(websiteKind, apiVersion));
-        }
-
-        /// <summary>
-        /// Requires authentication!
-        /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<Dictionary<string, Rate>> GetRatesAsync(HttpClient client, WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
-        {
-            using var response = await GetRatesResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
-
-            return await Core.DeserializeOsnovaResponseAsync<Dictionary<string, Rate>>(response).ConfigureAwait(false);
-        }
+        protected PopularBase(ContentType type) => Type = type;
 
         #endregion
+
+        public Type GetPopularType() => GetPopularType(Type);
+
+        public static Type GetPopularType(ContentType type) => type switch
+        {
+            ContentType.Entry => typeof(PopularEntries),
+            ContentType.Comment => typeof(PopularComments),
+            _ => typeof(PopularBase)
+        };
+
+        public static ContentType GetPopularType(string type) => type switch
+        {
+            "content" => ContentType.Entry,
+            "comment" => ContentType.Comment,
+            _ => throw new ArgumentOutOfRangeException()
+        };
+
+        public static string GetPopularTypeString(ContentType type) => type switch
+        {
+            ContentType.Entry => "content",
+            ContentType.Comment => "comment",
+            _ => throw new ArgumentOutOfRangeException()
+        };
     }
 }

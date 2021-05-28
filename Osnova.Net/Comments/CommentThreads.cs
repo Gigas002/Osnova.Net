@@ -3,8 +3,18 @@ using System.Text.Json.Serialization;
 
 namespace Osnova.Net.Comments
 {
-    public class CommentThreads
+    /// <summary>
+    /// Represents comments threads
+    /// <para/>
+    /// <remarks>Refers to CommentsLevels in spec</remarks>
+    /// </summary>
+    public class CommentThreads // TODO: better naming?
     {
+        #region Properties
+
+        /// <summary>
+        /// Collections of comments
+        /// </summary>
         [JsonPropertyName("items")]
         public IEnumerable<Comment> Items { get; set; }
 
@@ -13,5 +23,7 @@ namespace Osnova.Net.Comments
 
         [JsonExtensionData]
         public Dictionary<string, object> Undeserialized { get; set; }
+
+        #endregion
     }
 }

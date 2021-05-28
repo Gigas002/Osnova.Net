@@ -25,6 +25,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetSearchSubsite()
         {
+            // TODO: weaboo?
             var users = await Search.GetSearchSubsiteAsync(Helper.Client, Helper.Kind, "yurucamp");
 
             foreach (var value in users)

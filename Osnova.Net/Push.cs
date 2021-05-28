@@ -5,7 +5,7 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net
 {
-    public class Push
+    public static class Push
     {
         #region GetUserPushTopic
 

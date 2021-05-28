@@ -7,7 +7,7 @@ using Osnova.Net.Users;
 
 namespace Osnova.Net
 {
-    public class Mentions
+    public static class Mentions
     {
         #region Methods
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.WebSockets;
 using System.Text;
@@ -84,6 +85,26 @@ namespace Osnova.Net.WebSockets
                                         TaskScheduler.Default).ConfigureAwait(false);
         }
 
+        public async IAsyncEnumerable<T> ConnectAsync<T>(Uri uri, Func<T> f)
+        {
+            //if (WebSocket?.State == WebSocketState.Open) return null;
+
+            WebSocket?.Dispose();
+            WebSocketCancellactionToken?.Dispose();
+
+            WebSocket = new ClientWebSocket();
+            WebSocketCancellactionToken = new CancellationTokenSource();
+
+            await WebSocket.ConnectAsync(uri, WebSocketCancellactionToken.Token).ConfigureAwait(false);
+
+            //return await Task.Factory.StartNew(() => ReceiveLoop(f), WebSocketCancellactionToken.Token, TaskCreationOptions.LongRunning,
+            //                            TaskScheduler.Default).ConfigureAwait(false);
+            await foreach (var i in ReceiveLoop(f))
+            {
+                yield return i;
+            }
+        }
+
         public async Task DisconnectAsync()
         {
             if (WebSocket is null) return;
@@ -105,14 +126,14 @@ namespace Osnova.Net.WebSockets
         {
             CancellationToken loopToken = WebSocketCancellactionToken.Token;
             MemoryStream outputStream = null;
-            var buffer = new byte[ReceiveBufferSize];
+            Memory<byte> buffer = new byte[ReceiveBufferSize];
 
             try
             {
                 while (!loopToken.IsCancellationRequested)
                 {
                     outputStream = new MemoryStream(ReceiveBufferSize);
-                    WebSocketReceiveResult receiveResult;
+                    ValueWebSocketReceiveResult receiveResult;
 
                     do
                     {
@@ -138,6 +159,35 @@ namespace Osnova.Net.WebSockets
             }
         }
 
+        private async IAsyncEnumerable<T> ReceiveLoop<T>(Func<T> f)
+        {
+            CancellationToken loopToken = WebSocketCancellactionToken.Token;
+            Memory<byte> buffer = new byte[ReceiveBufferSize];
+
+            while (!loopToken.IsCancellationRequested)
+            {
+                await using MemoryStream outputStream = new(ReceiveBufferSize);
+                ValueWebSocketReceiveResult receiveResult;
+
+                do
+                {
+                    receiveResult = await WebSocket.ReceiveAsync(buffer, WebSocketCancellactionToken.Token)
+                                                   .ConfigureAwait(false);
+
+                    if (receiveResult.MessageType != WebSocketMessageType.Close)
+                    {
+                        await outputStream.WriteAsync(buffer, loopToken).ConfigureAwait(false);
+                    }
+                }
+                while (!receiveResult.EndOfMessage);
+
+                if (receiveResult.MessageType == WebSocketMessageType.Close) break;
+
+                outputStream.Position = 0;
+                yield return ResponseReceived(outputStream, f);
+            }
+        }
+
         private static Task<string> ResponseReceived(Stream inputStream)
         {
             // TODO: use action/func for response reading?
@@ -145,6 +195,16 @@ namespace Osnova.Net.WebSockets
             using StreamReader streamReader = new(inputStream, Encoding.UTF8);
 
             return streamReader.ReadToEndAsync();
+        }
+
+        private static T ResponseReceived<T>(Stream inputStream, Func<T> f)
+        {
+            // TODO: use action/func for response reading?
+
+            using StreamReader streamReader = new(inputStream, Encoding.UTF8);
+
+            return f.Invoke();
+            //return streamReader.ReadToEndAsync();
         }
     }
 }

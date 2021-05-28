@@ -6,13 +6,13 @@ namespace Osnova.Net.Users
     public class SocialAccount
     {
         [JsonPropertyName("id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("type")]
-        public int Type { get; set; }
+        public int Type { get; set; } // TODO: enum
 
         [JsonPropertyName("username")]
-        public string UserName { get; set; }
+        public string Username { get; set; }
 
         [JsonPropertyName("url")]
         public Uri Url { get; set; }

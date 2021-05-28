@@ -4,9 +4,84 @@
         <name>Osnova.Net</name>
     </assembly>
     <members>
-        <member name="P:Osnova.Net.AdditionalData.Type">
+        <member name="T:Osnova.Net.AdditionalControls">
             <summary>
-             "gif" "jpg" "png" "webp"
+            Refers to EtcControls spec
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.AdditionalData.Extension">
+            <summary>
+            Extension of underlying images
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Badge.Text">
+            <summary>
+            Badge text value
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Badge.Color">
+            <summary>
+            Badge color
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Badge.Background">
+            <summary>
+            Background color
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Badge.Border">
+            <summary>
+            Border color
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.AudioBlockData">
+            <summary>
+            Block with audio file in entry
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.AudioBlockData.Title">
+            <summary>
+            Audio title
+            <para/>
+            <remarks>Exists on higher level of AudioBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.AudioBlockData.Hash">
+            <summary>
+            Audio hash
+            <para/>
+            <remarks>Exists on higher level of AudioBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.AudioBlockData.Image">
+            <summary>
+            Image preview if any
+            <para/>
+            <remarks>Exists on higher level, e.g. AudioBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.AudioBlockData.Audio">
+            <summary>
+            Audio itself
+            <para/>
+            <remarks>Exists on higher level, e.g. AudioBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.AudioBlockData.Uuid">
+            <summary>
+            Audio file's <see cref="T:System.Guid"/> on osnova's servers
+            <para/>
+            <remarks>You can get the actual URL of the media,
+            by calling <see cref="M:Osnova.Net.Core.GetMediaUri(System.Guid)"/> method</remarks>
+            <para/>
+            <remarks>Exists on lower level, e.g. AudioBlock.Data.Audio.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.AudioBlockData.FileName">
+            <summary>
+            Audio file name
+            <para/>
+            <remarks>Exists on lower level, e.g. AudioBlock.Data.Audio.Data</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.BlockDatas.AudioBlockData.Length">
@@ -14,6 +89,80 @@
             Size of current file in bytes
             <para/>
             <remarks>Refers to "size" property in json</remarks>
+            <para/>
+            <remarks>Exists on lower level, e.g. AudioBlock.Data.Audio.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.AudioBlockData.AudioInfo">
+            <summary>
+            Additional info about audio file
+            <para/>
+            <remarks>Exists on lower level, e.g. AudioBlock.Data.Audio.Data</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.CodeBlockData">
+            <summary>
+            Block of code in entry
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.CodeBlockData.Text">
+            <summary>
+            Code as text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.CodeBlockData.Language">
+            <summary>
+            Programming language
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.DelimiterBlockData">
+            <summary>
+            Delimiter in block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.DelimiterBlockData.Type">
+            <summary>
+            Type of delimiter
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.HeaderBlockData">
+            <summary>
+            Headers in block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.HeaderBlockData.Text">
+            <summary>
+            Text value
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.HeaderBlockData.Style">
+            <summary>
+            Header style/level
+            <para/>
+            <remarks>H1 is used only for entry's title</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.ImageBlockData">
+            <summary>
+            Image in blocks
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.ImageBlockData.Uuid">
+            <summary>
+            Image's <see cref="T:System.Guid"/> on osnova's servers
+            <para/>
+            <remarks>You can get the actual URL of the media,
+            by calling <see cref="M:Osnova.Net.Core.GetMediaUri(System.Guid)"/> method</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.ImageBlockData.Width">
+            <summary>
+            Image width
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.ImageBlockData.Height">
+            <summary>
+            Image height
             </summary>
         </member>
         <member name="P:Osnova.Net.BlockDatas.ImageBlockData.Length">
@@ -23,60 +172,1703 @@
             <remarks>Refers to "size" property in json</remarks>
             </summary>
         </member>
+        <member name="P:Osnova.Net.BlockDatas.ImageBlockData.Extension">
+            <summary>
+            File extension
+            <para/>
+            <remarks>Refers to "type" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.ImageBlockData.Color">
+            <summary>
+            Color
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.ImageBlockData.Hash">
+            <summary>
+            Image hash
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.ImageBlockData.ExternalService">
+            <summary>
+            External service, to which the image is bound to, if any
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.IncutBlockData">
+            <summary>
+            Incuts in blocks
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.IncutBlockData.Text">
+            <summary>
+            Text value
+            </summary>
+        </member>
         <member name="P:Osnova.Net.BlockDatas.IncutBlockData.TextAlignment">
             <summary>
-            Refers to type
+            Alignment of text in incut
+            <para/>
+            <remarks>Refers to "type" in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.IncutBlockData.TextSize">
+            <summary>
+            Text's size
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.InstagramBlockData">
+            <summary>
+            Instagram's data in block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.InstagramBlockData.Instagram">
+            <summary>
+            Universal block for external services
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.InstagramBlockData.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.InstagramBlockData.IsHideTitle">
+            <summary>
+            Do you want to hide the title?
+            <para/>
+            <remarks>Refers to "hide_title" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.InstagramBlockData.Markdown">
+            <summary>
+            Markdown text
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.LinkBlockData">
+            <summary>
+            Link to some external services
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.LinkBlockData.Link">
+            <summary>
+            Block with link's data
+            <para/>
+            <remarks>Exists on higher level, e.g. LinkBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.LinkBlockData.Url">
+            <summary>
+            URL to an external service
+            <para/>
+            <remarks>Exists on lower level, e.g. LinkBlock.Data.Link.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.LinkBlockData.Title">
+            <summary>
+            Title of link block
+            <para/>
+            <remarks>Exists on lower level, e.g. LinkBlock.Data.Link.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.LinkBlockData.Description">
+            <summary>
+            Description of link block
+            <para/>
+            <remarks>Exists on lower level, e.g. LinkBlock.Data.Link.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.LinkBlockData.Image">
+            <summary>
+            Image thumbnail, if any
+            <para/>
+            <remarks>Exists on lower level, e.g. LinkBlock.Data.Link.Data</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.ListBlockData">
+            <summary>
+            Lists in blocks
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.ListBlockData.Items">
+            <summary>
+            String values of the list
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.ListBlockData.Type">
+            <summary>
+            Type of the list
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.MediaBlockData">
+            <summary>
+            Container of media data (images, videos) in block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MediaBlockData.Items">
+            <summary>
+            Collection of media items in block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MediaBlockData.WithBackground">
+            <summary>
+            Do you want to add background?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MediaBlockData.WithBorder">
+            <summary>
+            Do you want to add a border?
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.BlockDatas.MediaBlockData.#ctor">
+            <summary>
+            Creates default <see cref="T:Osnova.Net.BlockDatas.MediaBlockData"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.BlockDatas.MediaBlockData.#ctor(System.Collections.Generic.IEnumerable{Osnova.Net.Blocks.ImageBlock})">
+            <summary>
+            Creates default <see cref="T:Osnova.Net.BlockDatas.MediaBlockData"/> with images in it
+            </summary>
+            <param name="imageBlocks">Collection of images</param>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.MovieBlockData">
+            <summary>
+            Video with sound in blocks
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MovieBlockData.Uuid">
+            <summary>
+            Video's <see cref="T:System.Guid"/> on osnova's servers
+            <para/>
+            <remarks>You can get the actual URL of the media,
+            by calling <see cref="M:Osnova.Net.Core.GetMediaUri(System.Guid)"/> method</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MovieBlockData.Extension">
+            <summary>
+            Extension of this video
+            <para/>
+            <remarks>Refers to "type" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MovieBlockData.Width">
+            <summary>
+            Width
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MovieBlockData.Height">
+            <summary>
+            Height
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MovieBlockData.Length">
+            <summary>
+            Size of current file in bytes
+            <para/>
+            <remarks>Refers to "size" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MovieBlockData.Bitrate">
+            <summary>
+            Bitrate
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MovieBlockData.Duration">
+            <summary>
+            Duration in seconds
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.MovieBlockData.Color">
+            <summary>
+            Color
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.NumberBlockData">
+            <summary>
+            Represents a block, called "number" in osnova editor
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.NumberBlockData.Number">
+            <summary>
+            Text value of the block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.NumberBlockData.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.PersonBlockData">
+            <summary>
+            Person in the block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.PersonBlockData.Image">
+            <summary>
+            Person's image, if any
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.PersonBlockData.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.PersonBlockData.Description">
+            <summary>
+            Text value of the block
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.QuizBlockData">
+            <summary>
+            Quiz
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuizBlockData.Uid">
+            <summary>
+            Unique ID of the quiz, not <see cref="T:System.Guid"/>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuizBlockData.Hash">
+            <summary>
+            Quiz hash
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuizBlockData.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuizBlockData.Items">
+            <summary>
+            Quiz questions
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuizBlockData.IsResultPublic">
+            <summary>
+            Is this quiz anonymous, our you can look at who voted for what?
+            <para/>
+            <remarks>Refers to "is_public" json property</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuizBlockData.DateCreated">
+            <summary>
+            Date, when this quiz was created
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.QuoteBlockData">
+            <summary>
+            Quote
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuoteBlockData.Text">
+            <summary>
+            Text value
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuoteBlockData.Subline1">
+            <summary>
+            Subline 1
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuoteBlockData.Subline2">
+            <summary>
+            Subline 2
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuoteBlockData.Type">
+            <summary>
+            Quote type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuoteBlockData.TextSize">
+            <summary>
+            Size of text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.QuoteBlockData.Image">
+            <summary>
+            Quote's image, if any
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.RawHtmlBlockData">
+            <summary>
+            HTML text with unique features
+            <para/>
+            <remarks>Editoral block</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.RawHtmlBlockData.Text">
+            <summary>
+            HTML text
+            <para/>
+            <remarks>Refers to "raw" property in json</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.SpecialButtonBlockData">
+            <summary>
+            Special button
+            <para/>
+            <remarks>Editoral block</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.SpecialButtonBlockData.Text">
+            <summary>
+            Button text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.SpecialButtonBlockData.TextColor">
+            <summary>
+            Text color
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.SpecialButtonBlockData.BackgroundColor">
+            <summary>
+            Background color
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.SpecialButtonBlockData.Url">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.SpotifyBlockData">
+            <summary>
+            Spotify's data in blocks
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.SpotifyBlockData.Spotify">
+            <summary>
+            Universal block for external services
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.TelegramBlockData">
+            <summary>
+            Telegram's data in blocks
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TelegramBlockData.Telegram">
+            <summary>
+            Block with link's data
+            <para/>
+            <remarks>Exists on higher level, e.g. TelegramBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TelegramBlockData.Title">
+            <summary>
+            Title
+            <para/>
+            <remarks>Exists on higher level, e.g. TelegramBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TelegramBlockData.Markdown">
+            <summary>
+            Markdown text
+            <para/>
+            <remarks>Exists on higher level, e.g. TelegramBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TelegramBlockData.Data">
+            <summary>
+            Data of telegram block
+            <para/>
+            <remarks>Refers to "tg_data" property in json</remarks>
+            <para/>
+            <remarks>Exists on lower level, e.g. TelegramBlock.Data.Telegram.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TelegramBlockData.DataEncoded">
+            <summary>
+            Encoded string of <see cref="P:Osnova.Net.BlockDatas.TelegramBlockData.Data"/>
+            <para/>
+            <remarks>Refers to "tg_data_encoded" property in json</remarks>
+            <para/>
+            <remarks>Exists on lower level, e.g. TelegramBlock.Data.Telegram.Data</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.TextBlockData">
+            <summary>
+            Text block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TextBlockData.Text">
+            <summary>
+            Text value
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TextBlockData.TextTruncated">
+            <summary>
+            Text value truncated
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.TikTokBlockData">
+            <summary>
+            TikTok's data in blocks
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TikTokBlockData.TikTok">
+            <summary>
+            Universal block for external services
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.TweetBlockData">
+            <summary>
+            Tweet in block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TweetBlockData.Tweet">
+            <summary>
+            Block with actual block's data
+            <para/>
+            <remarks>Exists on higher level, e.g. TweetBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TweetBlockData.Title">
+            <summary>
+            Title
+            <para/>
+            <remarks>Exists on higher level, e.g. TweetBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TweetBlockData.HasMedia">
+            <summary>
+            Has media?
+            <para/>
+            <remarks>Refers to "media" property in json</remarks>
+            <para/>
+            <remarks>Exists on higher level, e.g. TweetBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TweetBlockData.HasConversation">
+            <summary>
+            Has conversation?
+            <para/>
+            <remarks>Refers to "conversation" property in json</remarks>
+            <para/>
+            <remarks>Exists on higher level, e.g. TweetBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TweetBlockData.Markdown">
+            <summary>
+            Tweet's text as markdown
+            <para/>
+            <remarks>Exists on higher level, e.g. TweetBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TweetBlockData.Data">
+            <summary>
+            Actual data from twitter
+            <para/>
+            <remarks>Uses twitter's API ver. 1.1</remarks>
+            <para/>
+            <remarks>Refers to "tweet_data" property in json</remarks>
+            <para/>
+            <remarks>Exists on lower level, e.g. TweetBlockData.Tweet.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TweetBlockData.DataEncoded">
+            <summary>
+            Tweet's text encoded
+            <para/>
+            <remarks>Refers to "tweet_data_encoded" property in json</remarks>
+            <para/>
+            <remarks>Exists on lower level, e.g. TweetBlockData.Tweet.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.TweetBlockData.Version">
+            <summary>
+            Version
+            <para/>
+            <remarks>Exists on lower level, e.g. TweetBlockData.Tweet.Data</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.UniversalBoxBlockData">
+            <summary>
+            Universal block for external services's data
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.UniversalBoxBlockData.Service">
+            <summary>
+            Service type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.UniversalBoxBlockData.Data">
+            <summary>
+            Service data
+            <para/>
+            <remarks>Refers to "box_data" property in json</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.VideoBlockData">
+            <summary>
+            Class for gifs and video without sound
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.VideoBlockData.Video">
+            <summary>
+            Block with video's data
+            <para/>
+            <remarks>Exists on higher level, e.g. VideoBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.VideoBlockData.Title">
+            <summary>
+            Title
+            <para/>
+            <remarks>Exists on higher level, e.g. VideoBlock.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.VideoBlockData.Thumbnail">
+            <summary>
+            Thumbnail image
+            <para/>
+            <remarks>Exists on lower level, e.g. VideoBlockData.Video.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.VideoBlockData.Width">
+            <summary>
+            Width
+            <para/>
+            <remarks>Exists on lower level, e.g. VideoBlockData.Video.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.VideoBlockData.Height">
+            <summary>
+            Height
+            <para/>
+            <remarks>Exists on lower level, e.g. VideoBlockData.Video.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.VideoBlockData.Duration">
+            <summary>
+            Duration
+            <para/>
+            <remarks>Refers to "time" property in json</remarks>
+            <para/>
+            <remarks>Exists on lower level, e.g. VideoBlockData.Video.Data</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.VideoBlockData.ExternalService">
+            <summary>
+            External service, if any
+            <para/>
+            <remarks>Exists on lower level, e.g. VideoBlockData.Video.Data</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.WarningBlockData">
+            <summary>
+            Warning block
+            <para/>
+            <remarks>Editoral block</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.WarningBlockData.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.WarningBlockData.Text">
+            <summary>
+            Text value
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.WaterfallBlockData">
+            <summary>
+            Block for continious data, like tweet feed
+            <para/>
+            <remarks>Editoral block</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.WaterfallBlockData.WaterfallId">
+            <summary>
+            ID of waterfall
+            <para/>
+            <remarks>Refers to "wtrfallid" property in json</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.BlockDatas.YandexMusicBlockData">
+            <summary>
+            Yandex music's data in blocks
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.BlockDatas.YandexMusicBlockData.YandexMusic">
+            <summary>
+            Universal block for external services
+            <para/>
+            <remarks>Refers to "yamusic" property in json</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Blocks.AudioBlock">
+            <summary>
+            Block with audio data
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.AudioBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.AudioBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.AudioBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.AudioBlock.#ctor(Osnova.Net.BlockDatas.AudioBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.AudioBlock"/> with <see cref="T:Osnova.Net.BlockDatas.AudioBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.Block">
+            <summary>
+            Refers to EntryBlock spec without Data.
+            Implement your own Data in inherited classes
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.Block.Type">
+            <summary>
+            Type of the block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.Block.HasCover">
+            <summary>
+            Has cover?
             </summary>
         </member>
         <member name="P:Osnova.Net.Blocks.Block.Anchor">
             <summary>
-            Hyperlink to something in block
+            Hyperlink to some object in block
             </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.Block.#ctor(Osnova.Net.Enums.BlockType)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.Block"/>
+            </summary>
+            <param name="type">Block type</param>
+        </member>
+        <member name="M:Osnova.Net.Blocks.Block.GetBlockType">
+            <inheritdoc cref="M:Osnova.Net.Blocks.Block.GetBlockType(Osnova.Net.Enums.BlockType)"/>
+        </member>
+        <member name="M:Osnova.Net.Blocks.Block.GetBlockType(Osnova.Net.Enums.BlockType)">
+            <summary>
+            Get block's real <see cref="T:System.Type"/>
+            </summary>
+            <param name="type">Type to switch on</param>
+            <returns><see cref="T:System.Type"/></returns>
+        </member>
+        <member name="T:Osnova.Net.Blocks.CodeBlock">
+            <summary>
+            Block with code-text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.CodeBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.CodeBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.CodeBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.CodeBlock.#ctor(Osnova.Net.BlockDatas.CodeBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.CodeBlock"/> with <see cref="T:Osnova.Net.BlockDatas.CodeBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.DelimiterBlock">
+            <summary>
+            Delimiter block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.DelimiterBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.DelimiterBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.DelimiterBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.DelimiterBlock.#ctor(Osnova.Net.BlockDatas.DelimiterBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.DelimiterBlock"/> with <see cref="T:Osnova.Net.BlockDatas.DelimiterBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.EntryBlock">
+            <summary>
+            Block with entry in it
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.EntryBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.EntryBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.EntryBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.EntryBlock.#ctor(Osnova.Net.Entries.Entry)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.EntryBlock"/> with <see cref="T:Osnova.Net.Entries.Entry"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.HeaderBlock">
+            <summary>
+            Header block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.HeaderBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.HeaderBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.HeaderBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.HeaderBlock.#ctor(Osnova.Net.BlockDatas.HeaderBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.HeaderBlock"/> with <see cref="T:Osnova.Net.BlockDatas.HeaderBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.ImageBlock">
+            <summary>
+            Image block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.ImageBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.ImageBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.ImageBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.ImageBlock.#ctor(Osnova.Net.BlockDatas.ImageBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.ImageBlock"/> with <see cref="T:Osnova.Net.BlockDatas.ImageBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.IncutBlock">
+            <summary>
+            Incut block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.IncutBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.IncutBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.IncutBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.IncutBlock.#ctor(Osnova.Net.BlockDatas.IncutBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.IncutBlock"/> with <see cref="T:Osnova.Net.BlockDatas.IncutBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.InstagramBlock">
+            <summary>
+            Instagram block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.InstagramBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.InstagramBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.InstagramBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.InstagramBlock.#ctor(Osnova.Net.BlockDatas.InstagramBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.InstagramBlock"/> with <see cref="T:Osnova.Net.BlockDatas.InstagramBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.LinkBlock">
+            <summary>
+            Link block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.LinkBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.LinkBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.LinkBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.LinkBlock.#ctor(Osnova.Net.BlockDatas.LinkBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.LinkBlock"/> with <see cref="T:Osnova.Net.BlockDatas.LinkBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.ListBlock">
+            <summary>
+            List block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.ListBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.ListBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.ListBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.ListBlock.#ctor(Osnova.Net.BlockDatas.ListBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.ListBlock"/> with <see cref="T:Osnova.Net.BlockDatas.ListBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.MediaBlock">
+            <summary>
+            Media block with images/gifs/etc
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.MediaBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.MediaBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.MediaBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.MediaBlock.#ctor(Osnova.Net.BlockDatas.MediaBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.MediaBlock"/> with <see cref="T:Osnova.Net.BlockDatas.MediaBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="M:Osnova.Net.Blocks.MediaBlock.GetImageDatas">
+            <summary>
+            Get all <see cref="T:Osnova.Net.BlockDatas.ImageBlockData"/>s inside of this <see cref="T:Osnova.Net.Blocks.MediaBlock"/>
+            </summary>
+            <returns>Collection of <see cref="T:Osnova.Net.BlockDatas.ImageBlockData"/></returns>
+        </member>
+        <member name="T:Osnova.Net.Blocks.MovieBlock">
+            <summary>
+            Video with sound block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.MovieBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.MovieBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.MovieBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.MovieBlock.#ctor(Osnova.Net.BlockDatas.MovieBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.MovieBlock"/> with <see cref="T:Osnova.Net.BlockDatas.MovieBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.NumberBlock">
+            <summary>
+            Number block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.NumberBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.NumberBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.NumberBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.NumberBlock.#ctor(Osnova.Net.BlockDatas.NumberBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.NumberBlock"/> with <see cref="T:Osnova.Net.BlockDatas.NumberBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.PersonBlock">
+            <summary>
+            Person block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.PersonBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.PersonBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.PersonBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.PersonBlock.#ctor(Osnova.Net.BlockDatas.PersonBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.PersonBlock"/> with <see cref="T:Osnova.Net.BlockDatas.PersonBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.QuizBlock">
+            <summary>
+            Quiz block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.QuizBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.QuizBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.QuizBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.QuizBlock.#ctor(Osnova.Net.BlockDatas.QuizBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.QuizBlock"/> with <see cref="T:Osnova.Net.BlockDatas.QuizBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.QuoteBlock">
+            <summary>
+            Quote block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.QuoteBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.QuoteBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.QuoteBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.QuoteBlock.#ctor(Osnova.Net.BlockDatas.QuoteBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.QuoteBlock"/> with <see cref="T:Osnova.Net.BlockDatas.QuoteBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.RawHtmlBlock">
+            <summary>
+            Raw HTML block
+            <para/>
+            <remarks>Editoral block</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.RawHtmlBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.RawHtmlBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.RawHtmlBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.RawHtmlBlock.#ctor(Osnova.Net.BlockDatas.RawHtmlBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.RawHtmlBlock"/> with <see cref="T:Osnova.Net.BlockDatas.RawHtmlBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.SpecialButtonBlock">
+            <summary>
+            Special button block
+            <para/>
+            <remarks>Editoral block</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.SpecialButtonBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.SpecialButtonBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.SpecialButtonBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.SpecialButtonBlock.#ctor(Osnova.Net.BlockDatas.SpecialButtonBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.SpecialButtonBlock"/> with <see cref="T:Osnova.Net.BlockDatas.SpecialButtonBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.SpotifyBlock">
+            <summary>
+            Spotify block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.SpotifyBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.SpotifyBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.SpotifyBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.SpotifyBlock.#ctor(Osnova.Net.BlockDatas.SpotifyBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.SpotifyBlock"/> with <see cref="T:Osnova.Net.BlockDatas.SpotifyBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.TelegramBlock">
+            <summary>
+            Telegram block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.TelegramBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.TelegramBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.TelegramBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.TelegramBlock.#ctor(Osnova.Net.BlockDatas.TelegramBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.TelegramBlock"/> with <see cref="T:Osnova.Net.BlockDatas.TelegramBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.TextBlock">
+            <summary>
+            Text block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.TextBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.TextBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.TextBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.TextBlock.#ctor(Osnova.Net.BlockDatas.TextBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.TextBlock"/> with <see cref="T:Osnova.Net.BlockDatas.TextBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.TikTokBlock">
+            <summary>
+            TikTok block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.TikTokBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.TikTokBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.TikTokBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.TikTokBlock.#ctor(Osnova.Net.BlockDatas.TikTokBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.TikTokBlock"/> with <see cref="T:Osnova.Net.BlockDatas.TikTokBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.TweetBlock">
+            <summary>
+            Tweet block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.TweetBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.TweetBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.TweetBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.TweetBlock.#ctor(Osnova.Net.BlockDatas.TweetBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.TweetBlock"/> with <see cref="T:Osnova.Net.BlockDatas.TweetBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
         </member>
         <member name="T:Osnova.Net.Blocks.UniversalBoxBlock">
             <summary>
-            Inside InstagramBlockData, SpotifyBlockData, TikTokBlockData, YaMusicBlockData
+            Universal block for external services
+            <para/>
+            <remarks>Used in: <see cref="T:Osnova.Net.BlockDatas.InstagramBlockData"/>, <see cref="T:Osnova.Net.BlockDatas.SpotifyBlockData"/>,
+            <see cref="T:Osnova.Net.BlockDatas.TikTokBlockData"/>, <see cref="T:Osnova.Net.BlockDatas.YandexMusicBlockData"/></remarks>
             </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.UniversalBoxBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.UniversalBoxBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.UniversalBoxBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.UniversalBoxBlock.#ctor(Osnova.Net.BlockDatas.UniversalBoxBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.UniversalBoxBlock"/> with <see cref="T:Osnova.Net.BlockDatas.UniversalBoxBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.UserBlock">
+            <summary>
+            User inside of block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.UserBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.UserBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.UserBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.UserBlock.#ctor(Osnova.Net.Users.User)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.UserBlock"/> with <see cref="T:Osnova.Net.Users.User"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.VideoBlock">
+            <summary>
+            Video without sound or gif block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.VideoBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.VideoBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.VideoBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.VideoBlock.#ctor(Osnova.Net.BlockDatas.VideoBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.VideoBlock"/> with <see cref="T:Osnova.Net.BlockDatas.VideoBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.WarningBlock">
+            <summary>
+            Warning block
+            <para/>
+            <remarks>Editoral block</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.WarningBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.WarningBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.WarningBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.WarningBlock.#ctor(Osnova.Net.BlockDatas.WarningBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.WarningBlock"/> with <see cref="T:Osnova.Net.BlockDatas.WarningBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.WaterfallBlock">
+            <summary>
+            Waterfall block for continious data
+            <para/>
+            <remarks>Editoral block</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.WaterfallBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.WaterfallBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.WaterfallBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.WaterfallBlock.#ctor(Osnova.Net.BlockDatas.WaterfallBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.WaterfallBlock"/> with <see cref="T:Osnova.Net.BlockDatas.WaterfallBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Blocks.YandexMusicBlock">
+            <summary>
+            Yandex music block
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Blocks.YandexMusicBlock.Data">
+            <summary>
+            Actual data of the block
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.YandexMusicBlock.#ctor">
+            <summary>
+            Create default <see cref="T:Osnova.Net.Blocks.YandexMusicBlock"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Blocks.YandexMusicBlock.#ctor(Osnova.Net.BlockDatas.YandexMusicBlockData)">
+            <summary>
+            Create <see cref="T:Osnova.Net.Blocks.YandexMusicBlock"/> with <see cref="T:Osnova.Net.BlockDatas.YandexMusicBlockData"/>
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="T:Osnova.Net.Comments.Comment">
+            <inheritdoc cref="T:Osnova.Net.Comments.IComment"/>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.DateCreated">
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "date" [rp[erty in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.DateCreatedRfc">
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "dateRFC" [rp[erty in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.Author">
+            <inheritdoc />
         </member>
         <member name="P:Osnova.Net.Comments.Comment.Text">
-            <summary>
-            Текст комментария с html
-            </summary>
+            <inheritdoc />
         </member>
         <member name="P:Osnova.Net.Comments.Comment.MarkdownText">
-            <summary>
-            Текст комментария с markdown
-            </summary>
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "text_wo_md" [rp[erty in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.Media">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.Likes">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.Entry">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.ReplyToId">
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "replyTo" [rp[erty in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.IsFavorited">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.IsPinned">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.IsEdited">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.Level">
+            <inheritdoc />
         </member>
         <member name="P:Osnova.Net.Comments.Comment.SourceOs">
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "source_id" [rp[erty in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.LoadMore">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.Attachments">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.AdditionalControls">
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "etcControls" [rp[erty in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.DateFavorited">
             <summary>
-            С какой OS был написан комментарий:
-            Other = 0
-            iOS = 1
-            Android = 2
+            Date, when this comment was favorited
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.IsIgnored">
+            <summary>
+            Is this comment ignored?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.IsRemoved">
+            <summary>
+            Is this comment removed?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.Html">
+            <summary>
+            HTML version of this comment
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.Highlight">
+            <summary>
+            Highlight
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.Comment.Donate">
+            <summary>
+            Donate vslue, if this is a donate comment
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Comments.Comment.GetDefaultCommentUrl(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets default comment URL
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/comment</returns>
+        </member>
+        <member name="M:Osnova.Net.Comments.Comment.GetEntryCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Entries.Entry.GetCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Comments.Comment.GetEntryCommentsThreadsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Entries.Entry.GetCommentsThreadsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Comments.Comment.GetEntryCommentThreadAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Entries.Entry.GetCommentThreadAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Comments.Comment.GetCommentLikersUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get likers of specified comment
+            <para/>
+            <remarks>Original name: getCommentLikersUri</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="commentId">Comment id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/comment/likers/0</returns>
+        </member>
+        <member name="M:Osnova.Net.Comments.Comment.GetCommentLikersResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets likers for specified comment
+            <para/>
+            <remarks>Original name: getCommentLikersUri</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="commentId">Comment id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested likers</returns>
+        </member>
+        <member name="M:Osnova.Net.Comments.Comment.GetCommentLikersAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets likers for specified comment
+            <para/>
+            <remarks>Original name: getCommentLikersUri</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="commentId">Comment id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested likers</returns>
+        </member>
+        <member name="M:Osnova.Net.Comments.Comment.GetPopularUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get most popular entries and comments
+            <para/>
+            <remarks>Original name: getEntryWidgets</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0/widgets</returns>
+        </member>
+        <member name="M:Osnova.Net.Comments.Comment.GetPopularResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets popular entries and comments
+            <para/>
+            <remarks>Original name: getEntryWidgets</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested popular entries and comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Comments.Comment.GetPopularAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets popular entries and comments
+            <para/>
+            <remarks>Original name: getEntryWidgets</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested popular entries and comments</returns>
+        </member>
+        <member name="T:Osnova.Net.Comments.CommentEditorSettings">
+            <summary>
+            Settings for comment editor
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.CommentEditorSettings.IsEnabled">
+            <summary>
+            Is comment editor enabled?
+            <para/>
+            <remarks>Refers to "enabled" property in json</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Comments.CommentMedia">
+            <summary>
+            Comment's media
+            <para/>
+            <remarks>Refers to "Medium" specification</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Comments.CommentMedia.Type">
             <summary>
-            Тип медиафайла:
-            Image = 1
-            Video = 2
+            Media type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.CommentMedia.ImageUrl">
+            <summary>
+            Image URL, if type is image
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.CommentMedia.IframeUrl">
+            <summary>
+            Iframe URL, if type is video
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.CommentMedia.Service">
+            <summary>
+            External service name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.CommentMedia.AdditionalData">
+            <summary>
+            Additional info
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.CommentMedia.Size">
+            <summary>
+            Media sizes
             </summary>
         </member>
         <member name="P:Osnova.Net.Comments.CommentsLoadMore.Ids">
             <summary>
-            Список id комментариев для подгрузки
+            Collection of comments IDs to load
             </summary>
         </member>
         <member name="P:Osnova.Net.Comments.CommentsLoadMore.Count">
             <summary>
-            Количество подгружаемых комментариев
+            Count of comments to load
             </summary>
         </member>
-        <member name="P:Osnova.Net.Comments.CommentsLoadMore.Avatars">
+        <member name="P:Osnova.Net.Comments.CommentsLoadMore.AvatarsUrls">
             <summary>
-            Список аватарок пользователей в подгружаемых комментариях
-            TODO: probably Uri, not string
+            Collection of user's avatars
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Comments.CommentThreads">
+            <summary>
+            Represents comments threads
+            <para/>
+            <remarks>Refers to CommentsLevels in spec</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.CommentThreads.Items">
+            <summary>
+            Collections of comments
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Comments.IComment">
+            <summary>
+            Refers to "Comment" specification
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.Id">
+            <summary>
+            Comment's ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.DateCreated">
+            <summary>
+            Date, when this comment was created
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.DateCreatedRfc">
+            <summary>
+            Date, when this comment was created
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.Author">
+            <summary>
+            Comment's author
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.Text">
+            <summary>
+            Full comment's text with HTML
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.MarkdownText">
+            <summary>
+            Full comment's text with markdown
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.Media">
+            <summary>
+            Media files, attached to comment.
+            Not a copy of <see cref="P:Osnova.Net.Comments.IComment.Attachments"/>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.Likes">
+            <summary>
+            Likes of this comment
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.Entry">
+            <summary>
+            To which entry this comment is bound?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.ReplyToId">
+            <summary>
+            ID of user, if comment was a reply
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.IsFavorited">
+            <summary>
+            Is current logged user favorited this comment?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.IsPinned">
+            <summary>
+            Is this comment pinned?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.IsEdited">
+            <summary>
+            Was this comment edited?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.Level">
+            <summary>
+            Level of depth in thread
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.SourceOs">
+            <summary>
+            From which OS this comment was created?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.LoadMore">
+            <summary>
+            Exists if there are a lot a hidden comments in reply to this
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.Attachments">
+            <summary>
+            Collection of additional blocks (images/videos/etc) for this comment
+            <para/>
+            <remarks>In spec it's Attach, but in reality -- <see cref="T:Osnova.Net.Blocks.Block"/></remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Comments.IComment.AdditionalControls">
+            <summary>
+            Additional controls
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Companies.Company">
+            <inheritdoc cref="T:Osnova.Net.Companies.ICompany"/>
+        </member>
+        <member name="P:Osnova.Net.Companies.Company.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Companies.Company.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Companies.Company.Logo">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Companies.Company.Url">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Companies.Company.IsVerified">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Companies.Company.Type">
+            <summary>
+            Company type (IT, etc)
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Companies.ICompany">
+            <summary>
+            Refers to Company spec
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Companies.ICompany.Id">
+            <summary>
+            Company's ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Companies.ICompany.Name">
+            <summary>
+            Company's name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Companies.ICompany.Logo">
+            <summary>
+            Company's logo's URL
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Companies.ICompany.Url">
+            <summary>
+            Company's URL
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Companies.ICompany.IsVerified">
+            <summary>
+            Is verified company
             </summary>
         </member>
         <member name="T:Osnova.Net.Constants.DtfSubsiteIds">
@@ -1449,84 +3241,658 @@
             <param name="subsiteTimelineSorting"></param>
             <returns></returns>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.Title">
+        <member name="P:Osnova.Net.Cover.ThumbnailUrl">
             <summary>
-            Entry's title
+            Cover's thumbnail URL
             </summary>
         </member>
+        <member name="P:Osnova.Net.Cover.Url">
+            <summary>
+            Cover URL
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Cover.Size">
+            <summary>
+            Cover's size
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Cover.SizeSimple">
+            <summary>
+            Simplified cover size
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Entries.Entry">
+            <summary>
+            Entry or "post" on osnova websites
+            <para/>
+            <remarks>Includes implementation of official Entry docs
+            and properties from actual queries</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Title">
+            <inheritdoc />
+        </member>
         <member name="P:Osnova.Net.Entries.Entry.WebviewUrl">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.EntryLayout">
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "entryContent" property in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.DateCreated">
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "date" property in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.DateCreatedRfc">
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "dateRFC" property in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.LastModificationDate">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Author">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Type">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Intro">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Cover">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IntroInFeed">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Similar">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.ViewsCount">
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "hitsCount" property in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Likes">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.CommentsPreview">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.CommentsCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.FavoritesCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IsFavorited">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IsEnabledLikes">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IsEnabledComments">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IsEditorial">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IsPinned">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.AudioUrl">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Badges">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.CommentatorsAvatars">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Subsite">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Hotness">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.SubscribedToComments">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Blocks">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.CanEdit">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.DateFavorite">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IsRepost">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IsPromoted">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Repost">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.CommentsSeenCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.AdditionalControls">
+            <inheritdoc />
+            <para/>
+            <remarks>Refers to "etcControls" property in json</remarks>
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IsShowThanks">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IsStillUpdating">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.IsFilledByEditors">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.CoAuthor">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Url">
+            <summary>
+            This entry's URL
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Highlight">
+            <summary>
+            Highlight
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.CommentEditorSettings">
+            <summary>
+            Settings for comment editor
+            <para/>
+            <remarks>Refers to "commentEditor" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.Entry.Summarize">
+            <summary>
+            Summarize the entry content
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.#ctor">
+            <summary>
+            Creates a default, empty entry
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.#ctor(System.String,System.Collections.Generic.IEnumerable{Osnova.Net.Blocks.Block})">
+            <summary>
+            Creates minimal postable entry
+            </summary>
+            <param name="title">Title of this entry</param>
+            <param name="blocks">Blocks inside of this entry</param>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetDefaultEntryUrl(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets default entry URL
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetEntryUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get entry by id
+            <para/>
+            <remarks>Original name: getEntryById</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetEntryResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets entry by id
+            <para/>
+            <remarks>Original name: getEntryById</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested entry</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetEntryAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets entry by id
+            <para/>
+            <remarks>Original name: getEntryById</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested entry</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetPopularEntriesUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get popular entries, similar to specified id
+            <para/>
+            <remarks>Original name: getPopularEntries</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0/popular</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetPopularEntriesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets popular entries, similar to specified id
+            <para/>
+            <remarks>Original name: getPopularEntries</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested collection of entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetPopularEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets popular entries, similar to specified id
+            <para/>
+            <remarks>Original name: getPopularEntries</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested collection of entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetEntryLocateUri(Osnova.Net.Enums.WebsiteKind,System.Uri,System.Double)">
+            <summary>
+            Gets an URL to get entry by it's URL
+            <para/>
+            <remarks>Original name: getEntryLocate</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryUri">Entry's URL</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/locate?url=https://dtf.ru/0</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetEntryLocateResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Uri,System.Double)">
+            <summary>
+            Gets entry by it's URL
+            <para/>
+            <remarks>Original name: getEntryLocate</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryUri">Entry's URL</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested entry</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetEntryLocateAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Uri,System.Double)">
+            <summary>
+            Gets entry by it's URL
+            <para/>
+            <remarks>Original name: getEntryLocate</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryUri">Entry's URL</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested entry</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetCommentsUri(Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
+            <summary>
+            Gets an URL to get all comments
+            <para/>
+            <remarks>Original name: getEntryComments</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="sorting">Sorting of comments</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0/comments/date</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetCommentsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
+            <summary>
+            Gets comments for specified entry
+            <para/>
+            <remarks>Original name: getEntryComments</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="sorting">Sorting of comments</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
+            <summary>
+            Gets comments for specified entry
+            <para/>
+            <remarks>Original name: getEntryComments</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="sorting">Sorting of comments</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetCommentsThreadsUri(Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
+            <summary>
+            Gets an URL to get comments threads
+            <para/>
+            <remarks>Original name: getEntryCommentsLevels</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="sorting">Sorting of comments</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0/comments/levels/date</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetCommentsThreadsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
+            <summary>
+            Gets comments threads for specified entry
+            <para/>
+            <remarks>Original name: getEntryCommentsLevels</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="sorting">Sorting of comments</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested comments threads</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetCommentsThreadsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
+            <summary>
+            Gets comments threads for specified entry
+            <para/>
+            <remarks>Original name: getEntryCommentsLevels</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="sorting">Sorting of comments</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested comments threads</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetCommentThreadUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get thread for specified comment
+            <para/>
+            <remarks>Original name: getEntryCommentsThread</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="commentId">Comment id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0/comments/thread/0</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetCommentThreadResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets thread for specified comment
+            <para/>
+            <remarks>Original name: getEntryCommentsThread</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="commentId">Comment id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested thread</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetCommentThreadAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets thread for specified comment
+            <para/>
+            <remarks>Original name: getEntryCommentsThread</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="entryId">Entry id</param>
+            <param name="commentId">Comment id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested thread</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.GetEntryCreateUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to post entry
+            <para/>
+            <remarks>Original name: postEntryCreate</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/create</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.PostEntryCreateResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Entries.Entry,System.Double)">
+            <summary>
+            Posts an entry and returns it
+            <para/>
+            <remarks>Original name: postEntryCreate</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="subsiteId">Subsite to post</param>
+            <param name="entry">Entry to create</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready entry</returns>
+        </member>
+        <member name="M:Osnova.Net.Entries.Entry.PostEntryCreateAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Entries.Entry,System.Double)">
+            <summary>
+            Posts an entry and returns it
+            <para/>
+            <remarks>Original name: postEntryCreate</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="subsiteId">Subsite to post</param>
+            <param name="entry">Entry to create</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready entry</returns>
+        </member>
+        <member name="T:Osnova.Net.Entries.EntryLayout">
+            <summary>
+            Also known as "EntryContent"
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.EntryLayout.Html">
+            <summary>
+            Full HTML content of the entry
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.EntryLayout.Version">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Entries.EntryLayout.GetDefaultLayoutUrl(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets default layout URL
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/layout</returns>
+        </member>
+        <member name="T:Osnova.Net.Entries.IEntry">
+            <summary>
+            Refers to specification of Entry on official API docs
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.Id">
+            <summary>
+            Identifier
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.WebviewUrl">
             <summary>
             Link to open entry
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.Date">
+        <member name="P:Osnova.Net.Entries.IEntry.EntryLayout">
+            <summary>
+            Contains ready html and version
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.DateCreated">
             <summary>
             Entry's creation date
+            <para/>
+            <remarks>Converts from/to <see cref="T:System.Int64"/></remarks>
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.DateRfc">
+        <member name="P:Osnova.Net.Entries.IEntry.DateCreatedRfc">
             <summary>
             Entry's creation date
+            <para/>
+            <remarks>Converts from/to RFC2822 string</remarks>
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.LastModificationDate">
+        <member name="P:Osnova.Net.Entries.IEntry.LastModificationDate">
             <summary>
-            Entry's last modification
+            Entry's last modification date
+            <para/>
+            <remarks>Converts from/to <see cref="T:System.Int64"/></remarks>
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.Author">
+        <member name="P:Osnova.Net.Entries.IEntry.Author">
             <summary>
-            Entry's author
+            Author
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.Type">
+        <member name="P:Osnova.Net.Entries.IEntry.Type">
             <summary>
             Content type
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.Intro">
+        <member name="P:Osnova.Net.Entries.IEntry.Intro">
             <summary>
             Entry's intro
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.ViewsCount">
+        <member name="P:Osnova.Net.Entries.IEntry.IntroInFeed">
             <summary>
-            Count of views of entry
+            Entry's intro in feed
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.IsEditorial">
+        <member name="P:Osnova.Net.Entries.IEntry.Similar">
             <summary>
-            Is this editoral office entry?
+            Collection of similar entries
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.IsPinned">
+        <member name="P:Osnova.Net.Entries.IEntry.ViewsCount">
+            <summary>
+            Count of views of this entry
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.Likes">
+            <summary>
+            Likes of this entry
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.CommentsPreview">
+            <summary>
+            Preview collection of comments of this entry
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.CommentsCount">
+            <summary>
+            Count of comments of this entry
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.FavoritesCount">
+            <summary>
+            Count of times this entry was added to favorites
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.IsFavorited">
+            <summary>
+            Current user favorited this entry?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.IsEnabledLikes">
+            <summary>
+            Are likes enabled on this entry?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.IsEnabledComments">
+            <summary>
+            Are comments enabled on this entry?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.IsEditorial">
+            <summary>
+            Is this editorial entry?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.IsPinned">
             <summary>
             Is this entry pinned?
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.AudioUrl">
+        <member name="P:Osnova.Net.Entries.IEntry.AudioUrl">
             <summary>
-            Url to voiced variant of entry
+            Url to voiced version of entry if it exists
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.CommentatorsAvatars">
+        <member name="P:Osnova.Net.Entries.IEntry.CommentatorsAvatars">
             <summary>
-            Collection of commentators's avatars for preview
+            Collection of commentators avatars urls for preview
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.SubscribedToThreads">
+        <member name="P:Osnova.Net.Entries.IEntry.Subsite">
             <summary>
-            Is user subscribed to comments?
+            Subsite, where this entry was created
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.Blocks">
+        <member name="P:Osnova.Net.Entries.IEntry.SubscribedToComments">
             <summary>
-            List of blocks in entry
+            Is current user subscribed to comments?
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entries.Entry.CanEdit">
+        <member name="P:Osnova.Net.Entries.IEntry.Blocks">
             <summary>
-            Can user edit this post?
+            Collection of blocks in entry
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.CanEdit">
+            <summary>
+            Can current user edit this post?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.DateFavorite">
+            <summary>
+            Date, when this entry was added to favorites
+            <para/>
+            <remarks>Converts from/to <see cref="T:System.Int64"/></remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.IsRepost">
+            <summary>
+            Is this repost?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.IsPromoted">
+            <summary>
+            Is this promoted entry?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Entries.IEntry.IsStillUpdating">
+            <summary>
+            Is this entry still updating?
             </summary>
         </member>
         <member name="F:Osnova.Net.Enums.BlockType.Waterfall">
@@ -1534,9 +3900,69 @@
             Refers to wtrfall
             </summary>
         </member>
+        <member name="F:Osnova.Net.Enums.NotificationIcon.Subscribe">
+            <summary>
+            mini_check
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationIcon.Archive">
+            <summary>
+            Ad removed
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationIcon.Plus">
+            <summary>
+            Ad added
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationIcon.Upset">
+            <summary>
+            Unpublish
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Filters.IEventFilter">
+            <summary>
+            Refers to EventFilter spec
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Filters.VacancyEventFilter">
+            <summary>
+            Fits for both <see cref="T:Osnova.Net.OsnovaEvents.OsnovaEvent"/> and <see cref="T:Osnova.Net.Vacancies.Vacancy"/>
+            </summary>
+        </member>
         <member name="T:Osnova.Net.JsonConverters.HtmlColorJsonConverter">
             <summary>
             Color string includes "#"
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Likes.Count">
+            <summary>
+            Count of likes
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Likes.Sum">
+            <summary>
+            Sum value of likes/dislikes
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Likes.IsLiked">
+            <summary>
+            Is current logged user liked this?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.MediaItem.Title">
+            <summary>
+            Media item's title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.MediaItem.Author">
+            <summary>
+            Media item's author
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.MediaItem.Image">
+            <summary>
+            Media items' content
             </summary>
         </member>
         <member name="M:Osnova.Net.Mentions.GetSearchForMentionsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
@@ -1548,11 +3974,125 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="P:Osnova.Net.Notifications.Notification.Icon">
+        <member name="T:Osnova.Net.Notifications.INotification">
             <summary>
-            "comments_added" "comments_reply_to" "like_up" "like_down" "ui_chronograph" "icon-unpublish-entry" "pencil" "ui_archive"
+            Refers to Notification spec
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Notifications.INotification.Id">
+            <summary>
+            Notification ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Notifications.INotification.Type">
+            <summary>
+            Notification type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Notifications.INotification.Date">
+            <summary>
+            Notification date
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Notifications.INotification.DateRfc">
+            <summary>
+            Notification date in Rfc2822 format
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Notifications.INotification.Text">
+            <summary>
+            Notification text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Notifications.INotification.Icon">
+            <summary>
             Название иконки, которая подставляется вместо аватарки.
             </summary>
+        </member>
+        <member name="P:Osnova.Net.Notifications.Notification.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Notifications.Notification.Type">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Notifications.Notification.Date">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Notifications.Notification.DateRfc">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Notifications.Notification.Users">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Notifications.Notification.Text">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Notifications.Notification.CommentText">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Notifications.Notification.Url">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Notifications.Notification.Icon">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.OsnovaEvents.IOsnovaEvent">
+            <summary>
+            Refers to Event spec
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.IOsnovaEvent.Id">
+            <summary>
+            Event ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.IOsnovaEvent.Title">
+            <summary>
+            Event title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.IOsnovaEvent.IsArchived">
+            <summary>
+            Is this event archived?
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.OsnovaEvents.OsnovaEvent">
+            <summary>
+            Also known as Event
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.Title">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.IsArchived">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.EntryId">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.CityId">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.CityName">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.Price">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.FavoritesCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.IsFavorited">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.Company">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.Interested">
+            <inheritdoc />
         </member>
         <member name="M:Osnova.Net.Payments.GetPaymentsCheckAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
@@ -1563,14 +4103,10 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.Popular.PopularBase.GetRatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="T:Osnova.Net.Popular.PopularBase">
             <summary>
-            Requires authentication!
+            Popular entries/comments
             </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
         </member>
         <member name="M:Osnova.Net.Push.GetUserPushTopicAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
@@ -1589,6 +4125,55 @@
             <param name="websiteKind"></param>
             <param name="apiVersion"></param>
             <returns></returns>
+        </member>
+        <member name="T:Osnova.Net.Rates.Rate">
+            <summary>
+            Currency rate
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Rates.Rate.Value">
+            <summary>
+            Rate value
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Rates.Rate.Change">
+            <summary>
+            Change
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Rates.Rate.Symbol">
+            <summary>
+            Currency symbol
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Rates.Rate.GetRatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Requires authentication!
+            </summary>
+            <param name="client"></param>
+            <param name="websiteKind"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Osnova.Net.Size">
+            <summary>
+            Sizes of media content
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Size.Width">
+            <summary>
+            Width
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Size.Height">
+            <summary>
+            Height
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Size.Ratio">
+            <summary>
+            Ratio
+            </summary>
         </member>
         <member name="P:Osnova.Net.Telegram.TelegramData.Views">
             <summary>
@@ -2312,7 +4897,22 @@
             Screen name of the referenced user
             </summary>
         </member>
-        <member name="P:Osnova.Net.Users.ISubsite.Cover">
+        <member name="T:Osnova.Net.Users.ISubsite">
+            <summary>
+            Also known as "Subsite" and, in most cases, "User"
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.Type">
+            <summary>
+            Profile type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.Description">
+            <summary>
+            Profile description
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.ProfileCover">
             <summary>
             Profile cover
             <para/>
@@ -2320,45 +4920,132 @@
             but actual query returns <see cref="T:Osnova.Net.Blocks.ImageBlock"/></remarks>
             </summary>
         </member>
-        <member name="P:Osnova.Net.Users.ISubsite.PushTopic">
+        <member name="P:Osnova.Net.Users.ISubsite.IsSubscribed">
             <summary>
-            Личный топик пользователя в Firebase Messaging
+            Is current logged user subscribed to this profile?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.IsVerified">
+            <summary>
+            Is verified?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.IsUnsubscribable">
+            <summary>
+            Is profile insubscribable?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.SubscribersCount">
+            <summary>
+            Subscribers count
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.CommentsCount">
+            <summary>
+            Comments count
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.EntriesCount">
+            <summary>
+            Entries count
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.VacanciesCount">
+            <summary>
+            Vacancies count
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.DateCreatedRfc">
+            <summary>
+            Date, when this profile was created in RFC2822 format
             </summary>
         </member>
         <member name="P:Osnova.Net.Users.ISubsite.AdvancedAccess">
             <summary>
-            Список разрешений
+            Advanced controls
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.Counters">
+            <summary>
+            Additional profile counters
             </summary>
         </member>
         <member name="P:Osnova.Net.Users.ISubsite.UserHash">
             <summary>
-            Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
+            Profile's hash ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.Contacts">
+            <summary>
+            Profile contacts
             </summary>
         </member>
         <member name="T:Osnova.Net.Users.IUser">
             <summary>
             Also known as "Author" and "User"
+            <para/>
+            <remarks>Refers to specification of Author on official API docs</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.IUser.Id">
+            <summary>
+            Profile's ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.IUser.DateCreated">
+            <summary>
+            Date, when this profile was created
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.IUser.FirstName">
+            <summary>
+            First name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.IUser.LastName">
+            <summary>
+            Last name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.IUser.Name">
+            <summary>
+            Full name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.IUser.Gender">
+            <summary>
+            Gender
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.IUser.Url">
+            <summary>
+            Profile's page URL
             </summary>
         </member>
         <member name="P:Osnova.Net.Users.IUser.AvatarUrl">
             <summary>
-            Profile avatar
+            Profile avatar URL
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.IUser.Karma">
+            <summary>
+            Value of karma
             </summary>
         </member>
         <member name="P:Osnova.Net.Users.IUser.SocialAccounts">
             <summary>
-            List of social accounts
+            Collection of social accounts, if there are any
             </summary>
         </member>
         <member name="T:Osnova.Net.Users.User">
             <summary>
-            Also known as Subsite
+            Also known as Author, Subsite
             </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.Id">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.Users.User.Created">
+        <member name="P:Osnova.Net.Users.User.DateCreated">
             <inheritdoc/>
         </member>
         <member name="P:Osnova.Net.Users.User.FirstName">
@@ -2388,25 +5075,16 @@
         <member name="P:Osnova.Net.Users.User.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.Users.User.Avatar">
+        <member name="P:Osnova.Net.Users.User.Description">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.Users.User.IsOnline">
-            <inheritdoc/>
-        </member>
-        <member name="P:Osnova.Net.Users.User.IsVerified">
+        <member name="P:Osnova.Net.Users.User.ProfileCover">
             <inheritdoc/>
         </member>
         <member name="P:Osnova.Net.Users.User.IsSubscribed">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.Users.User.OnlineStatusText">
-            <inheritdoc/>
-        </member>
-        <member name="P:Osnova.Net.Users.User.Description">
-            <inheritdoc/>
-        </member>
-        <member name="P:Osnova.Net.Users.User.Cover">
+        <member name="P:Osnova.Net.Users.User.IsVerified">
             <inheritdoc/>
         </member>
         <member name="P:Osnova.Net.Users.User.IsUnsubscribable">
@@ -2424,7 +5102,9 @@
         <member name="P:Osnova.Net.Users.User.VacanciesCount">
             <inheritdoc/>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:Osnova.Net.Users.User.CreatedRFC" -->
+        <member name="P:Osnova.Net.Users.User.DateCreatedRfc">
+            <inheritdoc/>
+        </member>
         <member name="P:Osnova.Net.Users.User.PushTopic">
             <inheritdoc/>
         </member>
@@ -2440,42 +5120,94 @@
         <member name="P:Osnova.Net.Users.User.Contacts">
             <inheritdoc/>
         </member>
+        <member name="P:Osnova.Net.Users.User.Avatar">
+            <summary>
+            Profile's avatar
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.User.IsOnline">
+            <summary>
+            Is online?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.User.IsVerified2">
+            <summary>
+            isVerified analogue of is_verified
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.User.OnlineStatusText">
+            <summary>
+            Online status text
+            </summary>
+        </member>
         <member name="P:Osnova.Net.Users.User.IsAvailableForMessenger">
-            <inheritdoc/>
+            <summary>
+            Is available for messenger?
+            </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.IsMuted">
-            <inheritdoc/>
+            <summary>
+            Is muted?
+            </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.IsMuted2">
-            <inheritdoc/>
+            <summary>
+            isMuted analogue of is_muted
+            </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.IsSubscribedToNewPosts">
-            <inheritdoc/>
+            <summary>
+            Is subscribed to new posts?
+            </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.SubscribersAvatars">
-            <inheritdoc/>
+            <summary>
+            Collection of subscribers avatars
+            </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.IsPlus">
-            <inheritdoc/>
-        </member>
-        <member name="P:Osnova.Net.Users.User.HeadCover">
-            <inheritdoc/>
+            <summary>
+            Is plus?
+            </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.IsEnableWriting">
-            <inheritdoc/>
+            <summary>
+            Is enable writing?
+            </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.Rules">
-            <inheritdoc/>
+            <summary>
+            Subsite rules
+            </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.EventsCount">
-            <inheritdoc/>
+            <summary>
+            Count of subsite events
+            </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.CommentEditor">
-            <inheritdoc/>
+            <summary>
+            Comment editor's settigs
+            </summary>
         </member>
         <member name="P:Osnova.Net.Users.User.UserHashes">
             <summary>
             Thanks ochoba: string and int in one list...
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.User.CanChangeAvatar">
+            <summary>
+            Can change avatar?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.User.CanChangeCover">
+            <summary>
+            Can change cover?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.User.IsBanned">
+            <summary>
+            Is banned?
             </summary>
         </member>
         <member name="M:Osnova.Net.Users.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
@@ -2603,6 +5335,106 @@
             <param name="websiteKind"></param>
             <param name="apiVersion"></param>
             <returns></returns>
+        </member>
+        <member name="T:Osnova.Net.Users.UserCounters">
+            <summary>
+            Refers to Counters specification
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Vacancies.IVacancy">
+            <summary>
+            Refers to Vacancy spec
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.Id">
+            <summary>
+            Vacancy ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.Title">
+            <summary>
+            Vacancy title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.SalaryMax">
+            <summary>
+            Max salary value
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.SalaryMin">
+            <summary>
+            Min salary value
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.SalaryText">
+            <summary>
+            Info about salary
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.Title">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.SalaryMax">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.SalaryMin">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.SalaryText">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.Area">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.AreaText">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.Schedule">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.ScheduleText">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.EntryId">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.CityId">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.CityName">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.FavoritesCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.IsFavorited">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.Company">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.WebHooks.WebhookWatcher">
+            <summary>
+            Refers to Watcher spec
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.WebHooks.WebhookWatcher.Id">
+            <summary>
+            Event ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.WebHooks.WebhookWatcher.EventName">
+            <summary>
+            Event name
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.WebSockets.WebSocket">
+            <summary>
+            Refers to Websocket spec
+            </summary>
         </member>
         <member name="T:Osnova.Net.WebSockets.WebSocketClient">
             <summary>

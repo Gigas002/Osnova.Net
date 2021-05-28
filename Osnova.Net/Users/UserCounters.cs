@@ -2,15 +2,18 @@
 
 namespace Osnova.Net.Users
 {
+    /// <summary>
+    /// Refers to Counters specification
+    /// </summary>
     public class UserCounters
     {
         [JsonPropertyName("entries")]
-        public long Entries { get; set; }
+        public int Entries { get; set; }
 
         [JsonPropertyName("comments")]
-        public long Comments { get; set; }
+        public int Comments { get; set; }
 
         [JsonPropertyName("favorites")]
-        public long Favorites { get; set; }
+        public int Favorites { get; set; }
     }
 }

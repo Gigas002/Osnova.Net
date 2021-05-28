@@ -9,7 +9,6 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
 using Osnova.Net.Exceptions;
-using Osnova.Net.JsonConverters;
 
 #pragma warning disable 1591
 
@@ -31,12 +30,10 @@ namespace Osnova.Net
 
         #endregion
 
+        public static Uri LeonardoUri { get; } = new Uri("https://leonardo.osnova.io");
+
         public static JsonSerializerOptions Options { get; } = new()
         {
-            Converters =
-            {
-                new WidgetConverter()
-            },
             Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
         };
@@ -66,6 +63,11 @@ namespace Osnova.Net
                     ? $"{builder.Query[1..]}&{queryToAppend}"
                     : queryToAppend;
             }
+        }
+
+        public static Uri GetMediaUri(Guid mediaGuid)
+        {
+            return new Uri(LeonardoUri, mediaGuid.ToString());
         }
 
         public static void CheckResponse(HttpResponseMessage response, HttpStatusCode desiredCode)

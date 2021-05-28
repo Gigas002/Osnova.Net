@@ -13,7 +13,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetEntryComments()
         {
-            var comments = await Comment.GetEntryCommentsAsync(Helper.Client, Helper.Kind, Helper.EntryId);
+            var comments = await Comment.GetEntryCommentsAsync(Helper.Client, Helper.Kind, 663573);
 
             foreach (var value in comments)
             {
@@ -26,7 +26,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetEntryCommentsLevels()
         {
-            var levels = await Comment.GetEntryCommentsLevelsAsync(Helper.Client, Helper.Kind, Helper.EntryId);
+            var levels = await Comment.GetEntryCommentsThreadsAsync(Helper.Client, Helper.Kind, 663573);
 
             if (levels.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
 
@@ -36,7 +36,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetEntryCommentsThread()
         {
-            var threads = await Comment.GetEntryCommentsThreadAsync(Helper.Client, Helper.Kind, Helper.EntryId, 10518559);
+            var threads = await Comment.GetEntryCommentThreadAsync(Helper.Client, Helper.Kind, Helper.EntryId, 10518559);
 
             if (threads.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
 
@@ -59,12 +59,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetEntryWidgets()
         {
-            var widgets = await Comment.GetEntryWidgetsAsync(Helper.Client, Helper.Kind, Helper.EntryId);
-
-            foreach (var value in widgets)
-            {
-                if (value.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
-            }
+            var widgets = await Comment.GetPopularAsync(Helper.Client, Helper.Kind, Helper.EntryId);
 
             var json = JsonSerializer.Serialize(widgets, Core.Options);
         }

@@ -3,21 +3,76 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Osnova.Net.Companies;
 using Osnova.Net.Enums;
 using Osnova.Net.Filters;
-using Osnova.Net.Vacancies;
+using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.OsnovaEvents
 {
-    public class OsnovaEvent : Vacancy
+    /// <summary>
+    /// Also known as Event
+    /// </summary>
+    public class OsnovaEvent : IOsnovaEvent
     {
         #region Properties
 
-        [JsonPropertyName("price")]
-        public string Price { get; set; }
+        #region IOsnoveEvent implementation
 
+        /// <inheritdoc />
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        /// <inheritdoc />
+        [JsonPropertyName("title")]
+        public string Title { get; set; }
+
+        /// <inheritdoc />
+        [JsonPropertyName("archived")]
+        public bool IsArchived { get; set; }
+
+        /// <inheritdoc />
+        [JsonPropertyName("entry_id")]
+        public int EntryId { get; set; }
+
+        /// <inheritdoc />
+        [JsonPropertyName("city_id")]
+        public int CityId { get; set; }
+
+        /// <inheritdoc />
+        [JsonPropertyName("city_name")]
+        public string CityName { get; set; }
+
+        /// <inheritdoc />
+        [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString)]
+        [JsonPropertyName("price")]
+        public int Price { get; set; }
+
+        /// <inheritdoc />
+        [JsonPropertyName("favoritesCount")]
+        public int FavoritesCount { get; set; }
+
+        /// <inheritdoc />
+        [JsonPropertyName("isFavorited")]
+        public bool IsFavorited { get; set; }
+
+        /// <inheritdoc />
+        [JsonPropertyName("company")]
+        public Company Company { get; set; }
+
+        /// <inheritdoc />
+        [JsonPropertyName("interested")]
+        public int Interested { get; set; }
+
+        #endregion
+
+        #region From actual queries
+
+        [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("date")]
-        public long Date { get; set; }
+        public DateTimeOffset Date { get; set; }
+
+        #endregion
 
         [JsonExtensionData]
         public Dictionary<string, object> Undeserialized { get; set; }
@@ -146,6 +201,8 @@ namespace Osnova.Net.OsnovaEvents
         }
 
         #endregion
+
+        // TODO: add https://api.vc.ru/v1.9/events/widget, not in the docs, returns array of events
 
         #endregion
 

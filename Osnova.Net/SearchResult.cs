@@ -12,6 +12,6 @@ namespace Osnova.Net
         public IEnumerable<T> Items { get; set; }
 
         [JsonPropertyName("last_id")]
-        public long LastId { get; set; }
+        public int LastId { get; set; }
     }
 }

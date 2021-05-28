@@ -6,7 +6,7 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net
 {
-    public class Other
+    public static class Other // TODO: rename
     {
         #region GetLocate
 

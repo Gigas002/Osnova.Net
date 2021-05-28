@@ -1,11 +1,11 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace Osnova.Net
 {
+    [Obsolete("Use Entry instead")]
     public class Similar
     {
-        // TODO: are these all REALLY long? https://cmtt-ru.github.io/osnova-api/redoc.html#operation/getEntryById
-
         [JsonPropertyName("id")]
         public long Id { get; set; }
 

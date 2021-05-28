@@ -16,7 +16,7 @@ namespace Osnova.Net.Quiz
         public string UserVoted { get; set; }
 
         [JsonPropertyName("randomVotedUsers")]
-        public Dictionary<string, IEnumerable<User>> RandomVotedUsers { get; set; } // TODO: needs testing
+        public Dictionary<string, IEnumerable<User>> RandomVotedUsers { get; set; }
 
         [JsonExtensionData]
         public Dictionary<string, object> Undeserialized { get; set; }

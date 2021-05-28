@@ -4,11 +4,16 @@ using Osnova.Net.Users;
 
 namespace Osnova.Net.Blocks
 {
-    // TODO: user or subsite?
+    /// <summary>
+    /// User inside of block
+    /// </summary>
     public class UserBlock : Block
     {
         #region Properties
 
+        /// <summary>
+        /// Actual data of the block
+        /// </summary>
         [JsonPropertyName("data")]
         public User Data { get; set; }
 
@@ -16,8 +21,15 @@ namespace Osnova.Net.Blocks
 
         #region Constructors
 
+        /// <summary>
+        /// Create default <see cref="UserBlock"/>
+        /// </summary>
         public UserBlock() : base(BlockType.User) { }
 
+        /// <summary>
+        /// Create <see cref="UserBlock"/> with <see cref="User"/>
+        /// </summary>
+        /// <param name="data">Data to add</param>
         public UserBlock(User data) : this() => Data = data;
 
         #endregion

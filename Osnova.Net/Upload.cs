@@ -8,7 +8,7 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net
 {
-    public class Upload
+    public static class Upload
     {
         #region Methods
 

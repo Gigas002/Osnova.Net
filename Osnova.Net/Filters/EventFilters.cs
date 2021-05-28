@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Osnova.Net.Filters
 {
+    [Obsolete("Use Dictionary<string, IEnumerable<EventFilter>> instead")]
     public class EventFilters
     {
         [JsonPropertyName("area")]

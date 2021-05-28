@@ -6,7 +6,7 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net
 {
-    public class Authentication
+    public static class Authentication
     {
         #region PostAuthQr
 

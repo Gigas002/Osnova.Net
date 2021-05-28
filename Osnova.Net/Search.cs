@@ -8,7 +8,7 @@ using Osnova.Net.Users;
 
 namespace Osnova.Net
 {
-    public class Search
+    public static class Search
     {
         #region GetSearch
 

@@ -9,60 +9,83 @@ using Osnova.Net.Filters;
 
 namespace Osnova.Net.Vacancies
 {
-    public class Vacancy
+    public class Vacancy : IVacancy
     {
         #region Properties
 
-        [JsonPropertyName("id")]
-        public long Id { get; set; }
+        #region IVacancy implementation
 
+        /// <inheritdoc />
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        /// <inheritdoc />
         [JsonPropertyName("title")]
         public string Title { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("salary_to")]
-        public int SalaryTo { get; set; }
+        public int SalaryMax { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("salary_from")]
-        public int SalaryFrom { get; set; }
+        public int SalaryMin { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("salary_text")]
         public string SalaryText { get; set; }
 
-        [JsonPropertyName("archived")]
-        public bool Archived { get; set; }
-
+        /// <inheritdoc />
         [JsonPropertyName("area")]
         public int Area { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("area_text")]
         public string AreaText { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("schedule")]
         public int Schedule { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("schedule_text")]
         public string ScheduleText { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("entry_id")]
-        public long EntryId { get; set; }
+        public int EntryId { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("city_id")]
         public int CityId { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("city_name")]
         public string CityName { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("favoritesCount")]
-        public long FavoritesCount { get; set; }
+        public int FavoritesCount { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("isFavorited")]
         public bool IsFavorited { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("company")]
         public Company Company { get; set; }
 
+        #endregion
+
+        #region From real queries
+
+        [JsonPropertyName("archived")]
+        public bool IsArchived { get; set; }
+
         [JsonPropertyName("specialization")]
         public string Specialization { get; set; }
+
+        #endregion
 
         [JsonExtensionData]
         public Dictionary<string, object> Undeserialized { get; set; }
