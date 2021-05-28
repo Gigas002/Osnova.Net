@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
 
-namespace Osnova.Net
+namespace Osnova.Net.Entries
 {
     public class EntryLayout
     {

@@ -2,6 +2,7 @@ using System;
 using System.Text.Json;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using Osnova.Net.Entries;
 
 namespace Osnova.Net.Tests
 {

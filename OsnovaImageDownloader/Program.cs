@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CommandLine;
 using Osnova.Net;
 using Osnova.Net.Blocks;
+using Osnova.Net.Entries;
 using Osnova.Net.Enums;
 
 namespace OsnovaImageDownloader

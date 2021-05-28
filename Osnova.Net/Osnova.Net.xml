@@ -1449,82 +1449,82 @@
             <param name="subsiteTimelineSorting"></param>
             <returns></returns>
         </member>
-        <member name="P:Osnova.Net.Entry.Title">
+        <member name="P:Osnova.Net.Entries.Entry.Title">
             <summary>
             Entry's title
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.WebviewUrl">
+        <member name="P:Osnova.Net.Entries.Entry.WebviewUrl">
             <summary>
             Link to open entry
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.Date">
+        <member name="P:Osnova.Net.Entries.Entry.Date">
             <summary>
             Entry's creation date
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.DateRfc">
+        <member name="P:Osnova.Net.Entries.Entry.DateRfc">
             <summary>
             Entry's creation date
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.LastModificationDate">
+        <member name="P:Osnova.Net.Entries.Entry.LastModificationDate">
             <summary>
             Entry's last modification
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.Author">
+        <member name="P:Osnova.Net.Entries.Entry.Author">
             <summary>
             Entry's author
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.Type">
+        <member name="P:Osnova.Net.Entries.Entry.Type">
             <summary>
             Content type
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.Intro">
+        <member name="P:Osnova.Net.Entries.Entry.Intro">
             <summary>
             Entry's intro
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.ViewsCount">
+        <member name="P:Osnova.Net.Entries.Entry.ViewsCount">
             <summary>
             Count of views of entry
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.IsEditorial">
+        <member name="P:Osnova.Net.Entries.Entry.IsEditorial">
             <summary>
             Is this editoral office entry?
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.IsPinned">
+        <member name="P:Osnova.Net.Entries.Entry.IsPinned">
             <summary>
             Is this entry pinned?
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.AudioUrl">
+        <member name="P:Osnova.Net.Entries.Entry.AudioUrl">
             <summary>
             Url to voiced variant of entry
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.CommentatorsAvatars">
+        <member name="P:Osnova.Net.Entries.Entry.CommentatorsAvatars">
             <summary>
             Collection of commentators's avatars for preview
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.SubscribedToThreads">
+        <member name="P:Osnova.Net.Entries.Entry.SubscribedToThreads">
             <summary>
             Is user subscribed to comments?
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.Blocks">
+        <member name="P:Osnova.Net.Entries.Entry.Blocks">
             <summary>
             List of blocks in entry
             </summary>
         </member>
-        <member name="P:Osnova.Net.Entry.CanEdit">
+        <member name="P:Osnova.Net.Entries.Entry.CanEdit">
             <summary>
             Can user edit this post?
             </summary>

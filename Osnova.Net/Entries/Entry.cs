@@ -9,7 +9,7 @@ using Osnova.Net.Comments;
 using Osnova.Net.Enums;
 using Osnova.Net.JsonConverters;
 
-namespace Osnova.Net
+namespace Osnova.Net.Entries
 {
     public class Entry
     {

@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using Osnova.Net.Entries;
 using Osnova.Net.Enums;
 
 namespace Osnova.Net.Blocks
