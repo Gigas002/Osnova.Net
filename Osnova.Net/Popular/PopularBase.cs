@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Osnova.Net.Comments;
 using Osnova.Net.Entries;
 using Osnova.Net.Enums;
+using Osnova.Net.Rates;
 
 namespace Osnova.Net.Popular
 {
