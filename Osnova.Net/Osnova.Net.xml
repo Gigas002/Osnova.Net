@@ -58,9 +58,13 @@
         </member>
         <member name="T:Osnova.Net.Constants.DtfSubsiteIds">
             <summary>
-            https://dtf.ru/sitemap/standard
+            Ids of most DTF's subsites
             <para/>
-            https://api.dtf.ru/v2.0/onboarding
+            Info sources:
+            <para/>
+            - https://dtf.ru/sitemap/standard
+            <para/>
+            - https://api.dtf.ru/v2.0/onboarding
             </summary>
         </member>
         <member name="F:Osnova.Net.Constants.DtfSubsiteIds.Games">
@@ -194,7 +198,7 @@
             <summary>
             https://dtf.ru/howto
             <para/>
-            Also known as: Gides
+            Also known as: Guides
             </summary>
         </member>
         <member name="F:Osnova.Net.Constants.DtfSubsiteIds.Science">
@@ -708,6 +712,10 @@
         </member>
         <member name="T:Osnova.Net.Constants.TjournalSubsiteIds">
             <summary>
+            Ids of most TJ's subsites
+            <para/>
+            Info sources:
+            <para/>
             https://tjournal.ru/sitemap/standard
             <para/>
             https://api.tjournal.ru/v2.0/onboarding
@@ -1178,6 +1186,10 @@
         </member>
         <member name="T:Osnova.Net.Constants.VcSubsiteIds">
             <summary>
+            Ids of most VC's subsites
+            <para/>
+            Info sources:
+            <para/>
             https://vc.ru/sitemap/standard
             <para/>
             https://api.vc.ru/v2.0/onboarding

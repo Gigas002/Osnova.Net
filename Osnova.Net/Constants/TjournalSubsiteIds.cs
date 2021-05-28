@@ -1,6 +1,10 @@
 ﻿namespace Osnova.Net.Constants
 {
     /// <summary>
+    /// Ids of most TJ's subsites
+    /// <para/>
+    /// Info sources:
+    /// <para/>
     /// https://tjournal.ru/sitemap/standard
     /// <para/>
     /// https://api.tjournal.ru/v2.0/onboarding

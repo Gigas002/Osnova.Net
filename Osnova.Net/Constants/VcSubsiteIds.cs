@@ -1,6 +1,10 @@
 ﻿namespace Osnova.Net.Constants
 {
     /// <summary>
+    /// Ids of most VC's subsites
+    /// <para/>
+    /// Info sources:
+    /// <para/>
     /// https://vc.ru/sitemap/standard
     /// <para/>
     /// https://api.vc.ru/v2.0/onboarding
@@ -11,7 +15,7 @@
         /// https://vc.ru/marketing
         /// </summary>
         public const int Marketing = 199113;
-        
+
         /// <summary>
         /// https://vc.ru/design
         /// </summary>

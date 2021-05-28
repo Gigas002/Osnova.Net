@@ -1,9 +1,13 @@
 ﻿namespace Osnova.Net.Constants
 {
     /// <summary>
-    /// https://dtf.ru/sitemap/standard
+    /// Ids of most DTF's subsites
     /// <para/>
-    /// https://api.dtf.ru/v2.0/onboarding
+    /// Info sources:
+    /// <para/>
+    /// - https://dtf.ru/sitemap/standard
+    /// <para/>
+    /// - https://api.dtf.ru/v2.0/onboarding
     /// </summary>
     public static class DtfSubsiteIds
     {
@@ -137,7 +141,7 @@
         /// <summary>
         /// https://dtf.ru/howto
         /// <para/>
-        /// Also known as: Gides
+        /// Also known as: Guides
         /// </summary>
         public const int HowTo = 112065;
 
