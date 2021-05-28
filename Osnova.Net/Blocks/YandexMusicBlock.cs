@@ -4,20 +4,20 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net.Blocks
 {
-    public class YaMusicBlock : Block
+    public class YandexMusicBlock : Block
     {
         #region Properties
 
         [JsonPropertyName("data")]
-        public YaMusicBlockData Data { get; set; }
+        public YandexMusicBlockData Data { get; set; }
 
         #endregion
 
         #region Constructors
 
-        public YaMusicBlock() : base(BlockType.YaMusic) { }
+        public YandexMusicBlock() : base(BlockType.YaMusic) { }
 
-        public YaMusicBlock(YaMusicBlockData data) : this() => Data = data;
+        public YandexMusicBlock(YandexMusicBlockData data) : this() => Data = data;
 
         #endregion
     }

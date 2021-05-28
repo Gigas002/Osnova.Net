@@ -3,7 +3,7 @@ using Osnova.Net.Blocks;
 
 namespace Osnova.Net.BlockDatas
 {
-    public class YaMusicBlockData
+    public class YandexMusicBlockData
     {
         #region Properties
 

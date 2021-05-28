@@ -67,7 +67,7 @@ namespace Osnova.Net.Blocks
             BlockType.Video => typeof(VideoBlock),
             BlockType.Warning => typeof(WarningBlock),
             BlockType.Waterfall => typeof(WaterfallBlock),
-            BlockType.YaMusic => typeof(YaMusicBlock),
+            BlockType.YaMusic => typeof(YandexMusicBlock),
             _ => typeof(Block)
         };
 
