@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using Osnova.Net.Users;
 
 namespace Osnova.Net.Entries
 {

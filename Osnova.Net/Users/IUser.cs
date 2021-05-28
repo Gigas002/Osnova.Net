@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Osnova.Net.Blocks;
 
-namespace Osnova.Net
+namespace Osnova.Net.Users
 {
     /// <summary>
     /// Also known as "Author" and "User"

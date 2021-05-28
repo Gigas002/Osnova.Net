@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Osnova.Net
+namespace Osnova.Net.Users
 {
-    public class Contacts
+    public class UserContacts
     {
         [JsonPropertyName("socials")]
         public IEnumerable<SocialAccount> Socials { get; set; }
@@ -15,6 +15,6 @@ namespace Osnova.Net
         public string Email { get; set; }
 
         [JsonPropertyName("contacts")]
-        public string UserContacts { get; set; }
+        public string Contacts { get; set; }
     }
 }

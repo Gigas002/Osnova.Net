@@ -8,6 +8,7 @@ using Osnova.Net.Blocks;
 using Osnova.Net.Comments;
 using Osnova.Net.Enums;
 using Osnova.Net.JsonConverters;
+using Osnova.Net.Users;
 
 namespace Osnova.Net.Entries
 {

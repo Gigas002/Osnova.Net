@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Osnova.Net
+namespace Osnova.Net.Users
 {
     public class MentionedUser // TODO: replacebale by user?
     {

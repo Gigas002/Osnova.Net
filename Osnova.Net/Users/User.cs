@@ -10,7 +10,7 @@ using Osnova.Net.Enums;
 using Osnova.Net.JsonConverters;
 using Osnova.Net.Notifications;
 
-namespace Osnova.Net
+namespace Osnova.Net.Users
 {
     /// <summary>
     /// Also known as Subsite
@@ -137,7 +137,7 @@ namespace Osnova.Net
 
         /// <inheritdoc/>
         [JsonPropertyName("counters")]
-        public Counters Counters { get; set; }
+        public UserCounters Counters { get; set; }
 
         /// <inheritdoc/>
         [JsonPropertyName("user_hash")]
@@ -145,7 +145,7 @@ namespace Osnova.Net
 
         /// <inheritdoc/>
         [JsonPropertyName("contacts")]
-        public Contacts Contacts { get; set; }
+        public UserContacts Contacts { get; set; }
 
         /// <inheritdoc/>
         [JsonPropertyName("isAvailableForMessenger")]
@@ -166,7 +166,7 @@ namespace Osnova.Net
 
         /// <inheritdoc/>
         [JsonPropertyName("subscribers_avatars")]
-        public IEnumerable<SubscriberAvatar> SubscribersAvatars { get; set; }
+        public IEnumerable<AvatarInfo> SubscribersAvatars { get; set; }
 
         /// <inheritdoc/>
         [JsonPropertyName("is_plus")]

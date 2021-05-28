@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace Osnova.Net
+namespace Osnova.Net.Users
 {
-    public class SubscriberAvatar
+    public class AvatarInfo
     {
         [JsonPropertyName("avatar_url")]
         public Uri AvatarUrl { get; set; }

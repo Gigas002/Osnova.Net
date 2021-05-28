@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace Osnova.Net
+namespace Osnova.Net.Users
 {
     public class SocialAccount
     {

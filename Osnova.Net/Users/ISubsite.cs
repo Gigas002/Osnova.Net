@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Osnova.Net.Blocks;
 using Osnova.Net.Comments;
 
-namespace Osnova.Net
+namespace Osnova.Net.Users
 {
     public interface ISubsite : IUser
     {
@@ -39,14 +39,14 @@ namespace Osnova.Net
         /// </summary>
         public AdvancedAccess AdvancedAccess { get; set; }
 
-        public Counters Counters { get; set; }
+        public UserCounters Counters { get; set; }
 
         /// <summary>
         /// Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
         /// </summary>
         public string UserHash { get; set; }
 
-        public Contacts Contacts { get; set; }
+        public UserContacts Contacts { get; set; }
 
         public bool IsAvailableForMessenger { get; set; }
 
@@ -54,7 +54,7 @@ namespace Osnova.Net
 
         public bool IsSubscribedToNewPosts { get; set; }
 
-        public IEnumerable<SubscriberAvatar> SubscribersAvatars { get; set; }
+        public IEnumerable<AvatarInfo> SubscribersAvatars { get; set; }
 
         public bool IsPlus { get; set; }
 

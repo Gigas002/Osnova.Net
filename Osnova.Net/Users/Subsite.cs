@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Osnova.Net.Entries;
 using Osnova.Net.Enums;
 
-namespace Osnova.Net
+namespace Osnova.Net.Users
 {
     public static class Subsite
     {

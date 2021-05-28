@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Osnova.Net.Users;
 
 namespace Osnova.Net.Quiz
 {

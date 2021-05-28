@@ -7,6 +7,7 @@ using Osnova.Net.Blocks;
 using Osnova.Net.Entries;
 using Osnova.Net.Enums;
 using Osnova.Net.Popular;
+using Osnova.Net.Users;
 
 namespace Osnova.Net.Comments
 {

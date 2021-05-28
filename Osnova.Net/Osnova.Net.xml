@@ -1534,44 +1534,6 @@
             Refers to wtrfall
             </summary>
         </member>
-        <member name="P:Osnova.Net.ISubsite.Cover">
-            <summary>
-            Profile cover
-            <para/>
-            <remarks>Docs says it's <see cref="T:Osnova.Net.Cover"/>,
-            but actual query returns <see cref="T:Osnova.Net.Blocks.ImageBlock"/></remarks>
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.ISubsite.PushTopic">
-            <summary>
-            Личный топик пользователя в Firebase Messaging
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.ISubsite.AdvancedAccess">
-            <summary>
-            Список разрешений
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.ISubsite.UserHash">
-            <summary>
-            Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
-            </summary>
-        </member>
-        <member name="T:Osnova.Net.IUser">
-            <summary>
-            Also known as "Author" and "User"
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.IUser.AvatarUrl">
-            <summary>
-            Profile avatar
-            </summary>
-        </member>
-        <member name="P:Osnova.Net.IUser.SocialAccounts">
-            <summary>
-            List of social accounts
-            </summary>
-        </member>
         <member name="T:Osnova.Net.JsonConverters.HtmlColorJsonConverter">
             <summary>
             Color string includes "#"
@@ -2350,135 +2312,173 @@
             Screen name of the referenced user
             </summary>
         </member>
-        <member name="T:Osnova.Net.User">
+        <member name="P:Osnova.Net.Users.ISubsite.Cover">
+            <summary>
+            Profile cover
+            <para/>
+            <remarks>Docs says it's <see cref="T:Osnova.Net.Cover"/>,
+            but actual query returns <see cref="T:Osnova.Net.Blocks.ImageBlock"/></remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.PushTopic">
+            <summary>
+            Личный топик пользователя в Firebase Messaging
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.AdvancedAccess">
+            <summary>
+            Список разрешений
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.UserHash">
+            <summary>
+            Хеш ID пользователя. Используется для сравнения данных, где ID захеширован
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Users.IUser">
+            <summary>
+            Also known as "Author" and "User"
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.IUser.AvatarUrl">
+            <summary>
+            Profile avatar
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.IUser.SocialAccounts">
+            <summary>
+            List of social accounts
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Users.User">
             <summary>
             Also known as Subsite
             </summary>
         </member>
-        <member name="P:Osnova.Net.User.Id">
+        <member name="P:Osnova.Net.Users.User.Id">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Created">
+        <member name="P:Osnova.Net.Users.User.Created">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.FirstName">
+        <member name="P:Osnova.Net.Users.User.FirstName">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.LastName">
+        <member name="P:Osnova.Net.Users.User.LastName">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Name">
+        <member name="P:Osnova.Net.Users.User.Name">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Gender">
+        <member name="P:Osnova.Net.Users.User.Gender">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Url">
+        <member name="P:Osnova.Net.Users.User.Url">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.AvatarUrl">
+        <member name="P:Osnova.Net.Users.User.AvatarUrl">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Karma">
+        <member name="P:Osnova.Net.Users.User.Karma">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.SocialAccounts">
+        <member name="P:Osnova.Net.Users.User.SocialAccounts">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Type">
+        <member name="P:Osnova.Net.Users.User.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Avatar">
+        <member name="P:Osnova.Net.Users.User.Avatar">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.IsOnline">
+        <member name="P:Osnova.Net.Users.User.IsOnline">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.IsVerified">
+        <member name="P:Osnova.Net.Users.User.IsVerified">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.IsSubscribed">
+        <member name="P:Osnova.Net.Users.User.IsSubscribed">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.OnlineStatusText">
+        <member name="P:Osnova.Net.Users.User.OnlineStatusText">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Description">
+        <member name="P:Osnova.Net.Users.User.Description">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Cover">
+        <member name="P:Osnova.Net.Users.User.Cover">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.IsUnsubscribable">
+        <member name="P:Osnova.Net.Users.User.IsUnsubscribable">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.SubscribersCount">
+        <member name="P:Osnova.Net.Users.User.SubscribersCount">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.CommentsCount">
+        <member name="P:Osnova.Net.Users.User.CommentsCount">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.EntriesCount">
+        <member name="P:Osnova.Net.Users.User.EntriesCount">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.VacanciesCount">
+        <member name="P:Osnova.Net.Users.User.VacanciesCount">
             <inheritdoc/>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:Osnova.Net.User.CreatedRFC" -->
-        <member name="P:Osnova.Net.User.PushTopic">
+        <!-- Badly formed XML comment ignored for member "P:Osnova.Net.Users.User.CreatedRFC" -->
+        <member name="P:Osnova.Net.Users.User.PushTopic">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.AdvancedAccess">
+        <member name="P:Osnova.Net.Users.User.AdvancedAccess">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Counters">
+        <member name="P:Osnova.Net.Users.User.Counters">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.UserHash">
+        <member name="P:Osnova.Net.Users.User.UserHash">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Contacts">
+        <member name="P:Osnova.Net.Users.User.Contacts">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.IsAvailableForMessenger">
+        <member name="P:Osnova.Net.Users.User.IsAvailableForMessenger">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.IsMuted">
+        <member name="P:Osnova.Net.Users.User.IsMuted">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.IsMuted2">
+        <member name="P:Osnova.Net.Users.User.IsMuted2">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.IsSubscribedToNewPosts">
+        <member name="P:Osnova.Net.Users.User.IsSubscribedToNewPosts">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.SubscribersAvatars">
+        <member name="P:Osnova.Net.Users.User.SubscribersAvatars">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.IsPlus">
+        <member name="P:Osnova.Net.Users.User.IsPlus">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.HeadCover">
+        <member name="P:Osnova.Net.Users.User.HeadCover">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.IsEnableWriting">
+        <member name="P:Osnova.Net.Users.User.IsEnableWriting">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.Rules">
+        <member name="P:Osnova.Net.Users.User.Rules">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.EventsCount">
+        <member name="P:Osnova.Net.Users.User.EventsCount">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.CommentEditor">
+        <member name="P:Osnova.Net.Users.User.CommentEditor">
             <inheritdoc/>
         </member>
-        <member name="P:Osnova.Net.User.UserHashes">
+        <member name="P:Osnova.Net.Users.User.UserHashes">
             <summary>
             Thanks ochoba: string and int in one list...
             </summary>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
             Warning: requires client to be authenticated
             </summary>
@@ -2487,19 +2487,19 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeUpdatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Boolean,System.Int64,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserMeUpdatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Boolean,System.Int64,System.Double)">
             <summary>
             Warning: requires authentication!
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeUpdatesCountAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserMeUpdatesCountAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
             Warning: requires authentication!
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserFavoritesEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserFavoritesEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
             <summary>
             Requires authentication
             </summary>
@@ -2511,7 +2511,7 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserFavoritesCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserFavoritesCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
             <summary>
             Requires authentication
             </summary>
@@ -2523,7 +2523,7 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserFavoritesVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserFavoritesVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
             <summary>
             Requires authentication
             </summary>
@@ -2535,7 +2535,7 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeFavoritesEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserMeFavoritesEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
             <summary>
             Requires authentication
             </summary>
@@ -2546,7 +2546,7 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeFavoritesCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserMeFavoritesCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
             <summary>
             Requires authentication
             </summary>
@@ -2557,7 +2557,7 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeFavoritesVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserMeFavoritesVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
             <summary>
             Requires authentication
             </summary>
@@ -2568,7 +2568,7 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeSubscriptionsRecommendedAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserMeSubscriptionsRecommendedAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
             Requires authentication
             </summary>
@@ -2577,7 +2577,7 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeSubscriptionsSubscribedAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserMeSubscriptionsSubscribedAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
             Requires authentication
             </summary>
@@ -2586,7 +2586,7 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetUserMeTuneCatalogAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserMeTuneCatalogAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
             Requires authentication
             </summary>
@@ -2595,7 +2595,7 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:Osnova.Net.User.GetIgnoredKeywordsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetIgnoredKeywordsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
             Requires authentication
             </summary>

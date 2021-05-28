@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Osnova.Net
+namespace Osnova.Net.Users
 {
-    public class Counters
+    public class UserCounters
     {
         [JsonPropertyName("entries")]
         public long Entries { get; set; }
