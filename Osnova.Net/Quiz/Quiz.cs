@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Osnova.Net.Enums;
 
-namespace Osnova.Net
+namespace Osnova.Net.Quiz
 {
     public class Quiz
     {

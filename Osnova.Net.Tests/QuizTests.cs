@@ -12,7 +12,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetQuizResults()
         {
-            var results = await Quiz.GetQuizResultsAsync(Helper.Client, Helper.Kind, "35488bb5d1695283").ConfigureAwait(false);
+            var results = await Quiz.Quiz.GetQuizResultsAsync(Helper.Client, Helper.Kind, "35488bb5d1695283").ConfigureAwait(false);
 
             if (results.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
 
