@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Osnova.Net
+namespace Osnova.Net.WebSockets
 {
     public static class WebSockets
     {
