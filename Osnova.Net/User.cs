@@ -8,6 +8,7 @@ using Osnova.Net.Comments;
 using Osnova.Net.Entries;
 using Osnova.Net.Enums;
 using Osnova.Net.JsonConverters;
+using Osnova.Net.Notifications;
 
 namespace Osnova.Net
 {

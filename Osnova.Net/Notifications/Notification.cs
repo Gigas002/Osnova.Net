@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Osnova.Net.Enums;
 
-namespace Osnova.Net
+namespace Osnova.Net.Notifications
 {
     public class Notification
     {
