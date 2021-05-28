@@ -11,7 +11,7 @@ namespace Osnova.Net.Tests
         public void Setup() => Helper.InitializeHelper();
 
         [Test]
-        public async Task GetUserPushTopic()
+        public async Task GetRates()
         {
             var rates = await Rate.GetRatesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
