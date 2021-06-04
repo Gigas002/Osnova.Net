@@ -4,11 +4,17 @@ using System.Text.Json.Serialization;
 namespace Osnova.Net.Twitter
 {
     /// <summary>
-    /// 1.1
+    /// Twitter user mentions
+    /// <para/>
+    /// <remarks>API version: 1.1;
+    /// <para/>
     /// Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+    /// </remarks>
     /// </summary>
     public class TwitterUserMentions
     {
+        #region Properties
+        
         /// <summary>
         /// ID of the mentioned user, as an integer
         /// </summary>
@@ -17,6 +23,8 @@ namespace Osnova.Net.Twitter
 
         /// <summary>
         /// ID of the mentioned user, as a string
+        /// <para/>
+        /// <remarks>Refers to "id_str" property in json</remarks>
         /// </summary>
         [JsonPropertyName("id_str")]
         public string IdString { get; set; }
@@ -38,5 +46,7 @@ namespace Osnova.Net.Twitter
         /// </summary>
         [JsonPropertyName("screen_name")]
         public string ScreenName { get; set; }
+        
+        #endregion
     }
 }

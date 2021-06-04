@@ -5,11 +5,17 @@ using Osnova.Net.Twitter.Enterprise;
 namespace Osnova.Net.Twitter
 {
     /// <summary>
-    /// 1.1
+    ///Twitter entities
+    /// <para/>
+    /// <remarks>API version: 1.1;
+    /// <para/>
     /// Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+    /// </remarks>
     /// </summary>
     public class TwitterEntities
     {
+        #region Properties
+
         /// <summary>
         /// Represents hashtags which have been parsed out of the Tweet text
         /// </summary>
@@ -45,5 +51,7 @@ namespace Osnova.Net.Twitter
         /// </summary>
         [JsonPropertyName("polls")]
         public IEnumerable<TwitterPoll> Polls { get; set; }
+        
+        #endregion
     }
 }

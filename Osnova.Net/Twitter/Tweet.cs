@@ -7,18 +7,21 @@ using Osnova.Net.JsonConverters;
 namespace Osnova.Net.Twitter
 {
     /// <summary>
-    /// 1.1
-    /// Used inside blocks
+    /// Usual tweet, used inside blocks
+    /// <para/>
+    /// <remarks>API version: 1.1;
     /// <para/>
     /// Doc source: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/tweet
+    /// </remarks>
     /// </summary>
     public class Tweet
     {
         #region Properties
 
         /// <summary>
-        /// UTC time when this Tweet was created. Example:
-        /// Wed Oct 10 20:19:24 +0000 2018
+        /// UTC time when this Tweet was created
+        /// <para/>
+        /// <remarks>Example: Wed Oct 10 20:19:24 +0000 2018</remarks>
         /// </summary>
         [JsonConverter(typeof(TwitterV1DateTimeOffsetJsonConverter))]
         [JsonPropertyName("created_at")]
@@ -32,6 +35,8 @@ namespace Osnova.Net.Twitter
 
         /// <summary>
         /// The string representation of the unique identifier for this Tweet
+        /// <para/>
+        /// <remarks>Refers to "id_str" property in json</remarks>
         /// </summary>
         [JsonPropertyName("id_str")]
         public string IdString { get; set; }
@@ -64,25 +69,33 @@ namespace Osnova.Net.Twitter
         public long? InReplyToStatusId { get; set; }
 
         /// <summary>
-        /// Nullable. If the represented Tweet is a reply, this field will contain the string representation of the original Tweet’s ID
+        /// If the represented Tweet is a reply, this field will contain the string representation of the original Tweet’s ID
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [JsonPropertyName("in_reply_to_status_id_str")]
         public string InReplyToStatusIdString { get; set; }
 
         /// <summary>
-        /// Nullable. If the represented Tweet is a reply, this field will contain the integer representation of the original Tweet’s author ID
+        /// If the represented Tweet is a reply, this field will contain the integer representation of the original Tweet’s author ID
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [JsonPropertyName("in_reply_to_user_id")]
         public long? InReplyToUserId { get; set; }
 
         /// <summary>
-        /// Nullable. If the represented Tweet is a reply, this field will contain the string representation of the original Tweet’s author ID
+        /// If the represented Tweet is a reply, this field will contain the string representation of the original Tweet’s author ID
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [JsonPropertyName("in_reply_to_user_id_str")]
         public string InReplyToUserIdString { get; set; }
 
         /// <summary>
-        /// Nullable. If the represented Tweet is a reply, this field will contain the screen name of the original Tweet’s author
+        /// If the represented Tweet is a reply, this field will contain the screen name of the original Tweet’s author
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [JsonPropertyName("in_reply_to_screen_name")]
         public string InReplyToScreenName { get; set; }
@@ -94,13 +107,17 @@ namespace Osnova.Net.Twitter
         public TwitterUser User { get; set; }
 
         /// <summary>
-        /// Nullable. Represents the geographic location of this Tweet as reported by the user or client application
+        /// Represents the geographic location of this Tweet as reported by the user or client application
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [JsonPropertyName("coordinates")]
         public TwitterCoordinates<IEnumerable<float>> Coordinates { get; set; }
 
         /// <summary>
-        /// Nullable When present, indicates that the tweet is associated (but not necessarily originating from) a Place
+        /// When present, indicates that the tweet is associated (but not necessarily originating from) a Place
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [JsonPropertyName("place")]
         public TwitterPlace Place { get; set; }
@@ -137,7 +154,9 @@ namespace Osnova.Net.Twitter
         public Tweet RetweetedStatus { get; set; }
 
         /// <summary>
-        /// Nullable. Indicates approximately how many times this Tweet has been quoted by Twitter users
+        /// Indicates approximately how many times this Tweet has been quoted by Twitter users
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [JsonPropertyName("quote_count")]
         public int? QuoteCount { get; set; }
@@ -155,7 +174,9 @@ namespace Osnova.Net.Twitter
         public int RetweetCount { get; set; }
 
         /// <summary>
-        /// Nullable. Indicates approximately how many times this Tweet has been liked by Twitter users
+        /// Indicates approximately how many times this Tweet has been liked by Twitter users
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [JsonPropertyName("favorite_count")]
         public int? FavoriteCount { get; set; }
@@ -174,7 +195,9 @@ namespace Osnova.Net.Twitter
         public TwitterEntities ExtendedEntities { get; set; }
 
         /// <summary>
-        /// Nullable. Indicates whether this Tweet has been liked by the authenticating user
+        /// Indicates whether this Tweet has been liked by the authenticating user
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [JsonPropertyName("favorited")]
         public bool? Favorited { get; set; }
@@ -186,9 +209,11 @@ namespace Osnova.Net.Twitter
         public bool Retweeted { get; set; }
 
         /// <summary>
-        /// Nullable. This field only surfaces when a Tweet contains a link.
+        /// This field only surfaces when a Tweet contains a link.
         /// The meaning of the field doesn’t pertain to the Tweet content itself, but instead it is an
         /// indicator that the URL contained in the Tweet may contain content or media identified as sensitive content
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [JsonPropertyName("possibly_sensitive")]
         public bool? PossiblySensitive { get; set; }
@@ -201,8 +226,12 @@ namespace Osnova.Net.Twitter
         public string FilterLevel { get; set; }
 
         /// <summary>
-        /// Nullable. When present, indicates a BCP 47 language identifier corresponding to the machine-detected
+        /// When present, indicates a BCP 47 language identifier corresponding to the machine-detected
         /// language of the Tweet text, or und if no language could be detected
+        /// <para/>
+        /// <remarks>Refers to "lang" property in json
+        /// <para/>
+        /// Nullable</remarks>
         /// </summary>
         [JsonConverter(typeof(CultureInfoJsonConverter))]
         [JsonPropertyName("lang")]
@@ -258,8 +287,9 @@ namespace Osnova.Net.Twitter
         #region Deprecated
 
         /// <summary>
-        /// Deprecated. Nullable. Use the coordinates field instead.
         /// This deprecated attribute has its coordinates formatted as [lat, long], while all other Tweet geo is formatted as [long, lat].
+        /// <para/>
+        /// <remarks>Nullable</remarks>
         /// </summary>
         [Obsolete("Use the coordinates property instead")]
         [JsonPropertyName("geo")]
@@ -269,18 +299,33 @@ namespace Osnova.Net.Twitter
 
         #region Extended tweet (no docs)
 
+        /// <summary>
+        /// Full tweet's text
+        /// </summary>
         [JsonPropertyName("full_text")]
         public string FullText { get; set; }
 
+        /// <summary>
+        /// Display text range
+        /// </summary>
         [JsonPropertyName("display_text_range")]
         public IEnumerable<int> DisplayTextRange { get; set; }
 
+        /// <summary>
+        /// Contributors
+        /// </summary>
         [JsonPropertyName("contributors")]
         public object Contributors { get; set; }
 
+        /// <summary>
+        /// Is this tweet possibly sensitive?
+        /// </summary>
         [JsonPropertyName("possibly_sensitive_appealable")]
         public bool PossiblySensitiveAppealable { get; set; }
 
+        /// <summary>
+        /// Processed text
+        /// </summary>
         [JsonPropertyName("processed_text")]
         public string ProcessedText { get; set; }
 

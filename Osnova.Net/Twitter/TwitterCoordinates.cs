@@ -3,11 +3,20 @@
 namespace Osnova.Net.Twitter
 {
     /// <summary>
-    /// 1.1
+    /// Twitter coordinates
+    /// <para/>
+    /// <remarks>API version: 1.1;
+    /// <para/>
     /// Doc source: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/geo
+    /// </remarks>
     /// </summary>
     public class TwitterCoordinates<T>
     {
+        #region Properties
+
+        /// <summary>
+        /// Collection of coordinates
+        /// </summary>
         [JsonPropertyName("coordinates")]
         public T Coordinates { get; set; }
 
@@ -16,5 +25,7 @@ namespace Osnova.Net.Twitter
         /// </summary>
         [JsonPropertyName("type")]
         public string Type { get; set; }
+        
+        #endregion
     }
 }

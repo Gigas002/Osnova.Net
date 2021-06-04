@@ -6,19 +6,25 @@ using Osnova.Net.JsonConverters;
 namespace Osnova.Net.Twitter.Enterprise
 {
     /// <summary>
-    /// 1.1
+    /// Twitter poll
+    /// <para/>
+    /// <remarks>API version: 1.1;
+    /// <para/>
     /// Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+    /// </remarks>
     /// </summary>
     public class TwitterPoll
     {
+        #region Properties
+        
         /// <summary>
-        /// An array of options, each having a poll position, and the text for that position
+        /// Collection of options, each having a poll position, and the text for that position
         /// </summary>
         [JsonPropertyName("options")]
         public IEnumerable<TwitterPollOption> Options { get; set; }
 
         /// <summary>
-        /// Time stamp (UTC) of when poll ends
+        /// Timestamp (UTC) of when poll ends
         /// </summary>
         [JsonConverter(typeof(TwitterV1DateTimeOffsetJsonConverter))]
         [JsonPropertyName("end_datetime")]
@@ -29,5 +35,7 @@ namespace Osnova.Net.Twitter.Enterprise
         /// </summary>
         [JsonPropertyName("duration_minutes")]
         public int DurationMinutes { get; set; }
+        
+        #endregion
     }
 }

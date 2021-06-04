@@ -5,11 +5,17 @@ using System.Text.Json.Serialization;
 namespace Osnova.Net.Twitter
 {
     /// <summary>
-    /// 1.1
+    /// Usual tweet's media
+    /// <para/>
+    /// <remarks>API version: 1.1;
+    /// <para/>
     /// Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+    /// </remarks>
     /// </summary>
     public class TweetMedia
     {
+        #region Properties
+        
         /// <summary>
         /// URL of the media to display to clients
         /// </summary>
@@ -84,10 +90,18 @@ namespace Osnova.Net.Twitter
         [JsonPropertyName("url")]
         public Uri Url { get; set; }
 
+        /// <summary>
+        /// Video's info
+        /// </summary>
         [JsonPropertyName("video_info")]
         public TwitterVideoInfo VideoInfo { get; set; }
 
+        /// <summary>
+        /// Additional media info
+        /// </summary>
         [JsonPropertyName("additional_media_info")]
         public TwitterAdditionalMediaInfo AdditionalMediaInfo { get; set; }
+        
+        #endregion
     }
 }

@@ -5,9 +5,16 @@ using System.Text.Json.Serialization;
 namespace Osnova.Net.Twitter
 {
     /// <summary>
-    /// 1.1/2.0
+    /// Twitter place
+    /// <para/>
+    /// <remarks>API version: 1.1, 2.0;
+    /// <para/>
+    /// Docs sources:
+    /// <para/>
     /// 1.1: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/geo
+    /// <para/>
     /// 2.0: https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/place
+    /// </remarks>
     /// </summary>
     public class TwitterPlace
     {

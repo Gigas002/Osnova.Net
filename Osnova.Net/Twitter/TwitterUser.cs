@@ -7,8 +7,12 @@ using Osnova.Net.Twitter.Enterprise;
 namespace Osnova.Net.Twitter
 {
     /// <summary>
-    /// 1.1
+    /// Twitter user
+    /// <para/>
+    /// <remarks>API version: 1.1;
+    /// <para/>
     /// Doc source: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/user
+    /// </remarks>
     /// </summary>
     public class TwitterUser
     {
@@ -22,6 +26,8 @@ namespace Osnova.Net.Twitter
 
         /// <summary>
         /// The string representation of the unique identifier for this User
+        /// <para/>
+        /// <remarks>Refers to "id_str" property in json</remarks>
         /// </summary>
         [JsonPropertyName("id_str")]
         public string IdString { get; set; }
@@ -57,6 +63,9 @@ namespace Osnova.Net.Twitter
         [JsonPropertyName("url")]
         public Uri Url { get; set; }
 
+        /// <summary>
+        /// Entities
+        /// </summary>
         [JsonPropertyName("entities")]
         public TwitterUserEntities Entities { get; set; }
 
@@ -140,102 +149,179 @@ namespace Osnova.Net.Twitter
         [JsonPropertyName("default_profile_image")]
         public bool DefaultProfileImage { get; set; }
 
+        /// <summary>
+        /// Withheld in countries
+        /// </summary>
         [JsonPropertyName("withheld_in_countries")]
         public IEnumerable<string> WithheldInCountries { get; set; }
 
+        /// <summary>
+        /// Withheld scope
+        /// </summary>
         [JsonPropertyName("withheld_scope")]
         public string WithheldScope { get; set; }
 
         #region Deprecated
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("utc_offset")]
         public object UtcOffset { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("time_zone")]
         public object TimeZone { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// <para/>
+        /// <remarks>Refers to "lang" property in json</remarks>
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("lang")]
         public object Language { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("geo_enabled")]
         public bool? GeoEnabled { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("following")]
         public object Following { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("follow_request_sent")]
         public object FollowRequestSent { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("has_extended_profile")]
         public bool? HasExtendedProfile { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("notifications")]
         public object Notifications { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_location")]
         public object ProfileLocation { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("contributors_enabled")]
         public bool? ContributorsEnabled { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_image_url")]
         public Uri ProfileImageUrl { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_background_color")]
         public string ProfileBackgroundColor { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_background_image_url")]
         public Uri ProfileBackgroundImageUrl { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_background_image_url_https")]
         public Uri ProfileBackgroundImageUrlHttps { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_background_tile")]
         public bool? ProfileBackgroundTile { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_link_color")]
         public string ProfileLinkColor { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_sidebar_border_color")]
         public string ProfileSidebarBorderColor { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_sidebar_fill_color")]
         public string ProfileSidebarFillColor { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_text_color")]
         public string ProfileTextColor { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("profile_use_background_image")]
         public bool? ProfileUseBackgroundImage { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("is_translator")]
         public bool? IsTranslator { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("is_translation_enabled")]
         public bool? IsTranslationEnabled { get; set; } = null;
 
+        /// <summary>
+        /// Always null
+        /// </summary>
         [Obsolete("null")]
         [JsonPropertyName("translator_type")]
         public string TranslatorType { get; set; } = null;

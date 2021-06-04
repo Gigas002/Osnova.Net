@@ -4,11 +4,17 @@ using System.Text.Json.Serialization;
 namespace Osnova.Net.Twitter
 {
     /// <summary>
-    /// 1.1
+    /// Twtitter hashtag
+    /// <para/>
+    /// <remarks>API version: 1.1;
+    /// <para/>
     /// Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+    /// </remarks>
     /// </summary>
     public class TwitterHashtag
     {
+        #region Properties
+
         /// <summary>
         /// An array of integers indicating the offsets within the Tweet text where the hashtag begins and ends
         /// </summary>
@@ -20,5 +26,7 @@ namespace Osnova.Net.Twitter
         /// </summary>
         [JsonPropertyName("text")]
         public string Text { get; set; }
+        
+        #endregion
     }
 }

@@ -5473,25 +5473,158 @@
             Ratio
             </summary>
         </member>
+        <member name="T:Osnova.Net.Telegram.TelegramAuthor">
+            <summary>
+            Author of telegram post
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramAuthor.Name">
+            <summary>
+            Author's name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramAuthor.AvatarUrl">
+            <summary>
+            Author's avatar's URL
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramAuthor.Url">
+            <summary>
+            Author's URL
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Telegram.TelegramData">
+            <summary>
+            Data of telegram post
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.Id">
+            <summary>
+            ID of the post
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.Url">
+            <summary>
+            URL of the post
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.Version">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.Text">
+            <summary>
+            Post's text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.Author">
+            <summary>
+            Post's author
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.Photos">
+            <summary>
+            Collection of photos in post
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.Videos">
+            <summary>
+            Collection of videos in post
+            </summary>
+        </member>
         <member name="P:Osnova.Net.Telegram.TelegramData.Views">
             <summary>
-            Don't use number types: there can be 880 or 10.7K stuff
+            Count of views
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.DateCreated">
+            <summary>
+            Date, when this post was created
+            <para/>
+            <remarks>Refers to "datetime" propert in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.IsSupported">
+            <summary>
+            Is supported?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramData.ForwardedFrom">
+            <summary>
+            Author, if post was supported
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Telegram.TelegramPhoto">
+            <summary>
+            Telegram image
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramPhoto.Width">
+            <summary>
+            Width of the image
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramPhoto.Height">
+            <summary>
+            Height of the image
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramPhoto.LeonardoUrl">
+            <summary>
+            URL of the image on leonardo
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Telegram.TelegramVideo">
+            <summary>
+            Telegram video
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramVideo.Url">
+            <summary>
+            URL of the video
+            <para/>
+            <remarks>Refers to "src" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramVideo.ThumbnailUrl">
+            <summary>
+            Thumbnail image's URL
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramVideo.Ratio">
+            <summary>
+            Ratio
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramVideo.Width">
+            <summary>
+            Width
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Telegram.TelegramVideo.Height">
+            <summary>
+            Height
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.Enterprise.TwitterPoll">
             <summary>
-            1.1
+            Twitter poll
+            <para/>
+            <remarks>API version: 1.1;
+            <para/>
             Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Enterprise.TwitterPoll.Options">
             <summary>
-            An array of options, each having a poll position, and the text for that position
+            Collection of options, each having a poll position, and the text for that position
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Enterprise.TwitterPoll.EndDatetime">
             <summary>
-            Time stamp (UTC) of when poll ends
+            Timestamp (UTC) of when poll ends
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Enterprise.TwitterPoll.DurationMinutes">
@@ -5501,12 +5634,25 @@
         </member>
         <member name="T:Osnova.Net.Twitter.Enterprise.TwitterPollOption">
             <summary>
-            1.1
+            Twitter poll's option
+            <para/>
+            <remarks>API version: 1.1</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterPollOption.Position">
+            <summary>
+            Position in poll
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterPollOption.Text">
+            <summary>
+            Text value
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.Enterprise.TwitterUserDerived">
             <summary>
-            1.1/2.0
+            API version: 1.1/2.0;
+            <para/>
             Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/geo
             </summary>
         </member>
@@ -5517,42 +5663,182 @@
         </member>
         <member name="T:Osnova.Net.Twitter.Enterprise.TwitterUserLocation">
             <summary>
-            1.1/2.0
+            API version: 1.1/2.0
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterUserLocation.Country">
+            <summary>
+            Country
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterUserLocation.ConutryCode">
+            <summary>
+            Country code
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterUserLocation.Locality">
+            <summary>
+            Locality
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterUserLocation.Region">
+            <summary>
+            Region
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterUserLocation.SubRegion">
+            <summary>
+            Subregion
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterUserLocation.FullName">
+            <summary>
+            Full name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Enterprise.TwitterUserLocation.Geo">
+            <summary>
+            Geo coordinates
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.OsnovaTweet">
             <summary>
-            OsnovaShit
+            Osnova implementation of <see cref="T:Osnova.Net.Twitter.Tweet"/> v 1.1;
             Used for GetTweets method only
-            Refers to Tweet spec
+            <para/>
+            <remarks>Refers to Tweet spec</remarks>
             </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTweet.User">
+            <summary>
+            Tweet's author
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTweet.Id">
+            <summary>
+            Tweet's ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTweet.CreatedAt">
+            <summary>
+            Date when this tweet was created
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTweet.HasMedia">
+            <summary>
+            Has media?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTweet.Media">
+            <summary>
+            Collection of <see cref="T:Osnova.Net.Twitter.OsnovaTweetMedia"/> elements, if any
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Twitter.OsnovaTweet.GetTweetsUri(Osnova.Net.Enums.WebsiteKind,Osnova.Net.Enums.TweetSorting,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets tweets URL
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="tweetSorting">Sorting of tweets</param>
+            <param name="count">Count of tweets</param>
+            <param name="offset">Tweet offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/tweets/fresh?count=10</returns>
+        </member>
+        <member name="M:Osnova.Net.Twitter.OsnovaTweet.GetTweetsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,Osnova.Net.Enums.TweetSorting,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets tweets
+            <para/>
+            <remarks>Original name: getTweets</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="tweetSorting">Sorting of tweets</param>
+            <param name="count">Count of tweets</param>
+            <param name="offset">Tweet offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested tweets</returns>
+        </member>
+        <member name="M:Osnova.Net.Twitter.OsnovaTweet.GetTweetsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,Osnova.Net.Enums.TweetSorting,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets tweets
+            <para/>
+            <remarks>Original name: getTweets</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="tweetSorting">Sorting of tweets</param>
+            <param name="count">Count of tweets</param>
+            <param name="offset">Tweet offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested tweets</returns>
         </member>
         <member name="T:Osnova.Net.Twitter.OsnovaTweetMedia">
             <summary>
-            OsnovaShit
+            Osnova implementation of <see cref="T:Osnova.Net.Twitter.TweetMedia"/> v 1.1;
             Used for GetTweets method only
-            Refers to Tweetmedium spec
+            <para/>
+            <remarks>Refers to Tweetmedium spec</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTweetMedia.Type">
+            <summary>
+            Media type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTweetMedia.ThumbnailUrl">
+            <summary>
+            Thumbnail URL
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTweetMedia.ThumbnailWidth">
+            <summary>
+            Thumbnail's width
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTweetMedia.ThumbnailHeight">
+            <summary>
+            Thumbnail's height
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTweetMedia.Ratio">
+            <summary>
+            Ratio
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.OsnovaTwitterUser">
             <summary>
-            OsnovaShit
+            Osnova implementation of <see cref="T:Osnova.Net.Twitter.TwitterUser"/> v 1.1;
             Used for GetTweets method only
-            Refers to TweetUser spec
+            <para/>
+            <remarks>Refers to TweetUser spec</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTwitterUser.CreatedAt">
+            <summary>
+            Date, when this user was created
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.OsnovaTwitterUser.ProfileImageUrlBigger">
+            <summary>
+            Profile image's URL
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.Tweet">
             <summary>
-            1.1
-            Used inside blocks
+            Usual tweet, used inside blocks
+            <para/>
+            <remarks>API version: 1.1;
             <para/>
             Doc source: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/tweet
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.CreatedAt">
             <summary>
-            UTC time when this Tweet was created. Example:
-            Wed Oct 10 20:19:24 +0000 2018
+            UTC time when this Tweet was created
+            <para/>
+            <remarks>Example: Wed Oct 10 20:19:24 +0000 2018</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.Id">
@@ -5563,6 +5849,8 @@
         <member name="P:Osnova.Net.Twitter.Tweet.IdString">
             <summary>
             The string representation of the unique identifier for this Tweet
+            <para/>
+            <remarks>Refers to "id_str" property in json</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.Text">
@@ -5590,22 +5878,30 @@
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.InReplyToStatusIdString">
             <summary>
-            Nullable. If the represented Tweet is a reply, this field will contain the string representation of the original Tweet’s ID
+            If the represented Tweet is a reply, this field will contain the string representation of the original Tweet’s ID
+            <para/>
+            <remarks>Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.InReplyToUserId">
             <summary>
-            Nullable. If the represented Tweet is a reply, this field will contain the integer representation of the original Tweet’s author ID
+            If the represented Tweet is a reply, this field will contain the integer representation of the original Tweet’s author ID
+            <para/>
+            <remarks>Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.InReplyToUserIdString">
             <summary>
-            Nullable. If the represented Tweet is a reply, this field will contain the string representation of the original Tweet’s author ID
+            If the represented Tweet is a reply, this field will contain the string representation of the original Tweet’s author ID
+            <para/>
+            <remarks>Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.InReplyToScreenName">
             <summary>
-            Nullable. If the represented Tweet is a reply, this field will contain the screen name of the original Tweet’s author
+            If the represented Tweet is a reply, this field will contain the screen name of the original Tweet’s author
+            <para/>
+            <remarks>Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.User">
@@ -5615,12 +5911,16 @@
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.Coordinates">
             <summary>
-            Nullable. Represents the geographic location of this Tweet as reported by the user or client application
+            Represents the geographic location of this Tweet as reported by the user or client application
+            <para/>
+            <remarks>Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.Place">
             <summary>
-            Nullable When present, indicates that the tweet is associated (but not necessarily originating from) a Place
+            When present, indicates that the tweet is associated (but not necessarily originating from) a Place
+            <para/>
+            <remarks>Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.QuotedStatusId">
@@ -5651,7 +5951,9 @@
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.QuoteCount">
             <summary>
-            Nullable. Indicates approximately how many times this Tweet has been quoted by Twitter users
+            Indicates approximately how many times this Tweet has been quoted by Twitter users
+            <para/>
+            <remarks>Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.ReplyCount">
@@ -5666,7 +5968,9 @@
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.FavoriteCount">
             <summary>
-            Nullable. Indicates approximately how many times this Tweet has been liked by Twitter users
+            Indicates approximately how many times this Tweet has been liked by Twitter users
+            <para/>
+            <remarks>Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.Entities">
@@ -5682,7 +5986,9 @@
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.Favorited">
             <summary>
-            Nullable. Indicates whether this Tweet has been liked by the authenticating user
+            Indicates whether this Tweet has been liked by the authenticating user
+            <para/>
+            <remarks>Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.Retweeted">
@@ -5692,9 +5998,11 @@
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.PossiblySensitive">
             <summary>
-            Nullable. This field only surfaces when a Tweet contains a link.
+            This field only surfaces when a Tweet contains a link.
             The meaning of the field doesn’t pertain to the Tweet content itself, but instead it is an
             indicator that the URL contained in the Tweet may contain content or media identified as sensitive content
+            <para/>
+            <remarks>Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.FilterLevel">
@@ -5705,8 +6013,12 @@
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.Culture">
             <summary>
-            Nullable. When present, indicates a BCP 47 language identifier corresponding to the machine-detected
+            When present, indicates a BCP 47 language identifier corresponding to the machine-detected
             language of the Tweet text, or und if no language could be detected
+            <para/>
+            <remarks>Refers to "lang" property in json
+            <para/>
+            Nullable</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.MatchingRules">
@@ -5744,14 +6056,44 @@
         </member>
         <member name="P:Osnova.Net.Twitter.Tweet.Geo">
             <summary>
-            Deprecated. Nullable. Use the coordinates field instead.
             This deprecated attribute has its coordinates formatted as [lat, long], while all other Tweet geo is formatted as [long, lat].
+            <para/>
+            <remarks>Nullable</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.FullText">
+            <summary>
+            Full tweet's text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.DisplayTextRange">
+            <summary>
+            Display text range
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.Contributors">
+            <summary>
+            Contributors
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.PossiblySensitiveAppealable">
+            <summary>
+            Is this tweet possibly sensitive?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.Tweet.ProcessedText">
+            <summary>
+            Processed text
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.TweetMedia">
             <summary>
-            1.1
+            Usual tweet's media
+            <para/>
+            <remarks>API version: 1.1;
+            <para/>
             Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TweetMedia.DisplayUrl">
@@ -5816,20 +6158,38 @@
             into the raw Tweet text, and the values for the indices parameter
             </summary>
         </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.VideoInfo">
+            <summary>
+            Video's info
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TweetMedia.AdditionalMediaInfo">
+            <summary>
+            Additional media info
+            </summary>
+        </member>
         <member name="T:Osnova.Net.Twitter.TweetMediaSize">
             <summary>
-            1.1
+            Tweet media's size
+            <para/>
+            <remarks>API version: 1.1;
+            <para/>
             Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TweetMediaSize.Width">
             <summary>
             Width in pixels of this size
+            <para/>
+            <remarks>Refers to "w" property in json</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TweetMediaSize.Height">
             <summary>
             Height in pixels of this size
+            <para/>
+            <remarks>Refers to "h" property in json</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TweetMediaSize.Resize">
@@ -5841,13 +6201,19 @@
         </member>
         <member name="T:Osnova.Net.Twitter.TweetMediaSizes">
             <summary>
-            1.1
+            Tweet media's sizes
+            <para/>
+            <remarks>API version: 1.1;
+            <para/>
             Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TweetMediaSizes.Thumbnail">
             <summary>
             Information for a thumbnail-sized version of the media
+            <para/>
+            <remarks>Refers to "thumb" property in json</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TweetMediaSizes.Large">
@@ -5865,10 +6231,48 @@
             Information for a small-sized version of the media
             </summary>
         </member>
+        <member name="T:Osnova.Net.Twitter.TwitterAdditionalMediaInfo">
+            <summary>
+            Additional tweet media info
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterAdditionalMediaInfo.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterAdditionalMediaInfo.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterAdditionalMediaInfo.IsEmbeddable">
+            <summary>
+            Is embeddable?
+            <para/>
+            <remarks>Refers to "embeddable" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterAdditionalMediaInfo.IsMonetizable">
+            <summary>
+            Is monetizable?
+            <para/>
+            <remarks>Refers to "monetizable" property in json</remarks>
+            </summary>
+        </member>
         <member name="T:Osnova.Net.Twitter.TwitterCoordinates`1">
             <summary>
-            1.1
+            Twitter coordinates
+            <para/>
+            <remarks>API version: 1.1;
+            <para/>
             Doc source: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/geo
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterCoordinates`1.Coordinates">
+            <summary>
+            Collection of coordinates
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterCoordinates`1.Type">
@@ -5877,10 +6281,14 @@
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.TwitterEntities">
-            <summary>
-            1.1
-            Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
-            </summary>
+             <summary>
+            Twitter entities
+             <para/>
+             <remarks>API version: 1.1;
+             <para/>
+             Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+             </remarks>
+             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterEntities.Hashtags">
             <summary>
@@ -5914,8 +6322,12 @@
         </member>
         <member name="T:Osnova.Net.Twitter.TwitterEntityExpandedUrl">
             <summary>
-            1.1
+            Twitter expanded URL
+            <para/>
+            <remarks>API version: 1.1;
+            <para/>
             Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterEntityExpandedUrl.Url">
@@ -5940,8 +6352,12 @@
         </member>
         <member name="T:Osnova.Net.Twitter.TwitterEntityUrl">
             <summary>
-            1.1
+            Twitter entity URL
+            <para/>
+            <remarks>API version: 1.1;
+            <para/>
             Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterEntityUrl.DisplayUrl">
@@ -5971,13 +6387,36 @@
         </member>
         <member name="T:Osnova.Net.Twitter.TwitterGeo">
             <summary>
-            2.0
+            Twitter geo info
+            <para/>
+            <remarks>API version: 2.0</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterGeo.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterGeo.BoundingBox">
+            <summary>
+            Coordinate borders
+            <para/>
+            <remarks>Refers to "id_str" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterGeo.Properties">
+            <summary>
+            Properties
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.TwitterHashtag">
             <summary>
-            1.1
+            Twtitter hashtag
+            <para/>
+            <remarks>API version: 1.1;
+            <para/>
             Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterHashtag.Indices">
@@ -5992,9 +6431,16 @@
         </member>
         <member name="T:Osnova.Net.Twitter.TwitterPlace">
             <summary>
-            1.1/2.0
+            Twitter place
+            <para/>
+            <remarks>API version: 1.1, 2.0;
+            <para/>
+            Docs sources:
+            <para/>
             1.1: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/geo
+            <para/>
             2.0: https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/place
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterPlace.Id">
@@ -6054,8 +6500,12 @@
         </member>
         <member name="T:Osnova.Net.Twitter.TwitterUser">
             <summary>
-            1.1
+            Twitter user
+            <para/>
+            <remarks>API version: 1.1;
+            <para/>
             Doc source: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/user
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterUser.Id">
@@ -6066,6 +6516,8 @@
         <member name="P:Osnova.Net.Twitter.TwitterUser.IdString">
             <summary>
             The string representation of the unique identifier for this User
+            <para/>
+            <remarks>Refers to "id_str" property in json</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterUser.Name">
@@ -6092,6 +6544,11 @@
         <member name="P:Osnova.Net.Twitter.TwitterUser.Url">
             <summary>
             Nullable. A URL provided by the user in association with their profile
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Entities">
+            <summary>
+            Entities
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterUser.Description">
@@ -6159,15 +6616,158 @@
             When true, indicates that the user has not uploaded their own profile image and a default image is used instead
             </summary>
         </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.WithheldInCountries">
+            <summary>
+            Withheld in countries
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.WithheldScope">
+            <summary>
+            Withheld scope
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.UtcOffset">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.TimeZone">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Language">
+            <summary>
+            Always null
+            <para/>
+            <remarks>Refers to "lang" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.GeoEnabled">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Following">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.FollowRequestSent">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.HasExtendedProfile">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.Notifications">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileLocation">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ContributorsEnabled">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileImageUrl">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileBackgroundColor">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileBackgroundImageUrl">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileBackgroundImageUrlHttps">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileBackgroundTile">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileLinkColor">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileSidebarBorderColor">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileSidebarFillColor">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileTextColor">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.ProfileUseBackgroundImage">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.IsTranslator">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.IsTranslationEnabled">
+            <summary>
+            Always null
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUser.TranslatorType">
+            <summary>
+            Always null
+            </summary>
+        </member>
         <member name="T:Osnova.Net.Twitter.TwitterUserEntities">
             <summary>
-            1.1
+            Twitter user entities
+            <para/>
+            <remarks>API version: 1.1</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUserEntities.Url">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterUserEntities.Description">
+            <summary>
+            Description
             </summary>
         </member>
         <member name="T:Osnova.Net.Twitter.TwitterUserMentions">
             <summary>
-            1.1
+            Twitter user mentions
+            <para/>
+            <remarks>API version: 1.1;
+            <para/>
             Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+            </remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterUserMentions.Id">
@@ -6178,6 +6778,8 @@
         <member name="P:Osnova.Net.Twitter.TwitterUserMentions.IdString">
             <summary>
             ID of the mentioned user, as a string
+            <para/>
+            <remarks>Refers to "id_str" property in json</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Twitter.TwitterUserMentions.Indices">
@@ -6193,6 +6795,48 @@
         <member name="P:Osnova.Net.Twitter.TwitterUserMentions.ScreenName">
             <summary>
             Screen name of the referenced user
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterVideoInfo">
+            <summary>
+            Twitter video info
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterVideoInfo.AspectRatio">
+            <summary>
+            Aspect ratio
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterVideoInfo.DurationMilliseconds">
+            <summary>
+            Duration in milliseconds
+            <para/>
+            <remarks>Refers to "duration_millis" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterVideoInfo.Variants">
+            <summary>
+            Variants
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Twitter.TwitterVideoInfoVariant">
+            <summary>
+            Twitter video info variant
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterVideoInfoVariant.Bitrate">
+            <summary>
+            Bitrate
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterVideoInfoVariant.ContentType">
+            <summary>
+            Content type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Twitter.TwitterVideoInfoVariant.Url">
+            <summary>
+            URL
             </summary>
         </member>
         <member name="T:Osnova.Net.Users.ISubsite">

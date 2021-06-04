@@ -4,11 +4,17 @@ using System.Text.Json.Serialization;
 namespace Osnova.Net.Twitter
 {
     /// <summary>
-    /// 1.1
+    /// Twitter expanded URL
+    /// <para/>
+    /// <remarks>API version: 1.1;
+    /// <para/>
     /// Doc src: https://developer.twitter.com/en/docs/twitter-api/enterprise/data-dictionary/native-enriched-objects/entities
+    /// </remarks>
     /// </summary>
     public class TwitterEntityExpandedUrl
     {
+        #region Properties
+        
         /// <summary>
         /// The fully unwound version of the link included in the Tweet
         /// </summary>
@@ -32,5 +38,7 @@ namespace Osnova.Net.Twitter
         /// </summary>
         [JsonPropertyName("description")]
         public string Description { get; set; }
+        
+        #endregion
     }
 }
