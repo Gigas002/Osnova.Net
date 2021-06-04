@@ -33,6 +33,14 @@ namespace Osnova.Net.Blocks
         [JsonPropertyName("anchor")]
         public string Anchor { get; set; }
 
+        /// <summary>
+        /// Is this a hidden spoiler block?
+        /// <para/>
+        /// <remarks>Refers to "hidden" property in json</remarks>
+        /// </summary>
+        [JsonPropertyName("hidden")]
+        public bool IsHidden { get; set; }
+        
         [JsonExtensionData]
         public Dictionary<string, object> Undeserialized { get; set; } // TODO: remove
 

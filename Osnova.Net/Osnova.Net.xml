@@ -837,6 +837,13 @@
             Hyperlink to some object in block
             </summary>
         </member>
+        <member name="P:Osnova.Net.Blocks.Block.IsHidden">
+            <summary>
+            Is this a hidden spoiler block?
+            <para/>
+            <remarks>Refers to "hidden" property in json</remarks>
+            </summary>
+        </member>
         <member name="M:Osnova.Net.Blocks.Block.#ctor(Osnova.Net.Enums.BlockType)">
             <summary>
             Create <see cref="T:Osnova.Net.Blocks.Block"/>
