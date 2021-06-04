@@ -96,6 +96,8 @@ namespace Osnova.Net.OsnovaEvents
 
             return new Uri($"{baseUri}/events");
         }
+        
+        // TODO: use use enums for city id/spec id if possible
 
         #region GET
 

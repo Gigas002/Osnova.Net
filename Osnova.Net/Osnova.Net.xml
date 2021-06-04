@@ -5207,6 +5207,96 @@
             Popular entries/comments
             </summary>
         </member>
+        <member name="P:Osnova.Net.Popular.PopularBase.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Popular.PopularBase.Type">
+            <summary>
+            Content type (entry or comment)
+            <para/>
+            <remarks>Refers to "item_type" property in json</remarks>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Popular.PopularBase.#ctor(Osnova.Net.Enums.ContentType)">
+            <summary>
+            Create new popular object of specified type
+            </summary>
+            <param name="type">Type of popular object</param>
+        </member>
+        <member name="M:Osnova.Net.Popular.PopularBase.GetPopularType">
+            <summary>
+            Get real <see cref="T:System.Type"/> of this object
+            </summary>
+            <returns><see cref="T:System.Type"/></returns>
+        </member>
+        <member name="M:Osnova.Net.Popular.PopularBase.GetPopularType(Osnova.Net.Enums.ContentType)">
+            <summary>
+            Get real <see cref="T:System.Type"/>
+            </summary>
+            <param name="type">Enum type of popular object</param>
+            <returns><see cref="T:System.Type"/></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"/>
+        </member>
+        <member name="M:Osnova.Net.Popular.PopularBase.GetPopularType(System.String)">
+            <summary>
+            Get <see cref="T:Osnova.Net.Enums.ContentType"/> from <see cref="T:System.String"/>
+            </summary>
+            <param name="type">Type as string</param>
+            <returns><see cref="T:Osnova.Net.Enums.ContentType"/></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"/>
+        </member>
+        <member name="M:Osnova.Net.Popular.PopularBase.GetPopularTypeString(Osnova.Net.Enums.ContentType)">
+            <summary>
+            Get <see cref="T:System.String"/> from <see cref="T:Osnova.Net.Enums.ContentType"/>
+            </summary>
+            <param name="type">Type as string</param>
+            <returns><see cref="T:System.String"/></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"/>
+        </member>
+        <member name="T:Osnova.Net.Popular.PopularComments">
+            <summary>
+            Popular comments
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Popular.PopularComments.Items">
+            <summary>
+            Collection of popular comments
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Popular.PopularComments.#ctor">
+            <summary>
+            Creates new empty <see cref="T:Osnova.Net.Popular.PopularComments"/> object
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Popular.PopularComments.#ctor(System.Collections.Generic.IEnumerable{Osnova.Net.Comments.Comment})">
+            <summary>
+            Creates new <see cref="T:Osnova.Net.Popular.PopularComments"/> object with items
+            </summary>
+            <param name="items">Collection of popular comments</param>
+        </member>
+        <member name="T:Osnova.Net.Popular.PopularEntries">
+            <summary>
+            Popular entries
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Popular.PopularEntries.Items">
+            <summary>
+            Collection of popular entries
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Popular.PopularEntries.#ctor">
+            <summary>
+            Creates new empty <see cref="T:Osnova.Net.Popular.PopularEntries"/> object
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Popular.PopularEntries.#ctor(System.Collections.Generic.IEnumerable{Osnova.Net.Entries.Entry})">
+            <summary>
+            Creates new <see cref="T:Osnova.Net.Popular.PopularEntries"/> object with items
+            </summary>
+            <param name="items">Collection of popular entries</param>
+        </member>
         <member name="M:Osnova.Net.Push.GetUserPushTopicAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
             Requires authentication!
@@ -5224,6 +5314,94 @@
             <param name="websiteKind"></param>
             <param name="apiVersion"></param>
             <returns></returns>
+        </member>
+        <member name="T:Osnova.Net.Quiz.Quiz">
+            <summary>
+            Quiz
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Quiz.Quiz.Items">
+            <summary>
+            Collection of hash/QuizResults
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Quiz.Quiz.Winner">
+            <summary>
+            Quiz winner's hash
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Quiz.Quiz.UserVoted">
+            <summary>
+            Voted result hash
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Quiz.Quiz.GetDefaultQuizUrl(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets default quiz URL
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/quiz</returns>
+        </member>
+        <member name="M:Osnova.Net.Quiz.Quiz.GetQuizResultsUri(Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
+            <summary>
+            Gets an URL to get quiz results
+            <para/>
+            <remarks>Original name: getQuizResults</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="quizHash">Quiz hash</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/quiz/hash/results</returns>
+        </member>
+        <member name="M:Osnova.Net.Quiz.Quiz.GetQuizResultsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
+            <summary>
+            Gets quiz results
+            <para/>
+            <remarks>Original name: getQuizResults</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="quizHash">Quiz hash</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested quiz's results</returns>
+        </member>
+        <member name="M:Osnova.Net.Quiz.Quiz.GetQuizResultsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
+            <summary>
+            Gets quiz results
+            <para/>
+            <remarks>Original name: getQuizResults</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="quizHash">Quiz hash</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested quiz's results</returns>
+        </member>
+        <member name="T:Osnova.Net.Quiz.QuizResult">
+            <summary>
+            Represents part of quiz items collection
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Quiz.QuizResult.Count">
+            <summary>
+            Count of votes for this result
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Quiz.QuizResult.Total">
+            <summary>
+            Total count of votes in quiz
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Quiz.QuizResult.Percentage">
+            <summary>
+            Percentage of votes
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Quiz.QuizResult.IsWinner">
+            <summary>
+            Is this result winner?
+            </summary>
         </member>
         <member name="T:Osnova.Net.Rates.Rate">
             <summary>
@@ -5245,14 +5423,35 @@
             Currency symbol
             </summary>
         </member>
+        <member name="M:Osnova.Net.Rates.Rate.GetDefaultRatesUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets default rates URL
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/rates</returns>
+        </member>
+        <member name="M:Osnova.Net.Rates.Rate.GetRatesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets rates
+            <para/>
+            <remarks>Original name: getRates</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested rates</returns>
+        </member>
         <member name="M:Osnova.Net.Rates.Rate.GetRatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
-            Requires authentication!
+            Gets rates
+            <para/>
+            <remarks>Original name: getRates</remarks>
             </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested rates</returns>
         </member>
         <member name="T:Osnova.Net.Size">
             <summary>

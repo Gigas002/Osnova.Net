@@ -13,6 +13,8 @@ namespace Osnova.Net.Rates
     /// </summary>
     public class Rate
     {
+        #region Properties
+
         /// <summary>
         /// Rate value
         /// </summary>
@@ -32,34 +34,61 @@ namespace Osnova.Net.Rates
         [JsonPropertyName("sym")]
         public string Symbol { get; set; }
 
-        #region GetRates
+        #endregion
 
-        public static Uri GetRatesUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        #region Methods
+
+        /// <summary>
+        /// Gets default rates URL
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/rates</returns>
+        public static Uri GetDefaultRatesUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
             return new Uri($"{baseUri}/rates");
         }
 
+        #region GET
+
+        #region GetRates
+        
+        /// <summary>
+        /// Gets rates
+        /// <para/>
+        /// <remarks>Original name: getRates</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested rates</returns>
         public static ValueTask<HttpResponseMessage> GetRatesResponseAsync(HttpClient client, WebsiteKind websiteKind,
                                                                            double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetRatesUri(websiteKind, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetDefaultRatesUri(websiteKind, apiVersion));
         }
 
         /// <summary>
-        /// Requires authentication!
+        /// Gets rates
+        /// <para/>
+        /// <remarks>Original name: getRates</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested rates</returns>
         public static async ValueTask<Dictionary<string, Rate>> GetRatesAsync(HttpClient client, WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
             using var response = await GetRatesResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<Dictionary<string, Rate>>(response).ConfigureAwait(false);
         }
+
+        #endregion
+        
+        #endregion
 
         #endregion
     }
