@@ -5,9 +5,13 @@ namespace Osnova.Net.Users
 {
     /// <summary>
     /// Also known as "Subsite" and, in most cases, "User"
+    /// <para/>
+    /// <remarks>Refers to Subsite specification</remarks>
     /// </summary>
     public interface ISubsite : IUser
     {
+        #region Properties
+
         /// <summary>
         /// Profile type
         /// </summary>
@@ -66,6 +70,9 @@ namespace Osnova.Net.Users
         /// </summary>
         public DateTimeOffset DateCreatedRfc { get; set; }
 
+        /// <summary>
+        /// Push topic
+        /// </summary>
         public string PushTopic { get; set; }
 
         /// <summary>
@@ -87,5 +94,7 @@ namespace Osnova.Net.Users
         /// Profile contacts
         /// </summary>
         public UserContacts Contacts { get; set; }
+        
+        #endregion
     }
 }

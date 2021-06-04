@@ -10,6 +10,8 @@ namespace Osnova.Net.Users
     /// </summary>
     public interface IUser
     {
+        #region Properties
+        
         /// <summary>
         /// Profile's ID
         /// </summary>
@@ -59,5 +61,7 @@ namespace Osnova.Net.Users
         /// Collection of social accounts, if there are any
         /// </summary>
         public IEnumerable<SocialAccount> SocialAccounts { get; set; }
+        
+        #endregion
     }
 }

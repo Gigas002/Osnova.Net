@@ -6839,9 +6839,109 @@
             URL
             </summary>
         </member>
+        <member name="T:Osnova.Net.Users.AdvancedAccess">
+            <summary>
+            User's advanced access properties
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.AdvancedAccess.IsNeedsAdvancedAccess">
+            <summary>
+            Is this user needs advanced acceess?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.AdvancedAccess.Actions">
+            <summary>
+            Additional actions
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.AdvancedAccess.DtfSubscription">
+            <summary>
+            DTF subscription
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.AdvancedAccess.TjournalSubscription">
+            <summary>
+            Tjournal subscription
+            <para/>
+            <remarks>Refers to "tv_subscription" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.AdvancedAccess.VcSubscription">
+            <summary>
+            VC subscription
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.AdvancedAccess.Hash">
+            <summary>
+            Hash
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Users.AdvancedAccessActions">
+            <summary>
+            Additional actions for <see cref="T:Osnova.Net.Users.AdvancedAccess"/>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.AdvancedAccessActions.CanReadComments">
+            <summary>
+            Can read comments?
+            <para/>
+            <remarks>Refers to "read_comments" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.AdvancedAccessActions.CanWriteComments">
+            <summary>
+            Can write comments?
+            <para/>
+            <remarks>Refers to "write_comments" property in json</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Users.AvatarInfo">
+            <summary>
+            User's avatar info
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.AvatarInfo.AvatarUrl">
+            <summary>
+            Avatar's URL
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.AvatarInfo.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Users.BanInfo">
+            <summary>
+            User's ban info
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.BanInfo.WhoBanned">
+            <summary>
+            User, who banned current user
+            <para/>
+            <remarks>Refers to "who" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.BanInfo.Text">
+            <summary>
+            Ban text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.BanInfo.Until">
+            <summary>
+            Date, until ban is valid
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.BanInfo.Reason">
+            <summary>
+            Why is this user banned?
+            </summary>
+        </member>
         <member name="T:Osnova.Net.Users.ISubsite">
             <summary>
             Also known as "Subsite" and, in most cases, "User"
+            <para/>
+            <remarks>Refers to Subsite specification</remarks>
             </summary>
         </member>
         <member name="P:Osnova.Net.Users.ISubsite.Type">
@@ -6900,6 +7000,11 @@
         <member name="P:Osnova.Net.Users.ISubsite.DateCreatedRfc">
             <summary>
             Date, when this profile was created in RFC2822 format
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.ISubsite.PushTopic">
+            <summary>
+            Push topic
             </summary>
         </member>
         <member name="P:Osnova.Net.Users.ISubsite.AdvancedAccess">
@@ -6977,6 +7082,70 @@
         <member name="P:Osnova.Net.Users.IUser.SocialAccounts">
             <summary>
             Collection of social accounts, if there are any
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Users.MentionedUser">
+            <summary>
+            User, who was mentioned somewhere on the website
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.MentionedUser.Name">
+            <summary>
+            User's name
+            <para/>
+            <remarks>Refers to "text" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.MentionedUser.AvatarUrl">
+            <summary>
+            User's avatar URL
+            <para/>
+            <remarks>Refers to "img" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.MentionedUser.IsMe">
+            <summary>
+            Is mentioned user me?
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Users.SocialAccount">
+            <summary>
+            User's social account
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.SocialAccount.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.SocialAccount.Type">
+            <summary>
+            Account type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.SocialAccount.Username">
+            <summary>
+            User's username
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.SocialAccount.Url">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Users.Subscription">
+            <summary>
+            User's subscription
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.Subscription.IsActive">
+            <summary>
+            Is subscription active?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.Subscription.ActiveUntil">
+            <summary>
+            Date, until which subscription is active
             </summary>
         </member>
         <member name="T:Osnova.Net.Users.User">
@@ -7278,9 +7447,66 @@
             <param name="apiVersion"></param>
             <returns></returns>
         </member>
+        <member name="T:Osnova.Net.Users.UserContacts">
+            <summary>
+            User's contacts
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.UserContacts.SocialAccounts">
+            <summary>
+            Collection of user's external social accounts
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.UserContacts.Site">
+            <summary>
+            External website's info
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.UserContacts.Email">
+            <summary>
+            Email address
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.UserContacts.Contacts">
+            <summary>
+            Contacts
+            </summary>
+        </member>
         <member name="T:Osnova.Net.Users.UserCounters">
             <summary>
-            Refers to Counters specification
+            Counters for user entries, comments and favorites
+            <para/>
+            <remarks>Refers to Counters specification</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.UserCounters.Entries">
+            <summary>
+            Count of entries
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.UserCounters.Comments">
+            <summary>
+            Count of comments
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.UserCounters.Favorites">
+            <summary>
+            Favorites count
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Users.WebsiteInfo">
+            <summary>
+            External website's info
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.WebsiteInfo.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Users.WebsiteInfo.Url">
+            <summary>
+            URL
             </summary>
         </member>
         <member name="T:Osnova.Net.Vacancies.IVacancy">

@@ -3,17 +3,32 @@
 namespace Osnova.Net.Users
 {
     /// <summary>
-    /// Refers to Counters specification
+    /// Counters for user entries, comments and favorites
+    /// <para/>
+    /// <remarks>Refers to Counters specification</remarks>
     /// </summary>
-    public class UserCounters
+    public class UserCounters // TODO: obsolete with Dictionary<string, IEnumerable<int>>?
     {
+        #region Properties
+        
+        /// <summary>
+        /// Count of entries
+        /// </summary>
         [JsonPropertyName("entries")]
         public int Entries { get; set; }
 
+        /// <summary>
+        /// Count of comments
+        /// </summary>
         [JsonPropertyName("comments")]
         public int Comments { get; set; }
 
+        /// <summary>
+        /// Favorites count
+        /// </summary>
         [JsonPropertyName("favorites")]
         public int Favorites { get; set; }
+        
+        #endregion
     }
 }
