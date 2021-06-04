@@ -15,9 +15,11 @@ namespace Osnova.Net.Filters
 
         #region IEventFilter implementation
 
+        /// <inheritdoc />
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
+        /// <inheritdoc />
         [JsonPropertyName("title")]
         public string Title { get; set; }
 
@@ -25,16 +27,30 @@ namespace Osnova.Net.Filters
 
         #region From actual queries
 
+        /// <summary>
+        /// Is still active?
+        /// </summary>
         [JsonPropertyName("active")]
         public bool IsActive { get; set; }
 
+        /// <summary>
+        /// Name
+        /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Applies to which country?
+        /// <para/>
+        /// <remarks>Refers to "country_code" property in json</remarks>
+        /// </summary>
         [JsonConverter(typeof(CultureInfoJsonConverter))]
         [JsonPropertyName("country_code")]
         public CultureInfo Culture { get; set; }
 
+        /// <summary>
+        /// Content count
+        /// </summary>
         [JsonPropertyName("content_count")]
         public int ContentCount { get; set; }
 

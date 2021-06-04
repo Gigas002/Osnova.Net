@@ -174,7 +174,7 @@ namespace Osnova.Net.Entries
 
         /// <inheritdoc />
         [JsonPropertyName("repost")]
-        public Repost Repost { get; set; }
+        public EntryRepost Repost { get; set; }
 
         /// <inheritdoc />
         [JsonPropertyName("commentsSeenCount")]

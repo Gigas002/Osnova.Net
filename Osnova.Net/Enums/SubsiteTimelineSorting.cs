@@ -1,6 +1,6 @@
 ﻿namespace Osnova.Net.Enums
 {
-    public enum SubsiteTimelineSorting
+    public enum SubsiteTimelineSorting // TODO: one sorting?
     {
         Default,
         New,

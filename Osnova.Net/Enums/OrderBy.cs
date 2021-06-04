@@ -1,6 +1,6 @@
 ﻿namespace Osnova.Net.Enums
 {
-    public enum OrderBy
+    public enum OrderBy // TODO: use one Sorting
     {
         Relevant,
         Date

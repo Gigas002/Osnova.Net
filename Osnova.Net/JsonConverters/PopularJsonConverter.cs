@@ -6,8 +6,12 @@ using Osnova.Net.Popular;
 
 namespace Osnova.Net.JsonConverters
 {
+    /// <summary>
+    /// Converts <see cref="PopularBase"/> to specified children type
+    /// </summary>
     public class PopularJsonConverter : JsonConverter<PopularBase>
     {
+        /// <inheritdoc />
         public override PopularBase Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             using var document = JsonDocument.ParseValue(ref reader);
@@ -20,6 +24,7 @@ namespace Osnova.Net.JsonConverters
             return (PopularBase)JsonSerializer.Deserialize(document.RootElement.GetRawText(), type);
         }
 
+        /// <inheritdoc />
         public override void Write(Utf8JsonWriter writer, PopularBase value, JsonSerializerOptions options)
         {
             JsonSerializer.Serialize(writer, value, value.GetPopularType(), options);

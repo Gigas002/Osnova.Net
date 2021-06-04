@@ -1,6 +1,6 @@
 ﻿namespace Osnova.Net.Enums
 {
-    public enum TweetSorting
+    public enum TweetSorting // TODO: one sorting?
     {
         Fresh,
         Day,

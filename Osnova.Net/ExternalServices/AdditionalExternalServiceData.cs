@@ -2,8 +2,14 @@
 
 namespace Osnova.Net.ExternalServices
 {
+    /// <summary>
+    /// Additional data for external service's media
+    /// </summary>
     public class AdditionalExternalServiceData
     {
+        /// <summary>
+        /// Hash
+        /// </summary>
         [JsonPropertyName("hash")]
         public string Hash { get; set; }
 

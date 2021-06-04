@@ -183,9 +183,9 @@ namespace Osnova.Net.Entries
         /// </summary>
         public bool IsPromoted { get; set; }
 
-        public Repost Repost { get; set; }
+        public EntryRepost Repost { get; set; }
 
-        public CommentsSeenCount CommentsSeenCount { get; set; }
+        public CommentsSeenCount CommentsSeenCount { get; set; } // TODO: obsolete?
 
         public AdditionalControls AdditionalControls { get; set; }
 

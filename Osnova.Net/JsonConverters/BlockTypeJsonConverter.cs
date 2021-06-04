@@ -5,13 +5,17 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net.JsonConverters
 {
+    /// <summary>
+    /// Converts <see cref="BlockType"/> enum to/from <see cref="string"/>
+    /// </summary>
     public class BlockTypeJsonConverter : JsonConverter<BlockType>
     {
+        /// <inheritdoc />
         public override BlockType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             string blockTypeString = reader.GetString();
 
-            switch (blockTypeString)
+            switch (blockTypeString) // TODO: move to Block class?
             {
                 case "wtrfall":
                 {
@@ -29,11 +33,13 @@ namespace Osnova.Net.JsonConverters
                 {
                     bool isParsed = Enum.TryParse<BlockType>(blockTypeString, true, out var type);
 
-                    return isParsed ? type : BlockType.Unknown;
+                    return isParsed ? type : BlockType.Unknown; // TODO: throw an exception
                 }
             }
         }
 
+        /// <inheritdoc />
+        /// <exception cref="ArgumentOutOfRangeException"/>
         public override void Write(Utf8JsonWriter writer, BlockType value, JsonSerializerOptions options)
         {
             switch (value)
@@ -58,7 +64,7 @@ namespace Osnova.Net.JsonConverters
                 }
                 case BlockType.Unknown:
                 {
-                    throw new InvalidOperationException("Trying to serialize unknown block type");
+                    throw new ArgumentOutOfRangeException(nameof(value), "Trying to serialize unknown block type");
                 }
                 default:
                 {

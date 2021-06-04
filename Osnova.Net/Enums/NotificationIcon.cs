@@ -3,37 +3,61 @@ using Osnova.Net.JsonConverters;
 
 namespace Osnova.Net.Enums
 {
+    /// <summary>
+    /// Notification's icons
+    /// <para/>
+    /// <remarks>Uses custom converter</remarks>
+    /// </summary>
     [JsonConverter(typeof(NotificationIconJsonConverter))]
     public enum NotificationIcon // TODO: better naming?
     {
+        /// <summary>
+        /// New comment
+        /// </summary>
         Comment,
+        
+        /// <summary>
+        /// Reply
+        /// </summary>
         Reply,
+        
+        /// <summary>
+        /// Liked
+        /// </summary>
         LikeUp,
+        
+        /// <summary>
+        /// Disliked
+        /// </summary>
         LikeDown,
 
         /// <summary>
-        /// mini_check
+        /// Subscribed
+        /// <para/>
+        /// <remarks>Refers to "mini_check" in json</remarks>
         /// </summary>
         Subscribe,
 
         /// <summary>
-        /// Ad removed
+        /// Advertisement removed
         /// </summary>
         Archive,
 
         /// <summary>
-        /// Ad added
+        /// Advertisement added
         /// </summary>
         Plus,
 
         /// <summary>
-        /// Unpublish
+        /// Unpublished entry
         /// </summary>
         Upset,
 
+        /// <summary>
+        /// Mentioned somewhere
+        /// </summary>
         Mention,
-
-
+        
         UiChronograph,
         Pencil,
     }

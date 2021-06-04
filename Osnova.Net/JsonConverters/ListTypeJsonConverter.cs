@@ -5,8 +5,12 @@ using Osnova.Net.Enums;
 
 namespace Osnova.Net.JsonConverters
 {
+    /// <summary>
+    /// Converts <see cref="ListType"/> to/from <see cref="string"/>
+    /// </summary>
     public class ListTypeJsonConverter : JsonConverter<ListType>
     {
+        /// <inheritdoc />
         public override ListType Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             string listTypeString = reader.GetString();
@@ -18,6 +22,7 @@ namespace Osnova.Net.JsonConverters
             };
         }
 
+        /// <inheritdoc />
         public override void Write(Utf8JsonWriter writer, ListType value, JsonSerializerOptions options)
         {
             switch (value)

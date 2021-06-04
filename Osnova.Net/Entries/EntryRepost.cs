@@ -3,7 +3,7 @@ using Osnova.Net.Users;
 
 namespace Osnova.Net.Entries
 {
-    public class Repost // TODO: rename to EntryRepost?
+    public class EntryRepost
     {
         [JsonPropertyName("author")]
         public User Author { get; set; }

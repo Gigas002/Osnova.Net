@@ -3895,29 +3895,696 @@
             Is this entry still updating?
             </summary>
         </member>
+        <member name="T:Osnova.Net.Enums.Alignment">
+            <summary>
+            Alignment of the element
+            <para/>
+            <remarks>Uses default string-to-enum converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.Alignment.Left">
+            <summary>
+            Left
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.Alignment.Centered">
+            <summary>
+            Centered
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.Alignment.Top">
+            <summary>
+            Top
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.Alignment.Bottom">
+            <summary>
+            Bottom
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.AudioChannel">
+            <summary>
+            Audio channels
+            <para/>
+            <remarks>Uses default string-to-enum converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.AudioChannel.Stereo">
+            <summary>
+            Stereo
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.AudioChannel.JointStereo">
+            <summary>
+            Joint stereo
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.AudioChannel.Mono">
+            <summary>
+            Mono
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.AudioExtension">
+            <summary>
+            Audio file's extensions
+            <para/>
+            <remarks>Uses default string-to-enum converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.AudioExtension.Mp3">
+            <summary>
+            mp3
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.BlockType">
+            <summary>
+            Type of blocks
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Unknown">
+            <summary>
+            Unknown type. You should throw an exception if you got this
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Audio">
+            <summary>
+            Audio
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Code">
+            <summary>
+            Code
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Delimiter">
+            <summary>
+            Delimiter
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Entry">
+            <summary>
+            Entry
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Header">
+            <summary>
+            Header
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Image">
+            <summary>
+            Image
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Incut">
+            <summary>
+            Incut
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Instagram">
+            <summary>
+            Instagram
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Link">
+            <summary>
+            Link
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.List">
+            <summary>
+            List
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Media">
+            <summary>
+            Media block with children blocks
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Movie">
+            <summary>
+            Video block
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Number">
+            <summary>
+            Number
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Person">
+            <summary>
+            PErson
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Quiz">
+            <summary>
+            Quiz
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Quote">
+            <summary>
+            Quote
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.RawHtml">
+            <summary>
+            Raw html
+            <para/>
+            <remarks>This is editorial block</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.SpecialButton">
+            <summary>
+            Special button
+            <para/>
+            <remarks>This is editorial block</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Spotify">
+            <summary>
+            Spotify
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Telegram">
+            <summary>
+            Telegram
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Text">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.TikTok">
+            <summary>
+            TikTok
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Tweet">
+            <summary>
+            Tweet
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.UniversalBox">
+            <summary>
+            Universal box
+            <para/>
+            <remarks>Used for some subtypes, like TikTok</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.User">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Video">
+            <summary>
+            Video
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.Warning">
+            <summary>
+            Warning
+            <para/>
+            <remarks>This is editorial block</remarks>
+            </summary>
+        </member>
         <member name="F:Osnova.Net.Enums.BlockType.Waterfall">
             <summary>
-            Refers to wtrfall
+            Refers to "wtrfall"
+            <para/>
+            <remarks>This is editorial block</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.BlockType.YandexMusic">
+            <summary>
+            Refers to "yamusic"
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.ContentType">
+            <summary>
+            Type of content
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ContentType.Entry">
+            <summary>
+            Entry
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ContentType.Vacancy">
+            <summary>
+            Vacancy
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ContentType.StaticPage">
+            <summary>
+            Static page
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ContentType.Event">
+            <summary>
+            Event
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ContentType.Repost">
+            <summary>
+            Repost
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ContentType.Comment">
+            <summary>
+            Comment
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.DelimiterType">
+            <summary>
+            Delimiter type
+            <para/>
+            <remarks>Uses default string-to-enum converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.DelimiterType.Default">
+            <summary>
+            Default
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.ExternalServiceType">
+            <summary>
+            External service type
+            <para/>
+            <remarks>Uses default string-to-enum converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ExternalServiceType.Instagram">
+            <summary>
+            Instagram
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ExternalServiceType.YaMusic">
+            <summary>
+            Yandex music
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ExternalServiceType.Spotify">
+            <summary>
+            Spotify
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ExternalServiceType.TikTok">
+            <summary>
+            TikTok
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.HeaderStyle">
+            <summary>
+            Header style/level
+            <para/>
+            <remarks>Uses default string-to-enum converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.HeaderStyle.H2">
+            <summary>
+            Level 2 header
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.HeaderStyle.H3">
+            <summary>
+            Level 3 header
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.HeaderStyle.H4">
+            <summary>
+            Level 4 header
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.ListType">
+            <summary>
+            Types of lists
+            <para/>
+            <remarks>Uses custom converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ListType.UnorderedList">
+            <summary>
+            Unordered list
+            <para/>
+            <remarks>Refers to "UL" in json</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.ListType.OrderedList">
+            <summary>
+            Ordered list
+            <para/>
+            <remarks>Refers to "OL" in json</remarks>
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.MediaExtension">
+            <summary>
+            Extensions of media files
+            <para/>
+            <remarks>Uses default string-to-enum converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.MediaExtension.Png">
+            <summary>
+            Png
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.MediaExtension.Jpg">
+            <summary>
+            Jpg
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.MediaExtension.Webp">
+            <summary>
+            Webp
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.MediaExtension.Gif">
+            <summary>
+            Gif
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.MediaExtension.Mp4">
+            <summary>
+            Mp4
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.MediaType">
+            <summary>
+            Types of media content in comments
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.MediaType.Image">
+            <summary>
+            Image
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.MediaType.Video">
+            <summary>
+            Video
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.NotificationIcon">
+            <summary>
+            Notification's icons
+            <para/>
+            <remarks>Uses custom converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationIcon.Comment">
+            <summary>
+            New comment
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationIcon.Reply">
+            <summary>
+            Reply
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationIcon.LikeUp">
+            <summary>
+            Liked
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationIcon.LikeDown">
+            <summary>
+            Disliked
             </summary>
         </member>
         <member name="F:Osnova.Net.Enums.NotificationIcon.Subscribe">
             <summary>
-            mini_check
+            Subscribed
+            <para/>
+            <remarks>Refers to "mini_check" in json</remarks>
             </summary>
         </member>
         <member name="F:Osnova.Net.Enums.NotificationIcon.Archive">
             <summary>
-            Ad removed
+            Advertisement removed
             </summary>
         </member>
         <member name="F:Osnova.Net.Enums.NotificationIcon.Plus">
             <summary>
-            Ad added
+            Advertisement added
             </summary>
         </member>
         <member name="F:Osnova.Net.Enums.NotificationIcon.Upset">
             <summary>
-            Unpublish
+            Unpublished entry
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationIcon.Mention">
+            <summary>
+            Mentioned somewhere
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.NotificationType">
+            <summary>
+            Notification types
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationType.Like">
+            <summary>
+            Like
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationType.Reply">
+            <summary>
+            Reply
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationType.Banned">
+            <summary>
+            Banned
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationType.Unpublish">
+            <summary>
+            Unpublished entry
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationType.Comment">
+            <summary>
+            New comment
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationType.System">
+            <summary>
+            System notification
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationType.Vacancy">
+            <summary>
+            Vacancy
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationType.Mention">
+            <summary>
+            Mentioned somewhere
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationType.Subscribe">
+            <summary>
+            New subscriber
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.NotificationType.Advertisement">
+            <summary>
+            Advertisement
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.QuoteType">
+            <summary>
+            Quote type
+            <para/>
+            <remarks>Uses default string-to-enum converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.QuoteType.Default">
+            <summary>
+            Default
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.QuoteType.Opinion">
+            <summary>
+            Opinion
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.SocialType">
+            <summary>
+            Connected social account type. Used for login
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.SocialType.Qr">
+            <summary>
+            Qr-code
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.SocialType.Twitter">
+            <summary>
+            Twitter
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.SocialType.Vk">
+            <summary>
+            Vkontakte
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.SocialType.Facebook">
+            <summary>
+            Facebook
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.SocialType.GooglePlus">
+            <summary>
+            Google+
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.SourceOs">
+            <summary>
+            Operating system type
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.SourceOs.Other">
+            <summary>
+            PC and other platforms
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.SourceOs.Ios">
+            <summary>
+            iOS
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.SourceOs.Android">
+            <summary>
+            Android
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.SubsiteTypes">
+            <summary>
+            Types of subsites
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.SubsiteTypes.Sections">
+            <summary>
+            Usual subsite
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.SubsiteTypes.Companies">
+            <summary>
+            Company subsite
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.TextSize">
+            <summary>
+            Text's size
+            <para/>
+            <remarks>Uses default string-to-enum converter</remarks>
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.TextSize.Small">
+            <summary>
+            Small
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.TextSize.Medium">
+            <summary>
+            Medium
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.TextSize.Big">
+            <summary>
+            Big
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.TimelineCategory">
+            <summary>
+            Timeline categories
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.TimelineCategory.Index">
+            <summary>
+            Index
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.TimelineCategory.GameDev">
+            <summary>
+            Game development
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.TimelineCategory.MainPage">
+            <summary>
+            Main page
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Enums.WebsiteKind">
+            <summary>
+            Kind of website to use API
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.WebsiteKind.Dtf">
+            <summary>
+            https://dtf.ru
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.WebsiteKind.Tjournal">
+            <summary>
+            https://tjournal.ru
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.Enums.WebsiteKind.Vc">
+            <summary>
+            https://vc.ru
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Exceptions.InvalidResponseCodeException">
+            <summary>
+            Exception signals, that response code from API was not correct
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Exceptions.InvalidResponseCodeException.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.Exceptions.InvalidResponseCodeException.#ctor(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.Exceptions.InvalidResponseCodeException.#ctor(System.String,System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.ExternalServices.AdditionalExternalServiceData">
+            <summary>
+            Additional data for external service's media
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.ExternalServices.AdditionalExternalServiceData.Hash">
+            <summary>
+            Hash
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.ExternalServices.ExternalService">
+            <summary>
+            External service with some media data
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.ExternalServices.ExternalService.Name">
+            <summary>
+            Name of service
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.ExternalServices.ExternalService.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.ExternalServices.ExternalService.Mp4Url">
+            <summary>
+            URL of mp5 video, if any
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.ExternalServices.ExternalService.AdditionalData">
+            <summary>
+            Some additional data
             </summary>
         </member>
         <member name="T:Osnova.Net.Filters.IEventFilter">
@@ -3925,15 +4592,276 @@
             Refers to EventFilter spec
             </summary>
         </member>
+        <member name="P:Osnova.Net.Filters.IEventFilter.Id">
+            <summary>
+            Event ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Filters.IEventFilter.Title">
+            <summary>
+            Event title
+            </summary>
+        </member>
         <member name="T:Osnova.Net.Filters.VacancyEventFilter">
             <summary>
             Fits for both <see cref="T:Osnova.Net.OsnovaEvents.OsnovaEvent"/> and <see cref="T:Osnova.Net.Vacancies.Vacancy"/>
             </summary>
         </member>
+        <member name="P:Osnova.Net.Filters.VacancyEventFilter.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Filters.VacancyEventFilter.Title">
+            <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.Filters.VacancyEventFilter.IsActive">
+            <summary>
+            Is still active?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Filters.VacancyEventFilter.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Filters.VacancyEventFilter.Culture">
+            <summary>
+            Applies to which country?
+            <para/>
+            <remarks>Refers to "country_code" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Filters.VacancyEventFilter.ContentCount">
+            <summary>
+            Content count
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.BlockJsonConverter">
+            <summary>
+            Converts <see cref="T:Osnova.Net.Blocks.Block"/> to specified children type
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.BlockJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.BlockJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Osnova.Net.Blocks.Block,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.BlockTypeJsonConverter">
+            <summary>
+            Converts <see cref="T:Osnova.Net.Enums.BlockType"/> enum to/from <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.BlockTypeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.BlockTypeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Osnova.Net.Enums.BlockType,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+            <exception cref="T:System.ArgumentOutOfRangeException"/>
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.ColorJsonConverter">
+            <summary>
+            Converts argb:x6-<see cref="T:System.Drawing.Color"/> to/from <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.ColorJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.ColorJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Drawing.Color,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.CultureInfoJsonConverter">
+            <summary>
+            Converts <see cref="T:System.Globalization.CultureInfo"/> to/from <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.CultureInfoJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.CultureInfoJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Globalization.CultureInfo,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.GuidJsonConverter">
+            <summary>
+            Converts <see cref="T:System.Guid"/> to/from <see cref="T:System.String"/>
+            <para/>
+            <remarks>If it's not correct -- sets to default value</remarks>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.GuidJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.GuidJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Guid,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
         <member name="T:Osnova.Net.JsonConverters.HtmlColorJsonConverter">
             <summary>
-            Color string includes "#"
+            Converts #argb"x6-<see cref="T:System.Drawing.Color"/> to/from <see cref="T:System.String"/>
+            <para/>
+            <remarks>
+            Comparing with <see cref="T:Osnova.Net.JsonConverters.ColorJsonConverter"/>, here string includes "#" symbol
+            </remarks>
             </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.HtmlColorJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.HtmlColorJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Drawing.Color,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.IntToBoolJsonConverter">
+            <summary>
+            Converts <see cref="T:System.Int32"/>, presented in json, to/from <see cref="T:System.Boolean"/>, presented in code
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.IntToBoolJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.IntToBoolJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Boolean,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.ListTypeJsonConverter">
+            <summary>
+            Converts <see cref="T:Osnova.Net.Enums.ListType"/> to/from <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.ListTypeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.ListTypeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Osnova.Net.Enums.ListType,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.LongDateTimeOffsetJsonConverter">
+            <summary>
+            Converts <see cref="T:System.DateTimeOffset"/>, presented as unix time, to/from <see cref="T:System.Int64"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.LongDateTimeOffsetJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.LongDateTimeOffsetJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTimeOffset,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.NamedColorJsonConverter">
+            <summary>
+            Converts named <see cref="T:System.Drawing.Color"/> to/from <see cref="T:System.String"/>
+            <para/>
+            <remarks>
+            String example: "blue"
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.NamedColorJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.NamedColorJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Drawing.Color,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.NotificationIconJsonConverter">
+            <summary>
+            Converts <see cref="T:Osnova.Net.Enums.NotificationIcon"/> enum to/from <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.NotificationIconJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.NotificationIconJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Osnova.Net.Enums.NotificationIcon,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.PopularContentTypeJsonConverter">
+            <summary>
+            Converts <see cref="T:Osnova.Net.Enums.ContentType"/> enum to/from <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.PopularContentTypeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.PopularContentTypeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Osnova.Net.Enums.ContentType,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.PopularJsonConverter">
+            <summary>
+            Converts <see cref="T:Osnova.Net.Popular.PopularBase"/> to specified children type
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.PopularJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.PopularJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Osnova.Net.Popular.PopularBase,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.RateValueJsonConverter">
+            <summary>
+            Converts rates <see cref="T:System.Double"/> values to/from <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.RateValueJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.RateValueJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Double,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.RfcDateTimeOffsetJsonConverter">
+            <summary>
+            Converts <see cref="T:System.DateTimeOffset"/> to/from RFC2822 <see cref="T:System.String"/>
+            <para/>
+            <remarks>Pattern: ddd, dd MMM yyyy HH':'mm':'ss K</remarks>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.RfcDateTimeOffsetJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.RfcDateTimeOffsetJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTimeOffset,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.StringToEnumJsonConverter`1">
+            <summary>
+            Converts any case-insensitive <see cref="T:System.Enum"/> to/from <see cref="T:System.String"/>
+            </summary>
+            <typeparam name="T"><see cref="T:System.Enum"/></typeparam>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.StringToEnumJsonConverter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.StringToEnumJsonConverter`1.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.TwitterV1DateTimeOffsetJsonConverter">
+            <summary>
+            Converts Twitter's v1.1 spec's <see cref="T:System.DateTimeOffset"/> to/from <see cref="T:System.String"/>
+            <para/>
+            <remarks>Pattern: ddd MMM dd HH':'mm':'ss K yyyy</remarks>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.TwitterV1DateTimeOffsetJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.TwitterV1DateTimeOffsetJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTimeOffset,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.VersionJsonConverter">
+            <summary>
+            Converts <see cref="T:System.Version"/> to/from <see cref="T:System.Int32"/>/<see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.VersionJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.VersionJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Version,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Osnova.Net.JsonConverters.WrongEmptyArrayJsonConverter`1">
+            <summary>
+            Converts value, that sometimes (by mistakes) can be empty array in json
+            <para/>
+            <remarks>Returns <see langword="null"/>, if couldn't convert an object</remarks>
+            </summary>
+            <typeparam name="T">Any <see langword="class"/></typeparam>
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.WrongEmptyArrayJsonConverter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Osnova.Net.JsonConverters.WrongEmptyArrayJsonConverter`1.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
         </member>
         <member name="P:Osnova.Net.Likes.Count">
             <summary>
