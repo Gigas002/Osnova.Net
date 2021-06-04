@@ -28,10 +28,13 @@ namespace Osnova.Net.Notifications
         public DateTimeOffset Date { get; set; }
 
         /// <summary>
-        /// Notification date in Rfc2822 format
+        /// Notification date in RFC2822 format
         /// </summary>
         public DateTimeOffset DateRfc { get; set; }
 
+        /// <summary>
+        /// Collection of <see cref="User"/>s
+        /// </summary>
         public IEnumerable<User> Users { get; set; }
 
         /// <summary>
@@ -44,7 +47,7 @@ namespace Osnova.Net.Notifications
         public Uri Url { get; set; }
 
         /// <summary>
-        /// Название иконки, которая подставляется вместо аватарки.
+        /// Notification's icon
         /// </summary>
         public NotificationIcon Icon { get; set; }
 

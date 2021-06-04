@@ -26,16 +26,34 @@ namespace Osnova.Net.OsnovaEvents
 
         public int EntryId { get; set; }
 
+        /// <summary>
+        /// City ID
+        /// </summary>
         public int CityId { get; set; }
 
+        /// <summary>
+        /// City name
+        /// </summary>
         public string CityName { get; set; }
 
+        /// <summary>
+        /// Price
+        /// </summary>
         public int Price { get; set; }
 
+        /// <summary>
+        /// Favorites count
+        /// </summary>
         public int FavoritesCount { get; set; }
 
+        /// <summary>
+        /// Is this event favorited?
+        /// </summary>
         public bool IsFavorited { get; set; }
 
+        /// <summary>
+        /// Company
+        /// </summary>
         public Company Company { get; set; }
 
         public int Interested { get; set; }

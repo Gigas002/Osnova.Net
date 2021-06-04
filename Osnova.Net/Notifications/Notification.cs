@@ -8,6 +8,9 @@ using Osnova.Net.Users;
 
 namespace Osnova.Net.Notifications
 {
+    /// <summary>
+    /// Notification
+    /// </summary>
     public class Notification : INotification
     {
         #region Properties

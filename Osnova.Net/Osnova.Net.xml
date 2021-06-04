@@ -4931,7 +4931,12 @@
         </member>
         <member name="P:Osnova.Net.Notifications.INotification.DateRfc">
             <summary>
-            Notification date in Rfc2822 format
+            Notification date in RFC2822 format
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Notifications.INotification.Users">
+            <summary>
+            Collection of <see cref="T:Osnova.Net.Users.User"/>s
             </summary>
         </member>
         <member name="P:Osnova.Net.Notifications.INotification.Text">
@@ -4941,7 +4946,12 @@
         </member>
         <member name="P:Osnova.Net.Notifications.INotification.Icon">
             <summary>
-            Название иконки, которая подставляется вместо аватарки.
+            Notification's icon
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Notifications.Notification">
+            <summary>
+            Notification
             </summary>
         </member>
         <member name="P:Osnova.Net.Notifications.Notification.Id">
@@ -4991,6 +5001,36 @@
             Is this event archived?
             </summary>
         </member>
+        <member name="P:Osnova.Net.OsnovaEvents.IOsnovaEvent.CityId">
+            <summary>
+            City ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.IOsnovaEvent.CityName">
+            <summary>
+            City name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.IOsnovaEvent.Price">
+            <summary>
+            Price
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.IOsnovaEvent.FavoritesCount">
+            <summary>
+            Favorites count
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.IOsnovaEvent.IsFavorited">
+            <summary>
+            Is this event favorited?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.IOsnovaEvent.Company">
+            <summary>
+            Company
+            </summary>
+        </member>
         <member name="T:Osnova.Net.OsnovaEvents.OsnovaEvent">
             <summary>
             Also known as Event
@@ -5028,6 +5068,130 @@
         </member>
         <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.Interested">
             <inheritdoc />
+        </member>
+        <member name="P:Osnova.Net.OsnovaEvents.OsnovaEvent.Date">
+            <summary>
+            Event's date
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetDefaultEventsUrl(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets default events URL
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/events</returns>
+        </member>
+        <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsFiltersUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get event filters
+            <para/>
+            <remarks>Original name: getEventsFilters</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/events/filters</returns>
+        </member>
+        <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsFiltersResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets events filters
+            <para/>
+            <remarks>Original name: getEventsFilters</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested events filters</returns>
+        </member>
+        <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsFiltersAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets events filters
+            <para/>
+            <remarks>Original name: getEventsFilters</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested events filters</returns>
+        </member>
+        <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)">
+            <summary>
+            Gets an URL to get events
+            <para/>
+            <remarks>Original name: getEvents</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="cityId">City ID</param>
+            <param name="specializationIds">Specialization ID's collection</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.vc.ru/v1.9/events?city_id=0</returns>
+        </member>
+        <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)">
+            <summary>
+            Gets events
+            <para/>
+            <remarks>Original name: getEvents</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="cityId">City ID</param>
+            <param name="specializationIds">Specialization ID's collection</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested events</returns>
+        </member>
+        <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)">
+            <summary>
+            Gets events
+            <para/>
+            <remarks>Original name: getEvents</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="cityId">City ID</param>
+            <param name="specializationIds">Specialization ID's collection</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested events</returns>
+        </member>
+        <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetMoreEventsUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)">
+            <summary>
+            Gets an URL to get more events
+            <para/>
+            <remarks>Original name: getEventsMore</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="lastId">Last event's ID of previous query</param>
+            <param name="cityId">City ID</param>
+            <param name="specializationIds">Specialization ID's collection</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.vc.ru/v1.9/events/more/0?city_id=0</returns>
+        </member>
+        <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetMoreEventsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)">
+            <summary>
+            Gets more events
+            <para/>
+            <remarks>Original name: getEventsMore</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="lastId">Last event's ID of previous query</param>
+            <param name="cityId">City ID</param>
+            <param name="specializationIds">Specialization ID's collection</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested events</returns>
+        </member>
+        <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetMoreEventsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)">
+            <summary>
+            Gets more events
+            <para/>
+            <remarks>Original name: getEventsMore</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="lastId">Last event's ID of previous query</param>
+            <param name="cityId">City ID</param>
+            <param name="specializationIds">Specialization ID's collection</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested events</returns>
         </member>
         <member name="M:Osnova.Net.Payments.GetPaymentsCheckAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>

@@ -68,6 +68,9 @@ namespace Osnova.Net.OsnovaEvents
 
         #region From actual queries
 
+        /// <summary>
+        /// Event's date
+        /// </summary>
         [JsonConverter(typeof(LongDateTimeOffsetJsonConverter))]
         [JsonPropertyName("date")]
         public DateTimeOffset Date { get; set; }
@@ -80,40 +83,92 @@ namespace Osnova.Net.OsnovaEvents
         #endregion
 
         #region Methods
+        
+        /// <summary>
+        /// Gets default events URL
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/events</returns>
+        public static Uri GetDefaultEventsUrl(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/events");
+        }
 
         #region GET
 
         #region GetEventsFilters
 
+        /// <summary>
+        /// Gets an URL to get event filters
+        /// <para/>
+        /// <remarks>Original name: getEventsFilters</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/events/filters</returns>
         public static Uri GetEventsFiltersUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            const string relative = "filters";
 
-            return new Uri($"{baseUri}/events/filters");
+            var baseUri = GetDefaultEventsUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
+        /// <summary>
+        /// Gets events filters
+        /// <para/>
+        /// <remarks>Original name: getEventsFilters</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested events filters</returns>
         public static ValueTask<HttpResponseMessage> GetEventsFiltersResponseAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
             return Core.GetResponseFromApiAsync(client, GetEventsFiltersUri(websiteKind, apiVersion));
         }
 
-        public static async ValueTask<EventFilters> GetEventsFiltersAsync(HttpClient client, WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        /// <summary>
+        /// Gets events filters
+        /// <para/>
+        /// <remarks>Original name: getEventsFilters</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested events filters</returns>
+        public static async ValueTask<Dictionary<string, IEnumerable<VacancyEventFilter>>> GetEventsFiltersAsync(HttpClient client, WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
             using var response = await GetEventsFiltersResponseAsync(client, websiteKind,apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<EventFilters>(response).ConfigureAwait(false);
+            return await Core.DeserializeOsnovaResponseAsync<Dictionary<string, IEnumerable<VacancyEventFilter>>>(response).ConfigureAwait(false);
         }
 
         #endregion
 
         #region GetEvents
 
-        public static Uri GetEventsUri(WebsiteKind websiteKind, int cityId = -1, IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
+        /// <summary>
+        /// Gets an URL to get events
+        /// <para/>
+        /// <remarks>Original name: getEvents</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="cityId">City ID</param>
+        /// <param name="specializationIds">Specialization ID's collection</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.vc.ru/v1.9/events?city_id=0</returns>
+        public static Uri GetEventsUri(WebsiteKind websiteKind, int cityId = -1, IEnumerable<int> specializationIds = null,
+            double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultEventsUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/events");
+            UriBuilder builder = new UriBuilder(baseUri);
 
             string specIds = null;
 
@@ -136,12 +191,34 @@ namespace Osnova.Net.OsnovaEvents
             return builder.Uri;
         }
 
+        /// <summary>
+        /// Gets events
+        /// <para/>
+        /// <remarks>Original name: getEvents</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="cityId">City ID</param>
+        /// <param name="specializationIds">Specialization ID's collection</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested events</returns>
         public static ValueTask<HttpResponseMessage> GetEventsResponseAsync(HttpClient client, WebsiteKind websiteKind, int cityId = -1,
                                                                             IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
         {
             return Core.GetResponseFromApiAsync(client, GetEventsUri(websiteKind, cityId, specializationIds, apiVersion));
         }
 
+        /// <summary>
+        /// Gets events
+        /// <para/>
+        /// <remarks>Original name: getEvents</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="cityId">City ID</param>
+        /// <param name="specializationIds">Specialization ID's collection</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested events</returns>
         public static async ValueTask<IEnumerable<OsnovaEvent>> GetEventsAsync(HttpClient client, WebsiteKind websiteKind, int cityId = -1,
             IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
         {
@@ -154,14 +231,27 @@ namespace Osnova.Net.OsnovaEvents
 
         #endregion
 
-        #region GetEventsMore
+        #region GetMoreEvents
 
-        public static Uri GetEventsMoreUri(WebsiteKind websiteKind, long lastId, int cityId = -1,
+        /// <summary>
+        /// Gets an URL to get more events
+        /// <para/>
+        /// <remarks>Original name: getEventsMore</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="lastId">Last event's ID of previous query</param>
+        /// <param name="cityId">City ID</param>
+        /// <param name="specializationIds">Specialization ID's collection</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.vc.ru/v1.9/events/more/0?city_id=0</returns>
+        public static Uri GetMoreEventsUri(WebsiteKind websiteKind, int lastId = 0, int cityId = -1,
                                            IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            string relative = $"more/{lastId}";
 
-            UriBuilder builder = new($"{baseUri}/events/more/{lastId}");
+            var baseUri = GetDefaultEventsUrl(websiteKind, apiVersion);
+            
+            UriBuilder builder = new($"{baseUri}/{relative}");
 
             string specIds = null;
 
@@ -184,16 +274,40 @@ namespace Osnova.Net.OsnovaEvents
             return builder.Uri;
         }
 
-        public static ValueTask<HttpResponseMessage> GetEventsMoreResponseAsync(HttpClient client, WebsiteKind websiteKind, long lastId,
+        /// <summary>
+        /// Gets more events
+        /// <para/>
+        /// <remarks>Original name: getEventsMore</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="lastId">Last event's ID of previous query</param>
+        /// <param name="cityId">City ID</param>
+        /// <param name="specializationIds">Specialization ID's collection</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested events</returns>
+        public static ValueTask<HttpResponseMessage> GetMoreEventsResponseAsync(HttpClient client, WebsiteKind websiteKind, int lastId = 0,
             int cityId = -1, IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetEventsMoreUri(websiteKind, lastId, cityId, specializationIds, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMoreEventsUri(websiteKind, lastId, cityId, specializationIds, apiVersion));
         }
 
-        public static async ValueTask<IEnumerable<OsnovaEvent>> GetEventsMoreAsync(HttpClient client, WebsiteKind websiteKind, long lastId, int cityId = -1,
-               IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
+        /// <summary>
+        /// Gets more events
+        /// <para/>
+        /// <remarks>Original name: getEventsMore</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="lastId">Last event's ID of previous query</param>
+        /// <param name="cityId">City ID</param>
+        /// <param name="specializationIds">Specialization ID's collection</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested events</returns>
+        public static async ValueTask<IEnumerable<OsnovaEvent>> GetMoreEventsAsync(HttpClient client, WebsiteKind websiteKind, int lastId = 0,
+            int cityId = -1, IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetEventsMoreResponseAsync(client, websiteKind, lastId, cityId, specializationIds, apiVersion).ConfigureAwait(false);
+            var response = await GetMoreEventsResponseAsync(client, websiteKind, lastId, cityId, specializationIds, apiVersion).ConfigureAwait(false);
 
             var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<OsnovaEvent>>(response).ConfigureAwait(false);
 

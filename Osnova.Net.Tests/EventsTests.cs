@@ -6,7 +6,7 @@ using Osnova.Net.OsnovaEvents;
 
 namespace Osnova.Net.Tests
 {
-    public class EventsTests
+    public class OsnovaEventsTests
     {
         [SetUp]
         public void Setup() => Helper.InitializeHelper();
@@ -15,9 +15,7 @@ namespace Osnova.Net.Tests
         public async Task GetEventsFilters()
         {
             var filters = await OsnovaEvent.GetEventsFiltersAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
-
-            if (filters.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
-
+            
             var json = JsonSerializer.Serialize(filters, Core.Options);
         }
 
@@ -35,11 +33,9 @@ namespace Osnova.Net.Tests
         }
 
         [Test]
-        public async Task GetEventsMore()
+        public async Task GetMoreEvents()
         {
-            const int lastId = 0;
-
-            var events = await OsnovaEvent.GetEventsMoreAsync(Helper.Client, WebsiteKind.Vc, lastId).ConfigureAwait(false);
+            var events = await OsnovaEvent.GetMoreEventsAsync(Helper.Client, WebsiteKind.Vc).ConfigureAwait(false);
 
             foreach (var value in events)
             {
