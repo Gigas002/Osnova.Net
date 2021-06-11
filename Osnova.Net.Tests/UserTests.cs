@@ -25,7 +25,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var user = await User.GetUserMeAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var user = await User.GetMeAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             if (user.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
 
@@ -37,7 +37,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var notifications = await User.GetUserMeUpdatesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var notifications = await User.GetMyUpdatesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in notifications)
             {
@@ -52,7 +52,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var counter = await User.GetUserMeUpdatesCountAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var counter = await User.GetMyUpdatesCountAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             if (counter.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
 
@@ -77,7 +77,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var comments = await User.GetUserMeCommentsAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var comments = await User.GetMyCommentsAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in comments)
             {
@@ -105,7 +105,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var entries = await User.GetUserMeEntriesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var entries = await User.GetMyEntriesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in entries)
             {
@@ -120,7 +120,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var entries = await User.GetUserFavoritesEntriesAsync(Helper.Client, Helper.Kind, Helper.UserId)
+            var entries = await User.GetUserFavoriteEntriesAsync(Helper.Client, Helper.Kind, Helper.UserId)
                           .ConfigureAwait(false);
 
             foreach (var value in entries)
@@ -136,7 +136,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var comments = await User.GetUserFavoritesCommentsAsync(Helper.Client, Helper.Kind, Helper.UserId)
+            var comments = await User.GetUserFavoriteCommentsAsync(Helper.Client, Helper.Kind, Helper.UserId)
                           .ConfigureAwait(false);
 
             foreach (var value in comments)
@@ -152,7 +152,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var vacancies = await User.GetUserFavoritesVacanciesAsync(Helper.Client, Helper.Kind, Helper.UserId)
+            var vacancies = await User.GetUserFavoriteVacanciesAsync(Helper.Client, Helper.Kind, Helper.UserId)
                           .ConfigureAwait(false);
 
             foreach (var value in vacancies)
@@ -168,7 +168,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var entries = await User.GetUserMeFavoritesEntriesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var entries = await User.GetMyFavoriteEntriesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in entries)
             {
@@ -183,7 +183,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var comments = await User.GetUserMeFavoritesCommentsAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var comments = await User.GetMyFavoriteCommentsAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in comments)
             {
@@ -198,7 +198,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var vacancies = await User.GetUserMeFavoritesVacanciesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var vacancies = await User.GetMyFavoriteVacanciesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in vacancies)
             {
@@ -213,7 +213,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var users = await User.GetUserMeSubscriptionsRecommendedAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var users = await User.GetMyRecommendedSubscriptionsAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in users)
             {
@@ -228,7 +228,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var users = await User.GetUserMeSubscriptionsSubscribedAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var users = await User.GetMySubscriptionsSubscribedAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in users)
             {
@@ -243,7 +243,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var users = await User.GetUserMeTuneCatalogAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var users = await User.GetMyTuneCatalogAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in users)
             {

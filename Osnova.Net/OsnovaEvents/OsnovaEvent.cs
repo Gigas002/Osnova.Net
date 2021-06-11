@@ -120,15 +120,7 @@ namespace Osnova.Net.OsnovaEvents
             return new Uri($"{baseUri}/{relative}");
         }
 
-        /// <summary>
-        /// Gets events filters
-        /// <para/>
-        /// <remarks>Original name: getEventsFilters</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested events filters</returns>
+        /// <inheritdoc cref="GetEventsFiltersAsync"/>
         public static ValueTask<HttpResponseMessage> GetEventsFiltersResponseAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
@@ -193,17 +185,7 @@ namespace Osnova.Net.OsnovaEvents
             return builder.Uri;
         }
 
-        /// <summary>
-        /// Gets events
-        /// <para/>
-        /// <remarks>Original name: getEvents</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="cityId">City ID</param>
-        /// <param name="specializationIds">Specialization ID's collection</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested events</returns>
+        /// <inheritdoc cref="GetEventsAsync"/>
         public static ValueTask<HttpResponseMessage> GetEventsResponseAsync(HttpClient client, WebsiteKind websiteKind, int cityId = -1,
                                                                             IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
         {
@@ -276,18 +258,7 @@ namespace Osnova.Net.OsnovaEvents
             return builder.Uri;
         }
 
-        /// <summary>
-        /// Gets more events
-        /// <para/>
-        /// <remarks>Original name: getEventsMore</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="lastId">Last event's ID of previous query</param>
-        /// <param name="cityId">City ID</param>
-        /// <param name="specializationIds">Specialization ID's collection</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested events</returns>
+        /// <inheritdoc cref="GetMoreEventsAsync"/>
         public static ValueTask<HttpResponseMessage> GetMoreEventsResponseAsync(HttpClient client, WebsiteKind websiteKind, int lastId = 0,
             int cityId = -1, IEnumerable<int> specializationIds = null, double apiVersion = Core.ApiVersion)
         {

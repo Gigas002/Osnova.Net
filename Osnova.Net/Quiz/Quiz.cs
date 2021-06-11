@@ -78,16 +78,7 @@ namespace Osnova.Net.Quiz
             return new Uri($"{baseUri}/{relative}");
         }
 
-        /// <summary>
-        /// Gets quiz results
-        /// <para/>
-        /// <remarks>Original name: getQuizResults</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="quizHash">Quiz hash</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested quiz's results</returns>
+        /// <inheritdoc cref="GetQuizResultsAsync"/>
         public static ValueTask<HttpResponseMessage> GetQuizResultsResponseAsync(HttpClient client, WebsiteKind websiteKind,
             string quizHash, double apiVersion = Core.ApiVersion)
         {

@@ -263,6 +263,9 @@ namespace Osnova.Net.Users
         [JsonPropertyName("is_banned")]
         public bool IsBanned { get; set; }
 
+        /// <summary>
+        /// Info about ban on osnova website
+        /// </summary>
         [JsonConverter(typeof(WrongEmptyArrayJsonConverter<BanInfo>))]
         [JsonPropertyName("banned_info")]
         public BanInfo BanInfo { get; set; }
@@ -283,23 +286,73 @@ namespace Osnova.Net.Users
 
         #region Methods
 
-        #region Get
-
-        #region GetUser
-
-        public static Uri GetUserUri(WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
+        /// <summary>
+        /// Gets default user URL
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user</returns>
+        public static Uri GetDefaultUserUrl(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
-            return new Uri($"{baseUri}/user/{userId}");
+            return new Uri($"{baseUri}/user");
+        }
+        
+        /// <summary>
+        /// Gets default subsite URL
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite</returns>
+        public static Uri GetDefaultSubsiteUrl(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/subsite");
         }
 
+        #region GET
+
+        #region User namespace
+        
+        #region GetUser
+
+        /// <summary>
+        /// Gets an URL to get user by id
+        /// <para/>
+        /// <remarks>Original name: getUserById</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0</returns>
+        public static Uri GetUserUri(WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
+        {
+            var relative = $"{userId}";
+
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
+        }
+
+        /// <inheritdoc cref="GetUserAsync"/>
         public static ValueTask<HttpResponseMessage> GetUserResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int userId, double apiVersion = Core.ApiVersion)
         {
             return Core.GetResponseFromApiAsync(client, GetUserUri(websiteKind, userId, apiVersion));
         }
 
+        /// <summary>
+        /// Gets user by id
+        /// <para/>
+        /// <remarks>Original name: getUserById</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested user</returns>
         public static async ValueTask<User> GetUserAsync(HttpClient client, WebsiteKind websiteKind, int userId, double apiVersion = Core.ApiVersion)
         {
             using var response = await GetUserResponseAsync(client, websiteKind, userId, apiVersion).ConfigureAwait(false);
@@ -309,45 +362,74 @@ namespace Osnova.Net.Users
 
         #endregion
 
-        #region GetUserMe
+        #region GetMe
 
-        public static Uri GetUserMeUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        /// <summary>
+        /// Gets an URL to get current logged in user
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMe</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me</returns>
+        public static Uri GetMeUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            const string relative = "me";
 
-            return new Uri($"{baseUri}/user/me");
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <inheritdoc cref="GetMeAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMeResponseAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeUri(websiteKind, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMeUri(websiteKind, apiVersion));
         }
 
         /// <summary>
-        /// Warning: requires client to be authenticated
+        /// Gets current user
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMe</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<User> GetUserMeAsync(HttpClient client, WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested user</returns>
+        public static async ValueTask<User> GetMeAsync(HttpClient client, WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
-            using var response = await GetUserMeResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+            using var response = await GetMeResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<User>(response).ConfigureAwait(false);
         }
 
         #endregion
 
-        #region GetUserMeUpdates
+        #region GetMyUpdates
 
-        public static Uri GetUserMeUpdatesUri(WebsiteKind websiteKind, bool isRead = true, long lastId = -1,
+        /// <summary>
+        /// Gets an URL to get notifications
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeUpdates</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="isRead">Is read</param>
+        /// <param name="lastId">Last notification id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/updates</returns>
+        public static Uri GetMyUpdatesUri(WebsiteKind websiteKind, bool isRead = true, int lastId = -1,
                                               double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/me/updates");
+            UriBuilder builder = new($"{baseUri}/me/updates");
 
             string isReadQuery = $"is_read={Convert.ToInt32(isRead)}";
             string lastIdQuery = lastId > -1 ? $"last_id={lastId}" : null;
@@ -357,51 +439,82 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeUpdatesResponseAsync(HttpClient client, WebsiteKind websiteKind,
-            bool isRead = true, long lastId = -1, double apiVersion = Core.ApiVersion)
+        /// <inheritdoc cref="GetMyUpdatesAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMyUpdatesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            bool isRead = true, int lastId = -1, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeUpdatesUri(websiteKind, isRead,
+            return Core.GetResponseFromApiAsync(client, GetMyUpdatesUri(websiteKind, isRead,
                                                                             lastId, apiVersion));
         }
 
         /// <summary>
-        /// Warning: requires authentication!
+        /// Get current user's notifications
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeUpdates</remarks>
         /// </summary>
-        /// <returns></returns>
-        public static async ValueTask<IEnumerable<Notification>> GetUserMeUpdatesAsync(HttpClient client, WebsiteKind websiteKind,
-            bool isRead = true, long lastId = -1, double apiVersion = Core.ApiVersion)
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="isRead">Is read</param>
+        /// <param name="lastId">last id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of notifications</returns>
+        public static async ValueTask<IEnumerable<Notification>> GetMyUpdatesAsync(HttpClient client, WebsiteKind websiteKind,
+            bool isRead = true, int lastId = -1, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserMeUpdatesResponseAsync(client, websiteKind, isRead, lastId, apiVersion).ConfigureAwait(false);
+            var response = await GetMyUpdatesResponseAsync(client, websiteKind, isRead, lastId, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Notification>>(response).ConfigureAwait(false);
         }
 
         #endregion
 
-        #region GetUserMeUpdatesCount
+        #region GetMyUpdatesCount
 
-        public static Uri GetUserMeUpdatesCountUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        /// <summary>
+        /// Gets an URL to get current user's notifications count
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeUpdatesCount</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/updates/count</returns>
+        public static Uri GetMyUpdatesCountUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            const string relative = "me/updates/count";
 
-            return new Uri($"{baseUri}/user/me/updates/count");
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{relative}");
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeUpdatesCountResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <inheritdoc cref="GetMyUpdatesCountAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMyUpdatesCountResponseAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeUpdatesCountUri(websiteKind, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMyUpdatesCountUri(websiteKind, apiVersion));
         }
 
         /// <summary>
-        /// Warning: requires authentication!
+        /// Gets current user's notifications count
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeUpdatesCount</remarks>
         /// </summary>
-        /// <returns></returns>
-        public static async ValueTask<Counter> GetUserMeUpdatesCountAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Notifications count</returns>
+        public static async ValueTask<Counter> GetMyUpdatesCountAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserMeUpdatesCountResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+            var response = await GetMyUpdatesCountResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
+            // TODO: return number
             return await Core.DeserializeOsnovaResponseAsync<Counter>(response).ConfigureAwait(false);
         }
 
@@ -409,12 +522,25 @@ namespace Osnova.Net.Users
 
         #region GetUserComments
 
+        /// <summary>
+        /// Gets an URL to get user's comments
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserComments</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0/comments</returns>
         public static Uri GetUserCommentsUri(WebsiteKind websiteKind, int userId, int count = -1,
                                              int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/{userId}/comments");
+            UriBuilder builder = new($"{baseUri}/{userId}/comments");
 
             string countQuery = count > -1 ? $"count={count}" : null;
             string offsetQuery = offset > -1 ? $"offset={offset}" : null;
@@ -424,12 +550,26 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
+        /// <inheritdoc cref="GetUserCommentsAsync"/>
         public static ValueTask<HttpResponseMessage> GetUserCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
             return Core.GetResponseFromApiAsync(client, GetUserCommentsUri(websiteKind, userId, count, offset, apiVersion));
         }
 
+        /// <summary>
+        /// Gets user's comments
+        /// <remarks>
+        /// <para/>
+        /// Original name: getUserComments</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>User's comments</returns>
         public static async ValueTask<IEnumerable<Comment>> GetUserCommentsAsync(HttpClient client, WebsiteKind websiteKind, int userId,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
@@ -440,14 +580,26 @@ namespace Osnova.Net.Users
 
         #endregion
 
-        #region GetUserMeComments
+        #region GetMyComments
 
-        public static Uri GetUserMeCommentsUri(WebsiteKind websiteKind, int count = -1,
+        /// <summary>
+        /// Gets an URL to get current logged user's comments
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeComments</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/comments</returns>
+        public static Uri GetMyCommentsUri(WebsiteKind websiteKind, int count = -1,
                                              int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/me/comments");
+            UriBuilder builder = new($"{baseUri}/me/comments");
 
             string countQuery = count > -1 ? $"count={count}" : null;
             string offsetQuery = offset > -1 ? $"offset={offset}" : null;
@@ -457,16 +609,30 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <inheritdoc cref="GetMyCommentsAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMyCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeCommentsUri(websiteKind, count, offset, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMyCommentsUri(websiteKind, count, offset, apiVersion));
         }
 
-        public static async ValueTask<IEnumerable<Comment>> GetUserMeCommentsAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <summary>
+        /// Gets current user's comments
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeComments</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of comments</returns>
+        public static async ValueTask<IEnumerable<Comment>> GetMyCommentsAsync(HttpClient client, WebsiteKind websiteKind,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserMeCommentsResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
+            var response = await GetMyCommentsResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Comment>>(response).ConfigureAwait(false);
         }
@@ -475,12 +641,24 @@ namespace Osnova.Net.Users
 
         #region GetUserEntries
 
+        /// <summary>
+        /// Gets an URL to get user's entries
+        /// <remarks>
+        /// <para/>
+        /// Original name: getUserEntries</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0/entries</returns>
         public static Uri GetUserEntriesUri(WebsiteKind websiteKind, int userId, int count = -1,
                                              int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/{userId}/entries");
+            UriBuilder builder = new($"{baseUri}/{userId}/entries");
 
             string countQuery = count > -1 ? $"count={count}" : null;
             string offsetQuery = offset > -1 ? $"offset={offset}" : null;
@@ -490,12 +668,26 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
+        /// <inheritdoc cref="GetUserEntriesAsync"/>
         public static ValueTask<HttpResponseMessage> GetUserEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
             return Core.GetResponseFromApiAsync(client, GetUserEntriesUri(websiteKind, userId, count, offset, apiVersion));
         }
 
+        /// <summary>
+        /// Gets user's entries
+        /// <remarks>
+        /// <para/>
+        /// Original name: getUserEntries</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of entries</returns>
         public static async ValueTask<IEnumerable<Entry>> GetUserEntriesAsync(HttpClient client, WebsiteKind websiteKind, int userId,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
@@ -506,14 +698,26 @@ namespace Osnova.Net.Users
 
         #endregion
 
-        #region GetUserMeEntries
+        #region GetMyEntries
 
-        public static Uri GetUserMeEntriesUri(WebsiteKind websiteKind, int count = -1,
+        /// <summary>
+        /// Gets an URL to get current user's entries
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeEntries</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/entries</returns>
+        public static Uri GetMyEntriesUri(WebsiteKind websiteKind, int count = -1,
                                             int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/me/entries");
+            UriBuilder builder = new($"{baseUri}/me/entries");
 
             string countQuery = count > -1 ? $"count={count}" : null;
             string offsetQuery = offset > -1 ? $"offset={offset}" : null;
@@ -523,16 +727,30 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <inheritdoc cref="GetMyEntriesAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMyEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeEntriesUri(websiteKind, count, offset, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMyEntriesUri(websiteKind, count, offset, apiVersion));
         }
 
-        public static async ValueTask<IEnumerable<Entry>> GetUserMeEntriesAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <summary>
+        /// Gets current user's entries
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeEntries</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of entries</returns>
+        public static async ValueTask<IEnumerable<Entry>> GetMyEntriesAsync(HttpClient client, WebsiteKind websiteKind,
                                                                               int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserMeEntriesResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
+            var response = await GetMyEntriesResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
         }
@@ -541,12 +759,25 @@ namespace Osnova.Net.Users
 
         #region GetUserFavoritesEntries
 
-        public static Uri GetUserFavoritesEntriesUri(WebsiteKind websiteKind, int userId, int count = -1,
+        /// <summary>
+        /// Gets an URL to get user's favorite entries
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserFavoritesEntries</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0/favorites/entries</returns>
+        public static Uri GetUserFavoriteEntriesUri(WebsiteKind websiteKind, int userId, int count = -1,
                                             int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/{userId}/favorites/entries");
+            UriBuilder builder = new($"{baseUri}/{userId}/favorites/entries");
 
             string countQuery = count > -1 ? $"count={count}" : null;
             string offsetQuery = offset > -1 ? $"offset={offset}" : null;
@@ -556,26 +787,31 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserFavoritesEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+        /// <inheritdoc cref="GetUserFavoriteEntriesAsync"/>
+        public static ValueTask<HttpResponseMessage> GetUserFavoriteEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserFavoritesEntriesUri(websiteKind, userId, count, offset, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetUserFavoriteEntriesUri(websiteKind, userId, count, offset, apiVersion));
         }
 
         /// <summary>
-        /// Requires authentication
+        /// Gets user's favorite entries
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserFavoritesEntries</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="userId"></param>
-        /// <param name="count"></param>
-        /// <param name="offset"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<IEnumerable<Entry>> GetUserFavoritesEntriesAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of entries</returns>
+        public static async ValueTask<IEnumerable<Entry>> GetUserFavoriteEntriesAsync(HttpClient client, WebsiteKind websiteKind, int userId,
                                                                               int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserFavoritesEntriesResponseAsync(client, websiteKind, userId, count, offset, apiVersion).ConfigureAwait(false);
+            var response = await GetUserFavoriteEntriesResponseAsync(client, websiteKind, userId, count, offset, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
         }
@@ -584,12 +820,25 @@ namespace Osnova.Net.Users
 
         #region GetUserFavoritesComments
 
-        public static Uri GetUserFavoritesCommentsUri(WebsiteKind websiteKind, int userId, int count = -1,
+        /// <summary>
+        /// Gets an URL to get user's favorite comments
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserFavoritesComments</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0/favorites/comments</returns>
+        public static Uri GetUserFavoriteCommentsUri(WebsiteKind websiteKind, int userId, int count = -1,
                                                       int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/{userId}/favorites/comments");
+            UriBuilder builder = new($"{baseUri}/{userId}/favorites/comments");
 
             string countQuery = count > -1 ? $"count={count}" : null;
             string offsetQuery = offset > -1 ? $"offset={offset}" : null;
@@ -599,26 +848,31 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserFavoritesCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+        /// <inheritdoc cref="GetUserFavoriteCommentsAsync"/>
+        public static ValueTask<HttpResponseMessage> GetUserFavoriteCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserFavoritesCommentsUri(websiteKind, userId, count, offset, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetUserFavoriteCommentsUri(websiteKind, userId, count, offset, apiVersion));
         }
 
         /// <summary>
-        /// Requires authentication
+        /// Gets user's favorite comments
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserFavoritesComments</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="userId"></param>
-        /// <param name="count"></param>
-        /// <param name="offset"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<IEnumerable<Comment>> GetUserFavoritesCommentsAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of comments</returns>
+        public static async ValueTask<IEnumerable<Comment>> GetUserFavoriteCommentsAsync(HttpClient client, WebsiteKind websiteKind, int userId,
                                                                               int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserFavoritesCommentsResponseAsync(client, websiteKind, userId, count, offset, apiVersion).ConfigureAwait(false);
+            var response = await GetUserFavoriteCommentsResponseAsync(client, websiteKind, userId, count, offset, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Comment>>(response).ConfigureAwait(false);
         }
@@ -627,12 +881,25 @@ namespace Osnova.Net.Users
 
         #region GetUserFavoritesVacancies
 
-        public static Uri GetUserFavoritesVacanciesUri(WebsiteKind websiteKind, int userId, int count = -1,
+        /// <summary>
+        /// Gets an URL to get user's favorite vacancies
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserFavoritesVacancies</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0/favorites/vacancies</returns>
+        public static Uri GetUserFavoriteVacanciesUri(WebsiteKind websiteKind, int userId, int count = -1,
                                                        int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/{userId}/favorites/vacancies");
+            UriBuilder builder = new($"{baseUri}/{userId}/favorites/vacancies");
 
             string countQuery = count > -1 ? $"count={count}" : null;
             string offsetQuery = offset > -1 ? $"offset={offset}" : null;
@@ -642,40 +909,57 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserFavoritesVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+        /// <inheritdoc cref="GetUserFavoriteVacanciesAsync"/>
+        public static ValueTask<HttpResponseMessage> GetUserFavoriteVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind, int userId,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserFavoritesVacanciesUri(websiteKind, userId, count, offset, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetUserFavoriteVacanciesUri(websiteKind, userId, count, offset, apiVersion));
         }
 
         /// <summary>
-        /// Requires authentication
+        /// Gets user's favorite vacancies
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserFavoritesVacancies</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="userId"></param>
-        /// <param name="count"></param>
-        /// <param name="offset"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<IEnumerable<Vacancy>> GetUserFavoritesVacanciesAsync(HttpClient client, WebsiteKind websiteKind, int userId,
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="userId">User id</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of vacancies</returns>
+        public static async ValueTask<IEnumerable<Vacancy>> GetUserFavoriteVacanciesAsync(HttpClient client, WebsiteKind websiteKind, int userId,
                                                                               int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserFavoritesVacanciesResponseAsync(client, websiteKind, userId, count, offset, apiVersion).ConfigureAwait(false);
+            var response = await GetUserFavoriteVacanciesResponseAsync(client, websiteKind, userId, count, offset, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Vacancy>>(response).ConfigureAwait(false);
         }
 
         #endregion
 
-        #region GetUserMeFavoritesEntries
+        #region GetMyFavoriteEntries
 
-        public static Uri GetUserMeFavoritesEntriesUri(WebsiteKind websiteKind, int count = -1,
+        /// <summary>
+        /// Gets an URL to get current user's favorite entries
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeFavoritesEntries</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/favorites/entries</returns>
+        public static Uri GetMyFavoriteEntriesUri(WebsiteKind websiteKind, int count = -1,
                                                        int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/me/favorites/entries");
+            UriBuilder builder = new($"{baseUri}/me/favorites/entries");
 
             string countQuery = count > -1 ? $"count={count}" : null;
             string offsetQuery = offset > -1 ? $"offset={offset}" : null;
@@ -685,39 +969,56 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeFavoritesEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <inheritdoc cref="GetMyFavoriteEntriesAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMyFavoriteEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeFavoritesEntriesUri(websiteKind, count, offset, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMyFavoriteEntriesUri(websiteKind, count, offset, apiVersion));
         }
 
         /// <summary>
-        /// Requires authentication
+        /// Gets current user's favorite entries
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeFavoritesEntries</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="count"></param>
-        /// <param name="offset"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<IEnumerable<Entry>> GetUserMeFavoritesEntriesAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of entries</returns>
+        public static async ValueTask<IEnumerable<Entry>> GetMyFavoriteEntriesAsync(HttpClient client, WebsiteKind websiteKind,
                                                                               int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserMeFavoritesEntriesResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
+            var response = await GetMyFavoriteEntriesResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
         }
 
         #endregion
 
-        #region GetUserMeFavoritesComments
+        #region GetMyFavoriteComments
 
-        public static Uri GetUserMeFavoritesCommentsUri(WebsiteKind websiteKind, int count = -1,
+        /// <summary>
+        /// Gets an URL to get current user's favorite comments
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeFavoritesComments</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/favorites/comments</returns>
+        public static Uri GetMyFavoriteCommentsUri(WebsiteKind websiteKind, int count = -1,
                                                       int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/me/favorites/comments");
+            UriBuilder builder = new($"{baseUri}/me/favorites/comments");
 
             string countQuery = count > -1 ? $"count={count}" : null;
             string offsetQuery = offset > -1 ? $"offset={offset}" : null;
@@ -727,39 +1028,56 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeFavoritesCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <inheritdoc cref="GetMyFavoriteCommentsAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMyFavoriteCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeFavoritesCommentsUri(websiteKind, count, offset, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMyFavoriteCommentsUri(websiteKind, count, offset, apiVersion));
         }
 
         /// <summary>
-        /// Requires authentication
+        /// Gets current user's favorite comments
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeFavoritesComments</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="count"></param>
-        /// <param name="offset"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<IEnumerable<Comment>> GetUserMeFavoritesCommentsAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of comments</returns>
+        public static async ValueTask<IEnumerable<Comment>> GetMyFavoriteCommentsAsync(HttpClient client, WebsiteKind websiteKind,
                                                                               int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserMeFavoritesCommentsResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
+            var response = await GetMyFavoriteCommentsResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Comment>>(response).ConfigureAwait(false);
         }
 
         #endregion
 
-        #region GetUserMeFavoritesVacancies
+        #region GetMyFavoriteVacancies
 
-        public static Uri GetUserMeFavoritesVacanciesUri(WebsiteKind websiteKind, int count = -1,
+        /// <summary>
+        /// Gets an URL to get current user's favorite vacancies
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeFavoritesVacancies</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/favorites/vacancies</returns>
+        public static Uri GetMyFavoriteVacanciesUri(WebsiteKind websiteKind, int count = -1,
                                                        int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            UriBuilder builder = new($"{baseUri}/user/me/favorites/vacancies");
+            UriBuilder builder = new($"{baseUri}/me/favorites/vacancies");
 
             string countQuery = count > -1 ? $"count={count}" : null;
             string offsetQuery = offset > -1 ? $"offset={offset}" : null;
@@ -769,136 +1087,203 @@ namespace Osnova.Net.Users
             return builder.Uri;
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeFavoritesVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <inheritdoc cref="GetMyFavoriteVacanciesAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMyFavoriteVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeFavoritesVacanciesUri(websiteKind, count, offset, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMyFavoriteVacanciesUri(websiteKind, count, offset, apiVersion));
         }
 
         /// <summary>
-        /// Requires authentication
+        /// Gets current user's favorite vacancies
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeFavoritesVacancies</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="count"></param>
-        /// <param name="offset"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<IEnumerable<Vacancy>> GetUserMeFavoritesVacanciesAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of vacancies</returns>
+        public static async ValueTask<IEnumerable<Vacancy>> GetMyFavoriteVacanciesAsync(HttpClient client, WebsiteKind websiteKind,
                                                                               int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserMeFavoritesVacanciesResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
+            var response = await GetMyFavoriteVacanciesResponseAsync(client, websiteKind, count, offset, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Vacancy>>(response).ConfigureAwait(false);
         }
 
         #endregion
 
-        #region GetUserMeSubscriptionsRecommended
+        #region GetMyRecommendedSubscriptions
 
-        public static Uri GetUserMeSubscriptionsRecommendedUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        /// <summary>
+        /// Gets an URL to get current user's recommended subscriptions
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeSubscriptionsRecommended</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/subscriptions/recommended</returns>
+        public static Uri GetMyRecommendedSubscriptionsUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            return new Uri($"{baseUri}/user/me/subscriptions/recommended");
+            return new Uri($"{baseUri}/me/subscriptions/recommended");
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeSubscriptionsRecommendedResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <inheritdoc cref="GetMyRecommendedSubscriptionsAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMyRecommendedSubscriptionsResponseAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeSubscriptionsRecommendedUri(websiteKind, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMyRecommendedSubscriptionsUri(websiteKind, apiVersion));
         }
 
         /// <summary>
-        /// Requires authentication
+        /// Gets current user's recommended subscriptions
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeSubscriptionsRecommended</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<IEnumerable<User>> GetUserMeSubscriptionsRecommendedAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of users</returns>
+        public static async ValueTask<IEnumerable<User>> GetMyRecommendedSubscriptionsAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserMeSubscriptionsRecommendedResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+            var response = await GetMyRecommendedSubscriptionsResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
         }
 
         #endregion
 
-        #region GetUserMeSubscriptionsSubscribed
+        #region GetMySubscriptionsSubscribed
 
-        public static Uri GetUserMeSubscriptionsSubscribedUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        // TODO: rename to Subscriptions or Subscribed
+        
+        /// <summary>
+        /// Gets an URL to get current user's subscriptions
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeSubscriptionsSubscribed</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/subscriptions/subscribed</returns>
+        public static Uri GetMySubscriptionsSubscribedUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            return new Uri($"{baseUri}/user/me/subscriptions/subscribed");
+            return new Uri($"{baseUri}/me/subscriptions/subscribed");
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeSubscriptionsSubscribedResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <inheritdoc cref="GetMySubscriptionsSubscribedAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMySubscriptionsSubscribedResponseAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeSubscriptionsSubscribedUri(websiteKind, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMySubscriptionsSubscribedUri(websiteKind, apiVersion));
         }
 
         /// <summary>
-        /// Requires authentication
+        /// Gets current user's subscriptions
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeSubscriptionsSubscribed</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<IEnumerable<User>> GetUserMeSubscriptionsSubscribedAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of users</returns>
+        public static async ValueTask<IEnumerable<User>> GetMySubscriptionsSubscribedAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserMeSubscriptionsSubscribedResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+            var response = await GetMySubscriptionsSubscribedResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
         }
 
         #endregion
 
-        #region GetUserMeTuneCatalog
+        #region GetMyTuneCatalog
 
-        public static Uri GetUserMeTuneCatalogUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        /// <summary>
+        /// Gets an URL to get current user's tune catalog
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeTuneCatalog</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/tunecatalog</returns>
+        public static Uri GetMyTuneCatalogUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultUserUrl(websiteKind, apiVersion);
 
-            return new Uri($"{baseUri}/user/me/tunecatalog");
+            return new Uri($"{baseUri}/me/tunecatalog");
         }
 
-        public static ValueTask<HttpResponseMessage> GetUserMeTuneCatalogResponseAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <inheritdoc cref="GetMyTuneCatalogAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMyTuneCatalogResponseAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
-            return Core.GetResponseFromApiAsync(client, GetUserMeTuneCatalogUri(websiteKind, apiVersion));
+            return Core.GetResponseFromApiAsync(client, GetMyTuneCatalogUri(websiteKind, apiVersion));
         }
 
         /// <summary>
-        /// Requires authentication
+        /// Gets current user's tune catalog
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getUserMeTuneCatalog</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
-        public static async ValueTask<IEnumerable<User>> GetUserMeTuneCatalogAsync(HttpClient client, WebsiteKind websiteKind,
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of users</returns>
+        public static async ValueTask<IEnumerable<User>> GetMyTuneCatalogAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
-            var response = await GetUserMeTuneCatalogResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+            var response = await GetMyTuneCatalogResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
             return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
         }
 
         #endregion
+        
+        #endregion
+
+        #region Subsite namespace
 
         #region GetIgnoredKeywords
 
+        /// <summary>
+        /// Gets an URL to get current user's ignored keywords
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getIgnoredKeywords</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite/get-ignored-keywords</returns>
         public static Uri GetIgnoredKeywordsUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+            var baseUri = GetDefaultSubsiteUrl(websiteKind, apiVersion);
 
-            return new Uri($"{baseUri}/subsite/get-ignored-keywords");
+            return new Uri($"{baseUri}/get-ignored-keywords");
         }
 
+        /// <inheritdoc cref="GetIgnoredKeywordsAsync"/>
         public static ValueTask<HttpResponseMessage> GetIgnoredKeywordsResponseAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
@@ -906,22 +1291,348 @@ namespace Osnova.Net.Users
         }
 
         /// <summary>
-        /// Requires authentication
+        /// Gets current user's ignored keywords
+        /// <para/>
+        /// <remarks>Requires authentication!
+        /// <para/>
+        /// Original name: getIgnoredKeywords</remarks>
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="websiteKind"></param>
-        /// <param name="apiVersion"></param>
-        /// <returns></returns>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of keywords</returns>
         public static async ValueTask<KeywordsContainer> GetIgnoredKeywordsAsync(HttpClient client, WebsiteKind websiteKind,
             double apiVersion = Core.ApiVersion)
         {
             var response = await GetIgnoredKeywordsResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
+            // TODO: return collection of strings
             return await Core.DeserializeOsnovaResponseAsync<KeywordsContainer>(response).ConfigureAwait(false);
         }
 
         #endregion
 
+        #region GetSubsite
+
+        /// <summary>
+        /// Gets an URL to get subsite by id
+        /// <para/>
+        /// <remarks>Original name: getSubsite</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="subsiteId">Subsite id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite/0</returns>
+        public static Uri GetSubsiteUri(WebsiteKind websiteKind, int subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = GetDefaultSubsiteUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{subsiteId}");
+        }
+
+        /// <inheritdoc cref="GetSubsiteAsync"/>
+        public static ValueTask<HttpResponseMessage> GetSubsiteResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetSubsiteUri(websiteKind, subsiteId, apiVersion));
+        }
+
+        /// <summary>
+        /// Gets subsite by id
+        /// <para/>
+        /// <remarks>Original name: getSubsite</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="subsiteId">Entry id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Requested subsite</returns>
+        public static async ValueTask<User> GetSubsiteAsync(HttpClient client, WebsiteKind websiteKind, int subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetSubsiteResponseAsync(client, websiteKind, subsiteId, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<User>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region GetSubsiteTimeline
+
+        /// <summary>
+        /// Gets an URL to get subsite's timeline
+        /// <para/>
+        /// <remarks>Original name: getSubsiteTimeline</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="subsiteId">Subsite id</param>
+        /// <param name="sorting">Sorting of entries</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite/0/timeline</returns>
+        public static Uri GetSubsiteTimelineUri(WebsiteKind websiteKind, int subsiteId,
+               SubsiteTimelineSorting sorting = SubsiteTimelineSorting.Default,
+               int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = GetDefaultSubsiteUrl(websiteKind, apiVersion);
+
+            UriBuilder builder = new($"{baseUri}/{subsiteId}/timeline{Core.ConvertSubsiteTimelineSorting(sorting)}");
+
+            string countQuery = count > -1 ? $"count={count}" : null;
+            string offsetQuery = offset > -1 ? $"offset={offset}" : null;
+
+            Core.BuildUri(ref builder, countQuery, offsetQuery);
+
+            return builder.Uri;
+        }
+
+        /// <inheritdoc cref="GetSubsiteTimelineAsync"/>
+        public static ValueTask<HttpResponseMessage> GetSubsiteTimelineResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int subsiteId, SubsiteTimelineSorting sorting = SubsiteTimelineSorting.Default,
+            int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetSubsiteTimelineUri(websiteKind, subsiteId, sorting, count,
+                                                                              offset, apiVersion));
+        }
+
+        /// <summary>
+        /// Gets subsite's timeline (collection of entries)
+        /// <para/>
+        /// <remarks>Original name: getSubsiteTimeline</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="subsiteId">Subsite id</param>
+        /// <param name="sorting">Sorting of entries</param>
+        /// <param name="count">Count</param>
+        /// <param name="offset">Offset</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of entries</returns>
+        public static async ValueTask<IEnumerable<Entry>> GetSubsiteTimelineAsync(HttpClient client, WebsiteKind websiteKind,
+            int subsiteId, SubsiteTimelineSorting sorting = SubsiteTimelineSorting.Default,
+            int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
+        {
+            var response = await GetSubsiteTimelineResponseAsync(client, websiteKind, subsiteId, sorting, count,
+                                                                 offset, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Entry>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region GetSubsitesList
+
+        /// <summary>
+        /// Gets an URL to get subsites list
+        /// <para/>
+        /// <remarks>Original name: getSubsitesList</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="subsiteType">Subsite type</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsites_list/sections</returns>
+        public static Uri GetSubsitesListUri(WebsiteKind websiteKind, SubsiteTypes subsiteType = SubsiteTypes.Sections,
+                                             double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/subsites_list/{subsiteType.ToString().ToLowerInvariant()}");
+        }
+
+        /// <inheritdoc cref="GetSubsitesListAsync"/>
+        public static ValueTask<HttpResponseMessage> GetSubsitesListResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            SubsiteTypes subsiteType = SubsiteTypes.Sections, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetSubsitesListUri(websiteKind, subsiteType, apiVersion));
+        }
+
+        /// <summary>
+        /// Gets subsites list
+        /// <para/>
+        /// <remarks>Original name: getSubsitesList</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="subsiteType">Subsite type</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of subsites</returns>
+        public static async ValueTask<IEnumerable<User>> GetSubsitesListAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                              SubsiteTypes subsiteType = SubsiteTypes.Sections, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetSubsitesListResponseAsync(client, websiteKind, subsiteType, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<User>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region GetCompanyVacancies
+
+        // TODO: move to Company
+        
+        /// <summary>
+        /// Gets an URL to get company's (not user/subsite) vacancies
+        /// <para/>
+        /// <remarks>Original name: getSubsiteVacancies</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="companyId">Company id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite/0/vacancies</returns>
+        public static Uri GetCompanyVacanciesUri(WebsiteKind websiteKind, int companyId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = GetDefaultSubsiteUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{companyId}/vacancies");
+        }
+
+        /// <inheritdoc cref="GetCompanyVacanciesAsync"/>
+        public static ValueTask<HttpResponseMessage> GetCompanyVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int companyId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetCompanyVacanciesUri(websiteKind, companyId, apiVersion));
+        }
+
+        /// <summary>
+        /// Gets company's (not user/subsite) vacancies
+        /// <para/>
+        /// <remarks>Original name: getSubsiteVacancies</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="companyId">Company id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of vacancies</returns>
+        public static async ValueTask<IEnumerable<Vacancy>> GetCompanyVacanciesAsync(HttpClient client, WebsiteKind websiteKind,
+            int companyId, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetCompanyVacanciesResponseAsync(client, websiteKind, companyId, apiVersion).ConfigureAwait(false);
+
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Vacancy>>(response).ConfigureAwait(false);
+
+            return searchResult.Items;
+        }
+
+        #endregion
+
+        #region GetCompanyVacanciesMore
+
+        // TODO: move to Company
+
+        /// <summary>
+        /// Gets an URL to get more company's (not user/subsite) vacancies
+        /// <para/>
+        /// <remarks>Original name: getSubsiteVacanciesMore</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="companyId">Company id</param>
+        /// <param name="lastId">Last id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite/0/vacancies/more/0</returns>
+        public static Uri GetCompanyMoreVacanciesUri(WebsiteKind websiteKind, int companyId,
+            int lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = GetDefaultSubsiteUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{companyId}/vacancies/more/{lastId}");
+        }
+
+        /// <inheritdoc cref="GetCompanyMoreVacanciesAsync"/>
+        public static ValueTask<HttpResponseMessage> GetCompanyMoreVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int companyId, int lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetCompanyMoreVacanciesUri(websiteKind, companyId, lastId, apiVersion));
+        }
+
+        /// <summary>
+        /// Gets more company's (not user/subsite) vacancies
+        /// <para/>
+        /// <remarks>Original name: getSubsiteVacanciesMore</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="companyId">Company id</param>
+        /// <param name="lastId">Last id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of vacancies</returns>
+        public static async ValueTask<IEnumerable<Vacancy>> GetCompanyMoreVacanciesAsync(HttpClient client, WebsiteKind websiteKind,
+            int companyId, int lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetCompanyMoreVacanciesResponseAsync(client, websiteKind, companyId, lastId, apiVersion).ConfigureAwait(false);
+
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Vacancy>>(response).ConfigureAwait(false);
+
+            return searchResult.Items;
+        }
+
+        #endregion
+
+        #region GetSubsiteSubscribe
+
+        /// <summary>
+        /// Always throws 403
+        /// </summary>
+        [Obsolete]
+        public static Uri GetSubsiteSubscribeUri(WebsiteKind websiteKind, int subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = GetDefaultSubsiteUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{subsiteId}/subscribe");
+        }
+
+        /// <inheritdoc cref="GetSubsiteSubscribeUri"/>
+        [Obsolete]
+        public static ValueTask<HttpResponseMessage> GetSubsiteSubscribeResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetSubsiteSubscribeUri(websiteKind, subsiteId, apiVersion));
+        }
+
+        /// <inheritdoc cref="GetSubsiteSubscribeUri"/>
+        [Obsolete]
+        public static async ValueTask<bool> GetSubsiteSubscribeAsync(HttpClient client, WebsiteKind websiteKind,
+            int subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetSubsiteSubscribeResponseAsync(client, websiteKind, subsiteId, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<bool>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region GetSubsiteUnsubscribe
+
+        /// <inheritdoc cref="GetSubsiteSubscribeUri"/>
+        [Obsolete]
+        public static Uri GetSubsiteUnsubscribeUri(WebsiteKind websiteKind, int subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = GetDefaultSubsiteUrl(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/{subsiteId}/unsubscribe");
+        }
+
+        /// <inheritdoc cref="GetSubsiteSubscribeUri"/>
+        [Obsolete]
+        public static ValueTask<HttpResponseMessage> GetSubsiteUnsubscribeResponseAsync(HttpClient client, WebsiteKind websiteKind,
+            int subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetSubsiteUnsubscribeUri(websiteKind, subsiteId, apiVersion));
+        }
+
+        /// <inheritdoc cref="GetSubsiteSubscribeUri"/>
+        [Obsolete]
+        public static async ValueTask<bool> GetSubsiteUnsubscribeAsync(HttpClient client, WebsiteKind websiteKind,
+            int subsiteId, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetSubsiteUnsubscribeResponseAsync(client, websiteKind, subsiteId, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<bool>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+        
+        #endregion
+        
         #endregion
 
         #endregion

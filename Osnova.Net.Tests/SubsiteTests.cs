@@ -13,7 +13,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetSubsite()
         {
-            var subsite = await Subsite.GetSubsiteAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
+            var subsite = await User.GetSubsiteAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
 
             if (subsite.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
 
@@ -23,7 +23,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetSubsiteTimeline()
         {
-            var entries = await Subsite.GetSubsiteTimelineAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
+            var entries = await User.GetSubsiteTimelineAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
 
             foreach (var value in entries)
             {
@@ -36,7 +36,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetSubsitesList()
         {
-            var subsites = await Subsite.GetSubsitesListAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var subsites = await User.GetSubsitesListAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in subsites)
             {
@@ -49,7 +49,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetSubsiteVacancies()
         {
-            var vacancies = await Subsite.GetSubsiteVacanciesAsync(Helper.Client, Helper.Kind, 75184).ConfigureAwait(false);
+            var vacancies = await User.GetCompanyVacanciesAsync(Helper.Client, Helper.Kind, 75184).ConfigureAwait(false);
 
             foreach (var value in vacancies)
             {
@@ -62,7 +62,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetSubsiteVacanciesMore()
         {
-            var vacancies = await Subsite.GetSubsiteVacanciesMoreAsync(Helper.Client, Helper.Kind, 75184).ConfigureAwait(false);
+            var vacancies = await User.GetCompanyMoreVacanciesAsync(Helper.Client, Helper.Kind, 75184).ConfigureAwait(false);
 
             foreach (var value in vacancies)
             {
@@ -77,7 +77,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var isSubscribed = await Subsite.GetSubsiteSubscribeAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
+            var isSubscribed = await User.GetSubsiteSubscribeAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace Osnova.Net.Tests
         {
             if (Helper.Secrets == null) return;
 
-            var isUnsubscribed = await Subsite.GetSubsiteUnsubscribeAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
+            var isUnsubscribed = await User.GetSubsiteUnsubscribeAsync(Helper.Client, Helper.Kind, Constants.DtfSubsiteIds.Weaboo).ConfigureAwait(false);
         }
     }
 }

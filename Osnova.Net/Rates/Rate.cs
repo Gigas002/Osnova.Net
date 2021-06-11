@@ -55,15 +55,7 @@ namespace Osnova.Net.Rates
 
         #region GetRates
         
-        /// <summary>
-        /// Gets rates
-        /// <para/>
-        /// <remarks>Original name: getRates</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested rates</returns>
+        /// <inheritdoc cref="GetRatesAsync"/>
         public static ValueTask<HttpResponseMessage> GetRatesResponseAsync(HttpClient client, WebsiteKind websiteKind,
                                                                            double apiVersion = Core.ApiVersion)
         {

@@ -172,24 +172,21 @@ namespace Osnova.Net.Comments
 
         #region Shortcuts in another classes
 
-        /// <inheritdoc cref="Entry.GetCommentsAsync(HttpClient,WebsiteKind,int,CommentSorting,double)"/>
-        [Obsolete("Consider using Entry.GetCommentsAsync")]
+        /// <inheritdoc cref="Osnova.Net.Entries.Entry.GetCommentsAsync"/>
         public static ValueTask<IEnumerable<Comment>> GetEntryCommentsAsync(HttpClient client, WebsiteKind websiteKind, int entryId,
                                                                             CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
         {
             return Entry.GetCommentsAsync(client, websiteKind, entryId, sorting, apiVersion);
         }
 
-        /// <inheritdoc cref="Entry.GetCommentsThreadsAsync(HttpClient,WebsiteKind,int,CommentSorting,double)"/>
-        [Obsolete("Consider using Entry.GetCommentsThreadsAsync")]
+        /// <inheritdoc cref="Osnova.Net.Entries.Entry.GetCommentsThreadsAsync"/>
         public static ValueTask<CommentThreads> GetEntryCommentsThreadsAsync(HttpClient client, WebsiteKind websiteKind, int entryId,
                                                                              CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
         {
             return Entry.GetCommentsThreadsAsync(client, websiteKind, entryId, sorting, apiVersion);
         }
 
-        /// <inheritdoc cref="Entry.GetCommentThreadAsync(HttpClient,WebsiteKind,int,int,double)"/>
-        [Obsolete("Consider using Entry.GetCommentThreadAsync")]
+        /// <inheritdoc cref="Osnova.Net.Entries.Entry.GetCommentThreadAsync"/>
         public static ValueTask<CommentThreads> GetEntryCommentThreadAsync(HttpClient client, WebsiteKind websiteKind, int entryId,
                                                                            int commentId, double apiVersion = Core.ApiVersion)
         {
@@ -218,16 +215,7 @@ namespace Osnova.Net.Comments
             return new Uri($"{baseUri}/{relative}");
         }
 
-        /// <summary>
-        /// Gets likers for specified comment
-        /// <para/>
-        /// <remarks>Original name: getCommentLikersUri</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="commentId">Comment id</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested likers</returns>
+        /// <inheritdoc cref="GetCommentLikersAsync"/>
         public static ValueTask<HttpResponseMessage> GetCommentLikersResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int commentId, double apiVersion = Core.ApiVersion)
         {
@@ -277,16 +265,7 @@ namespace Osnova.Net.Comments
             return new Uri($"{baseUri}/{relative}");
         }
 
-        /// <summary>
-        /// Gets popular entries and comments
-        /// <para/>
-        /// <remarks>Original name: getEntryWidgets</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="entryId">Entry id</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested popular entries and comments</returns>
+        /// <inheritdoc cref="GetPopularAsync"/>
         public static ValueTask<HttpResponseMessage> GetPopularResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int entryId, double apiVersion = Core.ApiVersion)
         {

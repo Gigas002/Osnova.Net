@@ -299,16 +299,7 @@ namespace Osnova.Net.Entries
             return new Uri($"{baseUri}/{relative}");
         }
 
-        /// <summary>
-        /// Gets entry by id
-        /// <para/>
-        /// <remarks>Original name: getEntryById</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="entryId">Entry id</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested entry</returns>
+        /// <inheritdoc cref="GetEntryAsync"/>
         public static ValueTask<HttpResponseMessage> GetEntryResponseAsync(HttpClient client, WebsiteKind websiteKind,
                                                                            int entryId, double apiVersion = Core.ApiVersion)
         {
@@ -356,16 +347,7 @@ namespace Osnova.Net.Entries
             return new Uri($"{baseUri}/{relative}");
         }
 
-        /// <summary>
-        /// Gets popular entries, similar to specified id
-        /// <para/>
-        /// <remarks>Original name: getPopularEntries</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="entryId">Entry id</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested collection of entries</returns>
+        /// <inheritdoc cref="GetPopularEntriesAsync"/>
         public static ValueTask<HttpResponseMessage> GetPopularEntriesResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int entryId, double apiVersion = Core.ApiVersion)
         {
@@ -411,16 +393,7 @@ namespace Osnova.Net.Entries
             return new Uri($"{baseUri}/entry/locate?url={entryUri}");
         }
 
-        /// <summary>
-        /// Gets entry by it's URL
-        /// <para/>
-        /// <remarks>Original name: getEntryLocate</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="entryUri">Entry's URL</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested entry</returns>
+        /// <inheritdoc cref="GetEntryLocateAsync"/>
         public static ValueTask<HttpResponseMessage> GetEntryLocateResponseAsync(HttpClient client, WebsiteKind websiteKind,
             Uri entryUri, double apiVersion = Core.ApiVersion)
         {
@@ -467,17 +440,7 @@ namespace Osnova.Net.Entries
             return new Uri($"{baseUri}/{relative}");
         }
 
-        /// <summary>
-        /// Gets comments for specified entry
-        /// <para/>
-        /// <remarks>Original name: getEntryComments</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="entryId">Entry id</param>
-        /// <param name="sorting">Sorting of comments</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested comments</returns>
+        /// <inheritdoc cref="GetCommentsAsync"/>
         public static ValueTask<HttpResponseMessage> GetCommentsResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int entryId, CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
         {
@@ -526,17 +489,7 @@ namespace Osnova.Net.Entries
             return new Uri($"{baseUri}/{relative}");
         }
 
-        /// <summary>
-        /// Gets comments threads for specified entry
-        /// <para/>
-        /// <remarks>Original name: getEntryCommentsLevels</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="entryId">Entry id</param>
-        /// <param name="sorting">Sorting of comments</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested comments threads</returns>
+        /// <inheritdoc cref="GetCommentsThreadsAsync"/>
         public static ValueTask<HttpResponseMessage> GetCommentsThreadsResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int entryId, CommentSorting sorting = CommentSorting.Date, double apiVersion = Core.ApiVersion)
         {
@@ -585,17 +538,7 @@ namespace Osnova.Net.Entries
             return new Uri($"{baseUri}/{relative}");
         }
 
-        /// <summary>
-        /// Gets thread for specified comment
-        /// <para/>
-        /// <remarks>Original name: getEntryCommentsThread</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="entryId">Entry id</param>
-        /// <param name="commentId">Comment id</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested thread</returns>
+        /// <inheritdoc cref="GetCommentThreadAsync"/>
         public static ValueTask<HttpResponseMessage> GetCommentThreadResponseAsync(HttpClient client, WebsiteKind websiteKind,
             int entryId, int commentId, double apiVersion = Core.ApiVersion)
         {
@@ -648,17 +591,7 @@ namespace Osnova.Net.Entries
 
         // TODO: string entryJson overload
         // TODO: test with subsiteId = 0
-        /// <summary>
-        /// Posts an entry and returns it
-        /// <para/>
-        /// <remarks>Original name: postEntryCreate</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="subsiteId">Subsite to post</param>
-        /// <param name="entry">Entry to create</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Ready entry</returns>
+        /// <inheritdoc cref="PostEntryCreateAsync"/>
         public static async ValueTask<HttpResponseMessage> PostEntryCreateResponseAsync(HttpClient client, WebsiteKind websiteKind,
                                                                                         int subsiteId, Entry entry, double apiVersion = Core.ApiVersion)
         {

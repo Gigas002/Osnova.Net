@@ -93,18 +93,7 @@ namespace Osnova.Net.Twitter
             return builder.Uri;
         }
 
-        /// <summary>
-        /// Gets tweets
-        /// <para/>
-        /// <remarks>Original name: getTweets</remarks>
-        /// </summary>
-        /// <param name="client">Client to send requests</param>
-        /// <param name="websiteKind">Kind of website</param>
-        /// <param name="tweetSorting">Sorting of tweets</param>
-        /// <param name="count">Count of tweets</param>
-        /// <param name="offset">Tweet offset</param>
-        /// <param name="apiVersion">Target version of API</param>
-        /// <returns>Requested tweets</returns>
+        /// <inheritdoc cref="GetTweetsAsync"/>
         public static ValueTask<HttpResponseMessage> GetTweetsResponseAsync(HttpClient client, WebsiteKind websiteKind,
                 TweetSorting tweetSorting = TweetSorting.Fresh, int count = -1, int offset = -1, double apiVersion = Core.ApiVersion)
         {

@@ -8,7 +8,7 @@
         /// <summary>
         /// Usual subsite
         /// </summary>
-        Sections,
+        Sections, // TODO: rename?
         
         /// <summary>
         /// Company subsite

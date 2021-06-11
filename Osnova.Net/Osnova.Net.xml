@@ -1593,16 +1593,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/comment/likers/0</returns>
         </member>
         <member name="M:Osnova.Net.Comments.Comment.GetCommentLikersResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
-            <summary>
-            Gets likers for specified comment
-            <para/>
-            <remarks>Original name: getCommentLikersUri</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="commentId">Comment id</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested likers</returns>
+            <inheritdoc cref="M:Osnova.Net.Comments.Comment.GetCommentLikersAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Comments.Comment.GetCommentLikersAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
             <summary>
@@ -1628,16 +1619,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0/widgets</returns>
         </member>
         <member name="M:Osnova.Net.Comments.Comment.GetPopularResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
-            <summary>
-            Gets popular entries and comments
-            <para/>
-            <remarks>Original name: getEntryWidgets</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="entryId">Entry id</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested popular entries and comments</returns>
+            <inheritdoc cref="M:Osnova.Net.Comments.Comment.GetPopularAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Comments.Comment.GetPopularAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
             <summary>
@@ -3463,16 +3445,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0</returns>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetEntryResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
-            <summary>
-            Gets entry by id
-            <para/>
-            <remarks>Original name: getEntryById</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="entryId">Entry id</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested entry</returns>
+            <inheritdoc cref="M:Osnova.Net.Entries.Entry.GetEntryAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetEntryAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
             <summary>
@@ -3498,16 +3471,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0/popular</returns>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetPopularEntriesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
-            <summary>
-            Gets popular entries, similar to specified id
-            <para/>
-            <remarks>Original name: getPopularEntries</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="entryId">Entry id</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested collection of entries</returns>
+            <inheritdoc cref="M:Osnova.Net.Entries.Entry.GetPopularEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetPopularEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
             <summary>
@@ -3533,16 +3497,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/locate?url=https://dtf.ru/0</returns>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetEntryLocateResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Uri,System.Double)">
-            <summary>
-            Gets entry by it's URL
-            <para/>
-            <remarks>Original name: getEntryLocate</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="entryUri">Entry's URL</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested entry</returns>
+            <inheritdoc cref="M:Osnova.Net.Entries.Entry.GetEntryLocateAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Uri,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetEntryLocateAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Uri,System.Double)">
             <summary>
@@ -3569,17 +3524,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0/comments/date</returns>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetCommentsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
-            <summary>
-            Gets comments for specified entry
-            <para/>
-            <remarks>Original name: getEntryComments</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="entryId">Entry id</param>
-            <param name="sorting">Sorting of comments</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested comments</returns>
+            <inheritdoc cref="M:Osnova.Net.Entries.Entry.GetCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
             <summary>
@@ -3607,17 +3552,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0/comments/levels/date</returns>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetCommentsThreadsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
-            <summary>
-            Gets comments threads for specified entry
-            <para/>
-            <remarks>Original name: getEntryCommentsLevels</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="entryId">Entry id</param>
-            <param name="sorting">Sorting of comments</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested comments threads</returns>
+            <inheritdoc cref="M:Osnova.Net.Entries.Entry.GetCommentsThreadsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetCommentsThreadsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.CommentSorting,System.Double)">
             <summary>
@@ -3645,17 +3580,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/0/comments/thread/0</returns>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetCommentThreadResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
-            <summary>
-            Gets thread for specified comment
-            <para/>
-            <remarks>Original name: getEntryCommentsThread</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="entryId">Entry id</param>
-            <param name="commentId">Comment id</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested thread</returns>
+            <inheritdoc cref="M:Osnova.Net.Entries.Entry.GetCommentThreadAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.GetCommentThreadAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
             <summary>
@@ -3681,17 +3606,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/entry/create</returns>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.PostEntryCreateResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Entries.Entry,System.Double)">
-            <summary>
-            Posts an entry and returns it
-            <para/>
-            <remarks>Original name: postEntryCreate</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="subsiteId">Subsite to post</param>
-            <param name="entry">Entry to create</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Ready entry</returns>
+            <inheritdoc cref="M:Osnova.Net.Entries.Entry.PostEntryCreateAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Entries.Entry,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Entries.Entry.PostEntryCreateAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Entries.Entry,System.Double)">
             <summary>
@@ -5093,15 +5008,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/events/filters</returns>
         </member>
         <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsFiltersResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
-            <summary>
-            Gets events filters
-            <para/>
-            <remarks>Original name: getEventsFilters</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested events filters</returns>
+            <inheritdoc cref="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsFiltersAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsFiltersAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
@@ -5127,17 +5034,7 @@
             <returns>Ready URL, e.g.: https://api.vc.ru/v1.9/events?city_id=0</returns>
         </member>
         <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)">
-            <summary>
-            Gets events
-            <para/>
-            <remarks>Original name: getEvents</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="cityId">City ID</param>
-            <param name="specializationIds">Specialization ID's collection</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested events</returns>
+            <inheritdoc cref="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)"/>
         </member>
         <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetEventsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)">
             <summary>
@@ -5166,18 +5063,7 @@
             <returns>Ready URL, e.g.: https://api.vc.ru/v1.9/events/more/0?city_id=0</returns>
         </member>
         <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetMoreEventsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)">
-            <summary>
-            Gets more events
-            <para/>
-            <remarks>Original name: getEventsMore</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="lastId">Last event's ID of previous query</param>
-            <param name="cityId">City ID</param>
-            <param name="specializationIds">Specialization ID's collection</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested events</returns>
+            <inheritdoc cref="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetMoreEventsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)"/>
         </member>
         <member name="M:Osnova.Net.OsnovaEvents.OsnovaEvent.GetMoreEventsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Double)">
             <summary>
@@ -5355,16 +5241,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/quiz/hash/results</returns>
         </member>
         <member name="M:Osnova.Net.Quiz.Quiz.GetQuizResultsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
-            <summary>
-            Gets quiz results
-            <para/>
-            <remarks>Original name: getQuizResults</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="quizHash">Quiz hash</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested quiz's results</returns>
+            <inheritdoc cref="M:Osnova.Net.Quiz.Quiz.GetQuizResultsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Quiz.Quiz.GetQuizResultsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
             <summary>
@@ -5432,15 +5309,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/rates</returns>
         </member>
         <member name="M:Osnova.Net.Rates.Rate.GetRatesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
-            <summary>
-            Gets rates
-            <para/>
-            <remarks>Original name: getRates</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested rates</returns>
+            <inheritdoc cref="M:Osnova.Net.Rates.Rate.GetRatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Rates.Rate.GetRatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
@@ -5746,18 +5615,7 @@
             <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/tweets/fresh?count=10</returns>
         </member>
         <member name="M:Osnova.Net.Twitter.OsnovaTweet.GetTweetsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,Osnova.Net.Enums.TweetSorting,System.Int32,System.Int32,System.Double)">
-            <summary>
-            Gets tweets
-            <para/>
-            <remarks>Original name: getTweets</remarks>
-            </summary>
-            <param name="client">Client to send requests</param>
-            <param name="websiteKind">Kind of website</param>
-            <param name="tweetSorting">Sorting of tweets</param>
-            <param name="count">Count of tweets</param>
-            <param name="offset">Tweet offset</param>
-            <param name="apiVersion">Target version of API</param>
-            <returns>Requested tweets</returns>
+            <inheritdoc cref="M:Osnova.Net.Twitter.OsnovaTweet.GetTweetsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,Osnova.Net.Enums.TweetSorting,System.Int32,System.Int32,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Twitter.OsnovaTweet.GetTweetsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,Osnova.Net.Enums.TweetSorting,System.Int32,System.Int32,System.Double)">
             <summary>
@@ -7321,131 +7179,737 @@
             Is banned?
             </summary>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserMeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="P:Osnova.Net.Users.User.BanInfo">
             <summary>
-            Warning: requires client to be authenticated
+            Info about ban on osnova website
             </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserMeUpdatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Boolean,System.Int64,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetDefaultUserUrl(Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
-            Warning: requires authentication!
+            Gets default user URL
             </summary>
-            <returns></returns>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user</returns>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserMeUpdatesCountAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetDefaultSubsiteUrl(Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
-            Warning: requires authentication!
+            Gets default subsite URL
             </summary>
-            <returns></returns>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite</returns>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserFavoritesEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
             <summary>
-            Requires authentication
+            Gets an URL to get user by id
+            <para/>
+            <remarks>Original name: getUserById</remarks>
             </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="userId"></param>
-            <param name="count"></param>
-            <param name="offset"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0</returns>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserFavoritesCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
-            <summary>
-            Requires authentication
-            </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="userId"></param>
-            <param name="count"></param>
-            <param name="offset"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+        <member name="M:Osnova.Net.Users.User.GetUserResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetUserAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserFavoritesVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetUserAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
             <summary>
-            Requires authentication
+            Gets user by id
+            <para/>
+            <remarks>Original name: getUserById</remarks>
             </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="userId"></param>
-            <param name="count"></param>
-            <param name="offset"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested user</returns>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserMeFavoritesEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetMeUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
-            Requires authentication
+            Gets an URL to get current logged in user
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMe</remarks>
             </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="count"></param>
-            <param name="offset"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me</returns>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserMeFavoritesCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
-            <summary>
-            Requires authentication
-            </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="count"></param>
-            <param name="offset"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+        <member name="M:Osnova.Net.Users.User.GetMeResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserMeFavoritesVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetMeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
-            Requires authentication
+            Gets current user
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMe</remarks>
             </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="count"></param>
-            <param name="offset"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested user</returns>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserMeSubscriptionsRecommendedAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetMyUpdatesUri(Osnova.Net.Enums.WebsiteKind,System.Boolean,System.Int32,System.Double)">
             <summary>
-            Requires authentication
+            Gets an URL to get notifications
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeUpdates</remarks>
             </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+            <param name="websiteKind">Kind of website</param>
+            <param name="isRead">Is read</param>
+            <param name="lastId">Last notification id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/updates</returns>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserMeSubscriptionsSubscribedAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
-            <summary>
-            Requires authentication
-            </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+        <member name="M:Osnova.Net.Users.User.GetMyUpdatesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Boolean,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMyUpdatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Boolean,System.Int32,System.Double)"/>
         </member>
-        <member name="M:Osnova.Net.Users.User.GetUserMeTuneCatalogAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+        <member name="M:Osnova.Net.Users.User.GetMyUpdatesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Boolean,System.Int32,System.Double)">
             <summary>
-            Requires authentication
+            Get current user's notifications
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeUpdates</remarks>
             </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="isRead">Is read</param>
+            <param name="lastId">last id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of notifications</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyUpdatesCountUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get current user's notifications count
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeUpdatesCount</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/updates/count</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyUpdatesCountResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMyUpdatesCountAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyUpdatesCountAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets current user's notifications count
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeUpdatesCount</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Notifications count</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserCommentsUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get user's comments
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserComments</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0/comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserCommentsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetUserCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets user's comments
+            <remarks>
+            <para/>
+            Original name: getUserComments</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>User's comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyCommentsUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get current logged user's comments
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeComments</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyCommentsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMyCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets current user's comments
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeComments</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserEntriesUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get user's entries
+            <remarks>
+            <para/>
+            Original name: getUserEntries</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0/entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserEntriesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetUserEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets user's entries
+            <remarks>
+            <para/>
+            Original name: getUserEntries</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyEntriesUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get current user's entries
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeEntries</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyEntriesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMyEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets current user's entries
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeEntries</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserFavoriteEntriesUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get user's favorite entries
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserFavoritesEntries</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0/favorites/entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserFavoriteEntriesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetUserFavoriteEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserFavoriteEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets user's favorite entries
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserFavoritesEntries</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserFavoriteCommentsUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get user's favorite comments
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserFavoritesComments</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0/favorites/comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserFavoriteCommentsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetUserFavoriteCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserFavoriteCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets user's favorite comments
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserFavoritesComments</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserFavoriteVacanciesUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get user's favorite vacancies
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserFavoritesVacancies</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/0/favorites/vacancies</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserFavoriteVacanciesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetUserFavoriteVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetUserFavoriteVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets user's favorite vacancies
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserFavoritesVacancies</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="userId">User id</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of vacancies</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyFavoriteEntriesUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get current user's favorite entries
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeFavoritesEntries</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/favorites/entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyFavoriteEntriesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMyFavoriteEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyFavoriteEntriesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets current user's favorite entries
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeFavoritesEntries</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyFavoriteCommentsUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get current user's favorite comments
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeFavoritesComments</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/favorites/comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyFavoriteCommentsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMyFavoriteCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyFavoriteCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets current user's favorite comments
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeFavoritesComments</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of comments</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyFavoriteVacanciesUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get current user's favorite vacancies
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeFavoritesVacancies</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/favorites/vacancies</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyFavoriteVacanciesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMyFavoriteVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyFavoriteVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets current user's favorite vacancies
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeFavoritesVacancies</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of vacancies</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyRecommendedSubscriptionsUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get current user's recommended subscriptions
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeSubscriptionsRecommended</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/subscriptions/recommended</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyRecommendedSubscriptionsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMyRecommendedSubscriptionsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyRecommendedSubscriptionsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets current user's recommended subscriptions
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeSubscriptionsRecommended</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of users</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMySubscriptionsSubscribedUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get current user's subscriptions
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeSubscriptionsSubscribed</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/subscriptions/subscribed</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMySubscriptionsSubscribedResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMySubscriptionsSubscribedAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMySubscriptionsSubscribedAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets current user's subscriptions
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeSubscriptionsSubscribed</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of users</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyTuneCatalogUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get current user's tune catalog
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeTuneCatalog</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/user/me/tunecatalog</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyTuneCatalogResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetMyTuneCatalogAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetMyTuneCatalogAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets current user's tune catalog
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getUserMeTuneCatalog</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of users</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetIgnoredKeywordsUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get current user's ignored keywords
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getIgnoredKeywords</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite/get-ignored-keywords</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetIgnoredKeywordsResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetIgnoredKeywordsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
         </member>
         <member name="M:Osnova.Net.Users.User.GetIgnoredKeywordsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
             <summary>
-            Requires authentication
+            Gets current user's ignored keywords
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getIgnoredKeywords</remarks>
             </summary>
-            <param name="client"></param>
-            <param name="websiteKind"></param>
-            <param name="apiVersion"></param>
-            <returns></returns>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of keywords</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get subsite by id
+            <para/>
+            <remarks>Original name: getSubsite</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="subsiteId">Subsite id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite/0</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetSubsiteAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets subsite by id
+            <para/>
+            <remarks>Original name: getSubsite</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="subsiteId">Entry id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Requested subsite</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteTimelineUri(Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.SubsiteTimelineSorting,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get subsite's timeline
+            <para/>
+            <remarks>Original name: getSubsiteTimeline</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="subsiteId">Subsite id</param>
+            <param name="sorting">Sorting of entries</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite/0/timeline</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteTimelineResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.SubsiteTimelineSorting,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetSubsiteTimelineAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.SubsiteTimelineSorting,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteTimelineAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,Osnova.Net.Enums.SubsiteTimelineSorting,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets subsite's timeline (collection of entries)
+            <para/>
+            <remarks>Original name: getSubsiteTimeline</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="subsiteId">Subsite id</param>
+            <param name="sorting">Sorting of entries</param>
+            <param name="count">Count</param>
+            <param name="offset">Offset</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of entries</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsitesListUri(Osnova.Net.Enums.WebsiteKind,Osnova.Net.Enums.SubsiteTypes,System.Double)">
+            <summary>
+            Gets an URL to get subsites list
+            <para/>
+            <remarks>Original name: getSubsitesList</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="subsiteType">Subsite type</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsites_list/sections</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsitesListResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,Osnova.Net.Enums.SubsiteTypes,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetSubsitesListAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,Osnova.Net.Enums.SubsiteTypes,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsitesListAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,Osnova.Net.Enums.SubsiteTypes,System.Double)">
+            <summary>
+            Gets subsites list
+            <para/>
+            <remarks>Original name: getSubsitesList</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="subsiteType">Subsite type</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of subsites</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetCompanyVacanciesUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get company's (not user/subsite) vacancies
+            <para/>
+            <remarks>Original name: getSubsiteVacancies</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="companyId">Company id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite/0/vacancies</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetCompanyVacanciesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetCompanyVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetCompanyVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets company's (not user/subsite) vacancies
+            <para/>
+            <remarks>Original name: getSubsiteVacancies</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="companyId">Company id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of vacancies</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetCompanyMoreVacanciesUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get more company's (not user/subsite) vacancies
+            <para/>
+            <remarks>Original name: getSubsiteVacanciesMore</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="companyId">Company id</param>
+            <param name="lastId">Last id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/subsite/0/vacancies/more/0</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetCompanyMoreVacanciesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetCompanyMoreVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetCompanyMoreVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets more company's (not user/subsite) vacancies
+            <para/>
+            <remarks>Original name: getSubsiteVacanciesMore</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="companyId">Company id</param>
+            <param name="lastId">Last id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of vacancies</returns>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteSubscribeUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Always throws 403
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteSubscribeResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetSubsiteSubscribeUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteSubscribeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetSubsiteSubscribeUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteUnsubscribeUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetSubsiteSubscribeUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteUnsubscribeResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetSubsiteSubscribeUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Users.User.GetSubsiteUnsubscribeAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Users.User.GetSubsiteSubscribeUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
         </member>
         <member name="T:Osnova.Net.Users.UserContacts">
             <summary>
