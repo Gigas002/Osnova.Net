@@ -14,15 +14,25 @@ namespace Osnova.Net.WebSockets
     /// </summary>
     public class WebSocketClient : IDisposable, IAsyncDisposable
     {
-        public const int ReceiveBufferSize = 8192;
-
+        #region Properties
+        
         private ClientWebSocket WebSocket { get; set; }
 
         private CancellationTokenSource WebSocketCancellactionToken { get; set; }
 
+        /// <summary>
+        /// Buffer's size
+        /// </summary>
+        public const int ReceiveBufferSize = 8192;
+        
+        /// <summary>
+        /// Is this object disposed?
+        /// </summary>
         public bool IsDisposed { get; protected set; }
+        
+        #endregion
 
-        #region Dispose
+        #region IDisposable
 
         /// <inheritdoc />
         public void Dispose()
@@ -53,7 +63,6 @@ namespace Osnova.Net.WebSockets
             try
             {
                 Dispose(true);
-                GC.SuppressFinalize(this);
 
                 return ValueTask.CompletedTask;
             }
@@ -67,8 +76,12 @@ namespace Osnova.Net.WebSockets
 
         #endregion
 
+        #region Constructor/Destructor
+
         ~WebSocketClient() => Dispose(false);
 
+        #endregion
+        
         public async Task ConnectAsync(Uri uri)
         {
             if (WebSocket?.State == WebSocketState.Open) return;

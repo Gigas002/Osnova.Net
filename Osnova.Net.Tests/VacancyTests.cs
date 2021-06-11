@@ -13,7 +13,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetJobs()
         {
-            var jobs = await Vacancy.GetJobsAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var jobs = await Vacancy.GetVacanciesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in jobs)
             {
@@ -26,7 +26,7 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetJobsMore()
         {
-            var jobs = await Vacancy.GetJobsMoreAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            var jobs = await Vacancy.GetMoreVacanciesAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
 
             foreach (var value in jobs)
             {
@@ -39,10 +39,8 @@ namespace Osnova.Net.Tests
         [Test]
         public async Task GetJobFilters()
         {
-            var filters = await Vacancy.GetJobFiltersAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
-
-            if (filters.Undeserialized != null) throw new JsonException("Undeserialized is not empty");
-
+            var filters = await Vacancy.GetVacancyFiltersAsync(Helper.Client, Helper.Kind).ConfigureAwait(false);
+            
             var json = JsonSerializer.Serialize(filters, Core.Options);
         }
 

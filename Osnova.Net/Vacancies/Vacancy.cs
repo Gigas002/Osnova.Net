@@ -9,6 +9,9 @@ using Osnova.Net.Filters;
 
 namespace Osnova.Net.Vacancies
 {
+    /// <summary>
+    /// Vacancy
+    /// </summary>
     public class Vacancy : IVacancy
     {
         #region Properties
@@ -79,9 +82,15 @@ namespace Osnova.Net.Vacancies
 
         #region From real queries
 
+        /// <summary>
+        /// Is archived?
+        /// </summary>
         [JsonPropertyName("archived")]
         public bool IsArchived { get; set; }
 
+        /// <summary>
+        /// Specialization
+        /// </summary>
         [JsonPropertyName("specialization")]
         public string Specialization { get; set; }
 
@@ -94,110 +103,141 @@ namespace Osnova.Net.Vacancies
 
         #region Methods
 
-        #region GetJobs
+        #region GetVacancies
 
-        public static Uri GetJobsUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        /// <summary>
+        /// Gets an URL to get vacancies
+        /// <para/>
+        /// <remarks>Original name: getJobs</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/job</returns>
+        public static Uri GetVacanciesUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
         {
             var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
 
             return new Uri($"{baseUri}/job");
         }
 
-        public static ValueTask<HttpResponseMessage> GetJobsResponseAsync(HttpClient client, WebsiteKind websiteKind,
-                                                                         double apiVersion = Core.ApiVersion)
-        {
-            return Core.GetResponseFromApiAsync(client, GetJobsUri(websiteKind, apiVersion));
-        }
-
-        public static async ValueTask<IEnumerable<Vacancy>> GetJobsAsync(HttpClient client, WebsiteKind websiteKind,
-                                                        double apiVersion = Core.ApiVersion)
-        {
-            using var response = await GetJobsResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
-
-            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Vacancy>>(response).ConfigureAwait(false);
-
-            return searchResult.Items;
-        }
-
-        #endregion
-
-        #region GetJobsMore
-
-        public static Uri GetJobsMoreUri(WebsiteKind websiteKind, long lastId = 0, double apiVersion = Core.ApiVersion)
-        {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
-
-            return new Uri($"{baseUri}/job/more/{lastId}");
-        }
-
-        public static ValueTask<HttpResponseMessage> GetJobsMoreResponseAsync(HttpClient client, WebsiteKind websiteKind,
-                                                                              long lastId = 0, double apiVersion = Core.ApiVersion)
-        {
-            return Core.GetResponseFromApiAsync(client, GetJobsMoreUri(websiteKind, lastId, apiVersion));
-        }
-
-        public static async ValueTask<IEnumerable<Vacancy>> GetJobsMoreAsync(HttpClient client, WebsiteKind websiteKind,
-                                                                             long lastId = 0, double apiVersion = Core.ApiVersion)
-        {
-            using var response = await GetJobsMoreResponseAsync(client, websiteKind, lastId, apiVersion).ConfigureAwait(false);
-
-            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Vacancy>>(response).ConfigureAwait(false);
-
-            return searchResult.Items;
-        }
-
-        #endregion
-
-        #region GetJobFilters
-
-        public static Uri GetJobFiltersUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
-        {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
-
-            return new Uri($"{baseUri}/job/filters");
-        }
-
-        public static ValueTask<HttpResponseMessage> GetJobFiltersResponseAsync(HttpClient client, WebsiteKind websiteKind,
-                                                                                double apiVersion = Core.ApiVersion)
-        {
-            return Core.GetResponseFromApiAsync(client, GetJobFiltersUri(websiteKind, apiVersion));
-        }
-
-        public static async ValueTask<EventFilters> GetJobFiltersAsync(HttpClient client, WebsiteKind websiteKind,
-                                                                     double apiVersion = Core.ApiVersion)
-        {
-            using var response = await GetJobFiltersResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
-
-            return await Core.DeserializeOsnovaResponseAsync<EventFilters>(response).ConfigureAwait(false);
-        }
-
-        #endregion
-
-        #region GetVacancies
-
-        public static Uri GetVacanciesUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
-        {
-            var baseUri = Core.GetBaseUri(websiteKind, apiVersion);
-
-            return new Uri($"{baseUri}/vacancies/widget");
-        }
-
+        /// <inheritdoc cref="GetVacanciesAsync"/>
         public static ValueTask<HttpResponseMessage> GetVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind,
-                                                                               double apiVersion = Core.ApiVersion)
+                                                                         double apiVersion = Core.ApiVersion)
         {
             return Core.GetResponseFromApiAsync(client, GetVacanciesUri(websiteKind, apiVersion));
         }
 
+        /// <summary>
+        /// Gets vacancies
+        /// <para/>
+        /// <remarks>Original name: getJobs</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of vacancies</returns>
         public static async ValueTask<IEnumerable<Vacancy>> GetVacanciesAsync(HttpClient client, WebsiteKind websiteKind,
-                                                                    double apiVersion = Core.ApiVersion)
+                                                        double apiVersion = Core.ApiVersion)
         {
             using var response = await GetVacanciesResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
 
-            return await Core.DeserializeOsnovaResponseAsync<IEnumerable<Vacancy>>(response).ConfigureAwait(false);
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Vacancy>>(response).ConfigureAwait(false);
+
+            return searchResult.Items;
         }
 
         #endregion
 
+        #region GetMoreVacancies
+
+        /// <summary>
+        /// Gets an URL to get more vacancies
+        /// <para/>
+        /// <remarks>Original name: getJobsMore</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="lastId">Last id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/job/more/0</returns>
+        public static Uri GetMoreVacanciesUri(WebsiteKind websiteKind, int lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = GetVacanciesUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/more/{lastId}");
+        }
+
+        /// <inheritdoc cref="GetMoreVacanciesAsync"/>
+        public static ValueTask<HttpResponseMessage> GetMoreVacanciesResponseAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                              int lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetMoreVacanciesUri(websiteKind, lastId, apiVersion));
+        }
+
+        /// <summary>
+        /// Gets more vacancies
+        /// <para/>
+        /// <remarks>Original name: getJobs</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="lastId">Last id</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Collection of vacancies</returns>
+        public static async ValueTask<IEnumerable<Vacancy>> GetMoreVacanciesAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                             int lastId = 0, double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetMoreVacanciesResponseAsync(client, websiteKind, lastId, apiVersion).ConfigureAwait(false);
+
+            var searchResult = await Core.DeserializeOsnovaResponseAsync<SearchResult<Vacancy>>(response).ConfigureAwait(false);
+
+            return searchResult.Items;
+        }
+
+        #endregion
+
+        #region GetVacancyFilters
+
+        /// <summary>
+        /// Gets an URL to get vacancy filters
+        /// <para/>
+        /// <remarks>Original name: getJobFilters</remarks>
+        /// </summary>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/job/filters</returns>
+        public static Uri GetVacancyFiltersUri(WebsiteKind websiteKind, double apiVersion = Core.ApiVersion)
+        {
+            var baseUri = GetVacanciesUri(websiteKind, apiVersion);
+
+            return new Uri($"{baseUri}/filters");
+        }
+
+        /// <inheritdoc cref="GetVacancyFiltersAsync"/>
+        public static ValueTask<HttpResponseMessage> GetVacancyFiltersResponseAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                                double apiVersion = Core.ApiVersion)
+        {
+            return Core.GetResponseFromApiAsync(client, GetVacancyFiltersUri(websiteKind, apiVersion));
+        }
+
+        /// <summary>
+        /// Gets vacancy filters
+        /// <para/>
+        /// <remarks>Original name: getJobFilters</remarks>
+        /// </summary>
+        /// <param name="client">Client to send requests</param>
+        /// <param name="websiteKind">Kind of website</param>
+        /// <param name="apiVersion">Target version of API</param>
+        /// <returns>Dictionary of filters</returns>
+        public static async ValueTask<Dictionary<string, IEnumerable<VacancyEventFilter>>> GetVacancyFiltersAsync(HttpClient client, WebsiteKind websiteKind,
+                                                                     double apiVersion = Core.ApiVersion)
+        {
+            using var response = await GetVacancyFiltersResponseAsync(client, websiteKind, apiVersion).ConfigureAwait(false);
+
+            return await Core.DeserializeOsnovaResponseAsync<Dictionary<string, IEnumerable<VacancyEventFilter>>>(response).ConfigureAwait(false);
+        }
+
+        #endregion
+        
         #endregion
     }
 }

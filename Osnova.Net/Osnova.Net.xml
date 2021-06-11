@@ -7230,9 +7230,7 @@
             <summary>
             Gets an URL to get current logged in user
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMe</remarks>
+            <remarks>Original name: getUserMe</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="apiVersion">Target version of API</param>
@@ -7258,9 +7256,7 @@
             <summary>
             Gets an URL to get notifications
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMeUpdates</remarks>
+            <remarks>Original name: getUserMeUpdates</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="isRead">Is read</param>
@@ -7290,9 +7286,7 @@
             <summary>
             Gets an URL to get current user's notifications count
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMeUpdatesCount</remarks>
+            <remarks>Original name: getUserMeUpdatesCount</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="apiVersion">Target version of API</param>
@@ -7318,9 +7312,7 @@
             <summary>
             Gets an URL to get user's comments
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserComments</remarks>
+            <remarks>Original name: getUserComments</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="userId">User id</param>
@@ -7335,7 +7327,7 @@
         <member name="M:Osnova.Net.Users.User.GetUserCommentsAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Int32,System.Int32,System.Double)">
             <summary>
             Gets user's comments
-            <remarks>
+            <remarks>Requires authentication!
             <para/>
             Original name: getUserComments</remarks>
             </summary>
@@ -7351,9 +7343,7 @@
             <summary>
             Gets an URL to get current logged user's comments
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMeComments</remarks>
+            <remarks>Original name: getUserMeComments</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="count">Count</param>
@@ -7415,9 +7405,7 @@
             <summary>
             Gets an URL to get current user's entries
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMeEntries</remarks>
+            <remarks>Original name: getUserMeEntries</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="count">Count</param>
@@ -7447,9 +7435,7 @@
             <summary>
             Gets an URL to get user's favorite entries
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserFavoritesEntries</remarks>
+            <remarks>Original name: getUserFavoritesEntries</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="userId">User id</param>
@@ -7481,9 +7467,7 @@
             <summary>
             Gets an URL to get user's favorite comments
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserFavoritesComments</remarks>
+            <remarks>Original name: getUserFavoritesComments</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="userId">User id</param>
@@ -7515,9 +7499,7 @@
             <summary>
             Gets an URL to get user's favorite vacancies
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserFavoritesVacancies</remarks>
+            <remarks>Original name: getUserFavoritesVacancies</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="userId">User id</param>
@@ -7549,9 +7531,7 @@
             <summary>
             Gets an URL to get current user's favorite entries
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMeFavoritesEntries</remarks>
+            <remarks>Original name: getUserMeFavoritesEntries</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="count">Count</param>
@@ -7581,9 +7561,7 @@
             <summary>
             Gets an URL to get current user's favorite comments
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMeFavoritesComments</remarks>
+            <remarks>Original name: getUserMeFavoritesComments</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="count">Count</param>
@@ -7613,9 +7591,7 @@
             <summary>
             Gets an URL to get current user's favorite vacancies
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMeFavoritesVacancies</remarks>
+            <remarks>Original name: getUserMeFavoritesVacancies</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="count">Count</param>
@@ -7645,9 +7621,7 @@
             <summary>
             Gets an URL to get current user's recommended subscriptions
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMeSubscriptionsRecommended</remarks>
+            <remarks>Original name: getUserMeSubscriptionsRecommended</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="apiVersion">Target version of API</param>
@@ -7673,9 +7647,7 @@
             <summary>
             Gets an URL to get current user's subscriptions
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMeSubscriptionsSubscribed</remarks>
+            <remarks>Original name: getUserMeSubscriptionsSubscribed</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="apiVersion">Target version of API</param>
@@ -7701,9 +7673,7 @@
             <summary>
             Gets an URL to get current user's tune catalog
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getUserMeTuneCatalog</remarks>
+            <remarks>Original name: getUserMeTuneCatalog</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="apiVersion">Target version of API</param>
@@ -7729,9 +7699,7 @@
             <summary>
             Gets an URL to get current user's ignored keywords
             <para/>
-            <remarks>Requires authentication!
-            <para/>
-            Original name: getIgnoredKeywords</remarks>
+            <remarks>Original name: getIgnoredKeywords</remarks>
             </summary>
             <param name="websiteKind">Kind of website</param>
             <param name="apiVersion">Target version of API</param>
@@ -8003,6 +7971,61 @@
             Info about salary
             </summary>
         </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.Area">
+            <summary>
+            Vacancy area
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.AreaText">
+            <summary>
+            Area text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.Schedule">
+            <summary>
+            Schedule
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.ScheduleText">
+            <summary>
+            Schedule text
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.EntryId">
+            <summary>
+            Entry id
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.CityId">
+            <summary>
+            City id
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.CityName">
+            <summary>
+            City name
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.FavoritesCount">
+            <summary>
+            Favorites count
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.IsFavorited">
+            <summary>
+            Is favorited?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.IVacancy.Company">
+            <summary>
+            Company
+            </summary>
+        </member>
+        <member name="T:Osnova.Net.Vacancies.Vacancy">
+            <summary>
+            Vacancy
+            </summary>
+        </member>
         <member name="P:Osnova.Net.Vacancies.Vacancy.Id">
             <inheritdoc />
         </member>
@@ -8048,6 +8071,90 @@
         <member name="P:Osnova.Net.Vacancies.Vacancy.Company">
             <inheritdoc />
         </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.IsArchived">
+            <summary>
+            Is archived?
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.Vacancies.Vacancy.Specialization">
+            <summary>
+            Specialization
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.Vacancies.Vacancy.GetVacanciesUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get vacancies
+            <para/>
+            <remarks>Original name: getJobs</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/job</returns>
+        </member>
+        <member name="M:Osnova.Net.Vacancies.Vacancy.GetVacanciesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Vacancies.Vacancy.GetVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Vacancies.Vacancy.GetVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets vacancies
+            <para/>
+            <remarks>Original name: getJobs</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of vacancies</returns>
+        </member>
+        <member name="M:Osnova.Net.Vacancies.Vacancy.GetMoreVacanciesUri(Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets an URL to get more vacancies
+            <para/>
+            <remarks>Original name: getJobsMore</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="lastId">Last id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/job/more/0</returns>
+        </member>
+        <member name="M:Osnova.Net.Vacancies.Vacancy.GetMoreVacanciesResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Vacancies.Vacancy.GetMoreVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Vacancies.Vacancy.GetMoreVacanciesAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Int32,System.Double)">
+            <summary>
+            Gets more vacancies
+            <para/>
+            <remarks>Original name: getJobs</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="lastId">Last id</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of vacancies</returns>
+        </member>
+        <member name="M:Osnova.Net.Vacancies.Vacancy.GetVacancyFiltersUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get vacancy filters
+            <para/>
+            <remarks>Original name: getJobFilters</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/job/filters</returns>
+        </member>
+        <member name="M:Osnova.Net.Vacancies.Vacancy.GetVacancyFiltersResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.Vacancies.Vacancy.GetVacancyFiltersAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.Vacancies.Vacancy.GetVacancyFiltersAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets vacancy filters
+            <para/>
+            <remarks>Original name: getJobFilters</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Dictionary of filters</returns>
+        </member>
         <member name="T:Osnova.Net.WebHooks.WebhookWatcher">
             <summary>
             Refers to Watcher spec
@@ -8063,15 +8170,151 @@
             Event name
             </summary>
         </member>
+        <member name="P:Osnova.Net.WebHooks.WebhookWatcher.Url">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="M:Osnova.Net.WebHooks.WebhookWatcher.GetDefaultWebhooksUrl(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets default webhooks URL
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/webhooks</returns>
+        </member>
+        <member name="M:Osnova.Net.WebHooks.WebhookWatcher.GetWebhooksGetUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get webhooks "get" url
+            <para/>
+            <remarks>Original name: getApiWebhooksGet</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/webhooks/get</returns>
+        </member>
+        <member name="M:Osnova.Net.WebHooks.WebhookWatcher.GetWebhooksResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.WebHooks.WebhookWatcher.GetWebhooksAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.WebHooks.WebhookWatcher.GetWebhooksAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets webhooks
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getApiWebhooksGet</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of webhooks</returns>
+        </member>
+        <member name="M:Osnova.Net.WebHooks.WebhookWatcher.GetWebhooksAddUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get webhooks "add" url
+            <para/>
+            <remarks>Original name: getApiWebhooksAdd</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/webhooks/add</returns>
+        </member>
+        <member name="M:Osnova.Net.WebHooks.WebhookWatcher.PostWebhooksAddResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Uri,System.String,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.WebHooks.WebhookWatcher.PostWebhooksAddAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Uri,System.String,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.WebHooks.WebhookWatcher.PostWebhooksAddAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.Uri,System.String,System.Double)">
+            <summary>
+            Add webhook
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getApiWebhooksAdd</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="url">URL</param>
+            <param name="eventName">Event name</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Collection of added webhooks</returns>
+        </member>
+        <member name="M:Osnova.Net.WebHooks.WebhookWatcher.GetWebhooksDeleteUri(Osnova.Net.Enums.WebsiteKind,System.Double)">
+            <summary>
+            Gets an URL to get webhooks "del" url
+            <para/>
+            <remarks>Original name: getApiWebhooksDel</remarks>
+            </summary>
+            <param name="websiteKind">Kind of website</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Ready URL, e.g.: https://api.dtf.ru/v1.9/webhooks/del</returns>
+        </member>
+        <member name="M:Osnova.Net.WebHooks.WebhookWatcher.PostWebhooksDeleteResponseAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
+            <inheritdoc cref="M:Osnova.Net.WebHooks.WebhookWatcher.PostWebhooksDeleteAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)"/>
+        </member>
+        <member name="M:Osnova.Net.WebHooks.WebhookWatcher.PostWebhooksDeleteAsync(System.Net.Http.HttpClient,Osnova.Net.Enums.WebsiteKind,System.String,System.Double)">
+            <summary>
+            Returns bool, that shows, if webhook is removed
+            <para/>
+            <remarks>Requires authentication!
+            <para/>
+            Original name: getApiWebhooksDel</remarks>
+            </summary>
+            <param name="client">Client to send requests</param>
+            <param name="websiteKind">Kind of website</param>
+            <param name="eventName">Event name</param>
+            <param name="apiVersion">Target version of API</param>
+            <returns>Is removed successfully?</returns>
+        </member>
         <member name="T:Osnova.Net.WebSockets.WebSocket">
             <summary>
             Refers to Websocket spec
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.WebSockets.WebSocket.Type">
+            <summary>
+            Websocket type
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.WebSockets.WebSocket.EntryId">
+            <summary>
+            Content id
+            <para/>
+            <remarks>Refers to "content_id" property in json</remarks>
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.WebSockets.WebSocket.Count">
+            <summary>
+            Count
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.WebSockets.WebSocket.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.WebSockets.WebSocket.State">
+            <summary>
+            State
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.WebSockets.WebSocket.UserHash">
+            <summary>
+            User hash
             </summary>
         </member>
         <member name="T:Osnova.Net.WebSockets.WebSocketClient">
             <summary>
             Modified code from here: https://stackoverflow.com/questions/30523478/connecting-to-websocket-using-c-sharp-i-can-connect-using-javascript-but-c-sha/58285551
             Test websockets here: https://www.piesocket.com/websocket-tester
+            </summary>
+        </member>
+        <member name="F:Osnova.Net.WebSockets.WebSocketClient.ReceiveBufferSize">
+            <summary>
+            Buffer's size
+            </summary>
+        </member>
+        <member name="P:Osnova.Net.WebSockets.WebSocketClient.IsDisposed">
+            <summary>
+            Is this object disposed?
             </summary>
         </member>
         <member name="M:Osnova.Net.WebSockets.WebSocketClient.Dispose">

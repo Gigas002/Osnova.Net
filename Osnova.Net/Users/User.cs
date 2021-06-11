@@ -367,9 +367,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current logged in user
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMe</remarks>
+        /// <remarks>Original name: getUserMe</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="apiVersion">Target version of API</param>
@@ -415,9 +413,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get notifications
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMeUpdates</remarks>
+        /// <remarks>Original name: getUserMeUpdates</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="isRead">Is read</param>
@@ -475,9 +471,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current user's notifications count
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMeUpdatesCount</remarks>
+        /// <remarks>Original name: getUserMeUpdatesCount</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="apiVersion">Target version of API</param>
@@ -525,9 +519,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get user's comments
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserComments</remarks>
+        /// <remarks>Original name: getUserComments</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="userId">User id</param>
@@ -559,7 +551,7 @@ namespace Osnova.Net.Users
 
         /// <summary>
         /// Gets user's comments
-        /// <remarks>
+        /// <remarks>Requires authentication!
         /// <para/>
         /// Original name: getUserComments</remarks>
         /// </summary>
@@ -585,9 +577,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current logged user's comments
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMeComments</remarks>
+        /// <remarks>Original name: getUserMeComments</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="count">Count</param>
@@ -703,9 +693,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current user's entries
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMeEntries</remarks>
+        /// <remarks>Original name: getUserMeEntries</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="count">Count</param>
@@ -762,9 +750,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get user's favorite entries
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserFavoritesEntries</remarks>
+        /// <remarks>Original name: getUserFavoritesEntries</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="userId">User id</param>
@@ -823,9 +809,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get user's favorite comments
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserFavoritesComments</remarks>
+        /// <remarks>Original name: getUserFavoritesComments</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="userId">User id</param>
@@ -884,9 +868,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get user's favorite vacancies
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserFavoritesVacancies</remarks>
+        /// <remarks>Original name: getUserFavoritesVacancies</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="userId">User id</param>
@@ -945,9 +927,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current user's favorite entries
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMeFavoritesEntries</remarks>
+        /// <remarks>Original name: getUserMeFavoritesEntries</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="count">Count</param>
@@ -1004,9 +984,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current user's favorite comments
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMeFavoritesComments</remarks>
+        /// <remarks>Original name: getUserMeFavoritesComments</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="count">Count</param>
@@ -1063,9 +1041,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current user's favorite vacancies
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMeFavoritesVacancies</remarks>
+        /// <remarks>Original name: getUserMeFavoritesVacancies</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="count">Count</param>
@@ -1122,9 +1098,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current user's recommended subscriptions
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMeSubscriptionsRecommended</remarks>
+        /// <remarks>Original name: getUserMeSubscriptionsRecommended</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="apiVersion">Target version of API</param>
@@ -1171,9 +1145,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current user's subscriptions
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMeSubscriptionsSubscribed</remarks>
+        /// <remarks>Original name: getUserMeSubscriptionsSubscribed</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="apiVersion">Target version of API</param>
@@ -1218,9 +1190,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current user's tune catalog
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getUserMeTuneCatalog</remarks>
+        /// <remarks>Original name: getUserMeTuneCatalog</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="apiVersion">Target version of API</param>
@@ -1269,9 +1239,7 @@ namespace Osnova.Net.Users
         /// <summary>
         /// Gets an URL to get current user's ignored keywords
         /// <para/>
-        /// <remarks>Requires authentication!
-        /// <para/>
-        /// Original name: getIgnoredKeywords</remarks>
+        /// <remarks>Original name: getIgnoredKeywords</remarks>
         /// </summary>
         /// <param name="websiteKind">Kind of website</param>
         /// <param name="apiVersion">Target version of API</param>
